@@ -1392,28 +1392,33 @@
     });
 
     // Filter buttons (toggle)
-    document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.dataset.filter;
-            const wasActive = btn.classList.contains('active');
+    function applyFilters() {
+        const activeFilters = [];
+        document.querySelectorAll('.filter-btn[data-filter].active').forEach(b => {
+            activeFilters.push(b.dataset.filter);
+        });
 
-            // Toggle this filter
-            btn.classList.toggle('active');
-
-            // Get all active filters
-            const activeFilters = [...document.querySelectorAll('.filter-btn[data-filter].active')].map(b => b.dataset.filter);
-
-            // Show/hide cards based on active filters
-            document.querySelectorAll('.day-card').forEach(card => {
-                if (activeFilters.length === 0) {
-                    // No filters active = show all
+        document.querySelectorAll('.day-card').forEach(card => {
+            if (activeFilters.length === 0) {
+                card.classList.remove('hidden');
+            } else {
+                const tags = card.dataset.tags || '';
+                const matches = activeFilters.some(f => tags.indexOf(f) !== -1);
+                if (matches) {
                     card.classList.remove('hidden');
                 } else {
-                    // Show if card matches any active filter
-                    const matches = activeFilters.some(f => card.dataset.tags.includes(f));
-                    card.classList.toggle('hidden', !matches);
+                    card.classList.add('hidden');
                 }
-            });
+            }
+        });
+    }
+
+    document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.classList.toggle('active');
+            applyFilters();
         });
     });
 
