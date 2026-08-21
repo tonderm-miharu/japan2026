@@ -54,6 +54,8 @@ Otevři `itinerar.html` v prohlížeči.
 - [ ] Takachiho Yokagura rezervace (14.10.)
 - [ ] Ubytování 26-29.10 (Izu/Fuji road trip)
 - [ ] Express bus Yufuin-Kumamoto rezervace (11.10.)
+- [ ] Odeslat kufr Fukuyama→Matsuyama (6.10.)
+- [ ] Odeslat kufr Kumamoto→Nagasaki (16.10.)
 
 ### Kontakty
 - [ ] Keigo - min. 1 týden před 26.9.

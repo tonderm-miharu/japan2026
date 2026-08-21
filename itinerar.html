@@ -383,6 +383,22 @@
         .hotel-card .meta { font-size: 0.75rem; color: var(--text-dim); }
         .hotel-card .price { font-size: 1rem; font-weight: 700; color: var(--green); }
 
+        .hotel-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+        .hotel-badge {
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .badge-paid { background: rgba(16,185,129,0.15); color: var(--green); }
+        .badge-onsite { background: rgba(245,158,11,0.15); color: var(--orange); }
+        .badge-breakfast { background: rgba(59,130,246,0.15); color: var(--accent); }
+        .badge-halfboard { background: rgba(139,92,246,0.15); color: var(--purple); }
+        .badge-cancel { background: rgba(239,68,68,0.1); color: var(--red); }
+        .badge-bonus { background: rgba(6,182,212,0.15); color: var(--cyan); }
+
         .map-toggle {
             display: inline-flex;
             align-items: center;
@@ -524,9 +540,11 @@
         { id: 't3', text: 'Kola Shimanami multi-day', priority: 'high' },
         { id: 't4', text: 'Takachiho Yokagura rezervace', priority: 'high' },
         { id: 't5', text: 'Ubytování 26–29.10 Izu', priority: 'high' },
-        { id: 't6', text: 'Kontakt Keigo (min. 1 týden)', priority: 'med' },
-        { id: 't7', text: 'Kontakt Wahei (min. 1 měsíc)', priority: 'med' },
-        { id: 't8', text: 'Express bus Yufuin–Kumamoto rezervace', priority: 'high' },
+        { id: 't6', text: 'Express bus Yufuin–Kumamoto rezervace', priority: 'high' },
+        { id: 't7', text: 'Odeslat kufr Fukuyama→Matsuyama (6.10.)', priority: 'high' },
+        { id: 't8', text: 'Odeslat kufr Kumamoto→Nagasaki (16.10.)', priority: 'high' },
+        { id: 't9', text: 'Kontakt Keigo (min. 1 týden)', priority: 'med' },
+        { id: 't10', text: 'Kontakt Wahei (min. 1 měsíc)', priority: 'med' },
     ];
 
     const DAYS = [
@@ -584,6 +602,39 @@
         { day: 52, dow: 'Ne', date: '8.11.2026', title: 'Naha → Taipei', subtitle: 'Let OKA–TPE, večer odlet domů', region: 'transit', tags: ['flight'], hotel: 'Letiště / let', price: '–', pois: [{name:'Naha Airport', coords:[26.1958,127.6458]}, {name:'Taipei Taoyuan Airport', coords:[25.0797,121.2325]}], timeline: [{time:'11:55–12:35', text:'Let OKA → TPE', type:'transport'}, {time:'Večer', text:'TPE 23:20 odlet', type:'transport'}], note: 'Konec hlavní části cesty' },
         { day: 53, dow: 'Po', date: '9.11.2026', title: 'Vídeň', subtitle: 'Návrat domů', region: 'transit', tags: ['flight'], hotel: '–', price: '–', pois: [{name:'Vídeň letiště', coords:[48.1103,16.5697]}], timeline: [{time:'06:50', text:'Přílet VIE', type:'transport'}] },
     ];
+
+    // Location mapping (kde se přespává)
+    const LOCATIONS = {
+        1: 'LET', 2: 'KISHIWADA', 3: 'OSAKA', 4: 'OSAKA', 5: 'OSAKA', 6: 'OSAKA', 7: 'OSAKA', 8: 'OSAKA', 9: 'OSAKA',
+        10: 'KYOTO', 11: 'KYOTO', 12: 'KYOTO', 13: 'KYOTO', 14: 'OTSU', 15: 'HIKONE', 16: 'OSAKA', 17: 'OSAKA',
+        18: 'FUKUYAMA', 19: 'OMISHIMA', 20: 'MATSUYAMA', 21: 'BEPPU', 22: 'BEPPU', 23: 'YUFUIN', 24: 'KUMAMOTO',
+        25: 'MINAMIASO', 26: 'KUROKAWA', 27: 'TAKACHIHO', 28: 'KUMAMOTO', 29: 'UNZEN', 30: 'OBAMA', 31: 'NAGASAKI',
+        32: 'NAGASAKI', 33: 'URESHINO', 34: 'FUKUOKA', 35: 'FUKUOKA', 36: 'TOKYO', 37: 'TOKYO', 38: 'TOKYO',
+        39: 'IZU', 40: 'FUJINOMIYA', 41: 'YAMANASHI', 42: 'TOKYO', 43: 'TOKYO', 44: 'TOKYO', 45: 'TOKYO',
+        46: 'MIYAKOJIMA', 47: 'MIYAKOJIMA', 48: 'MIYAKOJIMA', 49: 'NANJO', 50: 'NAHA', 51: 'NAHA', 52: 'LET', 53: '–'
+    };
+
+    // Hotel payment & meals info
+    const HOTEL_INFO = {
+        2: { payment: 'on-site' },
+        3: { payment: 'paid' }, 4: { payment: 'paid' }, 5: { payment: 'paid' }, 6: { payment: 'paid' },
+        7: { payment: 'paid' }, 8: { payment: 'paid' }, 9: { payment: 'paid' },
+        10: { payment: 'paid' }, 11: { payment: 'paid' }, 12: { payment: 'paid' }, 13: { payment: 'paid' },
+        14: { payment: 'on-site' }, 15: { payment: 'paid' }, 16: { payment: 'paid' }, 17: { payment: 'paid' },
+        18: { payment: 'paid' }, 19: { payment: 'paid' }, 20: { payment: 'paid' },
+        21: { payment: 'paid' }, 22: { payment: 'paid' },
+        23: { payment: 'paid', bonus: 'FREE BIKE' }, 24: { payment: 'paid' },
+        25: { payment: 'paid', meals: 'breakfast' }, 26: { payment: 'paid' },
+        27: { payment: 'on-site' }, 28: { payment: 'paid' },
+        29: { payment: 'paid', meals: 'half-board' }, 30: { payment: 'paid' },
+        31: { payment: 'paid' }, 32: { payment: 'paid' }, 33: { payment: 'paid' },
+        34: { payment: 'paid' }, 35: { payment: 'paid' },
+        36: { payment: 'on-site', meals: 'breakfast' }, 37: { payment: 'on-site', meals: 'breakfast' },
+        38: { payment: 'on-site', meals: 'breakfast' }, 43: { payment: 'on-site', meals: 'breakfast' },
+        44: { payment: 'on-site', meals: 'breakfast' }, 45: { payment: 'on-site', meals: 'breakfast' },
+        46: { payment: 'paid' }, 47: { payment: 'paid' }, 48: { payment: 'paid' },
+        49: { payment: 'paid' }, 50: { payment: 'paid' }, 51: { payment: 'paid' }
+    };
 
     function getDayBoxStyle(dow, tags, timeline) {
         const isWeekend = ['So', 'Ne'].includes(dow);
@@ -678,9 +729,8 @@
                             <span class="day-dow">${d.dow}</span>
                         </div>
                         <div class="day-info">
-                            <h3>${d.title}</h3>
-                            <p>${d.subtitle}</p>
-                            <small>${d.date}</small>
+                            <h3>${LOCATIONS[d.day] || d.title}</h3>
+                            <p>${d.title}${d.subtitle ? ' – ' + d.subtitle : ''}</p>
                         </div>
                         <div class="day-tags">${tagsHtml}</div>
                         <div class="day-hotel">
@@ -700,8 +750,15 @@
                                 <div class="hotel-card">
                                     <div>
                                         <div class="name">${d.hotel}</div>
-                                        <div class="meta">${d.cancel ? `Zrušit do: ${d.cancel}` : ''}</div>
-                                        ${d.note ? `<div class="meta" style="margin-top:6px;color:var(--orange)">${d.note}</div>` : ''}
+                                        ${d.note ? `<div class="meta" style="margin-top:4px;color:var(--orange)">${d.note}</div>` : ''}
+                                        <div class="hotel-badges">
+                                            ${HOTEL_INFO[d.day]?.payment === 'paid' ? '<span class="hotel-badge badge-paid">✓ Paid</span>' : ''}
+                                            ${HOTEL_INFO[d.day]?.payment === 'on-site' ? '<span class="hotel-badge badge-onsite">$ On-site</span>' : ''}
+                                            ${d.cancel ? `<span class="hotel-badge badge-cancel">⚠ do ${d.cancel}</span>` : ''}
+                                            ${HOTEL_INFO[d.day]?.meals === 'breakfast' ? '<span class="hotel-badge badge-breakfast">🍳 Snídaně</span>' : ''}
+                                            ${HOTEL_INFO[d.day]?.meals === 'half-board' ? '<span class="hotel-badge badge-halfboard">🍽️ Polopenze</span>' : ''}
+                                            ${HOTEL_INFO[d.day]?.bonus ? `<span class="hotel-badge badge-bonus">★ ${HOTEL_INFO[d.day].bonus}</span>` : ''}
+                                        </div>
                                     </div>
                                     <div style="text-align:right">
                                         ${d.price ? `<div class="price">${d.price}</div>` : ''}

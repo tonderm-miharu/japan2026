@@ -1040,8 +1040,8 @@
 - [ ] Rezervovat kola Omi-Hachiman (2.10.) a Hikone (3.10.)
 
 ### Kufry/Logistika
-- [ ] Overit kufr Fukuyama - Matsuyama (6.10. rano)
-- [ ] Overit kufr Kumamoto - Nagasaki (16.10.)
+- [ ] **Odeslat kufr Fukuyama → Matsuyama (6.10. ráno, Yamato TA-Q-BIN)**
+- [ ] **Odeslat kufr Kumamoto → Nagasaki (16.10. ráno)**
 
 ### Kontakty
 - [ ] Napsat Keigo (min. 1 tyden pred 26.9.)
