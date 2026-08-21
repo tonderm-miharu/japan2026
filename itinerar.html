@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japan 2026 | Itinerář</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23fff' stroke='%23ddd' stroke-width='2'/><circle cx='50' cy='50' r='24' fill='%23bc002d'/></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -74,25 +75,60 @@
             margin-left: 8px;
         }
 
-        .filters {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
+        .menu-container {
+            position: relative;
         }
 
-        .filter-btn {
-            padding: 6px 14px;
-            border-radius: 20px;
+        .menu-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
             border: 1px solid var(--border);
-            background: transparent;
-            color: var(--text-dim);
-            font-size: 0.8rem;
+            background: var(--bg-card);
+            color: var(--text);
+            font-size: 1.2rem;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.15s;
         }
 
-        .filter-btn:hover { border-color: var(--text-dim); color: var(--text); }
-        .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .menu-btn:hover { border-color: var(--text-dim); background: var(--bg-hover); }
+
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            top: 48px;
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 8px;
+            min-width: 160px;
+            z-index: 150;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        .menu-dropdown.open { display: block; }
+
+        .filter-btn {
+            display: block;
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.15s;
+            text-align: left;
+            margin-bottom: 2px;
+        }
+
+        .filter-btn:hover { background: var(--bg-hover); color: var(--text); }
+        .filter-btn.active { background: var(--accent); color: #fff; }
 
         .search-box {
             position: relative;
@@ -464,10 +500,7 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-        @media (min-width: 901px) {
-            .filter-btn[data-filter="tasks"] { display: none; }
-        }
-
+        
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
@@ -485,14 +518,17 @@
                 <span style="font-size:1.5rem">🗾</span>
                 <h1>Japan 2026 <span>18.9. – 9.11.</span></h1>
             </div>
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">Vše</button>
-                <button class="filter-btn" data-filter="ho">HO</button>
-                <button class="filter-btn" data-filter="car">Auto</button>
-                <button class="filter-btn" data-filter="bike">Kolo</button>
-                <button class="filter-btn" data-filter="onsen">Onsen</button>
-                <button class="filter-btn" data-filter="meet">Setkání</button>
-                <button class="filter-btn" data-filter="tasks">Úkoly</button>
+            <div class="menu-container">
+                <button class="menu-btn" id="menuBtn">☰</button>
+                <div class="menu-dropdown" id="menuDropdown">
+                    <button class="filter-btn" data-filter="tasks">📋 Úkoly</button>
+                    <button class="filter-btn active" data-filter="all">Vše</button>
+                    <button class="filter-btn" data-filter="ho">HO</button>
+                    <button class="filter-btn" data-filter="car">Auto</button>
+                    <button class="filter-btn" data-filter="bike">Kolo</button>
+                    <button class="filter-btn" data-filter="onsen">Onsen</button>
+                    <button class="filter-btn" data-filter="meet">Setkání</button>
+                </div>
             </div>
             <div class="search-box">
                 <input type="text" placeholder="Hledat..." id="search">
@@ -640,8 +676,8 @@
         const isWeekend = ['So', 'Ne'].includes(dow);
         const hasHO = tags.includes('ho');
 
-        const baseStart = isWeekend ? '#059669' : '#2563eb';
-        const baseEnd = isWeekend ? '#10b981' : '#3b82f6';
+        const baseStart = isWeekend ? '#2563eb' : '#059669';
+        const baseEnd = isWeekend ? '#3b82f6' : '#10b981';
         const hoColor = '#f59e0b';
 
         if (!hasHO) {
@@ -870,9 +906,25 @@
         });
     });
 
+    // Menu dropdown handlers
+    const menuBtn = document.getElementById('menuBtn');
+    const menuDropdown = document.getElementById('menuDropdown');
+
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuDropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menuDropdown.contains(e.target) && e.target !== menuBtn) {
+            menuDropdown.classList.remove('open');
+        }
+    });
+
     // Task modal handlers
     document.querySelector('.filter-btn[data-filter="tasks"]').addEventListener('click', (e) => {
         e.preventDefault();
+        menuDropdown.classList.remove('open');
         document.getElementById('taskModal').classList.add('visible');
     });
     document.getElementById('closeTaskModal').addEventListener('click', () => {
