@@ -165,6 +165,7 @@
 
         @media (min-width: 901px) {
             .menu-container { display: none; }
+            .view-btn[data-modal="calendar"] { display: none; }
         }
 
         .nav-search {
@@ -229,7 +230,7 @@
             margin: 0 auto;
             padding: 24px 20px;
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 280px 1fr;
             gap: 24px;
         }
 
@@ -239,7 +240,13 @@
         }
 
         .sidebar {
-            display: none;
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        @media (max-width: 900px) {
+            .sidebar { display: none; }
         }
 
         .sidebar-section {
@@ -684,7 +691,21 @@
         .calendar-day.empty:hover { transform: none; }
         .calendar-day.weekday { background: linear-gradient(135deg, #059669, #10b981); }
         .calendar-day.weekend { background: linear-gradient(135deg, #2563eb, #3b82f6); }
-        .calendar-day.ho { background: linear-gradient(135deg, #dc2626, #ef4444); }
+        .calendar-day.ho-full { background: linear-gradient(to right, #059669 50%, #dc2626 50%); }
+        .calendar-day.ho-half { background: linear-gradient(to right, #059669 60%, #dc2626 60%); }
+        .calendar-day.ho-third { background: linear-gradient(to right, #059669 67%, #dc2626 67%); }
+        .calendar-day.weekend.ho-full { background: linear-gradient(to right, #2563eb 50%, #dc2626 50%); }
+        .calendar-day.weekend.ho-half { background: linear-gradient(to right, #2563eb 60%, #dc2626 60%); }
+        .calendar-day.weekend.ho-third { background: linear-gradient(to right, #2563eb 67%, #dc2626 67%); }
+
+        /* Sidebar calendar */
+        .sidebar-calendar {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 16px;
+        }
+        .sidebar-calendar .calendar-header { color: var(--text-dim); }
+        .sidebar-calendar .calendar-month { color: var(--text); border-bottom-color: var(--border); }
         .calendar-day.today {
             box-shadow: 0 0 0 2px #fff, 0 0 12px 2px rgba(255,255,255,0.5);
         }
@@ -798,10 +819,7 @@
 
     <main>
         <aside class="sidebar">
-            <div class="sidebar-section">
-                <div class="sidebar-title">Důležité úkoly</div>
-                <div id="tasks"></div>
-            </div>
+            <div class="sidebar-calendar" id="sidebarCalendar"></div>
         </aside>
 
         <section class="days" id="days"></section>
@@ -1474,18 +1492,27 @@
         `;
     }
 
-    function renderCalendar() {
+    function getHoClass(dayData) {
+        if (!dayData.tags.includes('ho')) return '';
+        let hoHours = 8;
+        if (dayData.timeline) {
+            const hoEntry = dayData.timeline.find(t => t.text && t.text.includes('HOME OFFICE'));
+            if (hoEntry && hoEntry.time) {
+                const match = hoEntry.time.match(/(\d+):00[–-](\d+):00/);
+                if (match) hoHours = parseInt(match[2]) - parseInt(match[1]);
+            }
+        }
+        if (hoHours >= 8) return 'ho-full';
+        if (hoHours <= 4) return 'ho-third';
+        return 'ho-half';
+    }
+
+    function renderCalendar(targetId) {
         const today = new Date();
         const todayStr = `${today.getDate()}.${today.getMonth()+1}.${today.getFullYear()}`;
 
         const daysByDate = {};
-        DAYS.forEach(d => {
-            daysByDate[d.date] = d;
-        });
-
-        let html = '<div class="calendar-grid">';
-        html += ['M','T','W','T','F','S','S'].map(d => `<div class="calendar-header">${d}</div>`).join('');
-        html += '</div>';
+        DAYS.forEach(d => { daysByDate[d.date] = d; });
 
         const months = [
             { name: 'Září 2026', year: 2026, month: 8, startDay: 18, endDay: 30 },
@@ -1493,6 +1520,7 @@
             { name: 'Listopad 2026', year: 2026, month: 10, startDay: 1, endDay: 9 }
         ];
 
+        let html = '';
         months.forEach(m => {
             html += `<div class="calendar-month">${m.name}</div>`;
             html += '<div class="calendar-grid">';
@@ -1516,9 +1544,9 @@
                 const isToday = dateStr === todayStr;
 
                 let cls = 'calendar-day';
-                if (isHO) cls += ' ho';
-                else if (isWeekend) cls += ' weekend';
+                if (isWeekend) cls += ' weekend';
                 else cls += ' weekday';
+                if (isHO) cls += ' ' + getHoClass(dayData);
                 if (isToday) cls += ' today';
 
                 html += `<div class="${cls}" data-daynum="${dayData.day}">${day}</div>`;
@@ -1526,12 +1554,14 @@
             html += '</div>';
         });
 
-        document.getElementById('calendarContent').innerHTML = html;
+        const container = document.getElementById(targetId);
+        container.innerHTML = html;
 
-        document.querySelectorAll('.calendar-day[data-daynum]').forEach(el => {
+        container.querySelectorAll('.calendar-day[data-daynum]').forEach(el => {
             el.addEventListener('click', () => {
                 const dayNum = el.dataset.daynum;
-                document.getElementById('calendarModal').classList.remove('visible');
+                const calModal = document.getElementById('calendarModal');
+                if (calModal) calModal.classList.remove('visible');
                 const card = document.getElementById('day-' + dayNum);
                 if (card) {
                     card.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1544,10 +1574,15 @@
     document.querySelectorAll('[data-modal="calendar"]').forEach(btn => {
         btn.addEventListener('click', () => {
             if (menuDropdown) menuDropdown.classList.remove('open');
-            renderCalendar();
+            renderCalendar('calendarContent');
             document.getElementById('calendarModal').classList.add('visible');
         });
     });
+
+    // Render sidebar calendar on desktop
+    if (document.getElementById('sidebarCalendar')) {
+        renderCalendar('sidebarCalendar');
+    }
 
     document.querySelectorAll('[data-view]').forEach(btn => {
         btn.addEventListener('click', () => {
