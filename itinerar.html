@@ -98,7 +98,7 @@
             display: none;
             position: absolute;
             top: 48px;
-            right: 0;
+            left: 0;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -106,6 +106,10 @@
             min-width: 160px;
             z-index: 150;
             box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        @media (min-width: 600px) {
+            .menu-dropdown { left: auto; right: 0; }
         }
 
         .menu-dropdown.open { display: block; }
@@ -555,9 +559,8 @@
                 <button class="menu-btn" id="menuBtn">☰</button>
                 <div class="menu-dropdown" id="menuDropdown">
                     <button class="filter-btn" data-filter="tasks">📋 Úkoly</button>
-                    <button class="filter-btn" data-view="deadlines">📅 Deadlines</button>
+                    <button class="filter-btn" data-view="hotels">🏨 Hotely</button>
                     <button class="filter-btn" data-view="contacts">👥 Kontakty</button>
-                    <button class="filter-btn" data-view="costs">💰 Náklady</button>
                     <button class="filter-btn" data-view="transport">🚄 Transport</button>
                     <hr style="border:none;border-top:1px solid var(--border);margin:8px 0;">
                     <button class="filter-btn active" data-filter="all">Vše</button>
@@ -607,16 +610,6 @@
         </div>
     </div>
 
-    <div class="task-modal-overlay" id="deadlinesModal">
-        <div class="task-modal">
-            <div class="task-modal-header">
-                <h2>📅 Hotel Deadlines</h2>
-                <button class="task-modal-close" data-close="deadlinesModal">&times;</button>
-            </div>
-            <div id="deadlinesContent"></div>
-        </div>
-    </div>
-
     <div class="task-modal-overlay" id="contactsModal">
         <div class="task-modal">
             <div class="task-modal-header">
@@ -627,13 +620,13 @@
         </div>
     </div>
 
-    <div class="task-modal-overlay" id="costsModal">
+    <div class="task-modal-overlay" id="hotelsModal">
         <div class="task-modal">
             <div class="task-modal-header">
-                <h2>💰 Přehled nákladů</h2>
-                <button class="task-modal-close" data-close="costsModal">&times;</button>
+                <h2>🏨 Hotely</h2>
+                <button class="task-modal-close" data-close="hotelsModal">&times;</button>
             </div>
-            <div id="costsContent"></div>
+            <div id="hotelsContent"></div>
         </div>
     </div>
 
@@ -997,18 +990,35 @@
     });
 
     // View modal handlers
-    function renderDeadlines() {
-        const deadlines = DAYS.filter(d => d.cancel).sort((a, b) => {
-            const dateA = new Date('2026-' + d.cancel?.split('.').reverse().join('-') || '');
-            const dateB = new Date('2026-' + b.cancel?.split('.').reverse().join('-') || '');
-            return dateA - dateB;
+    function renderHotels() {
+        let total = 0;
+        const hotels = DAYS.filter(d => d.hotel && d.hotel !== '–' && d.hotel !== 'V letadle' && d.hotel !== 'Letiště / let').map(d => {
+            const num = parseFloat((d.price || '').replace(' EUR', '').replace('EUR', ''));
+            if (!isNaN(num)) total += num;
+            const info = HOTEL_INFO[d.day] || {};
+            let badges = '';
+            if (info.payment === 'paid') badges += '<span class="hotel-badge badge-paid" style="font-size:0.6rem;">✓ Paid</span> ';
+            if (info.payment === 'on-site') badges += '<span class="hotel-badge badge-onsite" style="font-size:0.6rem;">$ On-site</span> ';
+            if (d.cancel) badges += `<span class="hotel-badge badge-cancel" style="font-size:0.6rem;">⚠ ${d.cancel}</span> `;
+            if (info.meals) badges += `<span class="hotel-badge badge-breakfast" style="font-size:0.6rem;">${info.meals === 'breakfast' ? '🍳' : '🍽️'}</span> `;
+            return { date: d.date.replace('.2026', ''), hotel: d.hotel, price: d.price || '', badges };
         });
-        document.getElementById('deadlinesContent').innerHTML = deadlines.map(d => `
-            <div class="view-item">
-                <span>${d.hotel}</span>
-                <span class="view-item-date">⚠ ${d.cancel}</span>
+        document.getElementById('hotelsContent').innerHTML = `
+            ${hotels.map(h => `
+                <div class="view-item" style="flex-direction:column;align-items:flex-start;gap:4px;">
+                    <div style="display:flex;justify-content:space-between;width:100%;">
+                        <strong>${h.date}</strong>
+                        <span class="view-item-price">${h.price}</span>
+                    </div>
+                    <div style="font-size:0.8rem;">${h.hotel}</div>
+                    <div>${h.badges}</div>
+                </div>
+            `).join('')}
+            <div class="view-total">
+                <span>Celkem</span>
+                <span class="view-item-price">${Math.round(total)} EUR</span>
             </div>
-        `).join('');
+        `;
     }
 
     function renderContacts() {
@@ -1021,27 +1031,6 @@
                 <span style="font-size:0.75rem;color:var(--text-muted)">${c.note}</span>
             </div>
         `).join('');
-    }
-
-    function renderCosts() {
-        let total = 0;
-        const hotels = DAYS.filter(d => d.price && d.price !== '–' && d.price !== '').map(d => {
-            const num = parseFloat(d.price.replace(' EUR', '').replace('EUR', ''));
-            if (!isNaN(num)) total += num;
-            return { date: d.date.replace('.2026', ''), hotel: d.hotel, price: d.price };
-        });
-        document.getElementById('costsContent').innerHTML = `
-            ${hotels.map(h => `
-                <div class="view-item">
-                    <span><strong>${h.date}</strong> ${h.hotel}</span>
-                    <span class="view-item-price">${h.price}</span>
-                </div>
-            `).join('')}
-            <div class="view-total">
-                <span>Celkem ubytování</span>
-                <span class="view-item-price">${Math.round(total)} EUR</span>
-            </div>
-        `;
     }
 
     function renderTransport() {
@@ -1068,9 +1057,8 @@
         btn.addEventListener('click', () => {
             const view = btn.dataset.view;
             menuDropdown.classList.remove('open');
-            if (view === 'deadlines') { renderDeadlines(); document.getElementById('deadlinesModal').classList.add('visible'); }
+            if (view === 'hotels') { renderHotels(); document.getElementById('hotelsModal').classList.add('visible'); }
             if (view === 'contacts') { renderContacts(); document.getElementById('contactsModal').classList.add('visible'); }
-            if (view === 'costs') { renderCosts(); document.getElementById('costsModal').classList.add('visible'); }
             if (view === 'transport') { renderTransport(); document.getElementById('transportModal').classList.add('visible'); }
         });
     });
