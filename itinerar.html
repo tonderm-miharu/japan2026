@@ -214,11 +214,13 @@
         .nav-search:focus { border-color: var(--accent); }
         .nav-search::placeholder { color: var(--text-dim); }
 
-        .mobile-search { display: none; flex: 1; margin: 0 10px; }
+        .mobile-search { display: none; margin: 0 10px; max-width: none; }
 
         @media (max-width: 900px) {
             .nav-search:not(.mobile-search) { display: none; }
-            .mobile-search { display: block; }
+            .mobile-search { display: block; flex: 1; }
+            .header-top { gap: 8px; }
+            .countdown { margin-left: 0; white-space: nowrap; }
         }
 
         .menu-container {
@@ -1673,9 +1675,9 @@
         const diff = Math.ceil((tripStart - today) / (1000 * 60 * 60 * 24));
         const el = document.getElementById('countdown');
         if (diff > 0) {
-            el.textContent = `za ${diff} dní`;
+            el.textContent = `in ${diff} days`;
         } else if (diff >= -53) {
-            el.textContent = `DEN ${Math.abs(diff) + 1}`;
+            el.textContent = `DAY ${Math.abs(diff) + 1}`;
             el.classList.add('active');
         } else {
             el.textContent = '';
