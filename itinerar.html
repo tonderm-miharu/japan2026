@@ -49,17 +49,19 @@
         .header-inner {
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .header-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
+            margin-bottom: 10px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .logo h1 {
@@ -67,24 +69,71 @@
             font-weight: 600;
         }
 
-        .logo h1 span {
-            color: var(--text-dim);
-            font-weight: 400;
-            margin-left: 8px;
+        .header-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
-        .menu-container {
-            position: relative;
+        .nav-buttons {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
         }
 
-        .menu-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 10px;
+            border-radius: 6px;
             border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text);
-            font-size: 1.2rem;
+            background: transparent;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover { border-color: var(--text-dim); color: var(--text); background: var(--bg-hover); }
+        .nav-btn-icon { font-size: 1rem; }
+
+        @media (max-width: 700px) {
+            .nav-btn-label { display: none; }
+            .nav-btn { padding: 8px; }
+        }
+
+        .filters-row {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .filter-btn {
+            padding: 5px 10px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .filter-btn:hover { border-color: var(--text-dim); color: var(--text); }
+        .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+        .search-toggle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            font-size: 0.9rem;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -92,63 +141,31 @@
             transition: all 0.15s;
         }
 
-        .menu-btn:hover { border-color: var(--text-dim); background: var(--bg-hover); }
+        .search-toggle:hover { border-color: var(--text-dim); color: var(--text); }
 
-        .menu-dropdown {
+        .search-overlay {
             display: none;
-            position: absolute;
-            top: 48px;
-            left: 0;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 8px;
-            min-width: 160px;
-            z-index: 150;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 200;
+            justify-content: center;
+            padding-top: 100px;
         }
 
-        @media (min-width: 600px) {
-            .menu-dropdown { left: auto; right: 0; }
-        }
+        .search-overlay.visible { display: flex; }
 
-        .menu-dropdown.open { display: block; }
-
-        .filter-btn {
-            display: block;
-            width: 100%;
-            padding: 10px 14px;
-            border-radius: 8px;
-            border: none;
-            background: transparent;
-            color: var(--text-dim);
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.15s;
-            text-align: left;
-            margin-bottom: 2px;
-        }
-
-        .filter-btn:hover { background: var(--bg-hover); color: var(--text); }
-        .filter-btn.active { background: var(--accent); color: #fff; }
-
-        .search-box {
-            position: relative;
-        }
-
-        .search-box input {
-            width: 180px;
-            padding: 8px 12px 8px 32px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
+        .search-overlay input {
+            width: 90%;
+            max-width: 500px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 2px solid var(--accent);
             background: var(--bg-card);
             color: var(--text);
-            font-size: 0.85rem;
+            font-size: 1.1rem;
             outline: none;
         }
-
-        .search-box input:focus { border-color: var(--accent); width: 220px; }
-        .search-box::before { content: "⌕"; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-dim); }
 
         main {
             max-width: 1400px;
@@ -630,32 +647,37 @@
 <body>
     <header>
         <div class="header-inner">
-            <div class="logo">
-                <svg width="28" height="28" viewBox="0 0 100 100" style="flex-shrink:0"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
-                <h1>Japan 2026 <span>18.9. – 9.11.</span></h1><span class="countdown" id="countdown"></span>
+            <div class="header-top">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 100 100" style="flex-shrink:0"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                    <h1>Japan'26</h1>
+                </div>
+                <span class="countdown" id="countdown"></span>
             </div>
-            <div class="menu-container">
-                <button class="menu-btn" id="menuBtn">☰</button>
-                <div class="menu-dropdown" id="menuDropdown">
-                    <button class="filter-btn" data-filter="tasks">📋 Úkoly</button>
-                    <button class="filter-btn" data-view="hotels">🏨 Hotely</button>
-                    <button class="filter-btn" data-view="contacts">👥 Kontakty</button>
-                    <button class="filter-btn" data-view="transport">🚄 Transport</button>
-                    <button class="filter-btn" data-action="weather">🌤️ Aktualizovat počasí</button>
-                    <hr style="border:none;border-top:1px solid var(--border);margin:8px 0;">
+            <div class="header-nav">
+                <div class="nav-buttons">
+                    <button class="nav-btn" data-filter="tasks"><span class="nav-btn-icon">📋</span><span class="nav-btn-label">Úkoly</span></button>
+                    <button class="nav-btn" data-view="hotels"><span class="nav-btn-icon">🏨</span><span class="nav-btn-label">Hotely</span></button>
+                    <button class="nav-btn" data-view="contacts"><span class="nav-btn-icon">👥</span><span class="nav-btn-label">Kontakty</span></button>
+                    <button class="nav-btn" data-view="transport"><span class="nav-btn-icon">🚄</span><span class="nav-btn-label">Transport</span></button>
+                    <button class="nav-btn" data-action="weather"><span class="nav-btn-icon">🌤️</span><span class="nav-btn-label">Počasí</span></button>
+                </div>
+                <div class="filters-row">
                     <button class="filter-btn active" data-filter="all">Vše</button>
                     <button class="filter-btn" data-filter="ho">HO</button>
                     <button class="filter-btn" data-filter="car">Auto</button>
                     <button class="filter-btn" data-filter="bike">Kolo</button>
                     <button class="filter-btn" data-filter="onsen">Onsen</button>
                     <button class="filter-btn" data-filter="meet">Setkání</button>
+                    <button class="search-toggle" id="searchToggle">🔍</button>
                 </div>
-            </div>
-            <div class="search-box">
-                <input type="text" placeholder="Hledat..." id="search">
             </div>
         </div>
     </header>
+
+    <div class="search-overlay" id="searchOverlay">
+        <input type="text" placeholder="Hledat den, místo, hotel..." id="search" autofocus>
+    </div>
 
     <main>
         <aside class="sidebar">
@@ -1194,25 +1216,37 @@
         });
     });
 
-    // Menu dropdown handlers
-    const menuBtn = document.getElementById('menuBtn');
-    const menuDropdown = document.getElementById('menuDropdown');
+    // Search overlay
+    const searchToggle = document.getElementById('searchToggle');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchInput = document.getElementById('search');
 
-    menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        menuDropdown.classList.toggle('open');
+    searchToggle.addEventListener('click', () => {
+        searchOverlay.classList.add('visible');
+        searchInput.focus();
     });
 
-    document.addEventListener('click', (e) => {
-        if (!menuDropdown.contains(e.target) && e.target !== menuBtn) {
-            menuDropdown.classList.remove('open');
+    searchOverlay.addEventListener('click', (e) => {
+        if (e.target === searchOverlay) {
+            searchOverlay.classList.remove('visible');
+            searchInput.value = '';
+            document.querySelectorAll('.day-card').forEach(card => card.classList.remove('hidden'));
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+        }
+    });
+
+    searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            searchOverlay.classList.remove('visible');
+            searchInput.value = '';
+            document.querySelectorAll('.day-card').forEach(card => card.classList.remove('hidden'));
         }
     });
 
     // Task modal handlers
-    document.querySelector('.filter-btn[data-filter="tasks"]').addEventListener('click', (e) => {
+    document.querySelector('[data-filter="tasks"]').addEventListener('click', (e) => {
         e.preventDefault();
-        menuDropdown.classList.remove('open');
         document.getElementById('taskModal').classList.add('visible');
     });
     document.getElementById('closeTaskModal').addEventListener('click', () => {
@@ -1296,7 +1330,6 @@
     document.querySelectorAll('[data-view]').forEach(btn => {
         btn.addEventListener('click', () => {
             const view = btn.dataset.view;
-            menuDropdown.classList.remove('open');
             if (view === 'hotels') { renderHotels(); document.getElementById('hotelsModal').classList.add('visible'); }
             if (view === 'contacts') { renderContacts(); document.getElementById('contactsModal').classList.add('visible'); }
             if (view === 'transport') { renderTransport(); document.getElementById('transportModal').classList.add('visible'); }
@@ -1306,7 +1339,6 @@
     document.querySelectorAll('[data-action]').forEach(btn => {
         btn.addEventListener('click', () => {
             const action = btn.dataset.action;
-            menuDropdown.classList.remove('open');
             if (action === 'weather') {
                 if (!OWM_API_KEY) {
                     const key = prompt('Zadej OpenWeatherMap API klíč (zdarma na openweathermap.org):');
