@@ -6,9 +6,7 @@
     <title>Japan 2026 | Itinerář</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23fff' stroke='%23ddd' stroke-width='2'/><circle cx='50' cy='50' r='24' fill='%23bc002d'/></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <style>
+        <style>
         :root {
             --bg: #0a0a0a;
             --bg-card: #141414;
@@ -444,33 +442,59 @@
         .badge-cancel { background: rgba(239,68,68,0.1); color: var(--red); }
         .badge-bonus { background: rgba(6,182,212,0.15); color: var(--cyan); }
 
-        .map-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
+        .day-tasks-list { margin-top: 8px; }
+        .day-task-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 6px 0;
+            font-size: 0.8rem;
             color: var(--text-dim);
+            border-bottom: 1px solid var(--border);
+        }
+        .day-task-item:last-child { border-bottom: none; }
+        .day-task-icon { flex-shrink: 0; }
+
+        .countdown {
             font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.15s;
-            margin-top: 12px;
+            color: var(--text-muted);
+            margin-left: 12px;
+        }
+        .countdown.active { color: var(--green); font-weight: 500; }
+
+        .view-section {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .view-section:last-child { border-bottom: none; }
+        .view-section h3 {
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .view-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border-bottom: 1px solid var(--border);
+        }
+        .view-item:last-child { border-bottom: none; }
+        .view-item-date { color: var(--accent); font-weight: 500; }
+        .view-item-price { color: var(--green); font-weight: 600; }
+        .view-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-top: 2px solid var(--border);
+            margin-top: 8px;
         }
 
-        .map-toggle:hover { border-color: var(--accent); color: var(--text); }
-
-        .map-container {
-            height: 200px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            margin-top: 12px;
-            display: none;
-        }
-
-        .map-container.visible { display: block; }
-
+        
         /* Mobile task modal */
         .task-modal-overlay {
             display: none;
@@ -525,12 +549,17 @@
         <div class="header-inner">
             <div class="logo">
                 <svg width="28" height="28" viewBox="0 0 100 100" style="flex-shrink:0"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
-                <h1>Japan 2026 <span>18.9. – 9.11.</span></h1>
+                <h1>Japan 2026 <span>18.9. – 9.11.</span></h1><span class="countdown" id="countdown"></span>
             </div>
             <div class="menu-container">
                 <button class="menu-btn" id="menuBtn">☰</button>
                 <div class="menu-dropdown" id="menuDropdown">
                     <button class="filter-btn" data-filter="tasks">📋 Úkoly</button>
+                    <button class="filter-btn" data-view="deadlines">📅 Deadlines</button>
+                    <button class="filter-btn" data-view="contacts">👥 Kontakty</button>
+                    <button class="filter-btn" data-view="costs">💰 Náklady</button>
+                    <button class="filter-btn" data-view="transport">🚄 Transport</button>
+                    <hr style="border:none;border-top:1px solid var(--border);margin:8px 0;">
                     <button class="filter-btn active" data-filter="all">Vše</button>
                     <button class="filter-btn" data-filter="ho">HO</button>
                     <button class="filter-btn" data-filter="car">Auto</button>
@@ -571,10 +600,50 @@
     <div class="task-modal-overlay" id="taskModal">
         <div class="task-modal">
             <div class="task-modal-header">
-                <h2>Důležité úkoly</h2>
+                <h2>📋 Důležité úkoly</h2>
                 <button class="task-modal-close" id="closeTaskModal">&times;</button>
             </div>
             <div id="tasksMobile"></div>
+        </div>
+    </div>
+
+    <div class="task-modal-overlay" id="deadlinesModal">
+        <div class="task-modal">
+            <div class="task-modal-header">
+                <h2>📅 Hotel Deadlines</h2>
+                <button class="task-modal-close" data-close="deadlinesModal">&times;</button>
+            </div>
+            <div id="deadlinesContent"></div>
+        </div>
+    </div>
+
+    <div class="task-modal-overlay" id="contactsModal">
+        <div class="task-modal">
+            <div class="task-modal-header">
+                <h2>👥 Kontakty</h2>
+                <button class="task-modal-close" data-close="contactsModal">&times;</button>
+            </div>
+            <div id="contactsContent"></div>
+        </div>
+    </div>
+
+    <div class="task-modal-overlay" id="costsModal">
+        <div class="task-modal">
+            <div class="task-modal-header">
+                <h2>💰 Přehled nákladů</h2>
+                <button class="task-modal-close" data-close="costsModal">&times;</button>
+            </div>
+            <div id="costsContent"></div>
+        </div>
+    </div>
+
+    <div class="task-modal-overlay" id="transportModal">
+        <div class="task-modal">
+            <div class="task-modal-header">
+                <h2>🚄 Transport</h2>
+                <button class="task-modal-close" data-close="transportModal">&times;</button>
+            </div>
+            <div id="transportContent"></div>
         </div>
     </div>
 
@@ -680,6 +749,33 @@
         46: { payment: 'paid' }, 47: { payment: 'paid' }, 48: { payment: 'paid' },
         49: { payment: 'paid' }, 50: { payment: 'paid' }, 51: { payment: 'paid' }
     };
+
+    // Automatické denní úkoly
+    const DAY_TASKS = {
+        1: ['✈️ Check-in let VIE→TPE (24h před)'],
+        19: ['📦 Ráno odeslat kufr Fukuyama→Matsuyama (Yamato)'],
+        21: ['🎫 Koupit lístek Shimonada předem!'],
+        25: ['🚗 09:30 Vyzvednout auto Budget Kumamoto'],
+        28: ['🚗 18:00 Vrátit auto Budget Kumamoto'],
+        29: ['📦 Ráno odeslat kufr Kumamoto→Nagasaki'],
+        35: ['✈️ Check-in let FUK→HND (24h před)'],
+        39: ['🚗 Vyzvednout auto Mishima'],
+        42: ['🚗 Vrátit auto Mishima'],
+        45: ['✈️ Check-in let HND→MMY (24h před)'],
+        48: ['🚗 09:00 Vyzvednout auto Miyakojima (SOU Company)', '✈️ Check-in let MMY→OKA (24h před)'],
+        49: ['🚗 13:00 Vyzvednout auto Okinawa (Gyokoseki)'],
+        50: ['🚗 13:00 Vrátit auto Okinawa'],
+        51: ['✈️ Check-in let OKA→TPE (24h před)'],
+    };
+
+    // Kontakty
+    const CONTACTS = [
+        { name: 'Keigo', when: 'min. 1 týden před 26.9.', day: 9, note: 'Setkání v Osace' },
+        { name: 'Takashi', when: 'pro 28.9.', day: 11, note: 'Celý den v Kyotu' },
+        { name: 'Wahei', when: 'min. 1 měsíc před 24.10.', day: 37, note: 'Setkání v Tokyu' },
+        { name: 'Ryuki', when: '1-2 týdny před 23.10.', day: 36, note: 'Tokyo' },
+        { name: 'Minoru / Shogo', when: 'před cestou', day: 43, note: 'Party v Tokyu' },
+    ];
 
     function getDayBoxStyle(dow, tags, timeline) {
         const isWeekend = ['So', 'Ne'].includes(dow);
@@ -809,9 +905,15 @@
                                         ${d.price ? `<div class="price">${d.price}</div>` : ''}
                                     </div>
                                 </div>
-                                <button class="map-toggle" data-day="${d.day}">Zobrazit mapu</button>
-                                <div class="map-container" id="map-${d.day}"></div>
                             </div>
+                            ${DAY_TASKS[d.day] ? `
+                            <div class="detail-section" style="grid-column: 1 / -1;">
+                                <div class="detail-title">⚡ Úkoly dne</div>
+                                <div class="day-tasks-list">
+                                    ${DAY_TASKS[d.day].map(task => `<div class="day-task-item">${task}</div>`).join('')}
+                                </div>
+                            </div>
+                            ` : ''}
                         </div>
                     </div>
                 </div>
@@ -821,57 +923,6 @@
         container.querySelectorAll('.day-head').forEach(head => {
             head.addEventListener('click', () => {
                 head.parentElement.classList.toggle('expanded');
-            });
-        });
-
-        container.querySelectorAll('.map-toggle').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const mapContainer = btn.nextElementSibling;
-                const isVisible = mapContainer.classList.toggle('visible');
-                if (isVisible && !mapContainer.dataset.init) {
-                    const dayNum = parseInt(btn.dataset.day);
-                    const dayData = DAYS.find(d => d.day === dayNum);
-                    if (!dayData || !dayData.pois || dayData.pois.length === 0) return;
-
-                    const pois = dayData.pois;
-                    const firstPoi = pois[0];
-                    const map = L.map(mapContainer.id).setView(firstPoi.coords, 12);
-
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '&copy; OpenStreetMap'
-                    }).addTo(map);
-
-                    const bounds = L.latLngBounds();
-                    const routeCoords = [];
-
-                    pois.forEach((poi, idx) => {
-                        const marker = L.circleMarker(poi.coords, {
-                            radius: 8,
-                            fillColor: idx === 0 ? '#10b981' : idx === pois.length - 1 ? '#ef4444' : '#3b82f6',
-                            color: '#fff',
-                            weight: 2,
-                            opacity: 1,
-                            fillOpacity: 0.9
-                        }).addTo(map);
-                        marker.bindPopup(`<strong>${idx + 1}. ${poi.name}</strong>`);
-                        bounds.extend(poi.coords);
-                        routeCoords.push(poi.coords);
-                    });
-
-                    if (pois.length > 1) {
-                        L.polyline(routeCoords, {
-                            color: '#3b82f6',
-                            weight: 3,
-                            opacity: 0.6,
-                            dashArray: '8, 8'
-                        }).addTo(map);
-                        map.fitBounds(bounds, { padding: [30, 30] });
-                    }
-
-                    mapContainer.dataset.init = 'true';
-                    setTimeout(() => map.invalidateSize(), 100);
-                }
             });
         });
     }
@@ -945,8 +996,116 @@
         }
     });
 
+    // View modal handlers
+    function renderDeadlines() {
+        const deadlines = DAYS.filter(d => d.cancel).sort((a, b) => {
+            const dateA = new Date('2026-' + d.cancel?.split('.').reverse().join('-') || '');
+            const dateB = new Date('2026-' + b.cancel?.split('.').reverse().join('-') || '');
+            return dateA - dateB;
+        });
+        document.getElementById('deadlinesContent').innerHTML = deadlines.map(d => `
+            <div class="view-item">
+                <span>${d.hotel}</span>
+                <span class="view-item-date">⚠ ${d.cancel}</span>
+            </div>
+        `).join('');
+    }
+
+    function renderContacts() {
+        document.getElementById('contactsContent').innerHTML = CONTACTS.map(c => `
+            <div class="view-item" style="flex-direction:column;align-items:flex-start;gap:4px;">
+                <div style="display:flex;justify-content:space-between;width:100%;">
+                    <strong>${c.name}</strong>
+                    <span class="view-item-date">${c.when}</span>
+                </div>
+                <span style="font-size:0.75rem;color:var(--text-muted)">${c.note}</span>
+            </div>
+        `).join('');
+    }
+
+    function renderCosts() {
+        let total = 0;
+        const hotels = DAYS.filter(d => d.price && d.price !== '–' && d.price !== '').map(d => {
+            const num = parseFloat(d.price.replace(' EUR', '').replace('EUR', ''));
+            if (!isNaN(num)) total += num;
+            return { date: d.date.replace('.2026', ''), hotel: d.hotel, price: d.price };
+        });
+        document.getElementById('costsContent').innerHTML = `
+            ${hotels.map(h => `
+                <div class="view-item">
+                    <span><strong>${h.date}</strong> ${h.hotel}</span>
+                    <span class="view-item-price">${h.price}</span>
+                </div>
+            `).join('')}
+            <div class="view-total">
+                <span>Celkem ubytování</span>
+                <span class="view-item-price">${Math.round(total)} EUR</span>
+            </div>
+        `;
+    }
+
+    function renderTransport() {
+        const flights = DAYS.filter(d => d.tags.includes('flight'));
+        const cars = DAYS.filter(d => d.tags.includes('car'));
+        document.getElementById('transportContent').innerHTML = `
+            <div class="view-section">
+                <h3>✈️ Lety</h3>
+                ${flights.map(d => `<div class="view-item"><span>${d.date.replace('.2026', '')} ${d.title}</span></div>`).join('')}
+            </div>
+            <div class="view-section">
+                <h3>🚗 Auto</h3>
+                ${cars.map(d => `<div class="view-item"><span>${d.date.replace('.2026', '')} ${LOCATIONS[d.day]}</span></div>`).join('')}
+            </div>
+            <div class="view-section">
+                <h3>⛴️ Ferry</h3>
+                <div class="view-item"><span>8.10. Yawatahama → Beppu (13:00-15:50)</span></div>
+                <div class="view-item"><span>16.10. Kumamoto → Shimabara (09:25)</span></div>
+            </div>
+        `;
+    }
+
+    document.querySelectorAll('[data-view]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const view = btn.dataset.view;
+            menuDropdown.classList.remove('open');
+            if (view === 'deadlines') { renderDeadlines(); document.getElementById('deadlinesModal').classList.add('visible'); }
+            if (view === 'contacts') { renderContacts(); document.getElementById('contactsModal').classList.add('visible'); }
+            if (view === 'costs') { renderCosts(); document.getElementById('costsModal').classList.add('visible'); }
+            if (view === 'transport') { renderTransport(); document.getElementById('transportModal').classList.add('visible'); }
+        });
+    });
+
+    document.querySelectorAll('[data-close]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.getElementById(btn.dataset.close).classList.remove('visible');
+        });
+    });
+
+    document.querySelectorAll('.task-modal-overlay').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('visible');
+        });
+    });
+
+    // Countdown
+    function updateCountdown() {
+        const tripStart = new Date('2026-09-18');
+        const today = new Date();
+        const diff = Math.ceil((tripStart - today) / (1000 * 60 * 60 * 24));
+        const el = document.getElementById('countdown');
+        if (diff > 0) {
+            el.textContent = `za ${diff} dní`;
+        } else if (diff >= -53) {
+            el.textContent = `DEN ${Math.abs(diff) + 1}`;
+            el.classList.add('active');
+        } else {
+            el.textContent = '';
+        }
+    }
+
     renderTasks();
     renderDays();
+    updateCountdown();
     </script>
 </body>
 </html>
