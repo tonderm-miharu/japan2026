@@ -455,19 +455,17 @@
         .badge-hotelweb { background: rgba(100,100,100,0.2); color: #999; }
 
         /* Weather styles */
-        .weather-watermark {
-            position: absolute;
-            right: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.8rem;
-            opacity: 0.2;
-            pointer-events: none;
+        .weather-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-left: 8px;
+            opacity: 0.8;
         }
-        @media (max-width: 600px) {
-            .weather-watermark { right: 36px; font-size: 1.5rem; }
-        }
-        .day-head { position: relative; }
+        .weather-inline-icon { font-size: 1rem; }
+        .weather-inline-temp { font-weight: 500; color: var(--text-dim); }
         .weather-badge {
             font-size: 0.6rem;
             padding: 2px 5px;
@@ -1026,7 +1024,7 @@
             `).join('') : '';
 
             const weather = getWeatherForDay(d.day);
-            const weatherWatermark = weather ? `<span class="weather-watermark">${weather.icon}</span>` : '';
+            const weatherInline = weather && weather.temp !== '–' ? `<span class="weather-inline"><span class="weather-inline-icon">${weather.icon}</span><span class="weather-inline-temp">${weather.temp.split('-').pop()}</span></span>` : '';
             const weatherDetail = weather ? `
                 <div class="weather-detail">
                     <span class="weather-detail-icon">${weather.icon}</span>
@@ -1041,13 +1039,12 @@
             return `
                 <div class="day-card" id="day-${d.day}" data-tags="${d.tags.join(' ')}" data-search="${(d.title + ' ' + d.subtitle + ' ' + d.hotel).toLowerCase()}">
                     <div class="day-head">
-                        ${weatherWatermark}
                         <div class="day-num-box" style="${getDayBoxStyle(d.dow, d.tags, d.timeline)}">
                             <span class="day-n">${d.date.replace('.2026', '')}</span>
                             <span class="day-dow">${d.dow}</span>
                         </div>
                         <div class="day-info">
-                            <h3>${LOCATIONS[d.day] || d.title}</h3>
+                            <h3>${LOCATIONS[d.day] || d.title}${weatherInline}</h3>
                             <p>${d.title}${d.subtitle ? ' – ' + d.subtitle : ''}</p>
                         </div>
                         <div class="day-tags">${tagsHtml}</div>
