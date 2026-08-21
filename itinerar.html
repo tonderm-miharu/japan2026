@@ -457,12 +457,15 @@
         /* Weather styles */
         .weather-watermark {
             position: absolute;
-            right: 8px;
+            right: 50px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 2rem;
-            opacity: 0.25;
+            font-size: 1.8rem;
+            opacity: 0.2;
             pointer-events: none;
+        }
+        @media (max-width: 600px) {
+            .weather-watermark { right: 36px; font-size: 1.5rem; }
         }
         .day-head { position: relative; }
         .weather-badge {
