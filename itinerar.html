@@ -454,6 +454,40 @@
         .badge-revolut { background: rgba(139,92,246,0.2); color: #A78BFA; }
         .badge-hotelweb { background: rgba(100,100,100,0.2); color: #999; }
 
+        /* Weather styles */
+        .weather-watermark {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+        .day-head { position: relative; }
+        .weather-badge {
+            font-size: 0.6rem;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-left: 4px;
+        }
+        .weather-avg { background: rgba(100,100,100,0.3); color: #999; }
+        .weather-live { background: rgba(16,185,129,0.2); color: var(--green); }
+        .weather-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-hover);
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+        }
+        .weather-detail-icon { font-size: 2.5rem; }
+        .weather-detail-info { flex: 1; }
+        .weather-detail-temp { font-size: 1.5rem; font-weight: 700; }
+        .weather-detail-desc { font-size: 0.8rem; color: var(--text-dim); }
+        .weather-detail-extra { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
         .day-tasks-list { margin-top: 8px; }
         .day-task-item {
             display: flex;
@@ -570,6 +604,7 @@
                     <button class="filter-btn" data-view="hotels">🏨 Hotely</button>
                     <button class="filter-btn" data-view="contacts">👥 Kontakty</button>
                     <button class="filter-btn" data-view="transport">🚄 Transport</button>
+                    <button class="filter-btn" data-action="weather">🌤️ Aktualizovat počasí</button>
                     <hr style="border:none;border-top:1px solid var(--border);margin:8px 0;">
                     <button class="filter-btn active" data-filter="all">Vše</button>
                     <button class="filter-btn" data-filter="ho">HO</button>
@@ -768,6 +803,99 @@
         50: { payment: 'paid', provider: 'Trip' }, 51: { payment: 'paid', provider: 'Trip' }
     };
 
+    // Průměrné počasí podle regionu a měsíce
+    const WEATHER_DEFAULTS = {
+        osaka: { 9: { icon: '🌤️', temp: '26-31°C', desc: 'Horko, vlhko, možné tajfuny' }, 10: { icon: '☀️', temp: '20-26°C', desc: 'Příjemně, sucho' } },
+        kyoto: { 9: { icon: '🌤️', temp: '24-30°C', desc: 'Teplo, vlhko' }, 10: { icon: '☀️', temp: '18-24°C', desc: 'Ideální počasí' } },
+        biwa: { 10: { icon: '☀️', temp: '16-22°C', desc: 'Příjemně, chladnější ráno' } },
+        shimanami: { 10: { icon: '☀️', temp: '18-24°C', desc: 'Ideální na kolo' } },
+        kyushu: { 10: { icon: '🌤️', temp: '20-26°C', desc: 'Teplo, občas déšť' } },
+        tokyo: { 10: { icon: '☀️', temp: '16-22°C', desc: 'Příjemný podzim' }, 11: { icon: '🌤️', temp: '12-18°C', desc: 'Chladnější, sucho' } },
+        okinawa: { 11: { icon: '⛅', temp: '22-26°C', desc: 'Tropické, možný déšť' } },
+        transit: { 9: { icon: '✈️', temp: '–', desc: '' }, 11: { icon: '✈️', temp: '–', desc: '' } }
+    };
+
+    // OpenWeatherMap konfigurace (uživatel může přidat svůj API klíč)
+    const OWM_API_KEY = localStorage.getItem('owm_api_key') || '';
+    const WEATHER_CACHE_KEY = 'japan2026_weather';
+
+    function getWeatherForDay(day) {
+        const cached = JSON.parse(localStorage.getItem(WEATHER_CACHE_KEY) || '{}');
+        if (cached[day] && cached[day].live) {
+            return { ...cached[day], isLive: true };
+        }
+        const d = DAYS.find(x => x.day === day);
+        if (!d) return null;
+        const month = parseInt(d.date.split('.')[1]);
+        const region = d.region || 'transit';
+        const def = WEATHER_DEFAULTS[region]?.[month] || WEATHER_DEFAULTS.tokyo[10];
+        return { ...def, isLive: false };
+    }
+
+    async function fetchWeatherForDay(day) {
+        if (!OWM_API_KEY) return null;
+        const d = DAYS.find(x => x.day === day);
+        if (!d || !d.pois || !d.pois[0]) return null;
+
+        const [lat, lon] = d.pois[0].coords;
+        const dateStr = d.date.split('.').reverse().join('-').replace('-2026', '-2026');
+        const targetDate = new Date(`2026-${d.date.split('.')[1].padStart(2,'0')}-${d.date.split('.')[0].padStart(2,'0')}`);
+        const now = new Date();
+        const daysAhead = Math.ceil((targetDate - now) / (1000 * 60 * 60 * 24));
+
+        if (daysAhead > 5) return null; // OpenWeatherMap free tier = 5 days
+
+        try {
+            const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${OWM_API_KEY}`);
+            const data = await res.json();
+            if (!data.list) return null;
+
+            const dayData = data.list.find(item => {
+                const itemDate = new Date(item.dt * 1000);
+                return itemDate.toDateString() === targetDate.toDateString() && itemDate.getHours() >= 12;
+            });
+
+            if (!dayData) return null;
+
+            const iconMap = { '01': '☀️', '02': '🌤️', '03': '⛅', '04': '☁️', '09': '🌧️', '10': '🌦️', '11': '⛈️', '13': '🌨️', '50': '🌫️' };
+            const owmIcon = dayData.weather[0].icon.slice(0, 2);
+
+            return {
+                icon: iconMap[owmIcon] || '🌤️',
+                temp: `${Math.round(dayData.main.temp)}°C`,
+                tempMax: `${Math.round(dayData.main.temp_max)}°C`,
+                desc: dayData.weather[0].description,
+                humidity: dayData.main.humidity,
+                wind: Math.round(dayData.wind.speed * 3.6),
+                live: true
+            };
+        } catch (e) {
+            console.error('Weather fetch error:', e);
+            return null;
+        }
+    }
+
+    async function updateAllWeather() {
+        if (!OWM_API_KEY) {
+            alert('Zadej OpenWeatherMap API klíč v nastaveních (localStorage: owm_api_key)');
+            return;
+        }
+        const cached = JSON.parse(localStorage.getItem(WEATHER_CACHE_KEY) || '{}');
+        let updated = 0;
+
+        for (const d of DAYS) {
+            const weather = await fetchWeatherForDay(d.day);
+            if (weather) {
+                cached[d.day] = weather;
+                updated++;
+            }
+        }
+
+        localStorage.setItem(WEATHER_CACHE_KEY, JSON.stringify(cached));
+        alert(`Aktualizováno ${updated} dní s předpovědí`);
+        renderDays();
+    }
+
     // Automatické denní úkoly
     const DAY_TASKS = {
         1: ['✈️ Check-in let VIE→TPE (24h před)'],
@@ -894,9 +1022,23 @@
                 </div>
             `).join('') : '';
 
+            const weather = getWeatherForDay(d.day);
+            const weatherWatermark = weather ? `<span class="weather-watermark">${weather.icon}</span>` : '';
+            const weatherDetail = weather ? `
+                <div class="weather-detail">
+                    <span class="weather-detail-icon">${weather.icon}</span>
+                    <div class="weather-detail-info">
+                        <div class="weather-detail-temp">${weather.temp} <span class="weather-badge ${weather.isLive ? 'weather-live' : 'weather-avg'}">${weather.isLive ? 'předpověď' : 'průměr'}</span></div>
+                        <div class="weather-detail-desc">${weather.desc}</div>
+                        ${weather.isLive && weather.wind ? `<div class="weather-detail-extra">💨 ${weather.wind} km/h | 💧 ${weather.humidity}%</div>` : ''}
+                    </div>
+                </div>
+            ` : '';
+
             return `
                 <div class="day-card" id="day-${d.day}" data-tags="${d.tags.join(' ')}" data-search="${(d.title + ' ' + d.subtitle + ' ' + d.hotel).toLowerCase()}">
                     <div class="day-head">
+                        ${weatherWatermark}
                         <div class="day-num-box" style="${getDayBoxStyle(d.dow, d.tags, d.timeline)}">
                             <span class="day-n">${d.date.replace('.2026', '')}</span>
                             <span class="day-dow">${d.dow}</span>
@@ -913,6 +1055,7 @@
                         <div class="expand-btn">▼</div>
                     </div>
                     <div class="day-body">
+                        ${weatherDetail}
                         <div class="detail-grid">
                             <div class="detail-section">
                                 <div class="detail-title">Program</div>
@@ -1106,6 +1249,24 @@
             if (view === 'hotels') { renderHotels(); document.getElementById('hotelsModal').classList.add('visible'); }
             if (view === 'contacts') { renderContacts(); document.getElementById('contactsModal').classList.add('visible'); }
             if (view === 'transport') { renderTransport(); document.getElementById('transportModal').classList.add('visible'); }
+        });
+    });
+
+    document.querySelectorAll('[data-action]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const action = btn.dataset.action;
+            menuDropdown.classList.remove('open');
+            if (action === 'weather') {
+                if (!OWM_API_KEY) {
+                    const key = prompt('Zadej OpenWeatherMap API klíč (zdarma na openweathermap.org):');
+                    if (key) {
+                        localStorage.setItem('owm_api_key', key);
+                        location.reload();
+                    }
+                } else {
+                    updateAllWeather();
+                }
+            }
         });
     });
 
