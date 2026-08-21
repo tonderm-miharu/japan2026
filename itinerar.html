@@ -923,9 +923,10 @@
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const filter = btn.dataset.filter;
-            if (filter === 'tasks') return;
+            if (!filter || filter === 'tasks') return;
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+            menuDropdown.classList.remove('open');
             document.querySelectorAll('.day-card').forEach(card => {
                 if (filter === 'all' || card.dataset.tags.includes(filter)) {
                     card.classList.remove('hidden');
