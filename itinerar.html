@@ -652,6 +652,53 @@
         }
 
         
+        /* Calendar */
+        .calendar-modal { max-width: 340px; }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            margin-top: 12px;
+        }
+        .calendar-header {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 4px 0;
+        }
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.15s;
+            color: #fff;
+        }
+        .calendar-day:hover { transform: scale(1.1); }
+        .calendar-day.empty { cursor: default; }
+        .calendar-day.empty:hover { transform: none; }
+        .calendar-day.weekday { background: linear-gradient(135deg, #059669, #10b981); }
+        .calendar-day.weekend { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+        .calendar-day.ho { background: linear-gradient(135deg, #dc2626, #ef4444); }
+        .calendar-day.today {
+            box-shadow: 0 0 0 2px #fff, 0 0 12px 2px rgba(255,255,255,0.5);
+        }
+        .calendar-month {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .calendar-month:first-child { margin-top: 0; }
+
         /* Mobile task modal */
         .task-modal-overlay {
             display: none;
@@ -725,6 +772,7 @@
                         <button class="filter-btn" data-filter="meet"><svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg><span class="filter-text">Lidé</span></button>
                     </div>
                     <div class="view-row">
+                        <button class="view-btn" data-modal="calendar">📅 Kalendář</button>
                         <button class="view-btn" data-modal="tasks">📋 Úkoly</button>
                         <button class="view-btn" data-view="hotels">🏨 Hotely</button>
                         <button class="view-btn" data-view="contacts">👥 Kontakty</button>
@@ -735,6 +783,7 @@
                     <div class="menu-container">
                         <button class="nav-btn" id="menuBtn"><span class="nav-btn-icon">☰</span></button>
                         <div class="menu-dropdown" id="menuDropdown">
+                            <button class="menu-item" data-modal="calendar">📅 Kalendář</button>
                             <button class="menu-item" data-modal="tasks">📋 Úkoly</button>
                             <button class="menu-item" data-view="hotels">🏨 Hotely</button>
                             <button class="menu-item" data-view="contacts">👥 Kontakty</button>
@@ -795,6 +844,16 @@
                 <button class="task-modal-close" data-close="transportModal">&times;</button>
             </div>
             <div id="transportContent"></div>
+        </div>
+    </div>
+
+    <div class="task-modal-overlay" id="calendarModal">
+        <div class="task-modal calendar-modal">
+            <div class="task-modal-header">
+                <h2>📅 Kalendář cesty</h2>
+                <button class="task-modal-close" data-close="calendarModal">&times;</button>
+            </div>
+            <div id="calendarContent"></div>
         </div>
     </div>
 
@@ -1414,6 +1473,81 @@
             </div>
         `;
     }
+
+    function renderCalendar() {
+        const today = new Date();
+        const todayStr = `${today.getDate()}.${today.getMonth()+1}.${today.getFullYear()}`;
+
+        const daysByDate = {};
+        DAYS.forEach(d => {
+            daysByDate[d.date] = d;
+        });
+
+        let html = '<div class="calendar-grid">';
+        html += ['M','T','W','T','F','S','S'].map(d => `<div class="calendar-header">${d}</div>`).join('');
+        html += '</div>';
+
+        const months = [
+            { name: 'Září 2026', year: 2026, month: 8, startDay: 18, endDay: 30 },
+            { name: 'Říjen 2026', year: 2026, month: 9, startDay: 1, endDay: 31 },
+            { name: 'Listopad 2026', year: 2026, month: 10, startDay: 1, endDay: 9 }
+        ];
+
+        months.forEach(m => {
+            html += `<div class="calendar-month">${m.name}</div>`;
+            html += '<div class="calendar-grid">';
+            html += ['M','T','W','T','F','S','S'].map(d => `<div class="calendar-header">${d}</div>`).join('');
+
+            const firstDate = new Date(m.year, m.month, m.startDay);
+            let dayOfWeek = (firstDate.getDay() + 6) % 7;
+
+            for (let i = 0; i < dayOfWeek; i++) {
+                html += '<div class="calendar-day empty"></div>';
+            }
+
+            for (let day = m.startDay; day <= m.endDay; day++) {
+                const dateStr = `${day}.${m.month + 1}.${m.year}`;
+                const dayData = daysByDate[dateStr];
+                if (!dayData) continue;
+
+                const date = new Date(m.year, m.month, day);
+                const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+                const isHO = dayData.tags.includes('ho');
+                const isToday = dateStr === todayStr;
+
+                let cls = 'calendar-day';
+                if (isHO) cls += ' ho';
+                else if (isWeekend) cls += ' weekend';
+                else cls += ' weekday';
+                if (isToday) cls += ' today';
+
+                html += `<div class="${cls}" data-daynum="${dayData.day}">${day}</div>`;
+            }
+            html += '</div>';
+        });
+
+        document.getElementById('calendarContent').innerHTML = html;
+
+        document.querySelectorAll('.calendar-day[data-daynum]').forEach(el => {
+            el.addEventListener('click', () => {
+                const dayNum = el.dataset.daynum;
+                document.getElementById('calendarModal').classList.remove('visible');
+                const card = document.getElementById('day-' + dayNum);
+                if (card) {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    card.classList.add('expanded');
+                }
+            });
+        });
+    }
+
+    document.querySelectorAll('[data-modal="calendar"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (menuDropdown) menuDropdown.classList.remove('open');
+            renderCalendar();
+            document.getElementById('calendarModal').classList.add('visible');
+        });
+    });
 
     document.querySelectorAll('[data-view]').forEach(btn => {
         btn.addEventListener('click', () => {
