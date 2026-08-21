@@ -1566,6 +1566,7 @@
         btn.addEventListener('click', () => {
             if (menuDropdown) menuDropdown.classList.remove('open');
             renderCalendar('calendarContent');
+            applyFilters(); // Apply current filters to modal calendar
             document.getElementById('calendarModal').classList.add('visible');
         });
     });
