@@ -106,42 +106,43 @@
             .nav-btn { padding: 8px; }
         }
 
-        .filters-row {
-            display: flex;
-            align-items: center;
-            gap: 4px;
+        .filter-menu-container {
+            position: relative;
         }
+
+        .filter-dropdown {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 8px;
+            min-width: 120px;
+            z-index: 150;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        .filter-dropdown.open { display: block; }
 
         .filter-btn {
-            padding: 5px 10px;
-            border-radius: 14px;
-            border: 1px solid var(--border);
+            display: block;
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
             background: transparent;
             color: var(--text-dim);
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.15s;
+            text-align: left;
+            margin-bottom: 2px;
         }
 
-        .filter-btn:hover { border-color: var(--text-dim); color: var(--text); }
-        .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-
-        .search-toggle {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-            background: transparent;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.15s;
-        }
-
-        .search-toggle:hover { border-color: var(--text-dim); color: var(--text); }
+        .filter-btn:hover { background: var(--bg-hover); color: var(--text); }
+        .filter-btn.active { background: var(--accent); color: #fff; }
 
         .search-overlay {
             display: none;
@@ -656,20 +657,23 @@
             </div>
             <div class="header-nav">
                 <div class="nav-buttons">
-                    <button class="nav-btn" data-filter="tasks"><span class="nav-btn-icon">📋</span><span class="nav-btn-label">Úkoly</span></button>
+                    <button class="nav-btn" data-modal="tasks"><span class="nav-btn-icon">📋</span><span class="nav-btn-label">Úkoly</span></button>
                     <button class="nav-btn" data-view="hotels"><span class="nav-btn-icon">🏨</span><span class="nav-btn-label">Hotely</span></button>
                     <button class="nav-btn" data-view="contacts"><span class="nav-btn-icon">👥</span><span class="nav-btn-label">Kontakty</span></button>
                     <button class="nav-btn" data-view="transport"><span class="nav-btn-icon">🚄</span><span class="nav-btn-label">Transport</span></button>
                     <button class="nav-btn" data-action="weather"><span class="nav-btn-icon">🌤️</span><span class="nav-btn-label">Počasí</span></button>
-                </div>
-                <div class="filters-row">
-                    <button class="filter-btn active" data-filter="all">Vše</button>
-                    <button class="filter-btn" data-filter="ho">HO</button>
-                    <button class="filter-btn" data-filter="car">Auto</button>
-                    <button class="filter-btn" data-filter="bike">Kolo</button>
-                    <button class="filter-btn" data-filter="onsen">Onsen</button>
-                    <button class="filter-btn" data-filter="meet">Setkání</button>
-                    <button class="search-toggle" id="searchToggle">🔍</button>
+                    <button class="nav-btn" id="searchToggle"><span class="nav-btn-icon">🔍</span><span class="nav-btn-label">Hledat</span></button>
+                    <div class="filter-menu-container">
+                        <button class="nav-btn" id="filterMenuBtn"><span class="nav-btn-icon">☰</span><span class="nav-btn-label">Filtr</span></button>
+                        <div class="filter-dropdown" id="filterDropdown">
+                            <button class="filter-btn active" data-filter="all">Vše</button>
+                            <button class="filter-btn" data-filter="ho">HO</button>
+                            <button class="filter-btn" data-filter="car">Auto</button>
+                            <button class="filter-btn" data-filter="bike">Kolo</button>
+                            <button class="filter-btn" data-filter="onsen">Onsen</button>
+                            <button class="filter-btn" data-filter="meet">Setkání</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1244,8 +1248,40 @@
         }
     });
 
+    // Filter menu dropdown
+    const filterMenuBtn = document.getElementById('filterMenuBtn');
+    const filterDropdown = document.getElementById('filterDropdown');
+
+    filterMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        filterDropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!filterDropdown.contains(e.target) && e.target !== filterMenuBtn) {
+            filterDropdown.classList.remove('open');
+        }
+    });
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterDropdown.classList.remove('open');
+            document.querySelectorAll('.day-card').forEach(card => {
+                if (filter === 'all' || card.dataset.tags.includes(filter)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+
     // Task modal handlers
-    document.querySelector('[data-filter="tasks"]').addEventListener('click', (e) => {
+    document.querySelector('[data-modal="tasks"]').addEventListener('click', (e) => {
         e.preventDefault();
         document.getElementById('taskModal').classList.add('visible');
     });
