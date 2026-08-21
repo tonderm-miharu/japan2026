@@ -134,9 +134,15 @@
         .filter-text { }
 
         @media (max-width: 900px) {
-            .filter-icon { display: block; width: 20px; height: 20px; }
+            .filter-icon {
+                display: block;
+                width: 28px;
+                height: 28px;
+                stroke: #60a5fa;
+                filter: drop-shadow(0 0 4px #60a5fa) drop-shadow(0 0 8px #3b82f6);
+            }
             .filter-text { display: none; }
-            .filter-btn { padding: 8px 10px; }
+            .filter-btn { padding: 6px 8px; }
         }
 
         .view-row {
