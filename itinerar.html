@@ -167,6 +167,26 @@
             .menu-container { display: none; }
         }
 
+        .nav-search {
+            padding: 6px 10px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            font-size: 0.75rem;
+            width: 100px;
+            outline: none;
+            transition: all 0.15s;
+        }
+
+        .nav-search:focus { border-color: var(--accent); width: 140px; }
+        .nav-search::placeholder { color: var(--text-dim); }
+
+        @media (max-width: 600px) {
+            .nav-search { width: 70px; }
+            .nav-search:focus { width: 100px; }
+        }
+
         .menu-container {
             position: relative;
             margin-left: auto;
@@ -203,43 +223,6 @@
         }
 
         .menu-item:hover { background: var(--bg-hover); }
-
-        .search-bar {
-            display: none;
-            padding: 8px 16px;
-            background: var(--bg-header);
-            border-top: 1px solid var(--border);
-        }
-
-        .search-bar.visible { display: block; }
-
-        .search-bar input {
-            width: 100%;
-            padding: 10px 14px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text);
-            font-size: 0.9rem;
-            outline: none;
-        }
-
-        .search-bar input:focus { border-color: var(--accent); }
-
-        .search-bar .search-clear {
-            position: absolute;
-            right: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--text-dim);
-            cursor: pointer;
-            font-size: 1.2rem;
-            display: none;
-        }
-
-        .search-bar .search-clear.visible { display: block; }
 
         main {
             max-width: 1400px;
@@ -743,7 +726,7 @@
                         <button class="view-btn" data-view="transport">🚄 Transport</button>
                         <button class="view-btn" data-action="weather">🌤️ Počasí</button>
                     </div>
-                    <button class="nav-btn" id="searchToggle"><span class="nav-btn-icon">🔍</span></button>
+                    <input type="text" class="nav-search" id="search" placeholder="Hledat...">
                     <div class="menu-container">
                         <button class="nav-btn" id="menuBtn"><span class="nav-btn-icon">☰</span></button>
                         <div class="menu-dropdown" id="menuDropdown">
@@ -754,12 +737,6 @@
                             <button class="menu-item" data-action="weather">🌤️ Aktualizovat počasí</button>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="search-bar" id="searchBar">
-                <div style="position: relative;">
-                    <input type="text" placeholder="Hledat den, místo, hotel..." id="search">
-                    <button class="search-clear" id="searchClear">&times;</button>
                 </div>
             </div>
         </div>
@@ -1302,35 +1279,18 @@
         });
     });
 
-    // Search bar
-    const searchToggle = document.getElementById('searchToggle');
-    const searchBar = document.getElementById('searchBar');
+    // Search input
     const searchInput = document.getElementById('search');
-    const searchClear = document.getElementById('searchClear');
-
-    searchToggle.addEventListener('click', () => {
-        searchBar.classList.toggle('visible');
-        if (searchBar.classList.contains('visible')) {
-            searchInput.focus();
-        }
-    });
-
-    searchClear.addEventListener('click', () => {
-        searchInput.value = '';
-        searchClear.classList.remove('visible');
-        document.querySelectorAll('.day-card').forEach(card => card.classList.remove('hidden'));
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
-        searchInput.focus();
-    });
-
     searchInput.addEventListener('input', () => {
-        searchClear.classList.toggle('visible', searchInput.value.length > 0);
-    });
-
-    searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            searchBar.classList.remove('visible');
+        const q = searchInput.value.toLowerCase();
+        document.querySelectorAll('.day-card').forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.classList.toggle('hidden', q && !text.includes(q));
+        });
+        if (q) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        } else {
+            document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
         }
     });
 
