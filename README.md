@@ -2,36 +2,41 @@
 
 53denní cesta po Japonsku (18.9. - 9.11.2026)
 
+## Live verze
+
+**https://tonderm-miharu.github.io/japan2026/itinerar.html**
+
 ## Obsah projektu
 
 | Soubor | Popis |
 |--------|-------|
-| `itinerar.html` | Interaktivní HTML dashboard s mapami |
+| `itinerar.html` | Interaktivní HTML dashboard |
 | `KONSOLIDOVANY_ITINERAR.md` | Detailní itinerář v Markdown formátu |
 | `ROZVRH.xlsx` | Tabulka s rozvrhem a hotely |
-| `puvodni_prompt.txt` | Původní zadání a požadavky |
-| `chatgpt_konverzace.docx` | Výcuc z konverzace s ChatGPT |
 
-## Itinerář - HTML Dashboard
+## Funkce dashboardu
 
-Otevři `itinerar.html` v prohlížeči.
+### Navigace
+- **Filtry** - Vše / HO / Auto / Kolo / Onsen / Lidé
+- **Vyhledávání** - přímo v liště, real-time filtrování
+- **Hamburger menu** (mobil) - Úkoly, Hotely, Kontakty, Transport, Počasí
 
-### Funkce
+### Karty dnů
+- Barevné rozlišení: zelená (všední den), modrá (víkend), červená (HO)
+- Ikona počasí s teplotou (statické průměry nebo live data)
+- Rozbalovací detaily s timeline a POI
+- Google Maps odkazy pro POI
+- Automatické denní úkoly (kufry, auto, check-in)
 
-- **Filtry** - HO / Auto / Kolo / Onsen / Setkání
-- **Vyhledávání** - hledá v názvech, destinacích a hotelech
-- **Rozbalovací karty** - klikni na den pro detaily
-- **Mapy** - každý den má mapu se všemi POI
-- **Task list** - checkboxy s ukládáním do localStorage
-- **Navigace** - sidebar s fázemi cesty pro rychlý skok
+### Modály
+- **Úkoly** - checkboxy s prioritou, ukládání do localStorage
+- **Hotely** - přehled s cenami, provider badges, platební status
+- **Kontakty** - seznam lidí k oslovení s termíny
+- **Transport** - lety, auta, ferry
 
-### Mapa
-
-- Zelený bod = start dne
-- Červený bod = cíl dne  
-- Modré body = mezizastávky
-- Čárkovaná linie = trasa
-- Klikni na bod pro název místa
+### Počasí
+- Statické průměry podle regionu a měsíce
+- Volitelně live data z OpenWeatherMap API (tlačítko v menu)
 
 ## Fáze cesty
 
@@ -66,6 +71,8 @@ Otevři `itinerar.html` v prohlížeči.
 
 ## Technické poznámky
 
-- Dashboard používá [Leaflet.js](https://leafletjs.com/) pro mapy
-- Stav tasků se ukládá do localStorage prohlížeče
-- Funguje offline (mapy vyžadují internet)
+- Single-page HTML s inline CSS a JS
+- Data uložena přímo v JS (DAYS, TASKS, HOTEL_INFO, etc.)
+- Stav tasků v localStorage
+- Responzivní design (mobil / desktop)
+- Funguje offline (počasí live vyžaduje internet)
