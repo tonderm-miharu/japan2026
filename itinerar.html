@@ -286,7 +286,7 @@
             align-items: flex-start;
             gap: 10px;
             padding: 8px 0;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
         }
 
         .task-item:last-child { border-bottom: none; }
@@ -294,19 +294,20 @@
         .task-cb {
             width: 16px;
             height: 16px;
-            border: 2px solid var(--text-muted);
+            border: 2px solid rgba(255,255,255,0.5);
             border-radius: 4px;
             cursor: pointer;
             flex-shrink: 0;
             margin-top: 2px;
             transition: all 0.15s;
+            background: transparent;
         }
 
-        .task-cb:hover { border-color: var(--green); }
-        .task-cb.done { background: var(--green); border-color: var(--green); }
+        .task-cb:hover { border-color: #86efac; }
+        .task-cb.done { background: #22c55e; border-color: #22c55e; }
         .task-cb.done::after { content: "✓"; color: #fff; font-size: 10px; display: flex; align-items: center; justify-content: center; height: 100%; }
 
-        .task-text { font-size: 0.8rem; color: var(--text-dim); }
+        .task-text { font-size: 0.8rem; color: rgba(255,255,255,0.9); }
         .task-text.done { text-decoration: line-through; opacity: 0.5; }
 
         .task-priority {
@@ -319,8 +320,8 @@
             display: inline-block;
         }
 
-        .priority-high { background: rgba(239,68,68,0.2); color: var(--red); }
-        .priority-med { background: rgba(245,158,11,0.2); color: var(--orange); }
+        .priority-high { background: rgba(239,68,68,0.4); color: #fca5a5; }
+        .priority-med { background: rgba(245,158,11,0.4); color: #fcd34d; }
 
         .days {
             display: flex;
@@ -667,7 +668,7 @@
         }
         .task-modal-overlay.visible { display: flex; }
         .task-modal {
-            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            background: linear-gradient(135deg, #1e3a5f, #1e40af);
             border: none;
             border-radius: var(--radius);
             padding: 24px;
@@ -1368,10 +1369,10 @@
             ${hotels.map(h => `
                 <div class="view-item" style="flex-direction:column;align-items:flex-start;gap:4px;">
                     <div style="display:flex;justify-content:space-between;width:100%;">
-                        <strong>${h.date}</strong>
+                        <strong style="color:#fef08a;">${h.date}</strong>
                         <span class="view-item-price">${h.price}</span>
                     </div>
-                    <div style="font-size:0.8rem;">${h.hotel}</div>
+                    <div style="font-size:0.8rem;color:#fff;">${h.hotel}</div>
                     <div>${h.badges}</div>
                 </div>
             `).join('')}
@@ -1386,10 +1387,10 @@
         document.getElementById('contactsContent').innerHTML = CONTACTS.map(c => `
             <div class="view-item" style="flex-direction:column;align-items:flex-start;gap:4px;">
                 <div style="display:flex;justify-content:space-between;width:100%;">
-                    <strong>${c.name}</strong>
+                    <strong style="color:#fff;">${c.name}</strong>
                     <span class="view-item-date">${c.when}</span>
                 </div>
-                <span style="font-size:0.75rem;color:var(--text-muted)">${c.note}</span>
+                <span style="font-size:0.75rem;color:rgba(255,255,255,0.7);">${c.note}</span>
             </div>
         `).join('');
     }
