@@ -16,27 +16,40 @@
 
 ## Funkce dashboardu
 
-### Navigace
-- **Filtry** - Vše / HO / Auto / Kolo / Onsen / Lidé
+### Navigace - Desktop
+- **Kalendář** - permanentně v levém sidebaru
+- **Filtry** - HO / Auto / Kolo / Onsen / Lidé (toggle, lze kombinovat)
 - **Vyhledávání** - přímo v liště, real-time filtrování
-- **Hamburger menu** (mobil) - Úkoly, Hotely, Kontakty, Transport, Počasí
+- **Views** - Úkoly, Hotely, Kontakty, Transport, Počasí
+
+### Navigace - Mobil
+- **Header** - Japan'26 | Search | Countdown (in X days)
+- **Filtry** - glowing ikony (modrá), kalendář (červená)
+- **Hamburger** - Úkoly, Hotely, Kontakty, Transport, Počasí
+
+### Kalendář
+- Interaktivní kalendář Sep-Nov 2026
+- Barevné kódování: zelená (všední), modrá (víkend), červená (HO)
+- HO zobrazení: 8h = 50% pruh, 5-7h = 40% pruh, ≤4h = rohový trojúhelník
+- Klik na den scrollne a rozbalí kartu
+- Filtry aplikovány i na kalendář (ztlumení nevyhovujících dnů)
 
 ### Karty dnů
-- Barevné rozlišení: zelená (všední den), modrá (víkend), červená (HO)
-- Ikona počasí s teplotou (statické průměry nebo live data)
+- Barevné rozlišení s HO indikátorem
+- Ikona počasí s teplotou
 - Rozbalovací detaily s timeline a POI
 - Google Maps odkazy pro POI
 - Automatické denní úkoly (kufry, auto, check-in)
 
-### Modály
-- **Úkoly** - checkboxy s prioritou, ukládání do localStorage
+### Modály (tmavě modré pozadí)
+- **Úkoly** - seskupené dle priority (High/Medium), kompaktní zobrazení
 - **Hotely** - přehled s cenami, provider badges, platební status
 - **Kontakty** - seznam lidí k oslovení s termíny
 - **Transport** - lety, auta, ferry
 
 ### Počasí
 - Statické průměry podle regionu a měsíce
-- Volitelně live data z OpenWeatherMap API (tlačítko v menu)
+- Volitelně live data z OpenWeatherMap API
 
 ## Fáze cesty
 
@@ -52,7 +65,7 @@
 
 ## K vyřešení před cestou
 
-### Vysoká priorita
+### High Priority
 - [ ] Ferry Yawatahama-Beppu 13:00 (8.10.)
 - [ ] Ferry Kumamoto-Shimabara 09:25 (16.10.)
 - [ ] teamLab Biovortex vstupenky (1.10.)
@@ -63,7 +76,7 @@
 - [ ] Odeslat kufr Fukuyama→Matsuyama (6.10.)
 - [ ] Odeslat kufr Kumamoto→Nagasaki (16.10.)
 
-### Kontakty
+### Medium
 - [ ] Keigo - min. 1 týden před 26.9.
 - [ ] Takashi - pro 28.9.
 - [ ] Wahei - min. měsíc před 24.10.
