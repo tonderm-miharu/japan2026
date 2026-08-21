@@ -332,6 +332,23 @@
 
         .task-item:last-child { border-bottom: none; }
 
+        .task-group-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            margin: 12px 0 6px 0;
+            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .task-group-title:first-child { margin-top: 0; }
+
+        .task-item-compact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 0;
+        }
+
         .task-cb {
             width: 16px;
             height: 16px;
@@ -1224,18 +1241,27 @@
     function renderTasks() {
         const containers = [document.getElementById('tasks'), document.getElementById('tasksMobile')];
         const saved = JSON.parse(localStorage.getItem('japan2026_tasks') || '{}');
-        const html = TASKS.map(t => {
-            const done = saved[t.id] || false;
+
+        const highTasks = TASKS.filter(t => t.priority === 'high');
+        const medTasks = TASKS.filter(t => t.priority === 'med');
+
+        const renderGroup = (tasks, title) => {
+            if (tasks.length === 0) return '';
             return `
-                <div class="task-item">
-                    <div class="task-cb ${done ? 'done' : ''}" data-task="${t.id}"></div>
-                    <div>
-                        <span class="task-priority priority-${t.priority}">${t.priority === 'high' ? 'High' : 'Med'}</span>
-                        <div class="task-text ${done ? 'done' : ''}">${t.text}</div>
-                    </div>
-                </div>
+                <div class="task-group-title">${title}</div>
+                ${tasks.map(t => {
+                    const done = saved[t.id] || false;
+                    return `
+                        <div class="task-item-compact">
+                            <div class="task-cb ${done ? 'done' : ''}" data-task="${t.id}"></div>
+                            <span class="task-text ${done ? 'done' : ''}">${t.text}</span>
+                        </div>
+                    `;
+                }).join('')}
             `;
-        }).join('');
+        };
+
+        const html = renderGroup(highTasks, '🔴 High Priority') + renderGroup(medTasks, '🟡 Medium');
 
         containers.forEach(container => {
             if (!container) return;
