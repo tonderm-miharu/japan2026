@@ -704,10 +704,10 @@
         .calendar-day.weekend { background: linear-gradient(135deg, #2563eb, #3b82f6); }
         .calendar-day.ho-full { background: linear-gradient(to right, #059669 50%, #dc2626 50%); }
         .calendar-day.ho-half { background: linear-gradient(to right, #059669 60%, #dc2626 60%); }
-        .calendar-day.ho-third { background: linear-gradient(to right, #059669 67%, #dc2626 67%); }
+        .calendar-day.ho-third { background: linear-gradient(to bottom left, #dc2626 30%, transparent 30%), linear-gradient(135deg, #059669, #10b981); }
         .calendar-day.weekend.ho-full { background: linear-gradient(to right, #2563eb 50%, #dc2626 50%); }
         .calendar-day.weekend.ho-half { background: linear-gradient(to right, #2563eb 60%, #dc2626 60%); }
-        .calendar-day.weekend.ho-third { background: linear-gradient(to right, #2563eb 67%, #dc2626 67%); }
+        .calendar-day.weekend.ho-third { background: linear-gradient(to bottom left, #dc2626 30%, transparent 30%), linear-gradient(135deg, #2563eb, #3b82f6); }
 
         /* Sidebar calendar */
         .sidebar-calendar {
@@ -1154,7 +1154,11 @@
             }
         }
 
-        const hoPercent = hoHours >= 8 ? 50 : hoHours <= 4 ? 33 : 40;
+        if (hoHours <= 4) {
+            // Short HO - corner triangle
+            return `background: linear-gradient(to bottom left, ${hoColor} 30%, transparent 30%), linear-gradient(135deg, ${baseStart}, ${baseEnd});`;
+        }
+        const hoPercent = hoHours >= 8 ? 50 : 40;
         const basePercent = 100 - hoPercent;
 
         return `background: linear-gradient(to right, ${baseStart} 0%, ${baseEnd} ${basePercent}%, ${hoColor} ${basePercent}%);`;
