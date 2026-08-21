@@ -174,22 +174,22 @@
             background: transparent;
             color: var(--text);
             font-size: 0.75rem;
-            width: 100px;
+            flex: 1;
+            min-width: 60px;
+            max-width: 200px;
             outline: none;
             transition: all 0.15s;
         }
 
-        .nav-search:focus { border-color: var(--accent); width: 140px; }
+        .nav-search:focus { border-color: var(--accent); }
         .nav-search::placeholder { color: var(--text-dim); }
 
-        @media (max-width: 600px) {
-            .nav-search { width: 70px; }
-            .nav-search:focus { width: 100px; }
+        @media (max-width: 900px) {
+            .nav-search { max-width: none; }
         }
 
         .menu-container {
             position: relative;
-            margin-left: auto;
         }
 
         .menu-dropdown {
