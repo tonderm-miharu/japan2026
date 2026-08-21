@@ -663,32 +663,40 @@
 
         
         /* Calendar */
-        .calendar-modal { max-width: 340px; }
+        .calendar-modal { max-width: 300px; padding: 12px; }
+        .calendar-modal .task-modal-header { display: none; }
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 4px;
-            margin-top: 12px;
+            margin-top: 8px;
         }
         .calendar-header {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             color: rgba(255,255,255,0.6);
             text-align: center;
-            padding: 4px 0;
+            padding: 2px 0;
         }
         .calendar-day {
             aspect-ratio: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
             transition: all 0.15s;
             color: #fff;
         }
+        .calendar-month {
+            font-size: 0.75rem;
+            margin-top: 10px;
+            margin-bottom: 4px;
+            padding-bottom: 2px;
+        }
+        .calendar-month:first-child { margin-top: 0; }
         .calendar-day:hover { transform: scale(1.1); }
         .calendar-day.empty { cursor: default; }
         .calendar-day.empty:hover { transform: none; }
@@ -1506,9 +1514,9 @@
         DAYS.forEach(d => { daysByDate[d.date] = d; });
 
         const months = [
-            { name: 'Září 2026', year: 2026, month: 8, startDay: 18, endDay: 30 },
-            { name: 'Říjen 2026', year: 2026, month: 9, startDay: 1, endDay: 31 },
-            { name: 'Listopad 2026', year: 2026, month: 10, startDay: 1, endDay: 9 }
+            { name: 'September', year: 2026, month: 8, startDay: 18, endDay: 30 },
+            { name: 'October', year: 2026, month: 9, startDay: 1, endDay: 31 },
+            { name: 'November', year: 2026, month: 10, startDay: 1, endDay: 9 }
         ];
 
         let html = '';
