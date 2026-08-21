@@ -88,7 +88,7 @@
 - Zrusit do: 18.9.
 - Cena: 43 EUR
 
-**Poznamka:** Od 16:00 Home Office
+**Poznamka:** Volný večer v Osace
 
 ---
 
@@ -1024,7 +1024,7 @@
 
 ### Letenky/Doprava
 - [ ] Rezervovat/overit ferry Yawatahama - Beppu 13:00 (8.10.)
-- [ ] Overit express bus Yufuin - Kumamoto (11.10.)
+- [ ] **Rezervace express bus Yufuin - Kumamoto (11.10.)**
 - [ ] Overit bus Shimabara - Unzen a Unzen - Obama
 
 ### Ubytovani

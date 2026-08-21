@@ -53,6 +53,7 @@ Otevři `itinerar.html` v prohlížeči.
 - [ ] Kola Shimanami multi-day (6-7.10.)
 - [ ] Takachiho Yokagura rezervace (14.10.)
 - [ ] Ubytování 26-29.10 (Izu/Fuji road trip)
+- [ ] Express bus Yufuin-Kumamoto rezervace (11.10.)
 
 ### Kontakty
 - [ ] Keigo - min. 1 týden před 26.9.

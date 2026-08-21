@@ -245,8 +245,9 @@
         }
 
         .day-num-box {
-            width: 48px;
+            min-width: 52px;
             height: 48px;
+            padding: 0 6px;
             border-radius: var(--radius-sm);
             display: flex;
             flex-direction: column;
@@ -255,7 +256,7 @@
             font-weight: 700;
         }
 
-        .day-n { font-size: 1.1rem; line-height: 1; }
+        .day-n { font-size: 0.95rem; line-height: 1; white-space: nowrap; }
         .day-dow { font-size: 0.6rem; text-transform: uppercase; opacity: 0.8; }
 
         .day-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
@@ -525,13 +526,13 @@
         { id: 't5', text: 'Ubytování 26–29.10 Izu', priority: 'high' },
         { id: 't6', text: 'Kontakt Keigo (min. 1 týden)', priority: 'med' },
         { id: 't7', text: 'Kontakt Wahei (min. 1 měsíc)', priority: 'med' },
-        { id: 't8', text: 'Bus Yufuin–Kumamoto ověřit', priority: 'med' },
+        { id: 't8', text: 'Express bus Yufuin–Kumamoto rezervace', priority: 'high' },
     ];
 
     const DAYS = [
         { day: 1, dow: 'Pá', date: '18.9.2026', title: 'VIE → TPE', subtitle: 'Přesun, let', region: 'transit', tags: ['flight'], hotel: 'V letadle', price: '', pois: [{name:'Vídeň letiště', coords:[48.1103,16.5697]}], timeline: [{time:'11:25', text:'Odlet z Vídně', type:'transport'}] },
         { day: 2, dow: 'So', date: '19.9.2026', title: 'TPE → Kishiwada', subtitle: 'Danjiri Festival – Yoimiya', region: 'osaka', tags: ['flight','fest'], hotel: 'Route-Inn Higashikishiwada', price: '58 EUR', cancel: '14.9.', pois: [{name:'Kansai Airport (KIX)', coords:[34.4347,135.2441]}, {name:'Kishiwada Station', coords:[34.4603,135.3700]}, {name:'Kankanba (yarimawashi)', coords:[34.4622,135.3716]}, {name:'Route-Inn Hotel', coords:[34.4573,135.3833]}], timeline: [{time:'05:30', text:'Odlet TPE', type:'transport'}, {time:'12:50', text:'Přílet KIX', type:'transport'}, {time:'~15:00', text:'Hotel + start festivalu', type:''}, {time:'15:30–17:00', text:'Yarimawashi', type:'sight'}, {time:'17:00–19:00', text:'Pauza, jídlo', type:'food'}, {time:'19:00–21:30', text:'Tomoshibi – večerní danjiri', type:'sight'}] },
-        { day: 3, dow: 'Ne', date: '20.9.2026', title: 'Kishiwada → Osaka', subtitle: 'Danjiri Hommya + přesun', region: 'osaka', tags: ['fest','ho'], hotel: 'Shinsaibashi Arty Inn', price: '43 EUR', cancel: '18.9.', pois: [{name:'Kishiki Shrine', coords:[34.4617,135.3708]}, {name:'Shinsaibashi Arty Inn', coords:[34.6723,135.5022]}], timeline: [{time:'08:00', text:'Odchod z hotelu', type:''}, {time:'09:00–11:30', text:'Miyairi – vstup danjiri ke svatyním', type:'sight'}, {time:'11:30–15:00', text:'Pokračování festivalu', type:'sight'}, {time:'Odpoledne', text:'Přesun do Osaky', type:'transport'}, {time:'16:00–24:00', text:'HOME OFFICE', type:'work'}] },
+        { day: 3, dow: 'Ne', date: '20.9.2026', title: 'Kishiwada → Osaka', subtitle: 'Danjiri Hommya + přesun', region: 'osaka', tags: ['fest'], hotel: 'Shinsaibashi Arty Inn', price: '43 EUR', cancel: '18.9.', pois: [{name:'Kishiki Shrine', coords:[34.4617,135.3708]}, {name:'Shinsaibashi Arty Inn', coords:[34.6723,135.5022]}], timeline: [{time:'08:00', text:'Odchod z hotelu', type:''}, {time:'09:00–11:30', text:'Miyairi – vstup danjiri ke svatyním', type:'sight'}, {time:'11:30–15:00', text:'Pokračování festivalu', type:'sight'}, {time:'Odpoledne', text:'Přesun do Osaky', type:'transport'}] },
         { day: 4, dow: 'Po', date: '21.9.2026', title: 'Osaka – Architektura', subtitle: 'Nakanoshima → Kitahama → Semba', region: 'osaka', tags: ['ho'], hotel: 'Shinsaibashi Arty Inn', price: '43 EUR', pois: [{name:'Bank of Japan Osaka', coords:[34.6920,135.5053]}, {name:'Osaka City Central Public Hall', coords:[34.6918,135.5027]}, {name:'Nakanoshima Library', coords:[34.6912,135.4997]}, {name:'Osaka Securities Exchange', coords:[34.6897,135.5050]}, {name:'Semba / Cotton Industry Hall', coords:[34.6797,135.5020]}], timeline: [{time:'09:30–13:30', text:'Nakanoshima – Kitahama – Semba', type:'sight', note:'Bank of Japan, Public Hall, Library'}, {time:'13:30–15:00', text:'Oběd + přesun', type:'food'}, {time:'16:00–24:00', text:'HOME OFFICE', type:'work'}] },
         { day: 5, dow: 'Út', date: '22.9.2026', title: 'Sakai', subtitle: 'Kofun, Shimano Museum', region: 'osaka', tags: ['ho'], hotel: 'Shinsaibashi Arty Inn', price: '43 EUR', pois: [{name:'Daisen Kofun (Nintoku tomb)', coords:[34.5642,135.4879]}, {name:'Shimano Bicycle Museum', coords:[34.5733,135.4830]}], timeline: [{time:'Dopoledne', text:'Sakai – Kofun hrobky', type:'sight'}, {time:'10:00–16:30', text:'Shimano Bicycle Museum', type:'sight'}, {time:'16:00–24:00', text:'HOME OFFICE', type:'work'}] },
         { day: 6, dow: 'St', date: '23.9.2026', title: 'Osaka Bay', subtitle: 'Maishima, ATC/Sakishima', region: 'osaka', tags: ['ho'], hotel: 'Shinsaibashi Arty Inn', price: '43 EUR', pois: [{name:'Maishima Sports Island', coords:[34.6657,135.4017]}, {name:'ATC (Asia & Pacific Trade Center)', coords:[34.6375,135.4178]}, {name:'Sakishima', coords:[34.6410,135.4295]}], timeline: [{time:'09:30', text:'Maishima Sports Island', type:'sight'}, {time:'Dopoledne', text:'ATC / Sakishima urbanismus', type:'sight'}, {time:'13:00–15:00', text:'Oběd + návrat', type:'food'}, {time:'16:00–24:00', text:'HOME OFFICE', type:'work'}] },
@@ -673,7 +674,7 @@
                 <div class="day-card" id="day-${d.day}" data-tags="${d.tags.join(' ')}" data-search="${(d.title + ' ' + d.subtitle + ' ' + d.hotel).toLowerCase()}">
                     <div class="day-head">
                         <div class="day-num-box" style="${getDayBoxStyle(d.dow, d.tags, d.timeline)}">
-                            <span class="day-n">${d.day}</span>
+                            <span class="day-n">${d.date.replace('.2026', '')}</span>
                             <span class="day-dow">${d.dow}</span>
                         </div>
                         <div class="day-info">
