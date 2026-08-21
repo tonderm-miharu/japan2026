@@ -712,6 +712,10 @@
         .calendar-day.today {
             box-shadow: 0 0 0 2px #fff, 0 0 12px 2px rgba(255,255,255,0.5);
         }
+        .calendar-day.dimmed {
+            opacity: 0.25;
+            transform: scale(0.9);
+        }
         .calendar-month {
             font-size: 0.8rem;
             font-weight: 600;
@@ -1358,6 +1362,7 @@
             activeFilters.push(b.dataset.filter);
         });
 
+        // Apply to day cards
         document.querySelectorAll('.day-card').forEach(card => {
             if (activeFilters.length === 0) {
                 card.classList.remove('hidden');
@@ -1369,6 +1374,17 @@
                 } else {
                     card.classList.add('hidden');
                 }
+            }
+        });
+
+        // Apply to calendar days
+        document.querySelectorAll('.calendar-day[data-tags]').forEach(day => {
+            if (activeFilters.length === 0) {
+                day.classList.remove('dimmed');
+            } else {
+                const tags = day.dataset.tags || '';
+                const matches = activeFilters.some(f => tags.indexOf(f) !== -1);
+                day.classList.toggle('dimmed', !matches);
             }
         });
     }
@@ -1524,7 +1540,7 @@
                 if (isHO) cls += ' ' + getHoClass(dayData);
                 if (isToday) cls += ' today';
 
-                html += `<div class="${cls}" data-daynum="${dayData.day}">${day}</div>`;
+                html += `<div class="${cls}" data-daynum="${dayData.day}" data-tags="${dayData.tags.join(' ')}">${day}</div>`;
             }
             html += '</div>';
         });
