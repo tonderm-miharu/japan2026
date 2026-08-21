@@ -619,13 +619,13 @@
 
         .view-section {
             padding: 16px 0;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         .view-section:last-child { border-bottom: none; }
         .view-section h3 {
             font-size: 0.85rem;
             margin-bottom: 12px;
-            color: var(--text);
+            color: #fff;
         }
         .view-item {
             display: flex;
@@ -633,19 +633,20 @@
             align-items: center;
             padding: 8px 0;
             font-size: 0.8rem;
-            color: var(--text-dim);
-            border-bottom: 1px solid var(--border);
+            color: rgba(255,255,255,0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
         }
         .view-item:last-child { border-bottom: none; }
-        .view-item-date { color: var(--accent); font-weight: 500; }
-        .view-item-price { color: var(--green); font-weight: 600; }
+        .view-item-date { color: #fef08a; font-weight: 500; }
+        .view-item-price { color: #86efac; font-weight: 600; }
         .view-total {
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
             font-size: 0.9rem;
             font-weight: 600;
-            border-top: 2px solid var(--border);
+            color: #fff;
+            border-top: 2px solid rgba(255,255,255,0.3);
             margin-top: 8px;
         }
 
@@ -666,15 +667,16 @@
         }
         .task-modal-overlay.visible { display: flex; }
         .task-modal {
-            background: #1a1a2e;
-            border: 1px solid var(--accent);
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            border: none;
             border-radius: var(--radius);
             padding: 24px;
             max-width: 420px;
             width: 100%;
             max-height: 80vh;
             overflow-y: auto;
-            box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            color: #fff;
         }
         .task-modal-header {
             display: flex;
@@ -686,7 +688,7 @@
         .task-modal-close {
             background: none;
             border: none;
-            color: var(--text-dim);
+            color: rgba(255,255,255,0.8);
             font-size: 1.5rem;
             cursor: pointer;
         }
