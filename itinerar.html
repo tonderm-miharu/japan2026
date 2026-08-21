@@ -446,6 +446,14 @@
         .badge-cancel { background: rgba(239,68,68,0.1); color: var(--red); }
         .badge-bonus { background: rgba(6,182,212,0.15); color: var(--cyan); }
 
+        .badge-trip { background: rgba(0,104,201,0.2); color: #4DA3FF; }
+        .badge-agoda { background: rgba(231,76,60,0.2); color: #FF6B5B; }
+        .badge-booking { background: rgba(0,53,128,0.25); color: #5B9BFF; }
+        .badge-japanican { background: rgba(220,53,69,0.2); color: #FF5C6C; }
+        .badge-ikyu { background: rgba(50,50,50,0.3); color: #AAA; }
+        .badge-revolut { background: rgba(139,92,246,0.2); color: #A78BFA; }
+        .badge-hotelweb { background: rgba(100,100,100,0.2); color: #999; }
+
         .day-tasks-list { margin-top: 8px; }
         .day-task-item {
             display: flex;
@@ -828,6 +836,20 @@
         return map[type] || '';
     }
 
+    function getProviderBadge(provider) {
+        if (!provider) return '';
+        const map = {
+            'Trip': 'badge-trip',
+            'Agoda': 'badge-agoda',
+            'Booking': 'badge-booking',
+            'JAPANiCAN': 'badge-japanican',
+            'IKYU': 'badge-ikyu',
+            'Revolut': 'badge-revolut',
+            'Hotel Web': 'badge-hotelweb'
+        };
+        return `<span class="hotel-badge ${map[provider] || ''}">${provider}</span>`;
+    }
+
     function renderTasks() {
         const containers = [document.getElementById('tasks'), document.getElementById('tasksMobile')];
         const saved = JSON.parse(localStorage.getItem('japan2026_tasks') || '{}');
@@ -903,6 +925,7 @@
                                         <div class="name">${d.hotel}</div>
                                         ${d.note ? `<div class="meta" style="margin-top:4px;color:var(--orange)">${d.note}</div>` : ''}
                                         <div class="hotel-badges">
+                                            ${getProviderBadge(HOTEL_INFO[d.day]?.provider)}
                                             ${HOTEL_INFO[d.day]?.payment === 'paid' ? '<span class="hotel-badge badge-paid">✓ Paid</span>' : ''}
                                             ${HOTEL_INFO[d.day]?.payment === 'on-site' ? '<span class="hotel-badge badge-onsite">$ On-site</span>' : ''}
                                             ${d.cancel ? `<span class="hotel-badge badge-cancel">⚠ do ${d.cancel}</span>` : ''}
@@ -1014,8 +1037,12 @@
             const num = parseFloat((d.price || '').replace(' EUR', '').replace('EUR', ''));
             if (!isNaN(num)) total += num;
             const info = HOTEL_INFO[d.day] || {};
+            const providerClass = {
+                'Trip': 'badge-trip', 'Agoda': 'badge-agoda', 'Booking': 'badge-booking',
+                'JAPANiCAN': 'badge-japanican', 'IKYU': 'badge-ikyu', 'Revolut': 'badge-revolut', 'Hotel Web': 'badge-hotelweb'
+            }[info.provider] || '';
             let badges = '';
-            if (info.provider) badges += `<span class="hotel-badge" style="font-size:0.6rem;background:rgba(100,100,100,0.2);color:var(--text-dim);">${info.provider}</span> `;
+            if (info.provider) badges += `<span class="hotel-badge ${providerClass}" style="font-size:0.6rem;">${info.provider}</span> `;
             if (info.payment === 'paid') badges += '<span class="hotel-badge badge-paid" style="font-size:0.6rem;">✓ Paid</span> ';
             if (info.payment === 'on-site') badges += '<span class="hotel-badge badge-onsite" style="font-size:0.6rem;">$ On-site</span> ';
             if (d.cancel) badges += `<span class="hotel-badge badge-cancel" style="font-size:0.6rem;">⚠ ${d.cancel}</span> `;
