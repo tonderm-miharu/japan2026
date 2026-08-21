@@ -492,15 +492,51 @@
         .day-tasks-list { margin-top: 8px; }
         .day-task-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 8px;
-            padding: 6px 0;
+            padding: 8px 0;
             font-size: 0.8rem;
             color: var(--text-dim);
             border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: opacity 0.15s;
         }
         .day-task-item:last-child { border-bottom: none; }
-        .day-task-icon { flex-shrink: 0; }
+        .day-task-item:hover { opacity: 0.8; }
+        .day-task-item.done { opacity: 0.5; text-decoration: line-through; }
+        .day-task-cb {
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--text-muted);
+            border-radius: 4px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+        }
+        .day-task-cb.done { background: var(--green); border-color: var(--green); }
+        .day-task-cb.done::after { content: "✓"; color: #fff; font-size: 10px; }
+
+        .poi-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.75rem;
+            opacity: 0.8;
+            transition: opacity 0.15s;
+        }
+        .poi-link:hover { opacity: 1; text-decoration: underline; }
+        .poi-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed var(--border);
+        }
 
         .countdown {
             font-size: 0.75rem;
@@ -1083,11 +1119,19 @@
                                     </div>
                                 </div>
                             </div>
+                            ${d.pois && d.pois.length > 0 ? `
+                            <div class="detail-section" style="grid-column: 1 / -1;">
+                                <div class="detail-title">📍 Místa</div>
+                                <div class="poi-list">
+                                    ${d.pois.map(poi => `<a href="https://www.google.com/maps/search/?api=1&query=${poi.coords[0]},${poi.coords[1]}" target="_blank" class="poi-link">📍 ${poi.name}</a>`).join('')}
+                                </div>
+                            </div>
+                            ` : ''}
                             ${DAY_TASKS[d.day] ? `
                             <div class="detail-section" style="grid-column: 1 / -1;">
                                 <div class="detail-title">⚡ Úkoly dne</div>
                                 <div class="day-tasks-list">
-                                    ${DAY_TASKS[d.day].map(task => `<div class="day-task-item">${task}</div>`).join('')}
+                                    ${DAY_TASKS[d.day].map((task, idx) => `<div class="day-task-item" data-daytask="${d.day}-${idx}"><div class="day-task-cb"></div><span>${task}</span></div>`).join('')}
                                 </div>
                             </div>
                             ` : ''}
@@ -1100,6 +1144,24 @@
         container.querySelectorAll('.day-head').forEach(head => {
             head.addEventListener('click', () => {
                 head.parentElement.classList.toggle('expanded');
+            });
+        });
+
+        // Day task checkboxes
+        const dayTasksState = JSON.parse(localStorage.getItem('japan2026_daytasks') || '{}');
+        container.querySelectorAll('.day-task-item').forEach(item => {
+            const taskId = item.dataset.daytask;
+            if (dayTasksState[taskId]) {
+                item.classList.add('done');
+                item.querySelector('.day-task-cb').classList.add('done');
+            }
+            item.addEventListener('click', () => {
+                const cb = item.querySelector('.day-task-cb');
+                item.classList.toggle('done');
+                cb.classList.toggle('done');
+                const state = JSON.parse(localStorage.getItem('japan2026_daytasks') || '{}');
+                state[taskId] = item.classList.contains('done');
+                localStorage.setItem('japan2026_daytasks', JSON.stringify(state));
             });
         });
     }
