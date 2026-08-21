@@ -1324,46 +1324,6 @@
         });
     }
 
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.dataset.filter;
-            if (!filter || filter === 'tasks') return;
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            menuDropdown.classList.remove('open');
-            document.querySelectorAll('.day-card').forEach(card => {
-                if (filter === 'all' || card.dataset.tags.includes(filter)) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        });
-    });
-
-    document.getElementById('search').addEventListener('input', (e) => {
-        const q = e.target.value.toLowerCase();
-        document.querySelectorAll('.day-card').forEach(card => {
-            if (card.dataset.search.includes(q)) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
-        });
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
-    });
-
-    document.querySelectorAll('.phase-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const target = document.getElementById(item.dataset.scroll);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                target.classList.add('expanded');
-            }
-        });
-    });
-
     // Search input
     const searchInput = document.getElementById('search');
     searchInput.addEventListener('input', () => {
