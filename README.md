@@ -49,6 +49,7 @@ Otevři `itinerar.html` v prohlížeči.
 
 ### Vysoká priorita
 - [ ] Ferry Yawatahama-Beppu 13:00 (8.10.)
+- [ ] Ferry Kumamoto-Shimabara 09:25 (16.10.)
 - [ ] teamLab Biovortex vstupenky (1.10.)
 - [ ] Kola Shimanami multi-day (6-7.10.)
 - [ ] Takachiho Yokagura rezervace (14.10.)
