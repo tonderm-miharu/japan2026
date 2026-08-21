@@ -723,24 +723,41 @@
 
     // Hotel payment & meals info
     const HOTEL_INFO = {
-        2: { payment: 'on-site' },
-        3: { payment: 'paid' }, 4: { payment: 'paid' }, 5: { payment: 'paid' }, 6: { payment: 'paid' },
-        7: { payment: 'paid' }, 8: { payment: 'paid' }, 9: { payment: 'paid' },
-        10: { payment: 'paid' }, 11: { payment: 'paid' }, 12: { payment: 'paid' }, 13: { payment: 'paid' },
-        14: { payment: 'on-site' }, 15: { payment: 'paid' }, 16: { payment: 'paid' }, 17: { payment: 'paid' },
-        18: { payment: 'paid' }, 19: { payment: 'paid' }, 20: { payment: 'paid' },
-        21: { payment: 'paid' }, 22: { payment: 'paid' },
-        23: { payment: 'paid', bonus: 'FREE BIKE' }, 24: { payment: 'paid' },
-        25: { payment: 'paid', meals: 'breakfast' }, 26: { payment: 'paid' },
-        27: { payment: 'on-site' }, 28: { payment: 'paid' },
-        29: { payment: 'paid', meals: 'half-board' }, 30: { payment: 'paid' },
-        31: { payment: 'paid' }, 32: { payment: 'paid' }, 33: { payment: 'paid' },
-        34: { payment: 'paid' }, 35: { payment: 'paid' },
-        36: { payment: 'on-site', meals: 'breakfast' }, 37: { payment: 'on-site', meals: 'breakfast' },
-        38: { payment: 'on-site', meals: 'breakfast' }, 43: { payment: 'on-site', meals: 'breakfast' },
-        44: { payment: 'on-site', meals: 'breakfast' }, 45: { payment: 'on-site', meals: 'breakfast' },
-        46: { payment: 'paid' }, 47: { payment: 'paid' }, 48: { payment: 'paid' },
-        49: { payment: 'paid' }, 50: { payment: 'paid' }, 51: { payment: 'paid' }
+        2: { payment: 'on-site', provider: 'Hotel Web' },
+        3: { payment: 'paid', provider: 'Trip' }, 4: { payment: 'paid', provider: 'Trip' },
+        5: { payment: 'paid', provider: 'Trip' }, 6: { payment: 'paid', provider: 'Trip' },
+        7: { payment: 'paid', provider: 'Trip' }, 8: { payment: 'paid', provider: 'Trip' },
+        9: { payment: 'paid', provider: 'Trip' },
+        10: { payment: 'paid', provider: 'Trip' }, 11: { payment: 'paid', provider: 'Trip' },
+        12: { payment: 'paid', provider: 'Trip' }, 13: { payment: 'paid', provider: 'Trip' },
+        14: { payment: 'on-site', provider: 'JAPANiCAN' },
+        15: { payment: 'paid', provider: 'Agoda' },
+        16: { payment: 'paid', provider: 'Agoda' }, 17: { payment: 'paid', provider: 'Agoda' },
+        18: { payment: 'paid', provider: 'Agoda' },
+        19: { payment: 'paid', provider: 'Agoda' },
+        20: { payment: 'paid', provider: 'Booking' },
+        21: { payment: 'paid', provider: 'Agoda' }, 22: { payment: 'paid', provider: 'Agoda' },
+        23: { payment: 'paid', provider: 'Agoda', bonus: 'FREE BIKE' },
+        24: { payment: 'paid', provider: 'Agoda' },
+        25: { payment: 'paid', provider: 'IKYU', meals: 'breakfast' },
+        26: { payment: 'paid', provider: 'Booking' },
+        27: { payment: 'on-site', provider: 'JAPANiCAN' },
+        28: { payment: 'paid', provider: 'Agoda' },
+        29: { payment: 'paid', provider: 'Revolut', meals: 'half-board' },
+        30: { payment: 'paid', provider: 'Agoda' },
+        31: { payment: 'paid', provider: 'Booking' }, 32: { payment: 'paid', provider: 'Booking' },
+        33: { payment: 'paid', provider: 'Agoda' },
+        34: { payment: 'paid', provider: 'Revolut' }, 35: { payment: 'paid', provider: 'Revolut' },
+        36: { payment: 'on-site', provider: 'Hotel Web', meals: 'breakfast' },
+        37: { payment: 'on-site', provider: 'Hotel Web', meals: 'breakfast' },
+        38: { payment: 'on-site', provider: 'Hotel Web', meals: 'breakfast' },
+        43: { payment: 'on-site', provider: 'Hotel Web', meals: 'breakfast' },
+        44: { payment: 'on-site', provider: 'Hotel Web', meals: 'breakfast' },
+        45: { payment: 'on-site', provider: 'Hotel Web', meals: 'breakfast' },
+        46: { payment: 'paid', provider: 'Trip' }, 47: { payment: 'paid', provider: 'Trip' },
+        48: { payment: 'paid', provider: 'Agoda' },
+        49: { payment: 'paid', provider: 'Booking' },
+        50: { payment: 'paid', provider: 'Trip' }, 51: { payment: 'paid', provider: 'Trip' }
     };
 
     // Automatické denní úkoly
@@ -998,6 +1015,7 @@
             if (!isNaN(num)) total += num;
             const info = HOTEL_INFO[d.day] || {};
             let badges = '';
+            if (info.provider) badges += `<span class="hotel-badge" style="font-size:0.6rem;background:rgba(100,100,100,0.2);color:var(--text-dim);">${info.provider}</span> `;
             if (info.payment === 'paid') badges += '<span class="hotel-badge badge-paid" style="font-size:0.6rem;">✓ Paid</span> ';
             if (info.payment === 'on-site') badges += '<span class="hotel-badge badge-onsite" style="font-size:0.6rem;">$ On-site</span> ';
             if (d.cancel) badges += `<span class="hotel-badge badge-cancel" style="font-size:0.6rem;">⚠ ${d.cancel}</span> `;
