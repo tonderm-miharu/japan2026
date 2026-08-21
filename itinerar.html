@@ -409,14 +409,47 @@
 
         .map-container.visible { display: block; }
 
-        .c-osaka { background: linear-gradient(135deg, #dc2626, #f97316); }
-        .c-kyoto { background: linear-gradient(135deg, #7c3aed, #a855f7); }
-        .c-biwa { background: linear-gradient(135deg, #059669, #10b981); }
-        .c-shimanami { background: linear-gradient(135deg, #2563eb, #3b82f6); }
-        .c-kyushu { background: linear-gradient(135deg, #b91c1c, #dc2626); }
-        .c-tokyo { background: linear-gradient(135deg, #db2777, #ec4899); }
-        .c-okinawa { background: linear-gradient(135deg, #0891b2, #06b6d4); }
-        .c-transit { background: linear-gradient(135deg, #4b5563, #6b7280); }
+        /* Mobile task modal */
+        .task-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .task-modal-overlay.visible { display: flex; }
+        .task-modal {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .task-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .task-modal-header h2 { font-size: 1rem; }
+        .task-modal-close {
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        @media (min-width: 901px) {
+            .filter-btn[data-filter="tasks"] { display: none; }
+        }
 
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
@@ -442,6 +475,7 @@
                 <button class="filter-btn" data-filter="bike">Kolo</button>
                 <button class="filter-btn" data-filter="onsen">Onsen</button>
                 <button class="filter-btn" data-filter="meet">Setkání</button>
+                <button class="filter-btn" data-filter="tasks">Úkoly</button>
             </div>
             <div class="search-box">
                 <input type="text" placeholder="Hledat..." id="search">
@@ -471,6 +505,16 @@
 
         <section class="days" id="days"></section>
     </main>
+
+    <div class="task-modal-overlay" id="taskModal">
+        <div class="task-modal">
+            <div class="task-modal-header">
+                <h2>Důležité úkoly</h2>
+                <button class="task-modal-close" id="closeTaskModal">&times;</button>
+            </div>
+            <div id="tasksMobile"></div>
+        </div>
+    </div>
 
     <script>
     const TASKS = [
@@ -540,9 +584,33 @@
         { day: 53, dow: 'Po', date: '9.11.2026', title: 'Vídeň', subtitle: 'Návrat domů', region: 'transit', tags: ['flight'], hotel: '–', price: '–', pois: [{name:'Vídeň letiště', coords:[48.1103,16.5697]}], timeline: [{time:'06:50', text:'Přílet VIE', type:'transport'}] },
     ];
 
-    function getRegionClass(r) {
-        const map = { osaka: 'c-osaka', kyoto: 'c-kyoto', biwa: 'c-biwa', shimanami: 'c-shimanami', kyushu: 'c-kyushu', tokyo: 'c-tokyo', okinawa: 'c-okinawa', transit: 'c-transit' };
-        return map[r] || 'c-transit';
+    function getDayBoxStyle(dow, tags, timeline) {
+        const isWeekend = ['So', 'Ne'].includes(dow);
+        const hasHO = tags.includes('ho');
+
+        const baseStart = isWeekend ? '#059669' : '#2563eb';
+        const baseEnd = isWeekend ? '#10b981' : '#3b82f6';
+        const hoColor = '#f59e0b';
+
+        if (!hasHO) {
+            return `background: linear-gradient(135deg, ${baseStart}, ${baseEnd});`;
+        }
+
+        let hoHours = 8;
+        if (timeline) {
+            const hoEntry = timeline.find(t => t.text && t.text.includes('HOME OFFICE'));
+            if (hoEntry && hoEntry.time) {
+                const match = hoEntry.time.match(/(\d+):00[–-](\d+):00/);
+                if (match) {
+                    hoHours = parseInt(match[2]) - parseInt(match[1]);
+                }
+            }
+        }
+
+        const hoPercent = hoHours >= 8 ? 50 : hoHours <= 4 ? 33 : 40;
+        const basePercent = 100 - hoPercent;
+
+        return `background: linear-gradient(to right, ${baseStart} 0%, ${baseEnd} ${basePercent}%, ${hoColor} ${basePercent}%);`;
     }
     function getTagClass(t) {
         const map = { ho: 'tag-ho', car: 'tag-car', bike: 'tag-bike', onsen: 'tag-onsen', flight: 'tag-flight', meet: 'tag-meet', fest: 'tag-fest' };
@@ -558,9 +626,9 @@
     }
 
     function renderTasks() {
-        const container = document.getElementById('tasks');
+        const containers = [document.getElementById('tasks'), document.getElementById('tasksMobile')];
         const saved = JSON.parse(localStorage.getItem('japan2026_tasks') || '{}');
-        container.innerHTML = TASKS.map(t => {
+        const html = TASKS.map(t => {
             const done = saved[t.id] || false;
             return `
                 <div class="task-item">
@@ -573,13 +641,17 @@
             `;
         }).join('');
 
-        container.querySelectorAll('.task-cb').forEach(cb => {
-            cb.addEventListener('click', () => {
-                cb.classList.toggle('done');
-                cb.nextElementSibling.querySelector('.task-text').classList.toggle('done');
-                const saved = JSON.parse(localStorage.getItem('japan2026_tasks') || '{}');
-                saved[cb.dataset.task] = cb.classList.contains('done');
-                localStorage.setItem('japan2026_tasks', JSON.stringify(saved));
+        containers.forEach(container => {
+            if (!container) return;
+            container.innerHTML = html;
+            container.querySelectorAll('.task-cb').forEach(cb => {
+                cb.addEventListener('click', () => {
+                    const taskId = cb.dataset.task;
+                    const saved = JSON.parse(localStorage.getItem('japan2026_tasks') || '{}');
+                    saved[taskId] = !saved[taskId];
+                    localStorage.setItem('japan2026_tasks', JSON.stringify(saved));
+                    renderTasks();
+                });
             });
         });
     }
@@ -600,7 +672,7 @@
             return `
                 <div class="day-card" id="day-${d.day}" data-tags="${d.tags.join(' ')}" data-search="${(d.title + ' ' + d.subtitle + ' ' + d.hotel).toLowerCase()}">
                     <div class="day-head">
-                        <div class="day-num-box ${getRegionClass(d.region)}">
+                        <div class="day-num-box" style="${getDayBoxStyle(d.dow, d.tags, d.timeline)}">
                             <span class="day-n">${d.day}</span>
                             <span class="day-dow">${d.dow}</span>
                         </div>
@@ -703,9 +775,10 @@
 
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+            if (filter === 'tasks') return;
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            const filter = btn.dataset.filter;
             document.querySelectorAll('.day-card').forEach(card => {
                 if (filter === 'all' || card.dataset.tags.includes(filter)) {
                     card.classList.remove('hidden');
@@ -737,6 +810,20 @@
                 target.classList.add('expanded');
             }
         });
+    });
+
+    // Task modal handlers
+    document.querySelector('.filter-btn[data-filter="tasks"]').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('taskModal').classList.add('visible');
+    });
+    document.getElementById('closeTaskModal').addEventListener('click', () => {
+        document.getElementById('taskModal').classList.remove('visible');
+    });
+    document.getElementById('taskModal').addEventListener('click', (e) => {
+        if (e.target.id === 'taskModal') {
+            document.getElementById('taskModal').classList.remove('visible');
+        }
     });
 
     renderTasks();
