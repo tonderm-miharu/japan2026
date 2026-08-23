@@ -59,7 +59,7 @@
             min-width: max-content;
             justify-content: center;
         }
-        .progress-phase { display: flex; flex-direction: column; }
+        .progress-phase { display: flex; flex-direction: column; flex: 1; }
         .phase-label {
             font-size: 0.45rem;
             font-weight: 600;
@@ -70,10 +70,11 @@
             margin-bottom: 1px;
             white-space: nowrap;
         }
-        .phase-days { display: flex; gap: 1px; }
+        .phase-days { display: flex; gap: 1px; flex: 1; }
         .day-block {
-            width: 11px;
-            height: 11px;
+            flex: 1;
+            min-width: 10px;
+            height: 14px;
             background: var(--border);
             border-radius: 2px;
             display: flex;
@@ -85,10 +86,10 @@
             cursor: pointer;
             transition: all 0.15s;
         }
-        .day-block:hover { background: var(--bg-hover); color: var(--text-dim); transform: scale(1.2); }
+        .day-block:hover { background: var(--bg-hover); color: var(--text-dim); transform: scale(1.1); }
         .day-block.complete { background: var(--green); color: #fff; }
         .day-block.current { background: var(--accent); color: #fff; box-shadow: 0 0 6px var(--accent); }
-        .phase-separator { width: 4px; }
+        .phase-separator { width: 4px; flex-shrink: 0; }
 
         /* Phase colors */
         .progress-phase[data-phase="osaka"] .phase-label { color: #f59e0b; }
@@ -107,70 +108,62 @@
         .progress-phase[data-phase="okinawa"] .day-block.complete { background: #10b981; }
 
         @media (min-width: 901px) {
-            .progress-strip { padding: 6px 20px 10px; }
-            .day-block { width: 18px; height: 18px; font-size: 0.55rem; }
-            .phase-label { font-size: 0.6rem; }
+            .progress-strip { padding: 8px 20px 12px; }
+            .progress-phases { min-width: 100%; }
+            .day-block { height: 22px; font-size: 0.6rem; }
+            .phase-label { font-size: 0.65rem; }
             .phase-days { gap: 2px; }
-            .phase-separator { width: 8px; }
+            .phase-separator { width: 10px; }
         }
 
         @media (max-width: 900px) {
-            .progress-phases { justify-content: flex-start; }
-            .day-block { width: 10px; height: 10px; font-size: 0.35rem; }
+            .progress-phases { justify-content: flex-start; min-width: max-content; }
+            .progress-phase { flex: none; }
+            .phase-days { flex: none; }
+            .day-block { flex: none; width: 10px; height: 10px; font-size: 0.35rem; }
             .phase-label { font-size: 0.4rem; }
         }
 
         /* Timezone */
-        .tz-display {
+        .tz-block {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            font-family: 'DSEG7', monospace;
-            font-size: 0.9rem;
-            text-align: right;
-        }
-        .tz-row {
-            display: flex;
             align-items: center;
-            justify-content: flex-end;
-            gap: 4px;
+            font-family: 'DSEG7', monospace;
         }
-        .tz-flag { font-size: 0.7rem; }
+        .tz-label { font-size: 0.55rem; color: var(--text-dim); font-family: 'Inter', sans-serif; margin-bottom: 2px; }
+        .tz-time { font-size: 1rem; }
         .tz-time-jp { color: #ef4444; }
         .tz-time-cz { color: #3b82f6; }
-        .tz-label { font-size: 0.5rem; color: var(--text-dim); font-family: 'Inter', sans-serif; }
 
         .sidebar-timezone {
             background: var(--bg-card);
             border-radius: var(--radius);
             padding: 12px 16px;
             margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
         }
-        .sidebar-timezone .tz-display {
-            font-size: 1.4rem;
-            gap: 6px;
+        .sidebar-timezone .tz-block { }
+        .sidebar-timezone .tz-label { font-size: 0.7rem; }
+        .sidebar-timezone .tz-time { font-size: 1.6rem; }
+
+        .tz-mobile {
+            display: none;
         }
-        .sidebar-timezone .tz-flag { font-size: 1rem; }
-        .sidebar-timezone .tz-label { font-size: 0.65rem; }
 
         @media (max-width: 900px) {
             .sidebar-timezone { display: none; }
             .tz-mobile {
                 display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-                gap: 0;
-                margin-right: 6px;
+                align-items: center;
+                gap: 10px;
+                margin-right: 8px;
             }
-            .tz-mobile .tz-row {
-                font-size: 0.55rem;
-                gap: 2px;
-            }
-            .tz-mobile .tz-flag { font-size: 0.5rem; }
-        }
-
-        @media (min-width: 901px) {
-            .tz-mobile { display: none; }
+            .tz-mobile .tz-block { }
+            .tz-mobile .tz-label { font-size: 0.45rem; margin-bottom: 1px; }
+            .tz-mobile .tz-time { font-size: 0.75rem; }
         }
 
         header {
@@ -351,28 +344,19 @@
         .nav-search:focus { border-color: var(--accent); }
         .nav-search::placeholder { color: var(--text-dim); }
 
-        .mobile-search { display: none; margin: 0 10px; max-width: none; }
-        .search-btn { display: none; }
+        .menu-search {
+            padding: 8px 4px 4px;
+            border-top: 1px solid var(--border);
+            margin-top: 4px;
+        }
+        .menu-search .nav-search {
+            width: 100%;
+            max-width: none;
+        }
 
         @media (max-width: 900px) {
-            .nav-search:not(.mobile-search) { display: none; }
-            .mobile-search { display: none; }
-            .mobile-search.expanded { display: block; flex: 1; }
-            .search-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 32px;
-                height: 32px;
-                border: 1px solid var(--border);
-                border-radius: 6px;
-                background: var(--bg);
-                color: var(--text-dim);
-                cursor: pointer;
-            }
-            .search-btn svg { width: 16px; height: 16px; }
-            .search-btn.active { display: none; }
-            .header-top { gap: 6px; }
+            .nav-search:not(.menu-search .nav-search) { display: none; }
+            .header-top { gap: 8px; }
             .countdown { margin-left: 0; white-space: nowrap; text-shadow: none !important; }
         }
 
@@ -1033,11 +1017,9 @@
                     <svg width="24" height="24" viewBox="0 0 100 100" style="flex-shrink:0"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
                     <h1>Japan'26</h1>
                 </div>
-                <button class="search-btn" id="searchBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
-                <input type="text" class="nav-search mobile-search" id="searchMobile" placeholder="Search...">
                 <div class="tz-mobile" id="tzMobile">
-                    <div class="tz-row"><span class="tz-flag">🇯🇵</span><span class="tz-time-jp" id="tzJpMobile">--:--</span></div>
-                    <div class="tz-row"><span class="tz-flag">🇨🇿</span><span class="tz-time-cz" id="tzCzMobile">--:--</span></div>
+                    <div class="tz-block"><span class="tz-label">Tokyo</span><span class="tz-time tz-time-jp" id="tzJpMobile">--:--</span></div>
+                    <div class="tz-block"><span class="tz-label">Prague</span><span class="tz-time tz-time-cz" id="tzCzMobile">--:--</span></div>
                 </div>
                 <span class="countdown" id="countdown"></span>
             </div>
@@ -1068,6 +1050,9 @@
                             <button class="menu-item" data-view="contacts">👥 Contacts</button>
                             <button class="menu-item" data-view="transport">🚄 Transport</button>
                             <button class="menu-item" data-action="weather">🌤️ Update Weather</button>
+                            <div class="menu-search">
+                                <input type="text" class="nav-search" id="searchMobile" placeholder="🔍 Search...">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1078,10 +1063,8 @@
     <main>
         <aside class="sidebar">
             <div class="sidebar-timezone">
-                <div class="tz-display" id="tzSidebar">
-                    <div class="tz-row"><span class="tz-flag">🇯🇵</span><span class="tz-time-jp" id="tzJpSidebar">--:--</span><span class="tz-label">Tokyo</span></div>
-                    <div class="tz-row"><span class="tz-flag">🇨🇿</span><span class="tz-time-cz" id="tzCzSidebar">--:--</span><span class="tz-label">Prague</span></div>
-                </div>
+                <div class="tz-block"><span class="tz-label">🇯🇵 Tokyo</span><span class="tz-time tz-time-jp" id="tzJpSidebar">--:--</span></div>
+                <div class="tz-block"><span class="tz-label">🇨🇿 Prague</span><span class="tz-time tz-time-cz" id="tzCzSidebar">--:--</span></div>
             </div>
             <div class="sidebar-calendar" id="sidebarCalendar"></div>
         </aside>
@@ -2080,20 +2063,13 @@
     updateTimezone();
     setInterval(updateTimezone, 1000);
 
-    // Mobile search toggle
-    const searchBtn = document.getElementById('searchBtn');
+    // Mobile search in hamburger - sync with desktop search
     const searchMobileEl = document.getElementById('searchMobile');
-    if (searchBtn && searchMobileEl) {
-        searchBtn.addEventListener('click', () => {
-            searchBtn.classList.add('active');
-            searchMobileEl.classList.add('expanded');
-            searchMobileEl.focus();
-        });
-        searchMobileEl.addEventListener('blur', () => {
-            if (!searchMobileEl.value) {
-                searchBtn.classList.remove('active');
-                searchMobileEl.classList.remove('expanded');
-            }
+    const searchDesktop = document.getElementById('search');
+    if (searchMobileEl && searchDesktop) {
+        searchMobileEl.addEventListener('input', () => {
+            searchDesktop.value = searchMobileEl.value;
+            searchDesktop.dispatchEvent(new Event('input'));
         });
     }
     </script>
