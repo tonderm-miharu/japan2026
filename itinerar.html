@@ -931,13 +931,13 @@
         .calendar-day.empty { cursor: default; }
         .calendar-day.empty:hover { transform: none; }
         .calendar-day.weekday { background: linear-gradient(135deg, #059669, #10b981); }
-        .calendar-day.weekend { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+        .calendar-day.weekend { background: linear-gradient(135deg, #4b5563, #6b7280); }
         .calendar-day.ho-full { background: linear-gradient(to right, #059669 50%, #dc2626 50%); }
         .calendar-day.ho-half { background: linear-gradient(to right, #059669 60%, #dc2626 60%); }
         .calendar-day.ho-third { background: linear-gradient(to bottom left, #dc2626 30%, transparent 30%), linear-gradient(135deg, #059669, #10b981); }
-        .calendar-day.weekend.ho-full { background: linear-gradient(to right, #2563eb 50%, #dc2626 50%); }
-        .calendar-day.weekend.ho-half { background: linear-gradient(to right, #2563eb 60%, #dc2626 60%); }
-        .calendar-day.weekend.ho-third { background: linear-gradient(to bottom left, #dc2626 30%, transparent 30%), linear-gradient(135deg, #2563eb, #3b82f6); }
+        .calendar-day.weekend.ho-full { background: linear-gradient(to right, #4b5563 50%, #dc2626 50%); }
+        .calendar-day.weekend.ho-half { background: linear-gradient(to right, #4b5563 60%, #dc2626 60%); }
+        .calendar-day.weekend.ho-third { background: linear-gradient(to bottom left, #dc2626 30%, transparent 30%), linear-gradient(135deg, #4b5563, #6b7280); }
 
         /* Sidebar calendar */
         .sidebar-calendar {
@@ -1375,11 +1375,11 @@
     ];
 
     function getDayBoxStyle(dow, tags, timeline) {
-        const isWeekend = ['So', 'Ne'].includes(dow);
+        const isWeekend = ['Sat', 'Sun', 'So', 'Ne'].includes(dow);
         const hasHO = tags.includes('ho');
 
-        const baseStart = isWeekend ? '#2563eb' : '#059669';
-        const baseEnd = isWeekend ? '#3b82f6' : '#10b981';
+        const baseStart = isWeekend ? '#4b5563' : '#059669';
+        const baseEnd = isWeekend ? '#6b7280' : '#10b981';
         const hoColor = '#dc2626';
 
         if (!hasHO) {
