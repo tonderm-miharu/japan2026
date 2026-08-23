@@ -2082,17 +2082,17 @@
 
     // Mobile search toggle
     const searchBtn = document.getElementById('searchBtn');
-    const searchMobile = document.getElementById('searchMobile');
-    if (searchBtn && searchMobile) {
+    const searchMobileEl = document.getElementById('searchMobile');
+    if (searchBtn && searchMobileEl) {
         searchBtn.addEventListener('click', () => {
             searchBtn.classList.add('active');
-            searchMobile.classList.add('expanded');
-            searchMobile.focus();
+            searchMobileEl.classList.add('expanded');
+            searchMobileEl.focus();
         });
-        searchMobile.addEventListener('blur', () => {
-            if (!searchMobile.value) {
+        searchMobileEl.addEventListener('blur', () => {
+            if (!searchMobileEl.value) {
                 searchBtn.classList.remove('active');
-                searchMobile.classList.remove('expanded');
+                searchMobileEl.classList.remove('expanded');
             }
         });
     }
