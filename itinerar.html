@@ -1268,6 +1268,72 @@
         { id: 't11', text: 'Contact Wahei (min. 1 month)', priority: 'med' },
     ];
 
+    const POI_URLS = {
+        'Vienna Airport': 'https://www.google.com/maps/place/Vienna+International+Airport/@48.11224,16.5660296,15z/',
+        'Kansai Airport (KIX)': 'https://www.google.com/maps/place/Kansai+International+Airport/@34.4347,135.2441,15z/',
+        'Haneda Airport': 'https://www.google.com/maps/place/Tokyo+International+Airport/@35.5482964,139.7779951,15z/',
+        'Fukuoka Airport': 'https://www.google.com/maps/place/Fukuoka+Airport/@33.5903145,130.4467091,15z/',
+        'Naha Airport': 'https://www.google.com/maps/place/Naha+International+Airport/@26.2001297,127.6466452,15z/',
+        'Miyakojima Airport': 'https://www.google.com/maps/place/Miyako+Airport/@24.7829,125.2950,15z/',
+        'Taipei Taoyuan Airport': 'https://www.google.com/maps/place/Taoyuan+International+Airport/@25.0797,121.2325,15z/',
+        'Byodo-in Temple': 'https://www.google.com/maps/place/Byodo-in+Temple/@34.8892908,135.8076783,17z/',
+        'Ujigami Shrine': 'https://www.google.com/maps/place/Ujigami+Shrine/@34.8917,135.8133,17z/',
+        'Takachiho Shrine': 'https://www.google.com/maps?cid=13753206430666116090',
+        'Oyamazumi Shrine': 'https://www.google.com/maps?cid=3498005260178545570',
+        'Yutoku Inari Shrine': 'https://www.google.com/maps/place/Y%C5%ABtoku+Inari+Shrine/@33.0738266,130.1057639,17z/',
+        'Takeo Shrine': 'https://www.google.com/maps/place/Takeo+Shrine/@33.1950,129.9867,17z/',
+        'Osaka Castle': 'https://www.google.com/maps/place/Osaka+Castle/@34.6873,135.5259,17z/',
+        'Nijo Castle': 'https://www.google.com/maps/place/Nijo+Castle/@35.0142,135.7482,17z/',
+        'Kumamoto Castle': 'https://www.google.com/maps/place/Kumamoto+Castle/@32.8061,130.7058,17z/',
+        'Hikone Castle': 'https://www.google.com/maps/place/Hikone+Castle/@35.2764,136.2518,17z/',
+        'Shimabara Castle': 'https://www.google.com/maps/place/Shimabara+Castle/@32.7867,130.3667,17z/',
+        'Fukuyama Castle': 'https://www.google.com/maps/place/Fukuyama+Castle/@34.4867,133.3667,17z/',
+        'teamLab Biovortex Kyoto': 'https://www.google.com/maps/place/teamLab+Biovortex+Kyoto/@34.9837,135.7649,17z/',
+        'KYOCERA Museum of Art': 'https://www.google.com/maps/place/Kyoto+City+KYOCERA+Museum+of+Art/@35.0128,135.7835,17z/',
+        'Nakanoshima Museum of Art': 'https://www.google.com/maps/place/Nakanoshima+Museum+of+Art+Osaka/@34.6924,135.4914,17z/',
+        'National Museum of Art': 'https://www.google.com/maps/place/National+Museum+of+Art+Osaka/@34.6918,135.4884,17z/',
+        'Shimano Bicycle Museum': 'https://www.google.com/maps/place/Shimano+Bicycle+Museum/@34.5733,135.4830,17z/',
+        'Fukuoka Art Museum': 'https://www.google.com/maps/place/Fukuoka+Art+Museum/@33.5867,130.3783,17z/',
+        'Himeyuri Peace Museum': 'https://www.google.com/maps/place/Himeyuri+Peace+Museum/@26.0917,127.6833,17z/',
+        'Mt. Fuji World Heritage Centre': 'https://www.google.com/maps/place/Mt.+Fuji+World+Heritage+Centre/@35.2167,138.6167,17z/',
+        'Takachiho Gorge': 'https://www.google.com/maps/place/Takachiho+Gorge/@32.7012,131.3007,17z/',
+        'Kurokawa Onsen': 'https://www.google.com/maps/place/Kurokawa+Onsen/@33.077,131.14,15z/',
+        'Unzen Jigoku': 'https://www.google.com/maps?cid=11746994254077934965',
+        'Hottarakashi Onsen': 'https://www.google.com/maps/place/Hottarakashi+Onsen/@35.7061,138.6521,15z/',
+        'Kannawa': 'https://www.google.com/maps/place/Kannawa/@33.3178,131.4847,15z/',
+        'Lake Kinrin': 'https://www.google.com/maps/place/Lake+Kinrin/@33.2694,131.3583,17z/',
+        'Abeno Harukas': 'https://www.google.com/maps/place/Abeno+Harukas/@34.6462,135.5131,17z/',
+        'Umeda Sky Building': 'https://www.google.com/maps/place/Umeda+Sky+Building/@34.7050,135.4905,17z/',
+        'ACROS Fukuoka': 'https://www.google.com/maps/place/ACROS+Fukuoka/@33.5903,130.4017,17z/',
+        'Kasai Rinkai Park': 'https://www.google.com/maps/place/Kasai+Rinkai+Park/@35.6367,139.8617,15z/',
+        'Ohori Park': 'https://www.google.com/maps/place/Ohori+Park/@33.5850,130.3767,15z/',
+        'Shibuya': 'https://www.google.com/maps/place/Shibuya/@35.6580,139.7016,15z/',
+        'Shinjuku': 'https://www.google.com/maps/place/Shinjuku/@35.6895,139.6917,15z/',
+        'Kokusai Street': 'https://www.google.com/maps/place/Kokusai+Street/@26.2150,127.6850,17z/',
+        'Sefa Utaki': 'https://www.google.com/maps/place/Sefa+Utaki/@26.1734,127.8260,17z/',
+        'Kosanji Temple': 'https://www.google.com/maps/place/Kosanji+Temple/@34.3100,133.0850,17z/',
+        'Hill of Hope': 'https://www.google.com/maps/place/Hill+of+Hope/@34.3095,133.0847,17z/',
+        'Daisen Kofun (Nintoku tomb)': 'https://www.google.com/maps/place/Daisen+Kofun/@34.5642,135.4879,16z/',
+        'Kyoto Station': 'https://www.google.com/maps/place/Kyoto+Station/@34.9858,135.7587,17z/',
+        'Fukuyama Station': 'https://www.google.com/maps/place/Fukuyama+Station/@34.4867,133.3622,17z/',
+        'Mishima Station': 'https://www.google.com/maps/place/Mishima+Station/@35.1264,138.9117,17z/',
+        'Onomichi': 'https://www.google.com/maps/place/Onomichi/@34.4090,133.2048,15z/',
+        'Imabari': 'https://www.google.com/maps/place/Imabari/@34.0667,132.9833,14z/',
+        'La Collina': 'https://www.google.com/maps/place/La+Collina+Omihachiman/@35.1339,136.0922,17z/',
+        'Tomonoura': 'https://www.google.com/maps/place/Tomonoura/@34.3833,133.3833,15z/',
+        'Amano Iwato': 'https://www.google.com/maps/place/Amanoiwato+Shrine/@32.7344,131.3507,17z/',
+        'Amano Yasukawara': 'https://www.google.com/maps/place/Amano+Yasukawara/@32.7500,131.3550,17z/',
+        'Tsujun Bridge': 'https://www.google.com/maps/place/Tsujun+Bridge/@32.6833,130.9500,17z/',
+        'Mt. Omuro': 'https://www.google.com/maps/place/Mount+Omuro/@34.9000,139.0833,15z/',
+        'Jogasaki Coast': 'https://www.google.com/maps/place/Jogasaki+Coast/@34.8833,139.1167,15z/',
+        'Kawazu Loop Bridge': 'https://www.google.com/maps/place/Kawazu+Nanadaru+Loop+Bridge/@34.7500,139.0000,16z/',
+        'Lake Motosu': 'https://www.google.com/maps/place/Lake+Motosu/@35.4617,138.5867,14z/',
+        'Mifuneyama Rakuen': 'https://www.google.com/maps/place/Mifuneyama+Rakuen/@33.2167,129.9667,16z/',
+        'Kusasenri': 'https://www.google.com/maps/place/Kusasenri/@32.8833,131.0833,15z/',
+        'Yonaha Maehama Beach': 'https://www.google.com/maps/place/Yonaha+Maehama+Beach/@24.7417,125.2583,15z/',
+        'Irabu Bridge': 'https://www.google.com/maps/place/Irabu+Ohashi+Bridge/@24.8333,125.2333,14z/'
+    };
+
     const DAYS = [
         { day: 1, dow: 'Fri', date: '18.9.2026', title: 'VIE → TPE', subtitle: 'Transit, flight', region: 'transit', tags: ['flight'], hotel: 'On plane', price: '', pois: [{name:'Vienna Airport', coords:[48.1103,16.5697]}], timeline: [{time:'11:25', text:'Departure from Vienna', type:'transport'}] },
         { day: 2, dow: 'Sat', date: '19.9.2026', title: 'TPE → Kishiwada', subtitle: 'Danjiri Festival – Yoimiya', region: 'osaka', tags: ['flight','fest'], hotel: 'Route-Inn Higashikishiwada', price: '58 EUR', cancel: '14.9.', pois: [{name:'Kansai Airport (KIX)', coords:[34.4347,135.2441]}, {name:'Kishiwada Station', coords:[34.4603,135.3700]}, {name:'Kankanba (yarimawashi)', coords:[34.4622,135.3716]}, {name:'Route-Inn Hotel', coords:[34.4573,135.3833]}], timeline: [{time:'05:30', text:'Departure TPE', type:'transport'}, {time:'12:50', text:'Arrival KIX', type:'transport'}, {time:'~15:00', text:'Hotel + festival start', type:''}, {time:'15:30–17:00', text:'Yarimawashi', type:'sight'}, {time:'17:00–19:00', text:'Break, food', type:'food'}, {time:'19:00–21:30', text:'Tomoshibi – evening danjiri', type:'sight'}] },
@@ -1676,7 +1742,7 @@
                             <div class="detail-section" style="grid-column: 1 / -1;">
                                 <div class="detail-title-row"><span class="detail-title">📍 Places</span>${tagsHtml ? `<div class="mobile-tags">${tagsHtml}</div>` : ''}</div>
                                 <div class="poi-list">
-                                    ${d.pois.map(poi => `<a href="https://www.google.com/maps/search/?api=1&query=${poi.coords[0]},${poi.coords[1]}" target="_blank" class="poi-link">📍 ${poi.name}</a>`).join('')}
+                                    ${d.pois.map(poi => `<a href="${POI_URLS[poi.name] || 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(poi.name + ' Japan')}" target="_blank" class="poi-link">📍 ${poi.name}</a>`).join('')}
                                 </div>
                             </div>
                             ` : ''}
