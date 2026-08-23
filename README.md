@@ -1,99 +1,100 @@
-# Japan 2026 - Itinerář
+# Japan 2026 - Itinerary
 
-53denní cesta po Japonsku (18.9. - 9.11.2026)
+53-day trip to Japan (Sep 18 - Nov 9, 2026)
 
-## Live verze
+## Live Version
 
 **https://tonderm-miharu.github.io/japan2026/itinerar.html**
 
-## Obsah projektu
+## Project Contents
 
-| Soubor | Popis |
-|--------|-------|
-| `itinerar.html` | Interaktivní HTML dashboard |
-| `KONSOLIDOVANY_ITINERAR.md` | Detailní itinerář v Markdown formátu |
-| `ROZVRH.xlsx` | Tabulka s rozvrhem a hotely |
+| File | Description |
+|------|-------------|
+| `itinerar.html` | Interactive HTML dashboard |
+| `KONSOLIDOVANY_ITINERAR.md` | Detailed itinerary in Markdown format |
+| `ROZVRH.xlsx` | Schedule and hotels spreadsheet |
 
-## Funkce dashboardu
+## Dashboard Features
 
-### Navigace - Desktop
-- **Kalendář** - permanentně v levém sidebaru
-- **Filtry** - HO / Auto / Kolo / Onsen / Lidé (toggle, lze kombinovat)
-- **Vyhledávání** - přímo v liště, real-time filtrování
-- **Views** - Úkoly, Hotely, Kontakty, Transport, Počasí
+### Navigation - Desktop
+- **Calendar** - permanently in left sidebar
+- **Filters** - HO / Car / Bike / Onsen / People (toggle, combinable)
+- **Search** - in the toolbar, real-time filtering
+- **Views** - Tasks, Hotels, Contacts, Transport, Weather
 
-### Navigace - Mobil
+### Navigation - Mobile
 - **Header** - Japan'26 | Search | Countdown
-- **Filtry** - glowing ikony (modrá), kalendář (červená)
-- **Hamburger** - Úkoly, Hotely, Kontakty, Transport, Počasí
+- **Filters** - glowing icons (blue), calendar (red)
+- **Hamburger** - Tasks, Hotels, Contacts, Transport, Weather
 
 ### Countdown
-- Vintage 7-segment digital displej (font DSEG7)
-- Před cestou: žlutá záře, záporné číslo (-025)
-- Během cesty: zelená záře, kladné číslo (+012)
-- Den odletu (18.9.): bílá, hodnota 0
+- Vintage 7-segment digital display (DSEG7 font)
+- Before trip: yellow glow, negative number (-025)
+- During trip: green glow, positive number (+012)
+- Departure day (Sep 18): white, value 0
+- Mobile: no glow effect for cleaner look
 
-### Kalendář
-- Interaktivní kalendář Sep-Nov 2026
-- Barevné kódování: zelená (všední), modrá (víkend), červená (HO)
-- HO zobrazení: 8h = 50% pruh, 5-7h = 40% pruh, ≤4h = rohový trojúhelník
-- Aktuální den zvýrazněn bílým ohraničením se září
-- Klik na den scrollne a rozbalí kartu (s offsetem pro sticky header)
-- Filtry aplikovány i na kalendář (ztlumení nevyhovujících dnů)
-- Auto-scroll na aktuální den při načtení stránky (během cesty)
+### Calendar
+- Interactive calendar Sep-Nov 2026
+- Color coding: green (weekday), blue (weekend), red (HO)
+- HO display: 8h = 50% bar, 5-7h = 40% bar, ≤4h = corner triangle
+- Current day highlighted with white border and glow
+- Click on day scrolls and expands card (with sticky header offset)
+- Filters applied to calendar (dimming non-matching days)
+- Auto-scroll to current day on page load (during trip)
 
-### Karty dnů
-- Barevné rozlišení s HO indikátorem
-- Ikona počasí s teplotou
-- Rozbalovací detaily s timeline a POI
-- Google Maps odkazy pro POI
-- Automatické denní úkoly (kufry, auto, check-in)
+### Day Cards
+- Color-coded with HO indicator
+- Weather icon with temperature
+- Expandable details with timeline and POI
+- Google Maps links for POI
+- Automatic daily tasks (luggage, car, check-in)
 
-### Modály (tmavě modré pozadí)
-- **Úkoly** - seskupené dle priority (High/Medium), kompaktní zobrazení
-- **Hotely** - přehled s cenami, provider badges, platební status
-- **Kontakty** - seznam lidí k oslovení s termíny
-- **Transport** - lety, auta, ferry
+### Modals (dark blue background)
+- **Tasks** - grouped by priority (High/Medium), compact display
+- **Hotels** - overview with prices, provider badges, payment status
+- **Contacts** - list of people to meet with dates
+- **Transport** - flights, cars, ferry
 
-### Počasí
-- Statické průměry podle regionu a měsíce
-- Volitelně live data z OpenWeatherMap API
+### Weather
+- Static averages by region and month
+- Optionally live data from OpenWeatherMap API
 
-## Fáze cesty
+## Trip Phases
 
-| # | Region | Období | Dny |
-|---|--------|--------|-----|
-| 1 | Osaka I | 19-26.9 | 8 |
-| 2 | Kyoto | 27.9-1.10 | 5 |
-| 3 | Biwa Cycling | 2-3.10 | 2 |
-| 4 | Shimanami Kaido | 6-7.10 | 2 |
-| 5 | Kyushu | 8-22.10 | 15 |
-| 6 | Tokyo + Izu | 23.10-1.11 | 10 |
-| 7 | Okinawa | 2-8.11 | 7 |
+| # | Region | Period | Days |
+|---|--------|--------|------|
+| 1 | Osaka I | Sep 19-26 | 8 |
+| 2 | Kyoto | Sep 27 - Oct 1 | 5 |
+| 3 | Biwa Cycling | Oct 2-3 | 2 |
+| 4 | Shimanami Kaido | Oct 6-7 | 2 |
+| 5 | Kyushu | Oct 8-22 | 15 |
+| 6 | Tokyo + Izu | Oct 23 - Nov 1 | 10 |
+| 7 | Okinawa | Nov 2-8 | 7 |
 
-## K vyřešení před cestou
+## To Resolve Before Trip
 
 ### High Priority
-- [ ] Ferry Yawatahama-Beppu 13:00 (8.10.)
-- [ ] Ferry Kumamoto-Shimabara 09:25 (16.10.)
-- [ ] teamLab Biovortex vstupenky (1.10.)
-- [ ] Kola Shimanami multi-day (6-7.10.)
-- [ ] Takachiho Yokagura rezervace (14.10.)
-- [ ] Ubytování 26-29.10 (Izu/Fuji road trip)
-- [ ] Express bus Yufuin-Kumamoto rezervace (11.10.)
-- [ ] Odeslat kufr Fukuyama→Matsuyama (6.10.)
-- [ ] Odeslat kufr Kumamoto→Nagasaki (16.10.)
+- [ ] Ferry Yawatahama-Beppu 13:00 (Oct 8)
+- [ ] Ferry Kumamoto-Shimabara 09:25 (Oct 16)
+- [ ] teamLab Biovortex tickets (Oct 1)
+- [ ] Shimanami multi-day bike rental (Oct 6-7)
+- [ ] Takachiho Yokagura reservation (Oct 14)
+- [ ] Accommodation Oct 26-29 (Izu/Fuji road trip)
+- [ ] Express bus Yufuin-Kumamoto reservation (Oct 11)
+- [ ] Send luggage Fukuyama→Matsuyama (Oct 6)
+- [ ] Send luggage Kumamoto→Nagasaki (Oct 16)
 
 ### Medium
-- [ ] Keigo - min. 1 týden před 26.9.
-- [ ] Takashi - pro 28.9.
-- [ ] Wahei - min. měsíc před 24.10.
-- [ ] Ryuki - 1-2 týdny před 23.10.
+- [ ] Keigo - min. 1 week before Sep 26
+- [ ] Takashi - for Sep 28
+- [ ] Wahei - min. 1 month before Oct 24
+- [ ] Ryuki - 1-2 weeks before Oct 23
 
-## Technické poznámky
+## Technical Notes
 
-- Single-page HTML s inline CSS a JS
-- Data uložena přímo v JS (DAYS, TASKS, HOTEL_INFO, etc.)
-- Stav tasků v localStorage
-- Responzivní design (mobil / desktop)
-- Funguje offline (počasí live vyžaduje internet)
+- Single-page HTML with inline CSS and JS
+- Data stored directly in JS (DAYS, TASKS, HOTEL_INFO, etc.)
+- Task state in localStorage
+- Responsive design (mobile / desktop)
+- Works offline (live weather requires internet)
