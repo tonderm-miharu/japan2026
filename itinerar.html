@@ -1726,28 +1726,47 @@
         const isAndroid = /Android/.test(navigator.userAgent);
         const encodedQuery = encodeURIComponent(query);
 
-        if (isIOS) {
-            // Try Google Maps app first, fallback to web
-            const appUrl = `comgooglemaps://?q=${encodedQuery}`;
-            const start = Date.now();
-            window.location = appUrl;
+        if (isIOS || isAndroid) {
+            const appUrl = isIOS
+                ? `comgooglemaps://?q=${encodedQuery}`
+                : `geo:0,0?q=${encodedQuery}`;
+
+            let appOpened = false;
+
+            const onBlur = () => {
+                appOpened = true;
+                cleanup();
+            };
+
+            const cleanup = () => {
+                window.removeEventListener('blur', onBlur);
+                document.removeEventListener('visibilitychange', onVisChange);
+            };
+
+            const onVisChange = () => {
+                if (document.hidden) {
+                    appOpened = true;
+                    cleanup();
+                }
+            };
+
+            window.addEventListener('blur', onBlur);
+            document.addEventListener('visibilitychange', onVisChange);
+
+            // Try to open app
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = appUrl;
+            document.body.appendChild(iframe);
+
             setTimeout(() => {
-                if (Date.now() - start < 2000) {
+                document.body.removeChild(iframe);
+                cleanup();
+                if (!appOpened && !document.hidden) {
                     window.open(webUrl, '_blank');
                 }
-            }, 500);
-        } else if (isAndroid) {
-            // Try geo: intent, fallback to web
-            const geoUrl = `geo:0,0?q=${encodedQuery}`;
-            const start = Date.now();
-            window.location = geoUrl;
-            setTimeout(() => {
-                if (Date.now() - start < 2000) {
-                    window.open(webUrl, '_blank');
-                }
-            }, 500);
+            }, 1500);
         } else {
-            // Desktop - open web version
             window.open(webUrl, '_blank');
         }
     }
