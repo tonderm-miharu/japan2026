@@ -666,28 +666,38 @@
 
         .day-hotel {
             display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+        }
+        .hotel-name { font-size: 0.75rem; color: var(--text-dim); max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .day-hotel-row {
+            display: flex;
             align-items: center;
-            gap: 8px;
-            text-align: right;
+            gap: 6px;
         }
         .day-hotel-icons {
             display: flex;
             gap: 4px;
             align-items: center;
         }
+        .tag-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 20px;
+            border: 1px solid #374151;
+            border-radius: 6px;
+            background: transparent;
+        }
         .tag-icon {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             stroke: #60a5fa;
             fill: none;
             stroke-width: 2;
         }
-        .hotel-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-        .hotel-name { font-size: 0.75rem; color: var(--text-dim); max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .hotel-price { font-size: 0.8rem; font-weight: 600; color: var(--green); }
 
         .expand-btn {
@@ -1497,9 +1507,10 @@
             onsen: '<svg class="tag-icon" viewBox="0 0 24 24"><ellipse cx="12" cy="18" rx="8" ry="4"/><path d="M8 5c0 1.5 1 2.5 1 4s-1 2.5-1 4"/><path d="M12 5c0 1.5 1 2.5 1 4s-1 2.5-1 4"/><path d="M16 5c0 1.5 1 2.5 1 4s-1 2.5-1 4"/></svg>',
             meet: '<svg class="tag-icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg>',
             flight: '<svg class="tag-icon" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5v5.5l-2 1.5v1.5l3.5-1 3.5 1v-1.5l-2-1.5v-5.5l8 2.5z"/></svg>',
-            fest: '<svg class="tag-icon" viewBox="0 0 24 24"><path d="M4 21h16"/><path d="M12 21V11"/><path d="M12 11L6 5h12l-6 6z"/><path d="M9 8h6"/></svg>'
+            fest: '<svg class="tag-icon" viewBox="0 0 24 24"><path d="M6 21V8"/><path d="M18 21V8"/><path d="M3 8h18"/><path d="M5 5h14"/></svg>'
         };
-        return icons[t] || '';
+        if (!icons[t]) return '';
+        return `<div class="tag-box">${icons[t]}</div>`;
     }
     function getDotClass(type) {
         const map = { transport: 'transport', food: 'food', sight: 'sight', work: 'work' };
@@ -1598,9 +1609,9 @@
                             <p>${d.title}${d.subtitle ? ' – ' + d.subtitle : ''}</p>
                         </div>
                         <div class="day-hotel">
-                            ${tagsHtml ? `<div class="day-hotel-icons">${tagsHtml}</div>` : ''}
-                            <div class="hotel-info">
-                                <div class="hotel-name">${d.hotel}</div>
+                            <div class="hotel-name">${d.hotel}</div>
+                            <div class="day-hotel-row">
+                                ${tagsHtml ? `<div class="day-hotel-icons">${tagsHtml}</div>` : ''}
                                 ${d.price ? `<div class="hotel-price">${d.price}</div>` : ''}
                             </div>
                         </div>
