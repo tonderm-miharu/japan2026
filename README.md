@@ -60,7 +60,8 @@
 - Color-coded: green (weekday), gray (weekend), with HO indicator
 - Weather icon with temperature
 - Expandable details with timeline and POI
-- Google Maps links for POI
+- Google Maps links for 188 POI (hotels, temples, stations, bridges, etc.)
+- Tag icons (HO, car, bike, onsen, meet, flight, fest)
 - Automatic daily tasks (luggage, car, check-in)
 
 ### Modals (dark blue background)
@@ -108,7 +109,8 @@
 
 - Single-page HTML with inline CSS and JS
 - Fonts: Inter, DSEG7, Electrolize, Oxanium, Orbitron
-- Data stored directly in JS (DAYS, TASKS, HOTEL_INFO, etc.)
+- Data stored directly in JS (DAYS, TASKS, HOTEL_INFO, POI_URLS, etc.)
+- POI_URLS: 188 verified Google Maps search links
 - Task state in localStorage
 - Responsive design (mobile / desktop)
 - Works offline (live weather requires internet)
