@@ -696,6 +696,29 @@
             text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3);
         }
 
+        .countdown {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .digit-wrapper {
+            height: 1.3em;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .digit-roll {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .digit-roll span {
+            height: 1.3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .view-section {
             padding: 16px 0;
             border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -1715,8 +1738,8 @@
         });
     });
 
-    // Countdown - vintage digital style
-    function updateCountdown() {
+    // Countdown - vintage digital style with rolling animation
+    function updateCountdown(animate = false) {
         const tripStart = new Date('2026-09-18');
         const today = new Date();
         today.setHours(0, 0, 0, 0);
@@ -1725,29 +1748,68 @@
         const el = document.getElementById('countdown');
         el.classList.remove('before', 'after', 'zero');
 
+        let sign = '';
+        let value = 0;
+        let colorClass = '';
+
         if (diff > 0) {
-            // Before trip: yellow, negative
-            const padded = String(diff).padStart(3, '0');
-            el.textContent = `-${padded}`;
-            el.classList.add('before');
+            sign = '-';
+            value = diff;
+            colorClass = 'before';
         } else if (diff === 0) {
-            // Day zero: white
-            el.textContent = '0';
-            el.classList.add('zero');
+            sign = '';
+            value = 0;
+            colorClass = 'zero';
         } else if (diff >= -53) {
-            // During trip: green, positive
-            const dayNum = Math.abs(diff);
-            const padded = String(dayNum).padStart(3, '0');
-            el.textContent = `+${padded}`;
-            el.classList.add('after');
+            sign = '+';
+            value = Math.abs(diff);
+            colorClass = 'after';
         } else {
-            el.textContent = '';
+            el.innerHTML = '';
+            return;
+        }
+
+        el.classList.add(colorClass);
+        const digits = String(value).padStart(3, '0').split('');
+
+        // Build HTML with digit wrappers
+        let html = `<span>${sign}</span>`;
+        digits.forEach((d, i) => {
+            html += `<div class="digit-wrapper"><div class="digit-roll" id="cd-d${i}">`;
+            for (let n = 9; n >= 0; n--) {
+                html += `<span>${n}</span>`;
+            }
+            html += '</div></div>';
+        });
+        el.innerHTML = html;
+
+        // Animate rolling
+        if (animate) {
+            digits.forEach((d, i) => {
+                const wrapper = document.getElementById('cd-d' + i);
+                const targetNum = parseInt(d);
+                const offset = (9 - targetNum) * 1.3;
+
+                wrapper.style.transform = 'translateY(0)';
+                setTimeout(() => {
+                    wrapper.style.transition = `transform ${0.8 + i * 0.25}s cubic-bezier(0.2, 0.8, 0.2, 1)`;
+                    wrapper.style.transform = `translateY(-${offset}em)`;
+                }, 100 + i * 150);
+            });
+        } else {
+            // No animation - just set final position
+            digits.forEach((d, i) => {
+                const wrapper = document.getElementById('cd-d' + i);
+                const targetNum = parseInt(d);
+                const offset = (9 - targetNum) * 1.3;
+                wrapper.style.transform = `translateY(-${offset}em)`;
+            });
         }
     }
 
     renderTasks();
     renderDays();
-    updateCountdown();
+    updateCountdown(true); // Animate on page load
 
     // Scroll to current day on page load
     function scrollToToday() {
