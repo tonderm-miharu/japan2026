@@ -168,12 +168,16 @@
 
         header {
             position: sticky;
-            top: 26px;
+            top: 38px;
             z-index: 100;
-            background: rgba(10,10,10,0.85);
+            background: rgba(10,10,10,0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            padding: 12px 20px;
+            padding: 8px 20px;
+        }
+
+        @media (max-width: 900px) {
+            header { top: 28px; }
         }
 
         .header-inner {
@@ -185,7 +189,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .logo {
@@ -399,14 +403,14 @@
         main {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 24px 20px;
+            padding: 12px 20px;
             display: grid;
             grid-template-columns: 280px 1fr;
-            gap: 24px;
+            gap: 16px;
         }
 
         @media (max-width: 900px) {
-            main { grid-template-columns: 1fr; padding-top: 12px; }
+            main { grid-template-columns: 1fr; padding-top: 8px; }
             .sidebar { display: none; }
         }
 
