@@ -6,6 +6,13 @@
     <title>Japan 2026 | Itinerář</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23fff' stroke='%23ddd' stroke-width='2'/><circle cx='50' cy='50' r='24' fill='%23bc002d'/></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'DSEG7';
+            src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2') format('woff2');
+        }
+    </style>
         <style>
         :root {
             --bg: #0a0a0a;
@@ -670,10 +677,23 @@
         }
 
         .countdown {
-            font-size: 0.75rem;
-            color: var(--green);
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
             margin-left: 12px;
-            font-weight: 500;
+        }
+        .countdown.before {
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251,191,36,0.6), 0 0 20px rgba(251,191,36,0.3);
+        }
+        .countdown.after {
+            color: var(--green);
+            text-shadow: 0 0 10px rgba(16,185,129,0.6), 0 0 20px rgba(16,185,129,0.3);
+        }
+        .countdown.zero {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3);
         }
 
         .view-section {
@@ -1693,17 +1713,31 @@
         });
     });
 
-    // Countdown
+    // Countdown - vintage digital style
     function updateCountdown() {
         const tripStart = new Date('2026-09-18');
         const today = new Date();
-        const diff = Math.ceil((tripStart - today) / (1000 * 60 * 60 * 24));
+        today.setHours(0, 0, 0, 0);
+        tripStart.setHours(0, 0, 0, 0);
+        const diff = Math.round((tripStart - today) / (1000 * 60 * 60 * 24));
         const el = document.getElementById('countdown');
+        el.classList.remove('before', 'after', 'zero');
+
         if (diff > 0) {
-            el.textContent = `in ${diff} days`;
+            // Before trip: yellow, negative
+            const padded = String(diff).padStart(3, '0');
+            el.textContent = `-${padded}`;
+            el.classList.add('before');
+        } else if (diff === 0) {
+            // Day zero: white
+            el.textContent = '0';
+            el.classList.add('zero');
         } else if (diff >= -53) {
-            el.textContent = `DAY ${Math.abs(diff) + 1}`;
-            el.classList.add('active');
+            // During trip: green, positive
+            const dayNum = Math.abs(diff);
+            const padded = String(dayNum).padStart(3, '0');
+            el.textContent = `+${padded}`;
+            el.classList.add('after');
         } else {
             el.textContent = '';
         }
