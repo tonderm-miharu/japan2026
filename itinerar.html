@@ -1748,6 +1748,27 @@
     renderTasks();
     renderDays();
     updateCountdown();
+
+    // Scroll to current day on page load
+    function scrollToToday() {
+        const tripStart = new Date('2026-09-18');
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        tripStart.setHours(0, 0, 0, 0);
+        const diff = Math.round((today - tripStart) / (1000 * 60 * 60 * 24));
+
+        // Only scroll if we're within the trip dates (day 1-53)
+        if (diff >= 0 && diff < 53) {
+            const dayNum = diff + 1; // Day 1 = Sept 18
+            const card = document.getElementById('day-' + dayNum);
+            if (card) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const cardTop = card.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+                window.scrollTo({ top: cardTop, behavior: 'auto' });
+            }
+        }
+    }
+    scrollToToday();
     </script>
 </body>
 </html>
