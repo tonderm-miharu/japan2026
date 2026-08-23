@@ -1726,46 +1726,12 @@
         const isAndroid = /Android/.test(navigator.userAgent);
         const encodedQuery = encodeURIComponent(query);
 
-        if (isIOS || isAndroid) {
-            const appUrl = isIOS
-                ? `comgooglemaps://?q=${encodedQuery}`
-                : `geo:0,0?q=${encodedQuery}`;
-
-            let appOpened = false;
-
-            const onBlur = () => {
-                appOpened = true;
-                cleanup();
-            };
-
-            const cleanup = () => {
-                window.removeEventListener('blur', onBlur);
-                document.removeEventListener('visibilitychange', onVisChange);
-            };
-
-            const onVisChange = () => {
-                if (document.hidden) {
-                    appOpened = true;
-                    cleanup();
-                }
-            };
-
-            window.addEventListener('blur', onBlur);
-            document.addEventListener('visibilitychange', onVisChange);
-
-            // Try to open app
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = appUrl;
-            document.body.appendChild(iframe);
-
-            setTimeout(() => {
-                document.body.removeChild(iframe);
-                cleanup();
-                if (!appOpened && !document.hidden) {
-                    window.open(webUrl, '_blank');
-                }
-            }, 1500);
+        if (isIOS) {
+            // iOS: use comgooglemaps scheme - opens app directly
+            window.location.href = `comgooglemaps://?q=${encodedQuery}`;
+        } else if (isAndroid) {
+            // Android: use intent URL for Google Maps
+            window.location.href = `intent://maps.google.com/maps?q=${encodedQuery}#Intent;scheme=https;package=com.google.android.apps.maps;end`;
         } else {
             window.open(webUrl, '_blank');
         }
