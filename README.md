@@ -23,16 +23,24 @@
 - **Views** - Úkoly, Hotely, Kontakty, Transport, Počasí
 
 ### Navigace - Mobil
-- **Header** - Japan'26 | Search | Countdown (in X days)
+- **Header** - Japan'26 | Search | Countdown
 - **Filtry** - glowing ikony (modrá), kalendář (červená)
 - **Hamburger** - Úkoly, Hotely, Kontakty, Transport, Počasí
+
+### Countdown
+- Vintage 7-segment digital displej (font DSEG7)
+- Před cestou: žlutá záře, záporné číslo (-025)
+- Během cesty: zelená záře, kladné číslo (+012)
+- Den odletu (18.9.): bílá, hodnota 0
 
 ### Kalendář
 - Interaktivní kalendář Sep-Nov 2026
 - Barevné kódování: zelená (všední), modrá (víkend), červená (HO)
 - HO zobrazení: 8h = 50% pruh, 5-7h = 40% pruh, ≤4h = rohový trojúhelník
-- Klik na den scrollne a rozbalí kartu
+- Aktuální den zvýrazněn bílým ohraničením se září
+- Klik na den scrollne a rozbalí kartu (s offsetem pro sticky header)
 - Filtry aplikovány i na kalendář (ztlumení nevyhovujících dnů)
+- Auto-scroll na aktuální den při načtení stránky (během cesty)
 
 ### Karty dnů
 - Barevné rozlišení s HO indikátorem
