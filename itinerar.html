@@ -278,7 +278,6 @@
         @media (max-width: 900px) {
             main { grid-template-columns: 1fr; }
             .sidebar { display: none; }
-            .day-card { scroll-margin-top: 120px; }
         }
 
         .sidebar {
@@ -401,7 +400,6 @@
             border: 1px solid transparent;
             overflow: hidden;
             transition: all 0.15s;
-            scroll-margin-top: 100px;
         }
 
         .day-card:hover { border-color: var(--border); }
@@ -1654,7 +1652,9 @@
                 if (calModal) calModal.classList.remove('visible');
                 const card = document.getElementById('day-' + dayNum);
                 if (card) {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const cardTop = card.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+                    window.scrollTo({ top: cardTop, behavior: 'smooth' });
                     card.classList.add('expanded');
                 }
             });
