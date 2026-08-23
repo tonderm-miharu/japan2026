@@ -113,4 +113,5 @@
 - POI_URLS: 188 verified Google Maps search links
 - Task state in localStorage
 - Responsive design (mobile / desktop)
-- Works offline (live weather requires internet)
+- Works offline (PWA with Service Worker - caches fonts and page)
+- Installable as app on mobile (Add to Home Screen)
