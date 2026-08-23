@@ -16,16 +16,22 @@
 
 ## Dashboard Features
 
+### Header
+- **Logo** - "JAPAN'26" in Oxanium digital font with red accent
+- **Progress Strip** - 53 day blocks with phase labels (OSAKA, KYOTO, KYUSHU, etc.)
+- **Timezone** - Tokyo/Prague dual clock display (DSEG7 + Electrolize fonts)
+- **Countdown** - 7-segment digital display showing days until/since departure
+
 ### Navigation - Desktop
-- **Calendar** - permanently in left sidebar
-- **Filters** - HO / Car / Bike / Onsen / People (toggle, combinable)
-- **Search** - in the toolbar, real-time filtering
-- **Views** - Tasks, Hotels, Contacts, Transport, Weather
+- **Sidebar** - Timezone display + Calendar (sticky)
+- **Filters** - HO / Car / Bike / Onsen / People (blue glowing icons)
+- **Views** - Tasks, Hotels, Contacts, Transport, Weather (purple glowing SVG icons)
+- **Search** - real-time filtering
 
 ### Navigation - Mobile
-- **Header** - Japan'26 | Search | Countdown
+- **Header** - Japan'26 | Timezone | Countdown
 - **Filters** - glowing icons (blue), calendar (red)
-- **Hamburger** - Tasks, Hotels, Contacts, Transport, Weather
+- **Hamburger** - Tasks, Hotels, Contacts, Transport, Weather (purple SVG icons), Search
 
 ### Countdown
 - Vintage 7-segment digital display (DSEG7 font)
@@ -34,9 +40,15 @@
 - Departure day (Sep 18): white, value 0
 - Mobile: no glow effect for cleaner look
 
+### Progress Strip
+- Day blocks showing trip progress by phase
+- Color-coded phases (Osaka=orange, Kyoto=purple, Kyushu=red, etc.)
+- Click on day block scrolls to that day's card
+- Current day highlighted with blue glow
+
 ### Calendar
 - Interactive calendar Sep-Nov 2026
-- Color coding: green (weekday), blue (weekend), red (HO)
+- Color coding: green (weekday), gray (weekend), red (HO)
 - HO display: 8h = 50% bar, 5-7h = 40% bar, ≤4h = corner triangle
 - Current day highlighted with white border and glow
 - Click on day scrolls and expands card (with sticky header offset)
@@ -44,7 +56,7 @@
 - Auto-scroll to current day on page load (during trip)
 
 ### Day Cards
-- Color-coded with HO indicator
+- Color-coded: green (weekday), gray (weekend), with HO indicator
 - Weather icon with temperature
 - Expandable details with timeline and POI
 - Google Maps links for POI
@@ -94,6 +106,7 @@
 ## Technical Notes
 
 - Single-page HTML with inline CSS and JS
+- Fonts: Inter, DSEG7, Electrolize, Oxanium, Orbitron
 - Data stored directly in JS (DAYS, TASKS, HOTEL_INFO, etc.)
 - Task state in localStorage
 - Responsive design (mobile / desktop)
