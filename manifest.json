@@ -1,0 +1,16 @@
+{
+    "name": "Japan 2026 Itinerary",
+    "short_name": "Japan'26",
+    "description": "53-day Japan trip itinerary dashboard",
+    "start_url": "./itinerar.html",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#1e3a5f",
+    "icons": [
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%231e3a5f' width='100' height='100' rx='20'/><text x='50' y='65' text-anchor='middle' font-size='40' font-family='sans-serif' fill='white'>JP</text><circle cx='75' cy='25' r='12' fill='%23ef4444'/></svg>",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ]
+}
