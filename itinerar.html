@@ -273,14 +273,15 @@
             color: var(--text-dim);
             font-size: 0.7rem;
             cursor: pointer;
-            transition: all 0.15s;
+            transition: all 0.2s;
             white-space: nowrap;
             display: flex;
             align-items: center;
             gap: 4px;
+            box-shadow: none;
         }
 
-        .filter-btn:hover { border-color: var(--text-dim); color: var(--text); }
+        .filter-btn:hover:not(.active) { border-color: var(--text-dim); color: var(--text); }
         .filter-btn.active {
             background: transparent;
             border-color: #60a5fa;
