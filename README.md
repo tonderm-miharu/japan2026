@@ -24,13 +24,14 @@
 
 ### Navigation - Desktop
 - **Sidebar** - Timezone display + Calendar (sticky)
-- **Filters** - HO / Car / Bike / Onsen / People (blue glowing icons)
+- **Filters** - HO / Car / Bike / Onsen / People (gray default, blue glow when active)
 - **Views** - Tasks, Hotels, Contacts, Transport, Weather (purple glowing SVG icons)
-- **Search** - real-time filtering
+- **Search** - real-time filtering, works with filters
 
 ### Navigation - Mobile
 - **Header** - Japan'26 | Timezone | Countdown
-- **Filters** - glowing icons (blue), calendar (red)
+- **Filters** - gray default, blue glow when active (icon + border light up)
+- **Calendar** - red glowing icon
 - **Hamburger** - Tasks, Hotels, Contacts, Transport, Weather (purple SVG icons), Search
 
 ### Countdown
