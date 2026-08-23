@@ -738,12 +738,39 @@
             padding: 12px;
         }
 
+        .detail-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .detail-title-row .detail-title {
+            margin-bottom: 0;
+        }
         .detail-title {
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--text-muted);
             margin-bottom: 10px;
+        }
+        .mobile-tags {
+            display: none;
+        }
+        @media (max-width: 900px) {
+            .mobile-tags {
+                display: flex;
+                gap: 4px;
+                align-items: center;
+            }
+            .mobile-tags .tag-box {
+                width: 22px;
+                height: 18px;
+            }
+            .mobile-tags .tag-icon {
+                width: 12px;
+                height: 12px;
+            }
         }
 
         .timeline {
@@ -1647,7 +1674,7 @@
                             </div>
                             ${d.pois && d.pois.length > 0 ? `
                             <div class="detail-section" style="grid-column: 1 / -1;">
-                                <div class="detail-title">📍 Místa</div>
+                                <div class="detail-title-row"><span class="detail-title">📍 Places</span>${tagsHtml ? `<div class="mobile-tags">${tagsHtml}</div>` : ''}</div>
                                 <div class="poi-list">
                                     ${d.pois.map(poi => `<a href="https://www.google.com/maps/search/?api=1&query=${poi.coords[0]},${poi.coords[1]}" target="_blank" class="poi-link">📍 ${poi.name}</a>`).join('')}
                                 </div>
