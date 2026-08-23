@@ -1894,8 +1894,8 @@
                 if (calModal) calModal.classList.remove('visible');
                 const card = document.getElementById('day-' + dayNum);
                 if (card) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const cardTop = card.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+                    const headerHeight = document.querySelector('.sticky-header').offsetHeight;
+                    const cardTop = card.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
                     window.scrollTo({ top: cardTop, behavior: 'smooth' });
                     card.classList.add('expanded');
                 }
@@ -2073,8 +2073,8 @@
                 const card = document.getElementById('day-' + dayNum);
                 if (card) {
                     card.open = true;
-                    const headerHeight = document.querySelector('header').offsetHeight + 30;
-                    const cardTop = card.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    const headerHeight = document.querySelector('.sticky-header').offsetHeight;
+                    const cardTop = card.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
                     window.scrollTo({ top: cardTop, behavior: 'smooth' });
                 }
             });
@@ -2107,8 +2107,8 @@
             const dayNum = diff + 1; // Day 1 = Sept 18
             const card = document.getElementById('day-' + dayNum);
             if (card) {
-                const headerHeight = document.querySelector('header').offsetHeight + 30;
-                const cardTop = card.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                const headerHeight = document.querySelector('.sticky-header').offsetHeight;
+                const cardTop = card.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
                 window.scrollTo({ top: cardTop, behavior: 'auto' });
             }
         }
