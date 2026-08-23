@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Mockups - In Context</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'DSEG7';
+            src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2') format('woff2');
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --text: #f5f5f5;
+            --text-dim: #888;
+            --accent: #3b82f6;
+            --green: #10b981;
+            --red: #ef4444;
+            --yellow: #fbbf24;
+            --border: #222;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #1a1a2e;
+            color: var(--text);
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 16px;
+            font-size: 1.8rem;
+        }
+
+        .intro {
+            text-align: center;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            font-size: 0.85rem;
+        }
+
+        .mockup-section {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            background: var(--bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .mockup-label {
+            background: #1e3a5f;
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mockup-label .variant {
+            color: var(--accent);
+        }
+
+        .mockup-label .state {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            font-weight: 400;
+        }
+
+        /* ===== HEADER SIMULATION ===== */
+        .header-sim {
+            background: rgba(10,10,10,0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 20px;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-circle {
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .logo-circle::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #bc002d;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .logo h1 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .search-sim {
+            flex: 1;
+            max-width: 200px;
+            padding: 6px 12px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+        }
+
+        .hamburger {
+            font-size: 1.3rem;
+            color: #60a5fa;
+            text-shadow: 0 0 4px #60a5fa;
+        }
+
+        /* ===== COUNTDOWN STYLES ===== */
+
+        /* Style A: Simple Digital */
+        .countdown-a {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .countdown-a.before { color: var(--yellow); text-shadow: 0 0 8px rgba(251,191,36,0.5); }
+        .countdown-a.after { color: var(--green); text-shadow: 0 0 8px rgba(16,185,129,0.5); }
+
+        /* Style B: 7-Segment with glow */
+        .countdown-b {
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .countdown-b.before { color: var(--yellow); text-shadow: 0 0 10px rgba(251,191,36,0.6), 0 0 20px rgba(251,191,36,0.3); }
+        .countdown-b.after { color: var(--green); text-shadow: 0 0 10px rgba(16,185,129,0.6), 0 0 20px rgba(16,185,129,0.3); }
+
+        /* Style C: Boxed digits */
+        .countdown-c {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .countdown-c .sign {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-right: 2px;
+        }
+        .countdown-c .digit {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 3px 5px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 3px;
+            min-width: 20px;
+            text-align: center;
+        }
+        .countdown-c.before .sign, .countdown-c.before .digit { color: var(--yellow); }
+        .countdown-c.after .sign, .countdown-c.after .digit { color: var(--green); }
+        .countdown-c.before .digit { border: 1px solid rgba(251,191,36,0.3); }
+        .countdown-c.after .digit { border: 1px solid rgba(16,185,129,0.3); }
+
+        /* Style D: Neon intense */
+        .countdown-d {
+            font-family: 'Orbitron', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .countdown-d.before {
+            color: #fde047;
+            text-shadow: 0 0 5px #fde047, 0 0 10px #fbbf24, 0 0 20px #f59e0b, 0 0 30px #d97706;
+        }
+        .countdown-d.after {
+            color: #86efac;
+            text-shadow: 0 0 5px #86efac, 0 0 10px #22c55e, 0 0 20px #16a34a, 0 0 30px #15803d;
+        }
+
+        /* Style E: LCD frame */
+        .countdown-e {
+            display: inline-flex;
+            align-items: center;
+            background: #0a0a0a;
+            border: 2px solid #333;
+            border-radius: 6px;
+            padding: 4px 10px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .countdown-e .value {
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .countdown-e.before .value { color: var(--yellow); text-shadow: 0 0 6px rgba(251,191,36,0.5); }
+        .countdown-e.after .value { color: var(--green); text-shadow: 0 0 6px rgba(16,185,129,0.5); }
+
+        /* Style F: Minimal clean */
+        .countdown-f {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .countdown-f .num {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .countdown-f.before { color: var(--yellow); }
+        .countdown-f.after { color: var(--green); }
+
+        .sub-variants {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 1px solid var(--border);
+        }
+
+        .sub-variant {
+            padding: 16px 20px;
+            border-right: 1px solid var(--border);
+        }
+
+        .sub-variant:last-child {
+            border-right: none;
+        }
+
+        .sub-variant-label {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Mobile mockup */
+        .mobile-frame {
+            max-width: 375px;
+            margin: 0 auto;
+            border: 2px solid #333;
+            border-radius: 24px;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .mobile-notch {
+            height: 28px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-notch::before {
+            content: '';
+            width: 80px;
+            height: 20px;
+            background: #1a1a1a;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .desktop-label, .mobile-label {
+            text-align: center;
+            padding: 16px;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-top: 1px solid var(--border);
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+        }
+
+        .comparison > div {
+            background: var(--bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        @media (max-width: 700px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            .sub-variants {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown v kontextu headeru</h1>
+    <p class="intro">Mockupy ukazuji jak bude countdown vypadat v realnem headeru - desktop i mobil</p>
+
+    <!-- ===== VARIANTA A: Simple Digital ===== -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">A: Simple Digital (Orbitron)</span>
+            <span class="state">Cisty, moderni, citelny</span>
+        </div>
+        <div class="header-sim">
+            <div class="header-top">
+                <div class="logo">
+                    <div class="logo-circle"></div>
+                    <h1>Japan'26</h1>
+                </div>
+                <input class="search-sim" placeholder="Hledat..." disabled>
+                <span class="countdown-a before">-025</span>
+            </div>
+        </div>
+        <div class="sub-variants">
+            <div class="sub-variant">
+                <div class="sub-variant-label">Pred cestou (zluta)</div>
+                <span class="countdown-a before">-025</span>
+            </div>
+            <div class="sub-variant">
+                <div class="sub-variant-label">Behem cesty (zelena)</div>
+                <span class="countdown-a after">+012</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== VARIANTA B: 7-Segment ===== -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">B: 7-Segment Display (DSEG7)</span>
+            <span class="state">Autenticky retro, kalkulacka</span>
+        </div>
+        <div class="header-sim">
+            <div class="header-top">
+                <div class="logo">
+                    <div class="logo-circle"></div>
+                    <h1>Japan'26</h1>
+                </div>
+                <input class="search-sim" placeholder="Hledat..." disabled>
+                <span class="countdown-b before">-025</span>
+            </div>
+        </div>
+        <div class="sub-variants">
+            <div class="sub-variant">
+                <div class="sub-variant-label">Pred cestou (zluta)</div>
+                <span class="countdown-b before">-025</span>
+            </div>
+            <div class="sub-variant">
+                <div class="sub-variant-label">Behem cesty (zelena)</div>
+                <span class="countdown-b after">+012</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== VARIANTA C: Boxed Digits ===== -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">C: Boxed Digits</span>
+            <span class="state">Jednotlive cislice v rameccich</span>
+        </div>
+        <div class="header-sim">
+            <div class="header-top">
+                <div class="logo">
+                    <div class="logo-circle"></div>
+                    <h1>Japan'26</h1>
+                </div>
+                <input class="search-sim" placeholder="Hledat..." disabled>
+                <span class="countdown-c before">
+                    <span class="sign">-</span>
+                    <span class="digit">0</span>
+                    <span class="digit">2</span>
+                    <span class="digit">5</span>
+                </span>
+            </div>
+        </div>
+        <div class="sub-variants">
+            <div class="sub-variant">
+                <div class="sub-variant-label">Pred cestou (zluta)</div>
+                <span class="countdown-c before">
+                    <span class="sign">-</span>
+                    <span class="digit">0</span>
+                    <span class="digit">2</span>
+                    <span class="digit">5</span>
+                </span>
+            </div>
+            <div class="sub-variant">
+                <div class="sub-variant-label">Behem cesty (zelena)</div>
+                <span class="countdown-c after">
+                    <span class="sign">+</span>
+                    <span class="digit">0</span>
+                    <span class="digit">1</span>
+                    <span class="digit">2</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== VARIANTA D: Neon Glow ===== -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">D: Neon Glow</span>
+            <span class="state">Intenzivni zare, cyberpunk vibe</span>
+        </div>
+        <div class="header-sim">
+            <div class="header-top">
+                <div class="logo">
+                    <div class="logo-circle"></div>
+                    <h1>Japan'26</h1>
+                </div>
+                <input class="search-sim" placeholder="Hledat..." disabled>
+                <span class="countdown-d before">-025</span>
+            </div>
+        </div>
+        <div class="sub-variants">
+            <div class="sub-variant">
+                <div class="sub-variant-label">Pred cestou (zluta)</div>
+                <span class="countdown-d before">-025</span>
+            </div>
+            <div class="sub-variant">
+                <div class="sub-variant-label">Behem cesty (zelena)</div>
+                <span class="countdown-d after">+012</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== VARIANTA E: LCD Frame ===== -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">E: LCD Frame</span>
+            <span class="state">Displej s rameckem jako stare hodinky</span>
+        </div>
+        <div class="header-sim">
+            <div class="header-top">
+                <div class="logo">
+                    <div class="logo-circle"></div>
+                    <h1>Japan'26</h1>
+                </div>
+                <input class="search-sim" placeholder="Hledat..." disabled>
+                <span class="countdown-e before">
+                    <span class="value">-025</span>
+                </span>
+            </div>
+        </div>
+        <div class="sub-variants">
+            <div class="sub-variant">
+                <div class="sub-variant-label">Pred cestou (zluta)</div>
+                <span class="countdown-e before"><span class="value">-025</span></span>
+            </div>
+            <div class="sub-variant">
+                <div class="sub-variant-label">Behem cesty (zelena)</div>
+                <span class="countdown-e after"><span class="value">+012</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== VARIANTA F: Minimal ===== -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">F: Minimal Clean</span>
+            <span class="state">Jednoduchy, nenapadny</span>
+        </div>
+        <div class="header-sim">
+            <div class="header-top">
+                <div class="logo">
+                    <div class="logo-circle"></div>
+                    <h1>Japan'26</h1>
+                </div>
+                <input class="search-sim" placeholder="Hledat..." disabled>
+                <span class="countdown-f before"><span class="num">-025</span> days</span>
+            </div>
+        </div>
+        <div class="sub-variants">
+            <div class="sub-variant">
+                <div class="sub-variant-label">Pred cestou (zluta)</div>
+                <span class="countdown-f before"><span class="num">-025</span> days</span>
+            </div>
+            <div class="sub-variant">
+                <div class="sub-variant-label">Behem cesty (zelena)</div>
+                <span class="countdown-f after"><span class="num">+012</span> days</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MOBILE vs DESKTOP Comparison ===== -->
+    <h1 style="margin-top: 60px;">Desktop vs Mobil</h1>
+    <p class="intro">Porovnani jak vypada varianta B (7-segment) na ruznych zarizenich</p>
+
+    <div class="comparison">
+        <!-- Desktop -->
+        <div>
+            <div class="mockup-label">
+                <span class="variant">Desktop</span>
+            </div>
+            <div class="header-sim">
+                <div class="header-top">
+                    <div class="logo">
+                        <div class="logo-circle"></div>
+                        <h1>Japan'26</h1>
+                    </div>
+                    <input class="search-sim" placeholder="Hledat..." disabled style="max-width: 160px;">
+                    <span class="countdown-b before">-025</span>
+                </div>
+            </div>
+            <div class="desktop-label">Siroke rozlozeni s vyhledavanim</div>
+        </div>
+
+        <!-- Mobile -->
+        <div class="mobile-frame">
+            <div class="mobile-notch"></div>
+            <div class="header-sim" style="padding: 10px 16px;">
+                <div class="header-top">
+                    <div class="logo">
+                        <div class="logo-circle"></div>
+                        <h1 style="font-size: 1rem;">Japan'26</h1>
+                    </div>
+                    <input class="search-sim" placeholder="Hledat..." disabled style="flex: 1; max-width: none; font-size: 0.7rem; padding: 5px 10px;">
+                    <span class="countdown-b before" style="font-size: 0.95rem;">-025</span>
+                </div>
+            </div>
+            <div class="mobile-label">Kompaktni mobilni zobrazeni</div>
+        </div>
+    </div>
+
+    <!-- ===== DAY ZERO ===== -->
+    <div class="mockup-section" style="max-width: 500px;">
+        <div class="mockup-label">
+            <span class="variant">Special: Den 0 (18.9.2026)</span>
+            <span class="state">Prechod ze zlute na zelenou</span>
+        </div>
+        <div class="header-sim">
+            <div class="header-top">
+                <div class="logo">
+                    <div class="logo-circle"></div>
+                    <h1>Japan'26</h1>
+                </div>
+                <span class="countdown-b" style="color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3);">0</span>
+            </div>
+        </div>
+        <div style="padding: 16px; text-align: center; color: var(--text-dim); font-size: 0.8rem;">
+            Den odletu - bila barva jako neutralni prechod
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px; color: #666; font-size: 0.8rem; padding-bottom: 40px;">
+        <p>Otevri v prohlizeci a vyber preferovanou variantu</p>
+        <p style="margin-top: 8px; color: #444;">Fonty: DSEG7 Classic (7-segment), Orbitron (modern digital)</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar - In Context Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'DSEG7';
+            src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2') format('woff2');
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --bg-hover: #1a1a1a;
+            --text: #f5f5f5;
+            --text-dim: #888;
+            --text-muted: #555;
+            --accent: #3b82f6;
+            --red: #ef4444;
+            --orange: #f59e0b;
+            --green: #10b981;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
+            --border: #222;
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mockup-label {
+            text-align: center;
+            padding: 20px;
+            color: var(--accent);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ============================================
+           PROGRESS BAR - Day Blocks
+           ============================================ */
+
+        .progress-strip {
+            background: rgba(0,0,0,0.6);
+            padding: 4px 12px 6px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .progress-strip::-webkit-scrollbar {
+            display: none;
+        }
+
+        .progress-phases {
+            display: flex;
+            min-width: max-content;
+        }
+
+        .progress-phase {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phase-label {
+            font-size: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0 2px;
+            margin-bottom: 2px;
+            white-space: nowrap;
+        }
+
+        .phase-days {
+            display: flex;
+            gap: 1px;
+        }
+
+        .day-block {
+            width: 14px;
+            height: 14px;
+            background: var(--border);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.45rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .day-block:hover {
+            background: var(--bg-hover);
+            color: var(--text-dim);
+            transform: scale(1.1);
+        }
+
+        .day-block.complete {
+            background: var(--green);
+            color: #fff;
+        }
+
+        .day-block.current {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 0 8px var(--accent);
+        }
+
+        /* Phase colors */
+        .progress-phase[data-phase="osaka"] .phase-label { color: #f59e0b; }
+        .progress-phase[data-phase="kyoto"] .phase-label { color: #8b5cf6; }
+        .progress-phase[data-phase="biwa"] .phase-label { color: #06b6d4; }
+        .progress-phase[data-phase="shimanami"] .phase-label { color: #ec4899; }
+        .progress-phase[data-phase="kyushu"] .phase-label { color: #ef4444; }
+        .progress-phase[data-phase="tokyo"] .phase-label { color: #3b82f6; }
+        .progress-phase[data-phase="okinawa"] .phase-label { color: #10b981; }
+
+        .progress-phase[data-phase="osaka"] .day-block.complete { background: #f59e0b; }
+        .progress-phase[data-phase="kyoto"] .day-block.complete { background: #8b5cf6; }
+        .progress-phase[data-phase="biwa"] .day-block.complete { background: #06b6d4; }
+        .progress-phase[data-phase="shimanami"] .day-block.complete { background: #ec4899; }
+        .progress-phase[data-phase="kyushu"] .day-block.complete { background: #ef4444; }
+        .progress-phase[data-phase="tokyo"] .day-block.complete { background: #3b82f6; }
+        .progress-phase[data-phase="okinawa"] .day-block.complete { background: #10b981; }
+
+        .phase-separator {
+            width: 6px;
+        }
+
+        /* ============================================
+           HEADER (from original design)
+           ============================================ */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10,10,10,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 12px 20px;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo h1 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 4px;
+        }
+
+        .filter-btn {
+            padding: 6px 10px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+
+        .filter-icon {
+            width: 28px;
+            height: 28px;
+            stroke: #60a5fa;
+            filter: drop-shadow(0 0 4px #60a5fa) drop-shadow(0 0 8px #3b82f6);
+        }
+
+        .calendar-btn .filter-icon {
+            stroke: #ef4444;
+            filter: drop-shadow(0 0 4px #ef4444) drop-shadow(0 0 8px #dc2626);
+        }
+
+        .nav-btn {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .nav-search {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 0.8rem;
+            max-width: 200px;
+            outline: none;
+        }
+
+        .mobile-search {
+            flex: 1;
+            max-width: none;
+        }
+
+        .countdown {
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fbbf24;
+        }
+
+        .menu-container {
+            position: relative;
+        }
+
+        /* Timezone indicator */
+        .tz-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            background: rgba(0,0,0,0.4);
+            padding: 4px 10px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .tz-item {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .tz-time {
+            font-family: 'DSEG7', monospace;
+            font-size: 0.8rem;
+        }
+
+        .tz-time.japan { color: #ef4444; }
+        .tz-time.home { color: #3b82f6; }
+
+        .tz-sep { color: var(--text-muted); }
+
+        /* Day cards placeholder */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 20px;
+        }
+
+        .day-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--green);
+        }
+
+        .day-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-title {
+            font-weight: 600;
+        }
+
+        .day-date {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 900px) {
+            .desktop-only { display: none; }
+
+            .header-top { gap: 8px; }
+
+            .day-block {
+                width: 12px;
+                height: 12px;
+                font-size: 0.4rem;
+            }
+
+            .phase-label {
+                font-size: 0.45rem;
+            }
+
+            .countdown {
+                margin-right: 6px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .day-block {
+                width: 10px;
+                height: 10px;
+                font-size: 0.35rem;
+            }
+
+            .phase-label {
+                font-size: 0.4rem;
+            }
+
+            .phase-separator {
+                width: 4px;
+            }
+        }
+
+        /* Variant labels */
+        .variant-section {
+            border-top: 2px solid var(--accent);
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- VARIANT A: Progress strip above header -->
+    <div class="mockup-label">Variant A: Progress strip at very top (scrollable on mobile)</div>
+
+    <div class="progress-strip">
+        <div class="progress-phases">
+            <div class="progress-phase" data-phase="flight">
+                <div class="phase-label">FLIGHT</div>
+                <div class="phase-days">
+                    <div class="day-block complete">1</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="osaka">
+                <div class="phase-label">OSAKA</div>
+                <div class="phase-days">
+                    <div class="day-block complete">2</div>
+                    <div class="day-block complete">3</div>
+                    <div class="day-block complete">4</div>
+                    <div class="day-block complete">5</div>
+                    <div class="day-block complete">6</div>
+                    <div class="day-block complete">7</div>
+                    <div class="day-block complete">8</div>
+                    <div class="day-block complete">9</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="kyoto">
+                <div class="phase-label">KYOTO</div>
+                <div class="phase-days">
+                    <div class="day-block complete">10</div>
+                    <div class="day-block complete">11</div>
+                    <div class="day-block complete">12</div>
+                    <div class="day-block complete">13</div>
+                    <div class="day-block current">14</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="biwa">
+                <div class="phase-label">BIWA</div>
+                <div class="phase-days">
+                    <div class="day-block">15</div>
+                    <div class="day-block">16</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="shimanami">
+                <div class="phase-label">SHIMANAMI</div>
+                <div class="phase-days">
+                    <div class="day-block">17</div>
+                    <div class="day-block">18</div>
+                    <div class="day-block">19</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="kyushu">
+                <div class="phase-label">KYUSHU</div>
+                <div class="phase-days">
+                    <div class="day-block">20</div>
+                    <div class="day-block">21</div>
+                    <div class="day-block">22</div>
+                    <div class="day-block">23</div>
+                    <div class="day-block">24</div>
+                    <div class="day-block">25</div>
+                    <div class="day-block">26</div>
+                    <div class="day-block">27</div>
+                    <div class="day-block">28</div>
+                    <div class="day-block">29</div>
+                    <div class="day-block">30</div>
+                    <div class="day-block">31</div>
+                    <div class="day-block">32</div>
+                    <div class="day-block">33</div>
+                    <div class="day-block">34</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="tokyo">
+                <div class="phase-label">TOKYO + IZU</div>
+                <div class="phase-days">
+                    <div class="day-block">35</div>
+                    <div class="day-block">36</div>
+                    <div class="day-block">37</div>
+                    <div class="day-block">38</div>
+                    <div class="day-block">39</div>
+                    <div class="day-block">40</div>
+                    <div class="day-block">41</div>
+                    <div class="day-block">42</div>
+                    <div class="day-block">43</div>
+                    <div class="day-block">44</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="okinawa">
+                <div class="phase-label">OKINAWA</div>
+                <div class="phase-days">
+                    <div class="day-block">45</div>
+                    <div class="day-block">46</div>
+                    <div class="day-block">47</div>
+                    <div class="day-block">48</div>
+                    <div class="day-block">49</div>
+                    <div class="day-block">50</div>
+                    <div class="day-block">51</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="flight">
+                <div class="phase-label">FLIGHT</div>
+                <div class="phase-days">
+                    <div class="day-block">52</div>
+                    <div class="day-block">53</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <div class="header-top">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 100 100" style="flex-shrink:0"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                    <h1>Japan'26</h1>
+                </div>
+                <input type="text" class="nav-search mobile-search" placeholder="Search...">
+                <div class="tz-indicator desktop-only">
+                    <div class="tz-item">
+                        <span>🇯🇵</span>
+                        <span class="tz-time japan" id="tzJapan">14:35</span>
+                    </div>
+                    <span class="tz-sep">|</span>
+                    <div class="tz-item">
+                        <span>🇨🇿</span>
+                        <span class="tz-time home" id="tzHome">07:35</span>
+                    </div>
+                </div>
+                <span class="countdown">-025</span>
+            </div>
+            <div class="header-nav">
+                <div class="nav-buttons">
+                    <div class="filter-row">
+                        <button class="filter-btn">HO</button>
+                        <button class="filter-btn"><svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14v-5l-2-4H7l-2 4v5z"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg></button>
+                        <button class="filter-btn"><svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="16" r="3"/><circle cx="18" cy="16" r="3"/><path d="M6 16l6-10 4 6h2"/><path d="M12 6l6 10"/></svg></button>
+                        <button class="filter-btn"><svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16c0-4-3-6-8-6s-8 2-8 6z"/><path d="M8 8c0-1 1-2 1-3s-1-2-1-3"/><path d="M12 8c0-1 1-2 1-3s-1-2-1-3"/><path d="M16 8c0-1 1-2 1-3s-1-2-1-3"/></svg></button>
+                        <button class="filter-btn"><svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg></button>
+                        <button class="filter-btn calendar-btn"><svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg></button>
+                    </div>
+                    <div class="menu-container">
+                        <button class="nav-btn">☰</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="day-card">
+            <div class="day-card-header">
+                <span class="day-title">Day 14 | KYOTO</span>
+                <span class="day-date">Oct 1, 2026</span>
+            </div>
+        </div>
+        <div class="day-card">
+            <div class="day-card-header">
+                <span class="day-title">Day 15 | BIWA</span>
+                <span class="day-date">Oct 2, 2026</span>
+            </div>
+        </div>
+        <div class="day-card">
+            <div class="day-card-header">
+                <span class="day-title">Day 16 | BIWA</span>
+                <span class="day-date">Oct 3, 2026</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- VARIANT B: Compact without numbers, just colored blocks -->
+    <div class="variant-section">
+        <div class="mockup-label">Variant B: Even more compact (no day numbers, hover to see)</div>
+    </div>
+
+    <style>
+        .progress-strip-b {
+            background: rgba(0,0,0,0.6);
+            padding: 3px 12px 5px;
+            overflow-x: auto;
+        }
+
+        .progress-strip-b .day-block {
+            width: 8px;
+            height: 10px;
+            font-size: 0;
+        }
+
+        .progress-strip-b .day-block:hover {
+            width: 20px;
+            font-size: 0.45rem;
+        }
+
+        .progress-strip-b .phase-label {
+            font-size: 0.45rem;
+        }
+
+        .progress-strip-b .phase-separator {
+            width: 4px;
+        }
+    </style>
+
+    <div class="progress-strip progress-strip-b">
+        <div class="progress-phases">
+            <div class="progress-phase" data-phase="flight">
+                <div class="phase-label">FLT</div>
+                <div class="phase-days">
+                    <div class="day-block complete">1</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="osaka">
+                <div class="phase-label">OSAKA</div>
+                <div class="phase-days">
+                    <div class="day-block complete">2</div>
+                    <div class="day-block complete">3</div>
+                    <div class="day-block complete">4</div>
+                    <div class="day-block complete">5</div>
+                    <div class="day-block complete">6</div>
+                    <div class="day-block complete">7</div>
+                    <div class="day-block complete">8</div>
+                    <div class="day-block complete">9</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="kyoto">
+                <div class="phase-label">KYOTO</div>
+                <div class="phase-days">
+                    <div class="day-block complete">10</div>
+                    <div class="day-block complete">11</div>
+                    <div class="day-block complete">12</div>
+                    <div class="day-block complete">13</div>
+                    <div class="day-block current">14</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="biwa">
+                <div class="phase-label">BIWA</div>
+                <div class="phase-days">
+                    <div class="day-block">15</div>
+                    <div class="day-block">16</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="shimanami">
+                <div class="phase-label">SHIM</div>
+                <div class="phase-days">
+                    <div class="day-block">17</div>
+                    <div class="day-block">18</div>
+                    <div class="day-block">19</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="kyushu">
+                <div class="phase-label">KYUSHU</div>
+                <div class="phase-days">
+                    <div class="day-block">20</div>
+                    <div class="day-block">21</div>
+                    <div class="day-block">22</div>
+                    <div class="day-block">23</div>
+                    <div class="day-block">24</div>
+                    <div class="day-block">25</div>
+                    <div class="day-block">26</div>
+                    <div class="day-block">27</div>
+                    <div class="day-block">28</div>
+                    <div class="day-block">29</div>
+                    <div class="day-block">30</div>
+                    <div class="day-block">31</div>
+                    <div class="day-block">32</div>
+                    <div class="day-block">33</div>
+                    <div class="day-block">34</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="tokyo">
+                <div class="phase-label">TOKYO</div>
+                <div class="phase-days">
+                    <div class="day-block">35</div>
+                    <div class="day-block">36</div>
+                    <div class="day-block">37</div>
+                    <div class="day-block">38</div>
+                    <div class="day-block">39</div>
+                    <div class="day-block">40</div>
+                    <div class="day-block">41</div>
+                    <div class="day-block">42</div>
+                    <div class="day-block">43</div>
+                    <div class="day-block">44</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="okinawa">
+                <div class="phase-label">OKIN</div>
+                <div class="phase-days">
+                    <div class="day-block">45</div>
+                    <div class="day-block">46</div>
+                    <div class="day-block">47</div>
+                    <div class="day-block">48</div>
+                    <div class="day-block">49</div>
+                    <div class="day-block">50</div>
+                    <div class="day-block">51</div>
+                </div>
+            </div>
+            <div class="phase-separator"></div>
+            <div class="progress-phase" data-phase="flight">
+                <div class="phase-label">FLT</div>
+                <div class="phase-days">
+                    <div class="day-block">52</div>
+                    <div class="day-block">53</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <div class="header-top">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                    <h1>Japan'26</h1>
+                </div>
+                <input type="text" class="nav-search mobile-search" placeholder="Search...">
+                <span class="countdown">-025</span>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        function updateTimes() {
+            const now = new Date();
+            const pragueTime = new Intl.DateTimeFormat('en-GB', {
+                timeZone: 'Europe/Prague',
+                hour: '2-digit',
+                minute: '2-digit'
+            }).format(now);
+
+            const tokyoTime = new Intl.DateTimeFormat('en-GB', {
+                timeZone: 'Asia/Tokyo',
+                hour: '2-digit',
+                minute: '2-digit'
+            }).format(now);
+
+            const tzJapan = document.getElementById('tzJapan');
+            const tzHome = document.getElementById('tzHome');
+            if (tzJapan) tzJapan.textContent = tokyoTime;
+            if (tzHome) tzHome.textContent = pragueTime;
+        }
+
+        updateTimes();
+        setInterval(updateTimes, 1000);
+
+        // Click on day block scrolls to that day
+        document.querySelectorAll('.day-block').forEach(block => {
+            block.addEventListener('click', () => {
+                const dayNum = block.textContent;
+                alert('Would scroll to Day ' + dayNum);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan 2026 - Dashboard Mockups</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --bg-hover: #1a1a1a;
+            --text: #f5f5f5;
+            --text-dim: #888;
+            --accent: #3b82f6;
+            --red: #ef4444;
+            --green: #10b981;
+            --orange: #f59e0b;
+            --purple: #8b5cf6;
+            --border: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #1a1a2e;
+            color: var(--text);
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .mockup-section {
+            background: var(--bg);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .mockup-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        .mockup-desc {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        .mockup-frame {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        /* ========== MOCKUP A: Timeline Focus ========== */
+        .mockup-a .header {
+            background: linear-gradient(135deg, #1e3a5f, #0f172a);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mockup-a .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .mockup-a .logo-circle {
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .mockup-a .logo-circle::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #bc002d;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mockup-a .countdown {
+            font-size: 0.75rem;
+            color: var(--green);
+        }
+
+        .mockup-a .nav-row {
+            display: flex;
+            gap: 6px;
+            padding: 10px 16px;
+            background: rgba(0,0,0,0.3);
+            overflow-x: auto;
+        }
+
+        .mockup-a .nav-pill {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            background: var(--bg-hover);
+            color: var(--text-dim);
+            white-space: nowrap;
+        }
+
+        .mockup-a .nav-pill.active {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .mockup-a .main-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            min-height: 300px;
+        }
+
+        .mockup-a .sidebar {
+            background: rgba(0,0,0,0.2);
+            padding: 12px;
+            border-right: 1px solid var(--border);
+        }
+
+        .mockup-a .mini-cal {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+        }
+
+        .mockup-a .cal-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            border-radius: 4px;
+            background: var(--green);
+            opacity: 0.7;
+        }
+
+        .mockup-a .cal-day.weekend { background: var(--accent); }
+        .mockup-a .cal-day.ho { background: linear-gradient(135deg, var(--green) 50%, var(--red) 50%); }
+        .mockup-a .cal-day.today { box-shadow: 0 0 0 2px #fff; }
+
+        .mockup-a .timeline-view {
+            padding: 16px;
+        }
+
+        .mockup-a .day-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .mockup-a .day-num {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .mockup-a .day-num span { font-size: 0.6rem; opacity: 0.8; }
+
+        .mockup-a .day-title h2 { font-size: 1rem; }
+        .mockup-a .day-title p { font-size: 0.75rem; color: var(--text-dim); }
+
+        .mockup-a .timeline {
+            position: relative;
+            padding-left: 24px;
+            border-left: 2px solid var(--border);
+            margin-left: 8px;
+        }
+
+        .mockup-a .tl-item {
+            position: relative;
+            padding: 8px 0 16px 16px;
+        }
+
+        .mockup-a .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 12px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg-card);
+        }
+
+        .mockup-a .tl-item.food::before { background: var(--orange); }
+        .mockup-a .tl-item.sight::before { background: var(--green); }
+        .mockup-a .tl-item.work::before { background: var(--red); }
+
+        .mockup-a .tl-time {
+            font-size: 0.7rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .mockup-a .tl-text {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* ========== MOCKUP B: Card Grid ========== */
+        .mockup-b .header {
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mockup-b .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mockup-b .stats {
+            display: flex;
+            gap: 16px;
+        }
+
+        .mockup-b .stat {
+            text-align: center;
+        }
+
+        .mockup-b .stat-num {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .mockup-b .stat-label {
+            font-size: 0.6rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .mockup-b .filter-bar {
+            display: flex;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(0,0,0,0.3);
+            flex-wrap: wrap;
+        }
+
+        .mockup-b .filter-chip {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.65rem;
+            background: var(--bg-hover);
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+        }
+
+        .mockup-b .filter-chip.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .mockup-b .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 12px;
+        }
+
+        .mockup-b .day-card {
+            background: var(--bg-hover);
+            border-radius: 8px;
+            padding: 10px;
+            border-left: 3px solid var(--green);
+        }
+
+        .mockup-b .day-card.weekend { border-color: var(--accent); }
+        .mockup-b .day-card.ho { border-color: var(--red); }
+
+        .mockup-b .card-date {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+        }
+
+        .mockup-b .card-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 4px 0;
+        }
+
+        .mockup-b .card-tags {
+            display: flex;
+            gap: 4px;
+        }
+
+        .mockup-b .tag {
+            font-size: 0.5rem;
+            padding: 2px 5px;
+            border-radius: 4px;
+            background: rgba(59,130,246,0.2);
+            color: var(--accent);
+        }
+
+        /* ========== MOCKUP C: Mobile First ========== */
+        .mockup-c {
+            max-width: 375px;
+            margin: 0 auto;
+        }
+
+        .mockup-c .header {
+            background: linear-gradient(180deg, #1e3a5f 0%, #0f172a 100%);
+            padding: 16px;
+            text-align: center;
+        }
+
+        .mockup-c .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+            background: none;
+            -webkit-text-fill-color: #fff;
+        }
+
+        .mockup-c .header p {
+            font-size: 0.75rem;
+            color: var(--green);
+        }
+
+        .mockup-c .quick-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 12px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .mockup-c .quick-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .mockup-c .quick-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            background: var(--bg-hover);
+        }
+
+        .mockup-c .quick-label {
+            font-size: 0.6rem;
+            color: var(--text-dim);
+        }
+
+        .mockup-c .current-day {
+            padding: 16px;
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-hover));
+            margin: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--accent);
+        }
+
+        .mockup-c .current-label {
+            font-size: 0.65rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .mockup-c .current-info {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .mockup-c .current-num {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .mockup-c .current-num span {
+            font-size: 0.6rem;
+            opacity: 0.8;
+        }
+
+        .mockup-c .current-details h3 {
+            font-size: 1rem;
+        }
+
+        .mockup-c .current-details p {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        .mockup-c .weather-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 6px;
+            padding: 4px 8px;
+            background: rgba(245,158,11,0.2);
+            border-radius: 8px;
+            font-size: 0.7rem;
+        }
+
+        .mockup-c .upcoming {
+            padding: 0 12px 12px;
+        }
+
+        .mockup-c .upcoming-title {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+
+        .mockup-c .upcoming-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .mockup-c .upcoming-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: var(--bg-hover);
+            border-radius: 8px;
+        }
+
+        .mockup-c .up-date {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            min-width: 40px;
+        }
+
+        .mockup-c .up-title {
+            font-size: 0.8rem;
+            flex: 1;
+        }
+
+        .mockup-c .up-icon {
+            font-size: 1rem;
+        }
+
+        /* ========== MOCKUP D: Map Focus ========== */
+        .mockup-d .header {
+            background: #0f172a;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mockup-d .logo {
+            font-weight: 600;
+        }
+
+        .mockup-d .tabs {
+            display: flex;
+            gap: 4px;
+        }
+
+        .mockup-d .tab {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            background: transparent;
+            color: var(--text-dim);
+        }
+
+        .mockup-d .tab.active {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .mockup-d .map-area {
+            height: 200px;
+            background: linear-gradient(135deg, #1a365d 0%, #0f172a 50%, #1e3a5f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mockup-d .map-japan {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 120px;
+            height: 160px;
+            opacity: 0.3;
+        }
+
+        .mockup-d .map-pin {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 12px var(--red);
+        }
+
+        .mockup-d .map-pin.osaka { top: 60%; left: 45%; }
+        .mockup-d .map-pin.kyoto { top: 55%; left: 48%; }
+        .mockup-d .map-pin.tokyo { top: 45%; left: 65%; }
+        .mockup-d .map-pin.okinawa { top: 85%; left: 25%; }
+
+        .mockup-d .map-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        .mockup-d .map-label h3 {
+            font-size: 0.9rem;
+        }
+
+        .mockup-d .map-label p {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .mockup-d .phase-list {
+            padding: 12px;
+        }
+
+        .mockup-d .phase-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            background: var(--bg-hover);
+        }
+
+        .mockup-d .phase-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .mockup-d .phase-dot.osaka { background: #f97316; }
+        .mockup-d .phase-dot.kyoto { background: #a855f7; }
+        .mockup-d .phase-dot.kyushu { background: #22c55e; }
+        .mockup-d .phase-dot.tokyo { background: #3b82f6; }
+        .mockup-d .phase-dot.okinawa { background: #06b6d4; }
+
+        .mockup-d .phase-info { flex: 1; }
+        .mockup-d .phase-name { font-size: 0.8rem; font-weight: 500; }
+        .mockup-d .phase-dates { font-size: 0.65rem; color: var(--text-dim); }
+        .mockup-d .phase-days { font-size: 0.7rem; color: var(--accent); }
+
+        /* ========== MOCKUP E: Kanban Style ========== */
+        .mockup-e .header {
+            background: linear-gradient(135deg, #1e1b4b, #312e81);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mockup-e .logo { font-weight: 600; }
+
+        .mockup-e .search {
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            font-size: 0.75rem;
+            width: 150px;
+        }
+
+        .mockup-e .kanban {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            padding: 12px;
+            min-height: 280px;
+        }
+
+        .mockup-e .column {
+            background: var(--bg-hover);
+            border-radius: 8px;
+            padding: 8px;
+        }
+
+        .mockup-e .col-header {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 6px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .mockup-e .col-header.prep { background: rgba(245,158,11,0.2); color: var(--orange); }
+        .mockup-e .col-header.current { background: rgba(59,130,246,0.2); color: var(--accent); }
+        .mockup-e .col-header.upcoming { background: rgba(139,92,246,0.2); color: var(--purple); }
+        .mockup-e .col-header.done { background: rgba(16,185,129,0.2); color: var(--green); }
+
+        .mockup-e .task-card {
+            background: var(--bg-card);
+            border-radius: 6px;
+            padding: 8px;
+            margin-bottom: 6px;
+            font-size: 0.7rem;
+            border-left: 2px solid var(--accent);
+        }
+
+        .mockup-e .task-card.high { border-color: var(--red); }
+        .mockup-e .task-card.done { opacity: 0.5; }
+
+        /* ========== MOCKUP F: Horizontal Scroll ========== */
+        .mockup-f .header {
+            background: #0f172a;
+            padding: 16px;
+        }
+
+        .mockup-f .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .mockup-f .logo { font-weight: 600; font-size: 1.1rem; }
+
+        .mockup-f .progress-bar {
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .mockup-f .progress-fill {
+            height: 100%;
+            width: 15%;
+            background: linear-gradient(90deg, var(--green), var(--accent));
+        }
+
+        .mockup-f .progress-label {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        .mockup-f .scroll-container {
+            overflow-x: auto;
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .mockup-f .scroll-card {
+            min-width: 140px;
+            background: var(--bg-hover);
+            border-radius: 12px;
+            padding: 12px;
+            position: relative;
+        }
+
+        .mockup-f .scroll-card.today {
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 20px rgba(59,130,246,0.3);
+        }
+
+        .mockup-f .card-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 0.5rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: var(--accent);
+        }
+
+        .mockup-f .card-day {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+        }
+
+        .mockup-f .card-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 6px 0;
+        }
+
+        .mockup-f .card-sub {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        .mockup-f .card-weather {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 8px;
+            font-size: 0.7rem;
+        }
+
+        .mockup-f .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 12px;
+            background: rgba(0,0,0,0.5);
+            border-top: 1px solid var(--border);
+        }
+
+        .mockup-f .bottom-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+        }
+
+        .mockup-f .bottom-btn span { font-size: 1.2rem; }
+        .mockup-f .bottom-btn.active { color: var(--accent); }
+
+        .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.55rem; margin-right: 4px; }
+        .badge-ho { background: rgba(239,68,68,0.2); color: var(--red); }
+        .badge-bike { background: rgba(16,185,129,0.2); color: var(--green); }
+        .badge-meet { background: rgba(236,72,153,0.2); color: #ec4899; }
+    </style>
+</head>
+<body>
+    <h1>Japan 2026 - Dashboard Mockups</h1>
+
+    <div class="mockup-grid">
+        <!-- MOCKUP A: Timeline Focus -->
+        <div class="mockup-section">
+            <div class="mockup-title">A: Timeline Focus</div>
+            <div class="mockup-desc">Desktop layout s kalendarem v sidebaru a timeline v hlavnim panelu</div>
+            <div class="mockup-frame mockup-a">
+                <div class="header">
+                    <div class="logo">
+                        <div class="logo-circle"></div>
+                        Japan'26
+                    </div>
+                    <div class="countdown">in 25 days</div>
+                </div>
+                <div class="nav-row">
+                    <div class="nav-pill active">Vsechny</div>
+                    <div class="nav-pill">HO</div>
+                    <div class="nav-pill">Auto</div>
+                    <div class="nav-pill">Kolo</div>
+                    <div class="nav-pill">Onsen</div>
+                    <div class="nav-pill">Lide</div>
+                </div>
+                <div class="main-content">
+                    <div class="sidebar">
+                        <div style="font-size:0.7rem; color:var(--text-dim); margin-bottom:8px;">ZARI 2026</div>
+                        <div class="mini-cal">
+                            <div class="cal-day">18</div>
+                            <div class="cal-day weekend today">19</div>
+                            <div class="cal-day weekend">20</div>
+                            <div class="cal-day ho">21</div>
+                            <div class="cal-day ho">22</div>
+                            <div class="cal-day ho">23</div>
+                            <div class="cal-day">24</div>
+                            <div class="cal-day">25</div>
+                            <div class="cal-day weekend">26</div>
+                            <div class="cal-day weekend">27</div>
+                            <div class="cal-day">28</div>
+                            <div class="cal-day ho">29</div>
+                            <div class="cal-day ho">30</div>
+                        </div>
+                    </div>
+                    <div class="timeline-view">
+                        <div class="day-header">
+                            <div class="day-num">19<span>SO</span></div>
+                            <div class="day-title">
+                                <h2>TPE → Kishiwada</h2>
+                                <p>Danjiri Festival - Yoimiya</p>
+                            </div>
+                        </div>
+                        <div class="timeline">
+                            <div class="tl-item">
+                                <div class="tl-time">05:30</div>
+                                <div class="tl-text">Odlet TPE</div>
+                            </div>
+                            <div class="tl-item">
+                                <div class="tl-time">12:50</div>
+                                <div class="tl-text">Prilet KIX</div>
+                            </div>
+                            <div class="tl-item sight">
+                                <div class="tl-time">15:30</div>
+                                <div class="tl-text">Yarimawashi</div>
+                            </div>
+                            <div class="tl-item food">
+                                <div class="tl-time">17:00</div>
+                                <div class="tl-text">Pauza, jidlo</div>
+                            </div>
+                            <div class="tl-item sight">
+                                <div class="tl-time">19:00</div>
+                                <div class="tl-text">Tomoshibi - vecerni danjiri</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOCKUP B: Card Grid -->
+        <div class="mockup-section">
+            <div class="mockup-title">B: Card Grid</div>
+            <div class="mockup-desc">Prehledova mrizka karet pro rychlou navigaci</div>
+            <div class="mockup-frame mockup-b">
+                <div class="header">
+                    <div class="logo">JAPAN 2026</div>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-num">53</div>
+                            <div class="stat-label">Dni</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-num">7</div>
+                            <div class="stat-label">Regionu</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-num">25</div>
+                            <div class="stat-label">Do odletu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-bar">
+                    <div class="filter-chip active">Vsechny</div>
+                    <div class="filter-chip">Osaka</div>
+                    <div class="filter-chip">Kyoto</div>
+                    <div class="filter-chip">Kyushu</div>
+                    <div class="filter-chip">Tokyo</div>
+                    <div class="filter-chip">Okinawa</div>
+                </div>
+                <div class="card-grid">
+                    <div class="day-card">
+                        <div class="card-date">18.9. Pa</div>
+                        <div class="card-title">VIE → TPE</div>
+                        <div class="card-tags"><span class="tag">LET</span></div>
+                    </div>
+                    <div class="day-card weekend">
+                        <div class="card-date">19.9. So</div>
+                        <div class="card-title">Kishiwada</div>
+                        <div class="card-tags"><span class="tag">FEST</span></div>
+                    </div>
+                    <div class="day-card weekend">
+                        <div class="card-date">20.9. Ne</div>
+                        <div class="card-title">→ Osaka</div>
+                        <div class="card-tags"><span class="tag">FEST</span></div>
+                    </div>
+                    <div class="day-card ho">
+                        <div class="card-date">21.9. Po</div>
+                        <div class="card-title">Architektura</div>
+                        <div class="card-tags"><span class="tag" style="background:rgba(239,68,68,0.2);color:var(--red)">HO</span></div>
+                    </div>
+                    <div class="day-card ho">
+                        <div class="card-date">22.9. Ut</div>
+                        <div class="card-title">Sakai</div>
+                        <div class="card-tags"><span class="tag" style="background:rgba(239,68,68,0.2);color:var(--red)">HO</span></div>
+                    </div>
+                    <div class="day-card ho">
+                        <div class="card-date">23.9. St</div>
+                        <div class="card-title">Osaka Bay</div>
+                        <div class="card-tags"><span class="tag" style="background:rgba(239,68,68,0.2);color:var(--red)">HO</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOCKUP C: Mobile First -->
+        <div class="mockup-section">
+            <div class="mockup-title">C: Mobile First</div>
+            <div class="mockup-desc">Optimalizovano pro telefon - aktualni den prominentne</div>
+            <div class="mockup-frame mockup-c">
+                <div class="header">
+                    <h1>Japan'26</h1>
+                    <p>in 25 days</p>
+                </div>
+                <div class="quick-nav">
+                    <div class="quick-btn">
+                        <div class="quick-icon">📅</div>
+                        <div class="quick-label">Kalendar</div>
+                    </div>
+                    <div class="quick-btn">
+                        <div class="quick-icon">📋</div>
+                        <div class="quick-label">Ukoly</div>
+                    </div>
+                    <div class="quick-btn">
+                        <div class="quick-icon">🏨</div>
+                        <div class="quick-label">Hotely</div>
+                    </div>
+                    <div class="quick-btn">
+                        <div class="quick-icon">🚄</div>
+                        <div class="quick-label">Transport</div>
+                    </div>
+                </div>
+                <div class="current-day">
+                    <div class="current-label">Dnes - Den 2</div>
+                    <div class="current-info">
+                        <div class="current-num">19<span>SO</span></div>
+                        <div class="current-details">
+                            <h3>TPE → Kishiwada</h3>
+                            <p>Danjiri Festival - Yoimiya</p>
+                            <div class="weather-badge">☀️ 26°C</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="upcoming">
+                    <div class="upcoming-title">NADCHAZEJICI</div>
+                    <div class="upcoming-list">
+                        <div class="upcoming-item">
+                            <div class="up-date">20.9</div>
+                            <div class="up-title">Danjiri Hommya → Osaka</div>
+                            <div class="up-icon">🎪</div>
+                        </div>
+                        <div class="upcoming-item">
+                            <div class="up-date">21.9</div>
+                            <div class="up-title">Osaka Architektura</div>
+                            <div class="up-icon">🏢</div>
+                        </div>
+                        <div class="upcoming-item">
+                            <div class="up-date">22.9</div>
+                            <div class="up-title">Sakai - Shimano</div>
+                            <div class="up-icon">🚴</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOCKUP D: Map Focus -->
+        <div class="mockup-section">
+            <div class="mockup-title">D: Map Focus</div>
+            <div class="mockup-desc">Vizualni mapa cesty s fázemi</div>
+            <div class="mockup-frame mockup-d">
+                <div class="header">
+                    <div class="logo">Japan 2026</div>
+                    <div class="tabs">
+                        <div class="tab active">Mapa</div>
+                        <div class="tab">Seznam</div>
+                        <div class="tab">Kalendar</div>
+                    </div>
+                </div>
+                <div class="map-area">
+                    <svg class="map-japan" viewBox="0 0 100 140">
+                        <path d="M60 10 L70 30 L65 50 L75 70 L60 90 L50 110 L40 95 L35 75 L45 55 L40 35 L50 15 Z" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/>
+                        <path d="M25 120 L35 115 L30 130 L20 125 Z" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/>
+                    </svg>
+                    <div class="map-pin osaka"></div>
+                    <div class="map-pin kyoto"></div>
+                    <div class="map-pin tokyo"></div>
+                    <div class="map-pin okinawa"></div>
+                    <div class="map-label">
+                        <h3>Aktualne: Osaka</h3>
+                        <p>Den 2-9 • Kishiwada → Shinsaibashi</p>
+                    </div>
+                </div>
+                <div class="phase-list">
+                    <div class="phase-item">
+                        <div class="phase-dot osaka"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Osaka I</div>
+                            <div class="phase-dates">19-26.9</div>
+                        </div>
+                        <div class="phase-days">8 dni</div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-dot kyoto"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Kyoto</div>
+                            <div class="phase-dates">27.9-1.10</div>
+                        </div>
+                        <div class="phase-days">5 dni</div>
+                    </div>
+                    <div class="phase-item">
+                        <div class="phase-dot kyushu"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Kyushu</div>
+                            <div class="phase-dates">8-22.10</div>
+                        </div>
+                        <div class="phase-days">15 dni</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOCKUP E: Kanban Style -->
+        <div class="mockup-section">
+            <div class="mockup-title">E: Kanban / Tasks</div>
+            <div class="mockup-desc">Zamereno na ukoly a pripravy pred cestou</div>
+            <div class="mockup-frame mockup-e">
+                <div class="header">
+                    <div class="logo">Japan 2026</div>
+                    <input class="search" placeholder="Hledat...">
+                </div>
+                <div class="kanban">
+                    <div class="column">
+                        <div class="col-header prep">PRIPRAVA</div>
+                        <div class="task-card high">Ferry Beppu 8.10.</div>
+                        <div class="task-card high">teamLab vstupenky</div>
+                        <div class="task-card">Kola Shimanami</div>
+                        <div class="task-card">Kontakt Keigo</div>
+                    </div>
+                    <div class="column">
+                        <div class="col-header current">AKTUALNI</div>
+                        <div class="task-card">Danjiri Festival</div>
+                        <div class="task-card">Route-Inn Kishiwada</div>
+                    </div>
+                    <div class="column">
+                        <div class="col-header upcoming">BRZY</div>
+                        <div class="task-card">Osaka architektura</div>
+                        <div class="task-card">Critical Mass 25.9</div>
+                        <div class="task-card">Setkani Keigo 26.9</div>
+                    </div>
+                    <div class="column">
+                        <div class="col-header done">HOTOVO</div>
+                        <div class="task-card done">Lety rezervovany</div>
+                        <div class="task-card done">Hotely Sep</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOCKUP F: Horizontal Scroll -->
+        <div class="mockup-section">
+            <div class="mockup-title">F: Horizontal Timeline</div>
+            <div class="mockup-desc">Mobilni horizontalni scrollovani s progress barem</div>
+            <div class="mockup-frame mockup-f" style="max-width:375px; margin:0 auto;">
+                <div class="header">
+                    <div class="header-top">
+                        <div class="logo">Japan'26</div>
+                        <div style="font-size:0.75rem; color:var(--green);">25 dni</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-label">Den 2 z 53 • Kishiwada</div>
+                </div>
+                <div class="scroll-container">
+                    <div class="scroll-card">
+                        <div class="card-day">Den 1 • Pa 18.9</div>
+                        <div class="card-title">VIE → TPE</div>
+                        <div class="card-sub">Presun, let</div>
+                        <div class="card-weather">✈️ Transit</div>
+                    </div>
+                    <div class="scroll-card today">
+                        <div class="card-badge">DNES</div>
+                        <div class="card-day">Den 2 • So 19.9</div>
+                        <div class="card-title">Kishiwada</div>
+                        <div class="card-sub">Danjiri Festival</div>
+                        <div class="card-weather">☀️ 26°C</div>
+                    </div>
+                    <div class="scroll-card">
+                        <div class="card-day">Den 3 • Ne 20.9</div>
+                        <div class="card-title">→ Osaka</div>
+                        <div class="card-sub">Danjiri Hommya</div>
+                        <div class="card-weather">🌤️ 25°C</div>
+                    </div>
+                    <div class="scroll-card">
+                        <div class="card-day">Den 4 • Po 21.9</div>
+                        <div class="card-title">Architektura</div>
+                        <div class="card-sub">Nakanoshima</div>
+                        <div class="card-weather">☀️ 27°C</div>
+                    </div>
+                </div>
+                <div class="bottom-nav">
+                    <div class="bottom-btn active"><span>🏠</span>Prehled</div>
+                    <div class="bottom-btn"><span>📅</span>Kalendar</div>
+                    <div class="bottom-btn"><span>📋</span>Ukoly</div>
+                    <div class="bottom-btn"><span>🏨</span>Hotely</div>
+                    <div class="bottom-btn"><span>⚙️</span>Vice</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top:60px; padding:40px; color:var(--text-dim);">
+        <h2 style="color:var(--text); margin-bottom:16px; background:none; -webkit-text-fill-color:var(--text);">Legenda</h2>
+        <div style="display:flex; justify-content:center; gap:24px; flex-wrap:wrap; font-size:0.8rem;">
+            <span><span style="display:inline-block;width:12px;height:12px;background:var(--green);border-radius:2px;margin-right:6px;"></span>Vsedni den</span>
+            <span><span style="display:inline-block;width:12px;height:12px;background:var(--accent);border-radius:2px;margin-right:6px;"></span>Vikend</span>
+            <span><span style="display:inline-block;width:12px;height:12px;background:var(--red);border-radius:2px;margin-right:6px;"></span>Home Office</span>
+            <span><span style="display:inline-block;width:12px;height:12px;background:var(--orange);border-radius:2px;margin-right:6px;"></span>Onsen</span>
+            <span><span style="display:inline-block;width:12px;height:12px;background:var(--purple);border-radius:2px;margin-right:6px;"></span>Transport</span>
+        </div>
+    </div>
+</body>
+</html>

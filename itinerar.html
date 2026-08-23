@@ -924,6 +924,7 @@
             transition: opacity 0.15s;
         }
         .poi-link:hover { opacity: 1; text-decoration: underline; }
+        .poi-link { cursor: pointer; }
         .poi-list {
             display: flex;
             flex-wrap: wrap;
@@ -1719,6 +1720,38 @@
 
         return `background: linear-gradient(to right, ${baseStart} 0%, ${baseEnd} ${basePercent}%, ${hoColor} ${basePercent}%);`;
     }
+
+    function openMaps(query, webUrl) {
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        const isAndroid = /Android/.test(navigator.userAgent);
+        const encodedQuery = encodeURIComponent(query);
+
+        if (isIOS) {
+            // Try Google Maps app first, fallback to web
+            const appUrl = `comgooglemaps://?q=${encodedQuery}`;
+            const start = Date.now();
+            window.location = appUrl;
+            setTimeout(() => {
+                if (Date.now() - start < 2000) {
+                    window.open(webUrl, '_blank');
+                }
+            }, 500);
+        } else if (isAndroid) {
+            // Try geo: intent, fallback to web
+            const geoUrl = `geo:0,0?q=${encodedQuery}`;
+            const start = Date.now();
+            window.location = geoUrl;
+            setTimeout(() => {
+                if (Date.now() - start < 2000) {
+                    window.open(webUrl, '_blank');
+                }
+            }, 500);
+        } else {
+            // Desktop - open web version
+            window.open(webUrl, '_blank');
+        }
+    }
+
     function getTagIcon(t) {
         const icons = {
             ho: '<svg class="tag-icon" viewBox="0 0 24 24"><text x="3" y="17" font-size="14" font-weight="500" fill="#60a5fa" stroke="none">HO</text></svg>',
@@ -1869,7 +1902,10 @@
                             <div class="detail-section" style="grid-column: 1 / -1;">
                                 <div class="detail-title-row"><span class="detail-title">📍 Places</span>${tagsHtml ? `<div class="mobile-tags">${tagsHtml}</div>` : ''}</div>
                                 <div class="poi-list">
-                                    ${d.pois.map(poi => `<a href="${POI_URLS[poi.name] || 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(poi.name + ' Japan')}" target="_blank" class="poi-link">📍 ${poi.name}</a>`).join('')}
+                                    ${d.pois.map(poi => {
+                                        const webUrl = POI_URLS[poi.name] || 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(poi.name + ' Japan');
+                                        return `<a href="${webUrl}" onclick="event.preventDefault(); openMaps('${poi.name.replace(/'/g, "\\'")} Japan', '${webUrl}');" class="poi-link">📍 ${poi.name}</a>`;
+                                    }).join('')}
                                 </div>
                             </div>
                             ` : ''}

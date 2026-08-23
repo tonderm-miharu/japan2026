@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Animation Mockups</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'DSEG7';
+            src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2') format('woff2');
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --yellow: #fbbf24;
+            --yellow-glow: rgba(251, 191, 36, 0.6);
+            --green: #10b981;
+            --green-glow: rgba(16, 185, 129, 0.6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        h1 { text-align: center; margin-bottom: 16px; }
+        .intro { text-align: center; color: #888; margin-bottom: 40px; font-size: 0.85rem; }
+
+        .mockup-section {
+            max-width: 500px;
+            margin: 0 auto 50px;
+            background: var(--bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .mockup-label {
+            background: #1e3a5f;
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .mockup-label .variant { color: #3b82f6; }
+
+        .header-sim {
+            background: rgba(10,10,10,0.95);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .logo-circle {
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .logo-circle::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #bc002d;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .replay-btn {
+            margin: 16px auto;
+            display: block;
+            padding: 10px 24px;
+            background: #3b82f6;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .replay-btn:hover { background: #2563eb; }
+
+        /* ===== STYLE 1: Count Animation ===== */
+        .countdown-count {
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--yellow);
+            text-shadow: 0 0 10px var(--yellow-glow), 0 0 20px rgba(251,191,36,0.3);
+        }
+
+        /* ===== STYLE 2: Rolling Digits ===== */
+        .countdown-roll {
+            display: flex;
+            align-items: center;
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--yellow);
+            text-shadow: 0 0 10px var(--yellow-glow), 0 0 20px rgba(251,191,36,0.3);
+        }
+
+        .digit-wrapper {
+            height: 1.3em;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .digit-roll {
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease-out;
+        }
+
+        .digit-roll span {
+            height: 1.3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== STYLE 3: Flip Clock ===== */
+        .countdown-flip {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .flip-digit {
+            position: relative;
+            width: 22px;
+            height: 32px;
+            perspective: 200px;
+        }
+
+        .flip-digit .top,
+        .flip-digit .bottom {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--yellow);
+            text-shadow: 0 0 8px var(--yellow-glow);
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .flip-digit .top {
+            top: 0;
+            border-radius: 4px 4px 0 0;
+            border-bottom: 1px solid #000;
+            align-items: flex-end;
+            padding-bottom: 2px;
+        }
+
+        .flip-digit .bottom {
+            bottom: 0;
+            border-radius: 0 0 4px 4px;
+            align-items: flex-start;
+            padding-top: 2px;
+        }
+
+        .flip-digit .top-flip {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            background: #1a1a1a;
+            border-radius: 4px 4px 0 0;
+            border: 1px solid #333;
+            transform-origin: bottom;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 2px;
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--yellow);
+            text-shadow: 0 0 8px var(--yellow-glow);
+            backface-visibility: hidden;
+        }
+
+        .flip-sign {
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1rem;
+            color: var(--yellow);
+            text-shadow: 0 0 8px var(--yellow-glow);
+            margin-right: 2px;
+        }
+
+        @keyframes flipTop {
+            0% { transform: rotateX(0deg); }
+            100% { transform: rotateX(-90deg); }
+        }
+
+        @keyframes flipBottom {
+            0% { transform: rotateX(90deg); }
+            100% { transform: rotateX(0deg); }
+        }
+
+        /* ===== STYLE 4: Segment Morph ===== */
+        .countdown-morph {
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--yellow);
+            text-shadow: 0 0 10px var(--yellow-glow), 0 0 20px rgba(251,191,36,0.3);
+        }
+
+        @keyframes segmentGlow {
+            0% { opacity: 0.2; text-shadow: none; }
+            50% { opacity: 1; text-shadow: 0 0 15px var(--yellow-glow), 0 0 30px var(--yellow); }
+            100% { opacity: 1; text-shadow: 0 0 10px var(--yellow-glow), 0 0 20px rgba(251,191,36,0.3); }
+        }
+
+        .morph-animate {
+            animation: segmentGlow 0.8s ease-out;
+        }
+
+        /* ===== STYLE 5: Glitch ===== */
+        .countdown-glitch {
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--yellow);
+            text-shadow: 0 0 10px var(--yellow-glow), 0 0 20px rgba(251,191,36,0.3);
+            position: relative;
+        }
+
+        @keyframes glitch {
+            0% { opacity: 0; transform: translateX(-2px); }
+            10% { opacity: 1; content: '-088'; }
+            20% { opacity: 0.8; transform: translateX(2px); content: '-012'; }
+            30% { opacity: 1; transform: translateX(-1px); content: '-099'; }
+            40% { opacity: 0.9; transform: translateX(1px); }
+            50% { opacity: 1; transform: translateX(0); content: '-045'; }
+            60% { opacity: 0.85; transform: translateX(-1px); }
+            70% { opacity: 1; }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .glitch-animate {
+            animation: glitchText 0.6s ease-out;
+        }
+
+        @keyframes glitchText {
+            0%, 20% { opacity: 0.7; filter: blur(1px); }
+            25% { opacity: 1; filter: blur(0); transform: translateX(-2px); }
+            30% { opacity: 0.8; transform: translateX(2px); }
+            35%, 45% { opacity: 1; filter: blur(0.5px); }
+            50% { transform: translateX(-1px); }
+            55%, 100% { opacity: 1; filter: blur(0); transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown Animation Mockups</h1>
+    <p class="intro">Klikni "Replay" pro prehrani animace</p>
+
+    <!-- STYLE 1: Count Animation -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">1: Count Animation</span>
+            <span>Rychle pocita k cilove hodnote</span>
+        </div>
+        <div class="header-sim">
+            <div class="logo">
+                <div class="logo-circle"></div>
+                <span>Japan'26</span>
+            </div>
+            <span class="countdown-count" id="count1">-026</span>
+        </div>
+        <button class="replay-btn" onclick="animateCount('count1', -99, -26, 800)">Replay</button>
+    </div>
+
+    <!-- STYLE 2: Rolling Digits -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">2: Rolling Digits</span>
+            <span>Kazda cifra se roli samostatne</span>
+        </div>
+        <div class="header-sim">
+            <div class="logo">
+                <div class="logo-circle"></div>
+                <span>Japan'26</span>
+            </div>
+            <div class="countdown-roll" id="roll1">
+                <span>-</span>
+                <div class="digit-wrapper"><div class="digit-roll" id="roll1-d0"><span>0</span></div></div>
+                <div class="digit-wrapper"><div class="digit-roll" id="roll1-d1"><span>2</span></div></div>
+                <div class="digit-wrapper"><div class="digit-roll" id="roll1-d2"><span>6</span></div></div>
+            </div>
+        </div>
+        <button class="replay-btn" onclick="animateRoll('roll1', 26)">Replay</button>
+    </div>
+
+    <!-- STYLE 3: Flip Clock -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">3: Flip Clock</span>
+            <span>Preklapeci animace jako na letisti</span>
+        </div>
+        <div class="header-sim">
+            <div class="logo">
+                <div class="logo-circle"></div>
+                <span>Japan'26</span>
+            </div>
+            <div class="countdown-flip" id="flip1">
+                <span class="flip-sign">-</span>
+                <div class="flip-digit">
+                    <div class="top">0</div>
+                    <div class="bottom">0</div>
+                </div>
+                <div class="flip-digit">
+                    <div class="top">2</div>
+                    <div class="bottom">2</div>
+                </div>
+                <div class="flip-digit">
+                    <div class="top">6</div>
+                    <div class="bottom">6</div>
+                </div>
+            </div>
+        </div>
+        <button class="replay-btn" onclick="animateFlip('flip1', 26)">Replay</button>
+    </div>
+
+    <!-- STYLE 4: Segment Morph -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">4: Segment Glow</span>
+            <span>Postupne rozsviceni s zarou</span>
+        </div>
+        <div class="header-sim">
+            <div class="logo">
+                <div class="logo-circle"></div>
+                <span>Japan'26</span>
+            </div>
+            <span class="countdown-morph" id="morph1">-026</span>
+        </div>
+        <button class="replay-btn" onclick="animateMorph('morph1')">Replay</button>
+    </div>
+
+    <!-- STYLE 5: Glitch -->
+    <div class="mockup-section">
+        <div class="mockup-label">
+            <span class="variant">5: Glitch / Static</span>
+            <span>Kratky sum, pak se ustali</span>
+        </div>
+        <div class="header-sim">
+            <div class="logo">
+                <div class="logo-circle"></div>
+                <span>Japan'26</span>
+            </div>
+            <span class="countdown-glitch" id="glitch1">-026</span>
+        </div>
+        <button class="replay-btn" onclick="animateGlitch('glitch1', -26)">Replay</button>
+    </div>
+
+    <script>
+        // 1: Count Animation
+        function animateCount(id, from, to, duration) {
+            const el = document.getElementById(id);
+            const start = performance.now();
+            const range = to - from;
+
+            function update(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                // Easing: ease-out
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(from + range * eased);
+                const sign = current < 0 ? '-' : '+';
+                el.textContent = sign + String(Math.abs(current)).padStart(3, '0');
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            requestAnimationFrame(update);
+        }
+
+        // 2: Rolling Digits
+        function animateRoll(id, target) {
+            const digits = String(target).padStart(3, '0').split('');
+
+            digits.forEach((d, i) => {
+                const wrapper = document.getElementById(id + '-d' + i);
+                const targetNum = parseInt(d);
+
+                // Build roll content
+                let html = '';
+                for (let n = 9; n >= 0; n--) {
+                    html += `<span>${n}</span>`;
+                }
+                wrapper.innerHTML = html;
+
+                // Animate to target
+                const offset = (9 - targetNum) * 1.3;
+                wrapper.style.transform = 'translateY(0)';
+
+                setTimeout(() => {
+                    wrapper.style.transition = `transform ${0.5 + i * 0.15}s cubic-bezier(0.2, 0.8, 0.2, 1)`;
+                    wrapper.style.transform = `translateY(-${offset}em)`;
+                }, 50 + i * 100);
+            });
+        }
+
+        // 3: Flip Animation
+        function animateFlip(id, target) {
+            const container = document.getElementById(id);
+            const flipDigits = container.querySelectorAll('.flip-digit');
+            const digits = String(target).padStart(3, '0').split('');
+
+            flipDigits.forEach((fd, i) => {
+                const top = fd.querySelector('.top');
+                const bottom = fd.querySelector('.bottom');
+                const targetDigit = digits[i];
+
+                // Reset
+                top.textContent = '0';
+                bottom.textContent = '0';
+
+                // Animate through numbers
+                let current = 0;
+                const targetNum = parseInt(targetDigit);
+                const delay = i * 150;
+
+                function flipNext() {
+                    if (current <= targetNum) {
+                        top.textContent = current;
+                        bottom.textContent = current;
+                        current++;
+                        if (current <= targetNum) {
+                            setTimeout(flipNext, 80);
+                        }
+                    }
+                }
+
+                setTimeout(flipNext, delay);
+            });
+        }
+
+        // 4: Morph Animation
+        function animateMorph(id) {
+            const el = document.getElementById(id);
+            el.style.opacity = '0.2';
+            el.style.textShadow = 'none';
+            el.classList.remove('morph-animate');
+
+            setTimeout(() => {
+                el.classList.add('morph-animate');
+                el.style.opacity = '';
+                el.style.textShadow = '';
+            }, 50);
+        }
+
+        // 5: Glitch Animation
+        function animateGlitch(id, target) {
+            const el = document.getElementById(id);
+            const finalValue = (target < 0 ? '-' : '+') + String(Math.abs(target)).padStart(3, '0');
+            const chars = '0123456789';
+            let iterations = 0;
+            const maxIterations = 12;
+
+            el.classList.add('glitch-animate');
+
+            const interval = setInterval(() => {
+                el.textContent = '-' +
+                    (iterations > 6 ? '0' : chars[Math.floor(Math.random() * 10)]) +
+                    (iterations > 8 ? '2' : chars[Math.floor(Math.random() * 10)]) +
+                    (iterations > 10 ? '6' : chars[Math.floor(Math.random() * 10)]);
+
+                iterations++;
+                if (iterations >= maxIterations) {
+                    clearInterval(interval);
+                    el.textContent = finalValue;
+                    setTimeout(() => el.classList.remove('glitch-animate'), 100);
+                }
+            }, 50);
+        }
+
+        // Auto-play all on load
+        window.addEventListener('load', () => {
+            setTimeout(() => animateCount('count1', -99, -26, 800), 500);
+            setTimeout(() => animateRoll('roll1', 26), 500);
+            setTimeout(() => animateFlip('flip1', 26), 500);
+            setTimeout(() => animateMorph('morph1'), 500);
+            setTimeout(() => animateGlitch('glitch1', -26), 500);
+        });
+    </script>
+</body>
+</html>

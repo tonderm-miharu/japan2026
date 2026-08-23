@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Mockups - Digital Vintage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'DSEG7';
+            src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2') format('woff2');
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #1a1a2e;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+            font-size: 1.5rem;
+        }
+
+        .mockups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .mockup-card {
+            background: #0a0a0a;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #333;
+        }
+
+        .mockup-title {
+            color: #3b82f6;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .mockup-desc {
+            color: #666;
+            font-size: 0.75rem;
+            margin-bottom: 24px;
+        }
+
+        .countdown-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .countdown-box {
+            text-align: center;
+        }
+
+        .countdown-label {
+            font-size: 0.65rem;
+            color: #666;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* ===== VARIANTA A: Classic 7-segment ===== */
+        .style-a .display {
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            padding: 16px 24px;
+            background: #111;
+            border-radius: 8px;
+            border: 2px solid #222;
+            display: inline-block;
+            letter-spacing: 4px;
+        }
+
+        .style-a .display.before {
+            color: #fbbf24;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.5), 0 0 40px rgba(251, 191, 36, 0.3);
+        }
+
+        .style-a .display.after {
+            color: #22c55e;
+            text-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3);
+        }
+
+        .style-a .unit {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: #555;
+            margin-top: 8px;
+            letter-spacing: 0.2em;
+        }
+
+        /* ===== VARIANTA B: LCD Panel ===== */
+        .style-b .lcd-frame {
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 3px solid #333;
+            border-radius: 12px;
+            padding: 20px 28px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.8), 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .style-b .lcd-screen {
+            background: #0d1117;
+            border-radius: 4px;
+            padding: 12px 20px;
+            border: 1px solid #222;
+        }
+
+        .style-b .display {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 6px;
+        }
+
+        .style-b .display.before {
+            color: #facc15;
+            text-shadow: 0 0 15px rgba(250, 204, 21, 0.6);
+        }
+
+        .style-b .display.after {
+            color: #4ade80;
+            text-shadow: 0 0 15px rgba(74, 222, 128, 0.6);
+        }
+
+        .style-b .unit {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: #444;
+            margin-top: 10px;
+            letter-spacing: 0.3em;
+        }
+
+        /* ===== VARIANTA C: Neon Glow ===== */
+        .style-c .display {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            padding: 20px 32px;
+            background: transparent;
+            border-radius: 8px;
+        }
+
+        .style-c .display.before {
+            color: #fde047;
+            text-shadow:
+                0 0 5px #fde047,
+                0 0 10px #fde047,
+                0 0 20px #fbbf24,
+                0 0 40px #f59e0b,
+                0 0 80px #d97706;
+            animation: flicker-yellow 3s infinite;
+        }
+
+        .style-c .display.after {
+            color: #86efac;
+            text-shadow:
+                0 0 5px #86efac,
+                0 0 10px #86efac,
+                0 0 20px #22c55e,
+                0 0 40px #16a34a,
+                0 0 80px #15803d;
+            animation: flicker-green 3s infinite;
+        }
+
+        @keyframes flicker-yellow {
+            0%, 100% { opacity: 1; }
+            92% { opacity: 1; }
+            93% { opacity: 0.8; }
+            94% { opacity: 1; }
+        }
+
+        @keyframes flicker-green {
+            0%, 100% { opacity: 1; }
+            88% { opacity: 1; }
+            89% { opacity: 0.85; }
+            90% { opacity: 1; }
+        }
+
+        .style-c .unit {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 8px;
+            letter-spacing: 0.25em;
+        }
+
+        /* ===== VARIANTA D: Retro Alarm Clock ===== */
+        .style-d .clock-body {
+            background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0f0f0f 100%);
+            border-radius: 16px;
+            padding: 24px 32px;
+            border: 2px solid #3a3a3a;
+            box-shadow:
+                0 8px 32px rgba(0,0,0,0.6),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .style-d .display-window {
+            background: #0a0a0a;
+            border-radius: 6px;
+            padding: 16px 24px;
+            border: 2px solid #222;
+            box-shadow: inset 0 4px 12px rgba(0,0,0,0.8);
+        }
+
+        .style-d .display {
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .style-d .display.before {
+            color: #fbbf24;
+            text-shadow: 0 0 8px rgba(251, 191, 36, 0.8);
+        }
+
+        .style-d .display.after {
+            color: #22c55e;
+            text-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+        }
+
+        .style-d .unit {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            color: #ef4444;
+            margin-top: 12px;
+            letter-spacing: 0.4em;
+            text-shadow: 0 0 4px rgba(239, 68, 68, 0.5);
+        }
+
+        /* ===== VARIANTA E: Minimal Inline ===== */
+        .style-e {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .style-e .inline-display {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .style-e .sign {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .style-e .number {
+            font-family: 'DSEG7', 'Orbitron', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .style-e .before .sign,
+        .style-e .before .number {
+            color: #fbbf24;
+            text-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+        }
+
+        .style-e .after .sign,
+        .style-e .after .number {
+            color: #22c55e;
+            text-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+        }
+
+        .style-e .unit {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: #555;
+            margin-left: 8px;
+            letter-spacing: 0.15em;
+        }
+
+        /* ===== VARIANTA F: Scoreboard ===== */
+        .style-f .scoreboard {
+            background: #0f0f0f;
+            border: 4px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 20px 32px;
+            position: relative;
+        }
+
+        .style-f .scoreboard::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .style-f .digit-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .style-f .digit {
+            width: 48px;
+            height: 72px;
+            background: #1a1a1a;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            border: 1px solid #333;
+        }
+
+        .style-f .sign-box {
+            width: 36px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .style-f .before .digit,
+        .style-f .before .sign-box {
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+        }
+
+        .style-f .after .digit,
+        .style-f .after .sign-box {
+            color: #22c55e;
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+        }
+
+        .style-f .unit {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            color: #555;
+            margin-top: 12px;
+            letter-spacing: 0.3em;
+        }
+    </style>
+</head>
+<body>
+    <h1>COUNTDOWN MOCKUPS - Vintage Digital Style</h1>
+
+    <div class="mockups-grid">
+        <!-- VARIANTA A -->
+        <div class="mockup-card">
+            <div class="mockup-title">A: Classic 7-Segment</div>
+            <div class="mockup-desc">Klasicky displej z kalkulacky / digitalnich hodin</div>
+            <div class="countdown-container style-a">
+                <div class="countdown-box">
+                    <div class="countdown-label">Pred cestou</div>
+                    <div class="display before">-025</div>
+                    <div class="unit">DAYS</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-label">Behem cesty</div>
+                    <div class="display after">+012</div>
+                    <div class="unit">DAYS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VARIANTA B -->
+        <div class="mockup-card">
+            <div class="mockup-title">B: LCD Panel</div>
+            <div class="mockup-desc">Styl LCD displeje s rameckem</div>
+            <div class="countdown-container style-b">
+                <div class="countdown-box">
+                    <div class="countdown-label">Pred cestou</div>
+                    <div class="lcd-frame">
+                        <div class="lcd-screen">
+                            <div class="display before">-025</div>
+                        </div>
+                    </div>
+                    <div class="unit">DAYS</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-label">Behem cesty</div>
+                    <div class="lcd-frame">
+                        <div class="lcd-screen">
+                            <div class="display after">+012</div>
+                        </div>
+                    </div>
+                    <div class="unit">DAYS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VARIANTA C -->
+        <div class="mockup-card">
+            <div class="mockup-title">C: Neon Glow</div>
+            <div class="mockup-desc">Moderni neonovy efekt se zarou</div>
+            <div class="countdown-container style-c">
+                <div class="countdown-box">
+                    <div class="countdown-label">Pred cestou</div>
+                    <div class="display before">-025</div>
+                    <div class="unit">DAYS</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-label">Behem cesty</div>
+                    <div class="display after">+012</div>
+                    <div class="unit">DAYS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VARIANTA D -->
+        <div class="mockup-card">
+            <div class="mockup-title">D: Retro Alarm Clock</div>
+            <div class="mockup-desc">Styl stareho budiku s plastovym telem</div>
+            <div class="countdown-container style-d">
+                <div class="countdown-box">
+                    <div class="countdown-label">Pred cestou</div>
+                    <div class="clock-body">
+                        <div class="display-window">
+                            <div class="display before">-025</div>
+                        </div>
+                    </div>
+                    <div class="unit">DAYS</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-label">Behem cesty</div>
+                    <div class="clock-body">
+                        <div class="display-window">
+                            <div class="display after">+012</div>
+                        </div>
+                    </div>
+                    <div class="unit">DAYS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VARIANTA E -->
+        <div class="mockup-card">
+            <div class="mockup-title">E: Minimal Inline</div>
+            <div class="mockup-desc">Kompaktni verze do headeru</div>
+            <div class="style-e">
+                <div class="inline-display before">
+                    <span class="sign">-</span>
+                    <span class="number">025</span>
+                    <span class="unit">DAYS</span>
+                </div>
+                <div class="inline-display after">
+                    <span class="sign">+</span>
+                    <span class="number">012</span>
+                    <span class="unit">DAYS</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- VARIANTA F -->
+        <div class="mockup-card">
+            <div class="mockup-title">F: Scoreboard</div>
+            <div class="mockup-desc">Styl sportovni tabule s jednotlivymi cisly</div>
+            <div class="countdown-container style-f">
+                <div class="countdown-box">
+                    <div class="countdown-label">Pred cestou</div>
+                    <div class="scoreboard before">
+                        <div class="digit-group">
+                            <div class="sign-box">-</div>
+                            <div class="digit">0</div>
+                            <div class="digit">2</div>
+                            <div class="digit">5</div>
+                        </div>
+                    </div>
+                    <div class="unit">DAYS</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-label">Behem cesty</div>
+                    <div class="scoreboard after">
+                        <div class="digit-group">
+                            <div class="sign-box">+</div>
+                            <div class="digit">0</div>
+                            <div class="digit">1</div>
+                            <div class="digit">2</div>
+                        </div>
+                    </div>
+                    <div class="unit">DAYS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px; color: #666; font-size: 0.8rem;">
+        <p>Otevri v prohlizeci a udelej screenshot jednotlivych variant</p>
+        <p style="margin-top: 8px; color: #444;">Fonty: DSEG7 Classic, Orbitron | Barvy: zluta #fbbf24, zelena #22c55e</p>
+    </div>
+</body>
+</html>

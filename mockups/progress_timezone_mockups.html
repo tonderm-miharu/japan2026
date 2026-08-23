@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar & Timezone Mockups</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/dseg@0.46.0/css/dseg.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --border: #2a2a2a;
+            --text: #e5e5e5;
+            --text-dim: #737373;
+            --accent: #3b82f6;
+            --green: #10b981;
+            --yellow: #fbbf24;
+            --red: #ef4444;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text);
+        }
+
+        h2 {
+            color: var(--accent);
+            margin: 40px 0 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .variant {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .variant-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           PROGRESS BAR VARIANTS
+           ============================================ */
+
+        /* Variant A: Simple thin bar */
+        .progress-a {
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .progress-a-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--green));
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+        .progress-a-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-top: 6px;
+        }
+
+        /* Variant B: Segmented (one segment per week) */
+        .progress-b {
+            display: flex;
+            gap: 3px;
+        }
+        .progress-b-segment {
+            flex: 1;
+            height: 8px;
+            background: var(--border);
+            border-radius: 2px;
+            position: relative;
+        }
+        .progress-b-segment.complete {
+            background: var(--green);
+        }
+        .progress-b-segment.current {
+            background: linear-gradient(90deg, var(--green) 60%, var(--border) 60%);
+        }
+        .progress-b-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            margin-top: 6px;
+        }
+
+        /* Variant C: Circle/Ring */
+        .progress-c {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .progress-c-ring {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+        .progress-c-ring svg {
+            transform: rotate(-90deg);
+        }
+        .progress-c-ring circle {
+            fill: none;
+            stroke-width: 6;
+        }
+        .progress-c-ring .bg {
+            stroke: var(--border);
+        }
+        .progress-c-ring .fill {
+            stroke: var(--green);
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+        .progress-c-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .progress-c-info {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+        .progress-c-info strong {
+            color: var(--text);
+        }
+
+        /* Variant D: Minimal inline */
+        .progress-d {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75rem;
+        }
+        .progress-d-bar {
+            flex: 1;
+            height: 3px;
+            background: var(--border);
+            border-radius: 2px;
+            max-width: 120px;
+        }
+        .progress-d-fill {
+            height: 100%;
+            background: var(--green);
+            border-radius: 2px;
+        }
+        .progress-d-text {
+            color: var(--text-dim);
+        }
+        .progress-d-text span {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        /* Variant E: Phase-based with labels */
+        .progress-e {
+            position: relative;
+        }
+        .progress-e-bar {
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            display: flex;
+            overflow: hidden;
+        }
+        .progress-e-phase {
+            height: 100%;
+            position: relative;
+        }
+        .progress-e-phase.complete {
+            background: var(--green);
+        }
+        .progress-e-phase.current {
+            background: var(--yellow);
+        }
+        .progress-e-labels {
+            display: flex;
+            margin-top: 8px;
+            font-size: 0.6rem;
+            color: var(--text-dim);
+        }
+        .progress-e-labels span {
+            text-align: center;
+        }
+        .progress-e-labels span.active {
+            color: var(--yellow);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           TIMEZONE INDICATOR VARIANTS
+           ============================================ */
+
+        /* Variant A: Dual clock */
+        .tz-a {
+            display: flex;
+            gap: 24px;
+        }
+        .tz-a-clock {
+            text-align: center;
+        }
+        .tz-a-time {
+            font-family: 'DSEG7', monospace;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+        .tz-a-time.japan { color: var(--red); }
+        .tz-a-time.home { color: var(--accent); }
+        .tz-a-label {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tz-a-flag {
+            font-size: 1rem;
+            margin-right: 4px;
+        }
+
+        /* Variant B: Compact inline */
+        .tz-b {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.8rem;
+            background: var(--bg);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+        .tz-b-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .tz-b-time {
+            font-weight: 600;
+            font-family: 'DSEG7', monospace;
+            font-size: 0.9rem;
+        }
+        .tz-b-time.japan { color: var(--red); }
+        .tz-b-time.home { color: var(--accent); }
+        .tz-b-sep {
+            color: var(--text-dim);
+        }
+
+        /* Variant C: Difference focused */
+        .tz-c {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .tz-c-main {
+            font-family: 'DSEG7', monospace;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+        .tz-c-diff {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.7rem;
+        }
+        .tz-c-diff-value {
+            color: var(--yellow);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .tz-c-diff-label {
+            color: var(--text-dim);
+        }
+        .tz-c-home {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        /* Variant D: Visual timeline */
+        .tz-d {
+            position: relative;
+        }
+        .tz-d-bar {
+            height: 24px;
+            background: linear-gradient(90deg,
+                #1e3a5f 0%, #1e3a5f 25%,
+                #f59e0b 25%, #f59e0b 50%,
+                #3b82f6 50%, #3b82f6 75%,
+                #1e3a5f 75%, #1e3a5f 100%);
+            border-radius: 4px;
+            position: relative;
+        }
+        .tz-d-marker {
+            position: absolute;
+            top: -4px;
+            width: 2px;
+            height: 32px;
+            background: #fff;
+            box-shadow: 0 0 8px rgba(255,255,255,0.5);
+        }
+        .tz-d-marker.japan { left: 58%; }
+        .tz-d-marker.home { left: 25%; }
+        .tz-d-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 0.65rem;
+            color: var(--text-dim);
+        }
+        .tz-d-times {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4px;
+        }
+        .tz-d-time {
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .tz-d-time.japan { color: var(--red); }
+        .tz-d-time.home { color: var(--accent); }
+
+        /* Variant E: Minimal badge */
+        .tz-e {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+        .tz-e-badge {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--red);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        /* ============================================
+           HEADER CONTEXT MOCKUPS
+           ============================================ */
+
+        .header-mockup {
+            background: rgba(10,10,10,0.95);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+
+        .header-top-mock {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .logo-mock {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .search-mock {
+            flex: 1;
+            max-width: 200px;
+            height: 32px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .countdown-mock {
+            font-family: 'DSEG7', monospace;
+            font-size: 1.1rem;
+            color: var(--yellow);
+        }
+
+        .header-bottom-mock {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+
+        .filters-mock {
+            display: flex;
+            gap: 6px;
+        }
+
+        .filter-mock {
+            width: 36px;
+            height: 36px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .mobile-label {
+            font-size: 0.6rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <h1>Progress Bar & Timezone Mockups</h1>
+
+    <!-- PROGRESS BAR SECTION -->
+    <div class="section">
+        <h2>Progress Bar Variants</h2>
+
+        <div class="variant">
+            <div class="variant-label">A: Simple Gradient Bar</div>
+            <div class="progress-a">
+                <div class="progress-a-fill" style="width: 45%"></div>
+            </div>
+            <div class="progress-a-label">
+                <span>Day 24 of 53</span>
+                <span>45% complete</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">B: Segmented (8 weeks)</div>
+            <div class="progress-b">
+                <div class="progress-b-segment complete"></div>
+                <div class="progress-b-segment complete"></div>
+                <div class="progress-b-segment complete"></div>
+                <div class="progress-b-segment current"></div>
+                <div class="progress-b-segment"></div>
+                <div class="progress-b-segment"></div>
+                <div class="progress-b-segment"></div>
+                <div class="progress-b-segment"></div>
+            </div>
+            <div class="progress-b-label">
+                <span>W1</span>
+                <span>W2</span>
+                <span>W3</span>
+                <span>W4</span>
+                <span>W5</span>
+                <span>W6</span>
+                <span>W7</span>
+                <span>W8</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">C: Circle Ring</div>
+            <div class="progress-c">
+                <div class="progress-c-ring">
+                    <svg width="60" height="60">
+                        <circle class="bg" cx="30" cy="30" r="24"></circle>
+                        <circle class="fill" cx="30" cy="30" r="24"
+                            stroke-dasharray="150.8"
+                            stroke-dashoffset="82.9"></circle>
+                    </svg>
+                    <div class="progress-c-text">45%</div>
+                </div>
+                <div class="progress-c-info">
+                    <div><strong>Day 24</strong> of 53</div>
+                    <div>29 days remaining</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">D: Minimal Inline (for header)</div>
+            <div class="progress-d">
+                <div class="progress-d-bar">
+                    <div class="progress-d-fill" style="width: 45%"></div>
+                </div>
+                <div class="progress-d-text"><span>24</span>/53</div>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">E: Phase-based</div>
+            <div class="progress-e">
+                <div class="progress-e-bar">
+                    <div class="progress-e-phase complete" style="width: 15%"></div>
+                    <div class="progress-e-phase complete" style="width: 9%"></div>
+                    <div class="progress-e-phase complete" style="width: 4%"></div>
+                    <div class="progress-e-phase current" style="width: 4%"></div>
+                    <div class="progress-e-phase" style="width: 28%"></div>
+                    <div class="progress-e-phase" style="width: 19%"></div>
+                    <div class="progress-e-phase" style="width: 13%"></div>
+                </div>
+                <div class="progress-e-labels">
+                    <span style="width: 15%">Osaka</span>
+                    <span style="width: 9%">Kyoto</span>
+                    <span style="width: 4%">Biwa</span>
+                    <span style="width: 4%" class="active">Shim.</span>
+                    <span style="width: 28%">Kyushu</span>
+                    <span style="width: 19%">Tokyo</span>
+                    <span style="width: 13%">Okin.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TIMEZONE SECTION -->
+    <div class="section">
+        <h2>Timezone Indicator Variants</h2>
+
+        <div class="variant">
+            <div class="variant-label">A: Dual Clock Display</div>
+            <div class="tz-a">
+                <div class="tz-a-clock">
+                    <div class="tz-a-time japan">14:35</div>
+                    <div class="tz-a-label"><span class="tz-a-flag">🇯🇵</span> Tokyo</div>
+                </div>
+                <div class="tz-a-clock">
+                    <div class="tz-a-time home">07:35</div>
+                    <div class="tz-a-label"><span class="tz-a-flag">🇨🇿</span> Prague</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">B: Compact Inline (for header)</div>
+            <div class="tz-b">
+                <div class="tz-b-item">
+                    <span>🇯🇵</span>
+                    <span class="tz-b-time japan">14:35</span>
+                </div>
+                <span class="tz-b-sep">|</span>
+                <div class="tz-b-item">
+                    <span>🇨🇿</span>
+                    <span class="tz-b-time home">07:35</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">C: Japan Time + Difference</div>
+            <div class="tz-c">
+                <div class="tz-c-main">14:35</div>
+                <div class="tz-c-diff">
+                    <span class="tz-c-diff-value">+7h</span>
+                    <span class="tz-c-diff-label">vs Prague</span>
+                </div>
+                <div class="tz-c-home">🇨🇿 07:35</div>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">D: Visual 24h Timeline</div>
+            <div class="tz-d">
+                <div class="tz-d-bar">
+                    <div class="tz-d-marker japan"></div>
+                    <div class="tz-d-marker home"></div>
+                </div>
+                <div class="tz-d-labels">
+                    <span>0:00</span>
+                    <span>6:00</span>
+                    <span>12:00</span>
+                    <span>18:00</span>
+                    <span>24:00</span>
+                </div>
+                <div class="tz-d-times">
+                    <div class="tz-d-time japan">🇯🇵 14:35 JST</div>
+                    <div class="tz-d-time home">🇨🇿 07:35 CET</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">E: Minimal Badge</div>
+            <div class="tz-e">
+                <span class="tz-e-badge">🇯🇵 +7h</span>
+                <span>Japan is 7 hours ahead</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER CONTEXT MOCKUPS -->
+    <div class="section">
+        <h2>In Context: Mobile Header</h2>
+
+        <div class="variant">
+            <div class="variant-label">Option 1: Progress under countdown</div>
+            <div class="header-mockup">
+                <div class="header-top-mock">
+                    <div class="logo-mock">
+                        <svg width="20" height="20" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                        Japan'26
+                    </div>
+                    <div class="search-mock"></div>
+                    <div style="text-align: right;">
+                        <div class="countdown-mock">-025</div>
+                        <div class="progress-d" style="margin-top: 4px;">
+                            <div class="progress-d-bar" style="max-width: 60px;">
+                                <div class="progress-d-fill" style="width: 45%"></div>
+                            </div>
+                            <div class="progress-d-text" style="font-size: 0.65rem;"><span>24</span>/53</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">Option 2: Timezone + Progress below filters</div>
+            <div class="header-mockup">
+                <div class="header-top-mock">
+                    <div class="logo-mock">
+                        <svg width="20" height="20" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                        Japan'26
+                    </div>
+                    <div class="search-mock"></div>
+                    <div class="countdown-mock">-025</div>
+                </div>
+                <div class="header-bottom-mock">
+                    <div class="filters-mock">
+                        <div class="filter-mock"></div>
+                        <div class="filter-mock"></div>
+                        <div class="filter-mock"></div>
+                        <div class="filter-mock"></div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="tz-e">
+                            <span class="tz-e-badge">🇯🇵 +7h</span>
+                        </div>
+                        <div class="progress-d">
+                            <div class="progress-d-bar" style="max-width: 50px;">
+                                <div class="progress-d-fill" style="width: 45%"></div>
+                            </div>
+                            <div class="progress-d-text" style="font-size: 0.65rem;"><span>24</span>/53</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">Option 3: Full-width progress bar at very top</div>
+            <div style="background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border);">
+                <div class="progress-a" style="border-radius: 0; height: 3px;">
+                    <div class="progress-a-fill" style="width: 45%"></div>
+                </div>
+                <div class="header-mockup" style="border: none; border-radius: 0;">
+                    <div class="header-top-mock">
+                        <div class="logo-mock">
+                            <svg width="20" height="20" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                            Japan'26
+                        </div>
+                        <div class="tz-b" style="font-size: 0.7rem; padding: 4px 8px;">
+                            <div class="tz-b-item">
+                                <span>🇯🇵</span>
+                                <span class="tz-b-time japan" style="font-size: 0.8rem;">14:35</span>
+                            </div>
+                            <span class="tz-b-sep">|</span>
+                            <div class="tz-b-item">
+                                <span>🇨🇿</span>
+                                <span class="tz-b-time home" style="font-size: 0.8rem;">07:35</span>
+                            </div>
+                        </div>
+                        <div class="countdown-mock">-025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animate progress bars slightly
+        setInterval(() => {
+            const ring = document.querySelector('.progress-c-ring .fill');
+            if (ring) {
+                const offset = 82.9 + Math.sin(Date.now() / 1000) * 2;
+                ring.style.strokeDashoffset = offset;
+            }
+        }, 50);
+
+        // Update times
+        function updateTimes() {
+            const now = new Date();
+            const pragueTime = new Intl.DateTimeFormat('en-GB', {
+                timeZone: 'Europe/Prague',
+                hour: '2-digit',
+                minute: '2-digit'
+            }).format(now);
+
+            const tokyoTime = new Intl.DateTimeFormat('en-GB', {
+                timeZone: 'Asia/Tokyo',
+                hour: '2-digit',
+                minute: '2-digit'
+            }).format(now);
+
+            document.querySelectorAll('.tz-a-time.japan, .tz-b-time.japan, .tz-c-main').forEach(el => {
+                el.textContent = tokyoTime;
+            });
+            document.querySelectorAll('.tz-a-time.home, .tz-b-time.home, .tz-c-home').forEach(el => {
+                if (el.classList.contains('tz-c-home')) {
+                    el.innerHTML = '🇨🇿 ' + pragueTime;
+                } else {
+                    el.textContent = pragueTime;
+                }
+            });
+        }
+
+        updateTimes();
+        setInterval(updateTimes, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan'26 Logo Font Mockups</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --border: #2a2a2a;
+            --text: #f5f5f5;
+            --text-dim: #888;
+            --accent: #3b82f6;
+            --red: #bc002d;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .variant {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .variant-label {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-mock {
+            background: rgba(10,10,10,0.95);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .japan-flag {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            color: var(--text);
+        }
+
+        /* Font Variants */
+        .font-electrolize { font-family: 'Electrolize', sans-serif; font-size: 1.2rem; letter-spacing: 2px; }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 1px; }
+        .font-pixel { font-family: 'Press Start 2P', cursive; font-size: 0.7rem; letter-spacing: 1px; }
+        .font-vt323 { font-family: 'VT323', monospace; font-size: 1.5rem; letter-spacing: 2px; }
+        .font-sharetech { font-family: 'Share Tech Mono', monospace; font-size: 1.1rem; letter-spacing: 2px; }
+        .font-silkscreen { font-family: 'Silkscreen', cursive; font-size: 0.9rem; letter-spacing: 1px; }
+        .font-dotgothic { font-family: 'DotGothic16', sans-serif; font-size: 1.1rem; letter-spacing: 1px; }
+        .font-audiowide { font-family: 'Audiowide', cursive; font-size: 1rem; letter-spacing: 1px; }
+        .font-rajdhani { font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: 2px; }
+        .font-michroma { font-family: 'Michroma', sans-serif; font-size: 0.85rem; letter-spacing: 2px; }
+        .font-oxanium { font-family: 'Oxanium', cursive; font-size: 1.1rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* Special Effects */
+        .glow-red {
+            text-shadow: 0 0 10px rgba(188,0,45,0.8), 0 0 20px rgba(188,0,45,0.4);
+            color: #fff;
+        }
+
+        .glow-blue {
+            text-shadow: 0 0 10px rgba(59,130,246,0.8), 0 0 20px rgba(59,130,246,0.4);
+            color: #fff;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #fff 0%, #bc002d 50%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-sunset {
+            background: linear-gradient(90deg, #f59e0b, #ef4444, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Dotted/LED Style */
+        .dotted-container {
+            position: relative;
+        }
+
+        .dotted-text {
+            font-family: 'VT323', monospace;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                #10b981 0px, #10b981 3px,
+                transparent 3px, transparent 5px
+            ),
+            repeating-linear-gradient(
+                0deg,
+                #10b981 0px, #10b981 3px,
+                transparent 3px, transparent 5px
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: rgba(16,185,129,0.3);
+            text-shadow: 0 0 8px rgba(16,185,129,0.5);
+        }
+
+        /* Matrix style */
+        .matrix-text {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            color: #10b981;
+            text-shadow: 0 0 5px #10b981, 0 0 10px #10b981;
+            letter-spacing: 3px;
+        }
+
+        /* Neon style */
+        .neon-text {
+            font-family: 'Audiowide', cursive;
+            font-size: 1rem;
+            color: #fff;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #ff00de,
+                0 0 30px #ff00de,
+                0 0 40px #ff00de;
+            letter-spacing: 2px;
+        }
+
+        /* Retro arcade */
+        .arcade-text {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.65rem;
+            background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+        }
+
+        /* Holographic */
+        .holo-text {
+            font-family: 'Michroma', sans-serif;
+            font-size: 0.9rem;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6, #ec4899, #06b6d4);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: holo 3s linear infinite;
+            letter-spacing: 2px;
+        }
+
+        @keyframes holo {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* Cyberpunk */
+        .cyber-text {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fbbf24;
+            text-shadow:
+                2px 2px 0 #ef4444,
+                -1px -1px 0 #06b6d4;
+            letter-spacing: 3px;
+        }
+
+        /* LED Display dots */
+        .led-container {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .led-char {
+            display: grid;
+            grid-template-columns: repeat(5, 4px);
+            grid-template-rows: repeat(7, 4px);
+            gap: 1px;
+        }
+
+        .led-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #1a1a1a;
+        }
+
+        .led-dot.on { background: #ef4444; box-shadow: 0 0 4px #ef4444; }
+        .led-dot.on-green { background: #10b981; box-shadow: 0 0 4px #10b981; }
+        .led-dot.on-blue { background: #3b82f6; box-shadow: 0 0 4px #3b82f6; }
+        .led-dot.on-yellow { background: #fbbf24; box-shadow: 0 0 4px #fbbf24; }
+
+        /* Japanese style */
+        .jp-style {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            position: relative;
+            letter-spacing: 2px;
+        }
+
+        .jp-style::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #bc002d, transparent);
+        }
+
+        /* Minimalist tech */
+        .minimal-tech {
+            font-family: 'Oxanium', cursive;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 4px;
+            border-left: 3px solid #bc002d;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Japan'26 Logo Font Mockups</h1>
+
+    <div class="grid">
+        <!-- Basic Fonts -->
+        <div class="variant">
+            <div class="variant-label">A: Electrolize (current)</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-electrolize">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">B: Orbitron</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-orbitron">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">C: Press Start 2P (Pixel)</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-pixel">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">D: VT323 (Terminal)</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-vt323">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">E: Share Tech Mono</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-sharetech">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">F: Silkscreen (Pixel smooth)</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-silkscreen">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">G: DotGothic16 (Japanese pixel)</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-dotgothic">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">H: Audiowide</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-audiowide">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">I: Rajdhani</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-rajdhani">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">J: Michroma</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-michroma">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">K: Oxanium</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-oxanium">JAPAN'26</span>
+            </div>
+        </div>
+
+        <!-- Special Effects -->
+        <div class="variant">
+            <div class="variant-label">L: Red Glow</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-orbitron glow-red">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">M: Matrix Style</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text matrix-text">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">N: Neon Pink</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text neon-text">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">O: Retro Arcade Gold</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text arcade-text">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">P: Holographic</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text holo-text">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">Q: Cyberpunk</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text cyber-text">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">R: Gradient Japan Flag Colors</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-rajdhani gradient-text">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">S: Sunset Gradient</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text font-audiowide gradient-sunset">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">T: Japanese Style with Underline</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text jp-style">JAPAN'26</span>
+            </div>
+        </div>
+
+        <div class="variant">
+            <div class="variant-label">U: Minimal Tech</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <span class="logo-text minimal-tech">JAPAN'26</span>
+            </div>
+        </div>
+
+        <!-- LED Dot Display -->
+        <div class="variant">
+            <div class="variant-label">V: LED Dot Matrix (Multi-color)</div>
+            <div class="header-mock">
+                <svg class="japan-flag" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#fff" stroke="#ddd" stroke-width="2"/><circle cx="50" cy="50" r="22" fill="#bc002d"/></svg>
+                <div class="led-container" id="ledDisplay"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // LED Matrix patterns for J, A, P, A, N, ', 2, 6
+        const patterns = {
+            'J': [
+                [0,0,1,1,1],
+                [0,0,0,1,0],
+                [0,0,0,1,0],
+                [0,0,0,1,0],
+                [1,0,0,1,0],
+                [1,0,0,1,0],
+                [0,1,1,0,0]
+            ],
+            'A': [
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,1,1,1,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1]
+            ],
+            'P': [
+                [1,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,1,1,1,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0]
+            ],
+            'N': [
+                [1,0,0,0,1],
+                [1,1,0,0,1],
+                [1,0,1,0,1],
+                [1,0,0,1,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [1,0,0,0,1]
+            ],
+            "'": [
+                [0,1,0,0,0],
+                [0,1,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0],
+                [0,0,0,0,0]
+            ],
+            '2': [
+                [0,1,1,1,0],
+                [1,0,0,0,1],
+                [0,0,0,0,1],
+                [0,0,1,1,0],
+                [0,1,0,0,0],
+                [1,0,0,0,0],
+                [1,1,1,1,1]
+            ],
+            '6': [
+                [0,1,1,1,0],
+                [1,0,0,0,0],
+                [1,0,0,0,0],
+                [1,1,1,1,0],
+                [1,0,0,0,1],
+                [1,0,0,0,1],
+                [0,1,1,1,0]
+            ]
+        };
+
+        const colors = ['on', 'on-green', 'on-blue', 'on-yellow'];
+        const text = "JAPAN'26";
+        const container = document.getElementById('ledDisplay');
+
+        text.split('').forEach((char, charIndex) => {
+            const pattern = patterns[char];
+            if (!pattern) return;
+
+            const charDiv = document.createElement('div');
+            charDiv.className = 'led-char';
+
+            const colorClass = colors[charIndex % colors.length];
+
+            for (let row = 0; row < 7; row++) {
+                for (let col = 0; col < 5; col++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'led-dot' + (pattern[row][col] ? ' ' + colorClass : '');
+                    charDiv.appendChild(dot);
+                }
+            }
+
+            container.appendChild(charDiv);
+        });
+    </script>
+</body>
+</html>
