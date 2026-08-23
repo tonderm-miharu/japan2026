@@ -60,7 +60,7 @@
 - Color-coded: green (weekday), gray (weekend), with HO indicator
 - Weather icon with temperature
 - Expandable details with timeline and POI
-- Google Maps links for 188 POI (hotels, temples, stations, bridges, etc.)
+- Google Maps links for 188 POI (opens app directly on mobile)
 - Tag icons (HO, car, bike, onsen, meet, flight, fest)
 - Automatic daily tasks (luggage, car, check-in)
 
