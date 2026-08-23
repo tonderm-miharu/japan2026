@@ -1,4 +1,4 @@
-const CACHE_NAME = 'japan2026-v1';
+const CACHE_NAME = 'japan2026-v2';
 const ASSETS = [
     './',
     './itinerar.html',
@@ -31,34 +31,32 @@ self.addEventListener('activate', event => {
     self.clients.claim();
 });
 
-// Fetch - serve from cache, fallback to network
+// Fetch - network first, cache fallback (always fresh when online)
 self.addEventListener('fetch', event => {
-    // Skip Google Maps links (they need network)
+    // Skip Google Maps links
     if (event.request.url.includes('google.com/maps')) {
         return;
     }
 
     event.respondWith(
-        caches.match(event.request).then(cachedResponse => {
-            if (cachedResponse) {
-                return cachedResponse;
-            }
-            return fetch(event.request).then(response => {
-                // Cache font files dynamically
-                if (event.request.url.includes('fonts.gstatic.com') ||
-                    event.request.url.includes('woff')) {
-                    const responseClone = response.clone();
-                    caches.open(CACHE_NAME).then(cache => {
-                        cache.put(event.request, responseClone);
-                    });
-                }
-                return response;
+        fetch(event.request).then(response => {
+            // Update cache with fresh response
+            const responseClone = response.clone();
+            caches.open(CACHE_NAME).then(cache => {
+                cache.put(event.request, responseClone);
             });
+            return response;
         }).catch(() => {
-            // Offline fallback for HTML
-            if (event.request.mode === 'navigate') {
-                return caches.match('./itinerar.html');
-            }
+            // Offline - serve from cache
+            return caches.match(event.request).then(cachedResponse => {
+                if (cachedResponse) {
+                    return cachedResponse;
+                }
+                // Fallback for navigation
+                if (event.request.mode === 'navigate') {
+                    return caches.match('./itinerar.html');
+                }
+            });
         })
     );
 });
