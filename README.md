@@ -12,6 +12,7 @@
 |------|-------------|
 | `itinerar.html` | Interactive HTML dashboard |
 | `KONSOLIDOVANY_ITINERAR.md` | Detailed itinerary in Markdown format |
+| `ADJUSTED_MASTER_PLAN.md` | Enhanced "second brain" document with logistics, prep steps, laundry schedule, risks |
 | `ROZVRH.xlsx` | Schedule and hotels spreadsheet |
 
 ## Dashboard Features
@@ -104,6 +105,19 @@
 - [ ] Takashi - for Sep 28
 - [ ] Wahei - min. 1 month before Oct 24
 - [ ] Ryuki - 1-2 weeks before Oct 23
+
+## Adjusted Master Plan
+
+Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
+
+- **Laundry schedule** - optimal days every 4-6 days
+- **Luggage shipping prep** - day-before checklists for Yamato TA-Q-BIN
+- **Light travel essentials** - what to pack when luggage is shipped ahead
+- **Ticket buying strategy** - when to buy to avoid rush hour queues
+- **Tight schedule analysis** - risk assessment and mitigation for critical days
+- **Pre-departure tasks** - Visit Japan Web, roaming, Suica, contacts
+- **Day-by-day notes** - practical tips, alternatives, weather backups
+- **Carrier info** - ANA/JAL for domestic flights, hotel check-in codes
 
 ## Technical Notes
 
