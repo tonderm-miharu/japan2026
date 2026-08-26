@@ -1742,29 +1742,432 @@
 
     // Rozšířené poznámky pro jednotlivé dny
     const DAY_NOTES = {
-        2: ['Jet lag bude znát - nepřehánět to večer', 'Kankanba = hlavní viewing point pro yarimawashi'],
-        5: ['Sakai City Hall 21. patro = nejlepší výhled na kofuny (zdarma)', 'Shimano Museum otevřeno 10:00-16:30'],
-        17: ['Poslední den v Osace - využít co zbylo', 'Shinsekai = kushikatsu, Yaekatsu'],
-        18: ['⚠️ PONDĚLÍ - ověřit otevírací doby Ryoma míst!', 'Tomonoura = inspirace pro Ponyo'],
-        19: ['Multi-day bike rental MUSÍ být rezervováno předem!', 'Kosanji = psychedelický chrám, Hill of Hope nahoře'],
-        20: ['Oyamazumi = samuraiské poklady v Treasure House', 'Kirosan = Kengo Kuma, ale 3km prudké stoupání!', 'Dogo Onsen = nejstarší onsen v Japonsku (večer?)'],
-        21: ['⚠️ TIGHT SCHEDULE - Ferry je 13:00!', 'Shimonada NEMÁ automat na jízdenky - koupit v Matsuyama!', 'Buffer 1h 45min v Yawatahama'],
-        23: ['Lake Kinrin = 06:30-07:30 ideální pro mlhu a světlo', 'FREE BIKE v hotelu - využít!'],
-        25: ['Sports Day (státní svátek) - více lidí na silnicích', 'Levostranný provoz - pozor první hodinu'],
-        27: ['⚠️ REZERVACE YOKAGURA nutná!', 'Lodičky v Takachiho Gorge = dlouhé fronty'],
-        28: ['⚠️ HARD DEADLINE 18:00 - vrácení auta!', 'Kunimigaoka = sea of clouds pouze za správných podmínek', 'Tankovat den předem!'],
-        29: ['⚠️ TIGHT MORNING - kufr + ferry!', 'Yamato otevírá možná až v 8:00 - ověřit!', 'Half board = večeře included, check-in do 19h!'],
-        30: ['Nita Pass = pouze při dobrém počasí (taxi drahé)', 'Hot Foot 105 = 105m dlouhý footbath!'],
-        37: ['Takanawa Gateway City = nová čtvrť 2024+', 'Tsukishima = monjayaki večer, retro uličky', 'Projít uložená místa z Google Maps!'],
-        38: ['⚠️ Praní před road trip - KRITICKÉ!', 'Auto Mishima NENÍ BOOKOVANÉ!', 'Ubytování 26-29.10. NENÍ BOOKOVANÉ!'],
-        39: ['🕐 ZMĚNA ČASU EU! Tokyo-Praha: z +7h na +8h'],
-        40: ['⚠️ Logisticky nejnáročnější den', 'Izu Skyline toll road = rychlejší alternativa'],
-        41: ['Lake Motosu = místo z 1000 yen bankovky', 'Hottarakashi = od sunrise!', 'Kofu: Hoto noodles specialita'],
-        43: ['Takanawa Gateway, Tsukishima, Tokyo Station area = denní program', 'Bar Nekorob = Markův bar?'],
-        44: ['Halloween v Tokyo = costume parties', 'Shibuya od 2023 omezené - Shinjuku lepší'],
-        48: ['⛽ Tankovat večer (zítra tight schedule)!'],
-        49: ['⛽ Tankovat hned po příjezdu!', 'Gyokoseki auto = doplatit 6,700 yen'],
-        50: ['⚠️ AUTO RETURN 13:00 HARD DEADLINE', 'Sefa Utaki = možná omezený přístup (rekonstrukce)', 'Tankovat MUSÍ být večer předem!'],
+        // DEN 1 - Let VIE→TPE
+        1: [
+            '✈️ Check-in online 24h předem',
+            'Checklist: pas, pojištění, řidičák, karty, cash EUR',
+            '📋 Visit Japan Web - několik dní předem!',
+            '📋 Aktivovat roaming + mobilní Suica',
+            '📋 Kontaktovat Riho (pro 17.10.)'
+        ],
+        // DEN 2 - Přílet + Kishiwada Festival
+        2: [
+            'Jet lag bude znát - nepřehánět to večer',
+            'Kankanba = hlavní viewing point pro yarimawashi',
+            'Na KIX koupit ICOCA/použít Suica',
+            'Hotel kupon 500 yen - nezapomenout!',
+            '📷 Mít nabitý telefon pro video!'
+        ],
+        // DEN 3 - Kishiwada→Osaka
+        3: [
+            'Hommiya = hlavní den, ale ráno je klíčové (shrine entry)',
+            'Priorita: Kishiki Shrine pro miyairi',
+            'Haruki district = méně turistická část festivalu',
+            'Ideální přesun do Osaky: 14:00-15:00',
+            '🍜 Kuromon market pro večeři?'
+        ],
+        // DEN 4 - Nakanoshima
+        4: [
+            'První HO den - mít připravené pracovní věci',
+            'Architektura Nakanoshima = hodně chůze, pohodlné boty',
+            'Bank of Japan - interiér ověřit (tour předem?)',
+            '📶 Ověřit WiFi v hotelu (rychlost, stabilita)',
+            '☔ Backup: Umeda shopping area'
+        ],
+        // DEN 5 - Sakai
+        5: [
+            'Sakai City Hall 21. patro = nejlepší výhled na kofuny (zdarma)',
+            'Shimano Museum otevřeno 10:00-16:30',
+            '📋 DNES: Aktivovat pojištění auta Kumamoto!',
+            '🧺 PRANÍ - první praní cesty (4 dny)',
+            'Možnost půjčit kolo a projet okolí kofunů'
+        ],
+        // DEN 6 - Osaka Bay
+        6: [
+            'Osaka Bay = futuristická architektura 90s',
+            'Maishima = odpadový ostrov, zajímavá architektura',
+            'ATC = brutalistní/postmoderní',
+            'Metro Chuo line na Cosmosquare',
+            '☔ Backup: Kaiyukan Aquarium'
+        ],
+        // DEN 7 - Takedao
+        7: [
+            'Celý den bez HO - využít naplno!',
+            'Opuštěná železnice = tunely, mosty, řeka (~5km)',
+            '🔦 Baterka do tunelů (nebo telefon)',
+            '🍱 Vzít svačinu a vodu - na trase nic není',
+            'Začít ráno (9:00) pro nejlepší světlo v tunelech'
+        ],
+        // DEN 8 - Critical Mass
+        8: [
+            '🚲 Critical Mass večer - ověřit meeting point!',
+            'Hello Bike účet (aplikace) - připravit předem',
+            'Nakanoshima Museum = Ando Tadao (2022)',
+            'National Museum = podzemní budova',
+            '📱 Nabít telefon (navigace, světlo na kole)'
+        ],
+        // DEN 9 - Keigo
+        9: [
+            '👤 Keigo - kontaktovat min. 1 týden předem!',
+            'Tennoji = Abeno Harukas (nejvyšší budova)',
+            'Zítra přesun do Kyota - sbalit večer!',
+            'Poslední noc v tomto hotelu',
+            'Ověřit checkout time'
+        ],
+        // DEN 10 - Osaka→Kyoto
+        10: [
+            'Kyoto = pomalejší tempo než Osaka',
+            'Půjčení kola v hotelu nebo poblíž Kyoto Station',
+            'Nijo Castle = doporučuji interiér (Ninomaru Palace)',
+            'Imperial Palace = zahrady přístupné',
+            '🍜 Večeře: Pontocho nebo Gion area'
+        ],
+        // DEN 11 - Takashi
+        11: [
+            '👤 Celý den rezervován pro Takashiho!',
+            'Žádný vlastní program - nechat na něm',
+            '💴 Mít hotovost pro lokální podniky',
+            'Kontakt měl být už předem!'
+        ],
+        // DEN 12 - Uji
+        12: [
+            'Uji = 20-30 min z Kyota (Keihan/JR)',
+            'Byodo-in otevírá 8:30 - jít brzy = méně lidí',
+            'Phoenix Hall interiér = lístky na konkrétní čas',
+            '🍵 Uji = matcha centrum - matcha soba, parfait',
+            'Ujigami = nejstarší shinto svatyně v Japonsku'
+        ],
+        // DEN 13 - Moderní architektura Kyoto
+        13: [
+            'Kyoto Station = Hiroshi Hara, massive atrium',
+            'KYOCERA Museum = Jun Aoki renovace, spirála',
+            '🧺 PRANÍ - 8 dní od posledního!',
+            'Okolí: Heian Shrine, Nanzenji (pokud čas)'
+        ],
+        // DEN 14 - teamLab→Otsu
+        14: [
+            '⚠️ teamLab Biovortex = NUTNÉ VSTUPENKY PŘEDEM!',
+            'Ranní slot = méně lidí',
+            'Kufr: coin locker Kyoto Station nebo poslat do Hikone?',
+            'Ofurocafe = onsen + coworking, unikátní koncept'
+        ],
+        // DEN 15 - Omi-Hachiman cycling
+        15: [
+            '🚲 La Collina = PRIORITA A - Fujimori architektura!',
+            'Hachiman-bori = fotogenické, lodičky možné',
+            'Loop nenáročný, rovinatý terén (~40-50 km)',
+            'Kolo rezervovat předem!',
+            '☔ Déšť = zkrátit loop, zaměřit se na La Collina'
+        ],
+        // DEN 16 - Hikone cycling
+        16: [
+            'Hikone Castle = národní poklad, 1 z 12 originálních',
+            'Nagahama = Kurokabe Square, sklo a umění',
+            'Varianta B: Taga Taisha = významná svatyně',
+            'Toyosato = anime fans (K-On!)',
+            'Shinkansen z Maibara (~30 min) nebo JR special rapid (~1h)'
+        ],
+        // DEN 17 - Osaka (celý den)
+        17: [
+            'Poslední plný den v Osace - využít co zbylo',
+            '⚠️ Do dnes lze zrušit auto Budget na TRIP.COM!',
+            'Shinsekai = kushikatsu, Yaekatsu',
+            '🧺 PRANÍ - DŮLEŽITÉ před Shimanami!',
+            '📦 Připravit Shimanami bag - mentálně rozdělit věci'
+        ],
+        // DEN 18 - Fukuyama→Tomonoura
+        18: [
+            '⚠️ PONDĚLÍ - ověřit otevírací doby Ryoma míst!',
+            'Tomonoura = inspirace pro Ponyo!',
+            'Sakamoto Ryoma = historická postava, Bakumatsu',
+            'CANDEO = onsen na střeše, využít večer',
+            '📦 VEČER: Sbalit hlavní kufr pro odeslání!'
+        ],
+        // DEN 19 - Shimanami Day 1
+        19: [
+            '⚠️ Multi-day bike rental MUSÍ být rezervováno předem!',
+            '📦 RÁNO 07:30: Yamato kufr → Matsuyama',
+            'Kosanji = psychedelický chrám, Hill of Hope nahoře',
+            'Tempo: Pohodové, 45-50 km na celý den OK',
+            '☔ Déšť = nebezpečné na mostech, plán B (autobusy)'
+        ],
+        // DEN 20 - Shimanami Day 2
+        20: [
+            'Oyamazumi = nejsvětější svatyně Shimanami, samuraiské poklady',
+            'Kirosan = Kengo Kuma, ale 3km prudké stoupání (300m)!',
+            'Kurushima Bridge = nejdelší, dramatické finále',
+            '📦 Kufr by měl čekat v hotelu Matsuyama - ověřit tracking',
+            'Dogo Onsen = nejstarší onsen v Japonsku (večer?)'
+        ],
+        // DEN 21 - Ferry Beppu
+        21: [
+            '⚠️ TIGHT SCHEDULE - Ferry je 13:00 HARD!',
+            '⚠️ Shimonada NEMÁ automat - koupit jízdenku v Matsuyama!',
+            'Buffer: 1h 45min v Yawatahama (OK)',
+            '⏰ Alarm 06:30, taška připravená večer předem',
+            'Znát záložní ferry spoje!'
+        ],
+        // DEN 22 - Beppu
+        22: [
+            'Bez HO = celý den volný!',
+            'Beppu = onsen paradise, už navštíveno dříve',
+            'Hyotan Onsen = outdoor rotenburo',
+            'Takegawara Onsen = historické, písečné lázně',
+            '⚠️ Nepřehánět to s onseny - dehydratace!'
+        ],
+        // DEN 23 - Yufuin
+        23: [
+            'Lake Kinrin = 06:30-07:30 ideální pro mlhu a světlo',
+            '🚲 FREE BIKE v hotelu - využít!',
+            'Hlavní ulice crowded - vedlejší cesty zajímavější',
+            'Floral Village = touristy, ale fotogenické',
+            '🧺 Možná praní (6 dní) - ryokan laundry service?'
+        ],
+        // DEN 24 - Yufuin→Kumamoto
+        24: [
+            '🌅 Lake Kinrin brzy ráno před turisty!',
+            '⚠️ Express bus Yufuin→Kumamoto NUTNÁ REZERVACE!',
+            'Bus ~3h, rezervovat dopředu',
+            'Příprava na AUTO BLOK: offline mapy, insurance info',
+            '🍜 Kumamoto = basashi (konské maso), tonkotsu ramen'
+        ],
+        // DEN 25 - Auto start Minamiaso
+        25: [
+            '🎌 Sports Day (státní svátek) - více lidí na silnicích',
+            '🚗 09:30 Vyzvednutí auta Budget (TRIP.com)',
+            '⚠️ Levostranný provoz - pozor první hodinu!',
+            'Insurance instructions v mailu - přečíst!',
+            'Tankovat full tank on return'
+        ],
+        // DEN 26 - Aso→Kurokawa
+        26: [
+            '❌ Aso crater vynecháváme (omezení, fronta na bus)',
+            'Yamanami Highway = jedna z nejhezčích silnic v Japonsku',
+            'Kurokawa tegata = 3 onseny za 1,500 yen',
+            '⛽ Tankovat v Aso town (pak už nic až Kurokawa)',
+            'Kusasenri = kráter, možnost jízdy na koni'
+        ],
+        // DEN 27 - Takachiho
+        27: [
+            '⚠️ REZERVACE YOKAGURA nutná!',
+            'Takachiho Gorge = ikonické, lodičky do rokle',
+            '⏰ Lodičky = dlouhé fronty, přijít brzy odpoledne!',
+            'Alternativa: Pěšky podél rokle (také krásné)',
+            '🌅 Zítra: Kunimigaoka pro cloud sea - alarm podle předpovědi'
+        ],
+        // DEN 28 - Auto return
+        28: [
+            '⚠️ HARD DEADLINE 18:00 - vrácení auta Budget!',
+            '🌫️ Kunimigaoka = sea of clouds POUZE při dobré předpovědi',
+            'Amano Yasukawara = kamenné věžičky, mystická atmosféra',
+            'Tsujun Bridge water discharge 13:00 - ověřit!',
+            '⛽ Tankovat den předem nebo ráno v Takachiho!',
+            '📦 VEČER: Sbalit kufr pro odeslání zítra!'
+        ],
+        // DEN 29 - Ferry Shimabara
+        29: [
+            '⚠️ TIGHT MORNING - kufr 07:30 + ferry 09:25!',
+            '📦 Yamato otevírá možná až v 8:00 - ověřit!',
+            'Alternativa: Požádat hotel o odeslání kufru',
+            'Shimabara = hrad + samuraiská čtvrť + vodní kanály',
+            '⏰ Half board = večeře included, check-in do 19h!'
+        ],
+        // DEN 30 - Unzen→Obama (Riho?)
+        30: [
+            '👥 Možná provázení: Riho - kontaktovat předem!',
+            '🌤️ Nita Pass = POUZE při dobrém počasí (taxi ~8,500 round-trip)',
+            '♨️ Hot Foot 105 = 105m dlouhý footbath!',
+            'Steam cooking = vaření v páře, zážitek',
+            'Špatné počasí = Nita Pass vynechat'
+        ],
+        // DEN 31 - Obama→Nagasaki
+        31: [
+            'Bus Obama→Nagasaki ~2-2.5h (ověřit)',
+            '📦 Kufr by měl čekat v APA hotelu - ověřit tracking',
+            '🧺 PRANÍ - 8 dní od posledního! APA má coin laundry',
+            '🍜 Nagasaki chanpon + Castella (od Portugalců)',
+            'Dejima = historický holandský ostrov'
+        ],
+        // DEN 32 - Nagasaki Ryoma
+        32: [
+            'Sakamoto Ryoma = samuraj, revolucionář',
+            'Kameyama Shachu = Ryomova obchodní společnost',
+            'Ryoma\'s Boots = vyhlídka na přístav',
+            '❓ OPEN DECISION: Gunkanjima? Pokud ano → REZERVOVAT!',
+            '🚋 Tramvaj pro přesuny (Nagasaki má tram network)'
+        ],
+        // DEN 33 - Yutoku Inari→Ureshino
+        33: [
+            'Yutoku Inari = jedna z 3 největších, massive, colorful',
+            'Ureshino = čajová oblast, onsen "krásná kůže"',
+            'Doprava Nagasaki→Yutoku: JR + bus? Ověřit',
+            'Ureshino tea = lokální specialita'
+        ],
+        // DEN 34 - Takeo→Fukuoka
+        34: [
+            'Mifuneyama Rakuen = podzimní festival až od 6.11. (bez lightup)',
+            'Takeo Shrine = 3000 let starý kafrovník, impressive',
+            'Takeo Library = moderní design, Tsutaya/CCC',
+            'JR do Fukuoky ~1-1.5h'
+        ],
+        // DEN 35 - Fukuoka
+        35: [
+            'ACROS Fukuoka = step garden building, rooftop zahrada',
+            'Momochi = waterfront, Fukuoka Tower',
+            '🍜 Yatai = pouliční stánky, Fukuoka specialita',
+            '🧺 PRANÍ - před letem do Tokya zítra!',
+            '📋 Check-in online na let, subway jízdenka na letiště'
+        ],
+        // DEN 36 - Let Fukuoka→Tokyo
+        36: [
+            '✈️ Dopravce: ANA, 12:25-14:10 FUK→HND',
+            'Fukuoka Airport = super blízko centru (subway ~15-20 min)',
+            'Haneda→Shinjuku: Keikyu + transfer nebo Limousine bus',
+            '📱 Po příletu: Kontakt s Ryuki (napsat 1-2 týdny předem!)',
+            'Hotel: QR code check-in'
+        ],
+        // DEN 37 - Tokyo
+        37: [
+            '👤 Možná dopoledne Wahei (kontaktovat měsíc předem = do 24.9.!)',
+            '👤 Večer: Shogo? Minoru?',
+            '🏙️ Takanawa Gateway City = nová čtvrť 2024+',
+            '🍳 Tsukishima = monjayaki večer, retro uličky',
+            '📍 Projít uložená místa z Google Maps!'
+        ],
+        // DEN 38 - Tokyo (před road trip)
+        38: [
+            '⚠️ 🧺 Praní před road trip - KRITICKÉ!',
+            '⚠️ Auto Mishima NENÍ BOOKOVANÉ!',
+            '⚠️ Ubytování 26-29.10. NENÍ BOOKOVANÉ!',
+            'Kasai Rinkai = vodní park, aquarium, chill',
+            'Nebo: Yanaka, Shimokitazawa, Koenji (retro/hipster)',
+            '📱 Offline mapy Izu + Fuji area stáhnout!'
+        ],
+        // DEN 39 - Tokyo→Izu
+        39: [
+            '🕐 ZMĚNA ČASU EU! Tokyo-Praha: z +7h na +8h',
+            'Shinkansen Tokyo→Mishima (~1h), pak auto',
+            'Mt. Omuro = sopečný kráter, 360° výhled',
+            'Jogasaki = dramatické pobřeží, lávové formace',
+            'Hokkawa Onsen = klidné onsen městečko'
+        ],
+        // DEN 40 - Izu→Fujinomiya
+        40: [
+            '⚠️ Logisticky nejnáročnější den!',
+            'Kawazu Loop Bridge = 2 plné otočky, neobvyklé',
+            'Přejezd přes polostrov = 2-3 hodiny',
+            '🛣️ Izu Skyline toll road = rychlejší, hezčí',
+            'WHC = Shigeru Ban architektura, inverzní Fuji kužel'
+        ],
+        // DEN 41 - Fujinomiya→Yamanashi
+        41: [
+            'Lake Motosu = místo z 1000 yen bankovky!',
+            '♨️ Hottarakashi Onsen = od sunrise (před úsvitem!)',
+            'Dvě lázně: "Acchi no Yu" a "Kocchi no Yu"',
+            '🍜 Kofu: Hoto noodles = lokální specialita',
+            'Západ slunce z Hottarakashi = magic'
+        ],
+        // DEN 42 - Auto return→Tokyo
+        42: [
+            '🚗 Vrácení auta v Mishima - velká časová rezerva!',
+            '⛽ Tankovat předem!',
+            'teamLab Borderless = přestěhován do Azabudai Hills (2024)',
+            '⚠️ Ubytování 29.10. Tokyo NEBOOKOVÁNO!',
+            'Po 4 dnech auta = relax večer OK'
+        ],
+        // DEN 43 - Tokyo (party)
+        43: [
+            '🎉 Večer: Party (Minoru, Sata-san)',
+            'Bar Nekorob = Markův bar?',
+            'Contact: edobicycleart',
+            '🏙️ Den: Takanawa Gateway, Tsukishima, Tokyo Station area',
+            'Den před Halloween - možná příprava costumes? (Donki, Village Vanguard)'
+        ],
+        // DEN 44 - Halloween
+        44: [
+            '🎃 HALLOWEEN v Tokyo!',
+            '🚲 Zjistit Critical Mass nebo nástupnický bike event',
+            'Shibuya od 2023 omezené - Shinjuku lepší alternativa',
+            '🧺 PRANÍ - během dne před večerním programem',
+            'Halloween starts late (21:00+), Roppongi = clubbing'
+        ],
+        // DEN 45 - Tokyo
+        45: [
+            'Deeper dive, okrajové části Tokya',
+            'Togoshi Ginza = nejdelší shotengai v Tokyo',
+            '🍻 Nomikai v Nakano večer',
+            'Nakano Broadway = otaku paradise',
+            '⚠️ Zítra let na Miyakojima 08:20! Alarm 05:30!'
+        ],
+        // DEN 46 - Let Tokyo→Miyakojima
+        46: [
+            '✈️ Dopravce: ANA, 08:20-12:50 HND→MMY',
+            '⏰ Haneda check-in 07:00 latest!',
+            'Miyakojima = remote island, tropical',
+            'Hotel Locus = beach hotel',
+            '💻 HO od 15:00 - tight ale OK'
+        ],
+        // DEN 47 - Miyakojima
+        47: [
+            '🎌 Bank Holiday (Culture Day) - více turistů',
+            '🚲 Program na bike (hotel má půjčovnu?)',
+            '💻 HO od 15:00 = půl dne volno',
+            '💴 Zítra auto CASH 5,300 yen - mít připraveno!'
+        ],
+        // DEN 48 - Miyakojima (auto)
+        48: [
+            '🚗 Auto SOU Company 9:00-18:30',
+            '💴 Auto cash 5,300 yen',
+            'Celý ostrov autem = 2-3 hodiny driving',
+            'Irabe Bridge = nejdelší most',
+            'Yonaha Maehama Beach = jedna z nejhezčích v Japonsku',
+            '🔑 Check-in kód: 6749',
+            '⛽ Tankovat večer (zítra tight schedule)!'
+        ],
+        // DEN 49 - Let Miyakojima→Okinawa jih
+        49: [
+            '✈️ Dopravce: JAL, 11:00-11:55 MMY→OKA',
+            '🚗 13:00 Auto Okinawa Gyokoseki',
+            '💴 Doplatit na místě 6,700 yen',
+            'Himeyuri Peace Museum = WWII memorial (~50 min)',
+            'Cape Kyan = peace monument, nejjižnější cíp',
+            '⛽ Tankovat večer! (zítra tight schedule)'
+        ],
+        // DEN 50 - Auto return Naha
+        50: [
+            '⚠️ AUTO RETURN 13:00 HARD DEADLINE!',
+            '⛽ Tankovat MUSÍ být večer předem!',
+            'Nirai-Kanai Bridge = serpentinový most, fotogenický',
+            'Sefa Utaki = nejsvětější místo Ryukyu, UNESCO',
+            '⚠️ Sefa Utaki = možná omezený přístup (rekonstrukce 2026)',
+            '🧺 PRANÍ - poslední před odletem (6 dní)',
+            '☔ Backup: Gyokusendo jeskyně (indoor)'
+        ],
+        // DEN 51 - Naha
+        51: [
+            'Poslední plný den v Japonsku!',
+            'Amerikamura = american village, retro/kitschy',
+            'Shuri Castle = částečná rekonstrukce po požáru 2019',
+            'Kokusai-dori = hlavní turistická ulice',
+            'Makishi = rybí trh, lokální jídlo',
+            '🛍️ Suvenýry, poslední nákupy',
+            '🍜 Poslední večeře = goya champuru, soba'
+        ],
+        // DEN 52 - Let Naha→Taipei
+        52: [
+            '✈️ 11:55-12:35 OKA→TPE',
+            'Check-out ráno, volný čas do ~10:00',
+            'Taipei layover: Ximending nebo night market?',
+            '✈️ TPE 23:20 odlet do Vídně',
+            'Taiwan: Visa-free pro CZ'
+        ],
+        // DEN 53 - Přílet Vídeň
+        53: [
+            '✈️ 06:50 Přílet VIE',
+            '🎉 Konec cesty!',
+            'Jet lag = spát co nejdéle v letadle',
+            'Příjezd ráno = celý den na aklimatizaci'
+        ]
     };
 
     // Kontakty
