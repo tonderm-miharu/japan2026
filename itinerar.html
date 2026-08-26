@@ -1012,39 +1012,63 @@
 
         /* Notes section */
         .notes-section {
-            background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(96,165,250,0.12));
-            border: 1px solid rgba(167,139,250,0.4);
+            background: linear-gradient(135deg, rgba(167,139,250,0.12), rgba(96,165,250,0.08));
+            border: 1px solid rgba(167,139,250,0.35);
             border-radius: var(--radius-sm);
             padding: 14px 16px;
             margin-top: 14px;
         }
         .notes-section .detail-title {
             color: #c4b5fd;
-            margin-bottom: 10px;
-            font-size: 0.8rem;
+            margin-bottom: 12px;
+            font-size: 0.75rem;
             font-weight: 600;
         }
         .notes-content {
-            font-size: 0.95rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .note-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 0.88rem;
             color: var(--text);
-            line-height: 1.7;
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-        .notes-content p {
-            margin: 0 0 8px 0;
+        .note-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
-        .notes-content p:last-child {
-            margin-bottom: 0;
+        .note-item:first-child {
+            padding-top: 0;
         }
-        .notes-highlight {
-            color: var(--orange);
-            font-weight: 600;
+        .note-marker {
+            flex-shrink: 0;
+            width: 20px;
+            text-align: center;
+            font-size: 0.9rem;
         }
-        .notes-warning {
+        .note-marker.bullet {
+            color: #6b7280;
+            font-size: 0.5rem;
+            line-height: 1.8;
+        }
+        .note-text {
+            flex: 1;
+        }
+        .note-item.warning .note-text {
             color: var(--red);
-            font-weight: 600;
+            font-weight: 500;
         }
-        .notes-tip {
+        .note-item.tip .note-text {
             color: var(--green);
+        }
+        .note-item.highlight .note-text {
+            color: var(--orange);
             font-weight: 500;
         }
         @media (max-width: 900px) {
@@ -1052,9 +1076,13 @@
                 grid-column: 1 / -1;
                 padding: 12px 14px;
             }
-            .notes-content {
-                font-size: 1rem;
-                line-height: 1.8;
+            .note-item {
+                font-size: 0.92rem;
+                gap: 8px;
+                padding: 7px 0;
+            }
+            .note-marker {
+                width: 22px;
             }
         }
 
@@ -2479,12 +2507,25 @@
                             <div class="notes-section" style="grid-column: 1 / -1;">
                                 <div class="detail-title"><svg class="section-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>Notes & Tips</div>
                                 <div class="notes-content">
-                                    ${d.note ? `<p><strong>${d.note}</strong></p>` : ''}
+                                    ${d.note ? `<div class="note-item highlight"><span class="note-marker">★</span><span class="note-text">${d.note}</span></div>` : ''}
                                     ${DAY_NOTES[d.day] ? DAY_NOTES[d.day].map(n => {
                                         let cls = '';
-                                        if (n.includes('⚠️') || n.includes('DEADLINE') || n.includes('TIGHT') || n.includes('NEMÁ') || n.includes('MUSÍ')) cls = 'notes-warning';
-                                        else if (n.includes('TIP') || n.includes('ideální') || n.includes('FREE')) cls = 'notes-tip';
-                                        return `<p class="${cls}">${n}</p>`;
+                                        if (n.includes('⚠️') || n.includes('DEADLINE') || n.includes('TIGHT') || n.includes('NEMÁ') || n.includes('MUSÍ') || n.includes('HARD')) cls = 'warning';
+                                        else if (n.includes('TIP') || n.includes('ideální') || n.includes('FREE') || n.includes('Backup')) cls = 'tip';
+                                        else if (n.includes('DŮLEŽITÉ') || n.includes('KRITICKÉ') || n.includes('NUTNÁ') || n.includes('NEBOOKOVÁN')) cls = 'highlight';
+
+                                        const emojiMatch = n.match(/^([\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|[\u{1F1E0}-\u{1F1FF}]|[\u{2300}-\u{23FF}]|[\u{2B50}]|[\u{203C}\u{2049}\u{2122}\u{2139}\u{2194}-\u{21AA}]|[\u{231A}-\u{231B}]|[\u{23E9}-\u{23F3}]|[\u{23F8}-\u{23FA}]|[\u{25AA}-\u{25AB}]|[\u{25B6}]|[\u{25C0}]|[\u{25FB}-\u{25FE}]|[\u{2614}-\u{2615}]|[\u{2648}-\u{2653}]|[\u{267F}]|[\u{2693}]|[\u{26A1}]|[\u{26AA}-\u{26AB}]|[\u{26BD}-\u{26BE}]|[\u{26C4}-\u{26C5}]|[\u{26CE}]|[\u{26D4}]|[\u{26EA}]|[\u{26F2}-\u{26F3}]|[\u{26F5}]|[\u{26FA}]|[\u{26FD}]|[\u{2702}]|[\u{2705}]|[\u{2708}-\u{270D}]|[\u{270F}]|[\u{2712}]|[\u{2714}]|[\u{2716}]|[\u{271D}]|[\u{2721}]|[\u{2728}]|[\u{2733}-\u{2734}]|[\u{2744}]|[\u{2747}]|[\u{274C}]|[\u{274E}]|[\u{2753}-\u{2755}]|[\u{2757}]|[\u{2763}-\u{2764}]|[\u{2795}-\u{2797}]|[\u{27A1}]|[\u{27B0}]|[\u{27BF}]|[\u{2934}-\u{2935}]|[\u{2B05}-\u{2B07}]|[\u{2B1B}-\u{2B1C}]|[\u{2B55}]|[\u{3030}]|[\u{303D}]|[\u{3297}]|[\u{3299}]|❌|❓|✈|✓|☔|♨|⏰|⛽)/u);
+
+                                        let marker, text;
+                                        if (emojiMatch) {
+                                            marker = emojiMatch[1];
+                                            text = n.slice(emojiMatch[0].length).trim();
+                                        } else {
+                                            marker = '•';
+                                            text = n;
+                                        }
+
+                                        return `<div class="note-item ${cls}"><span class="note-marker ${!emojiMatch ? 'bullet' : ''}">${marker}</span><span class="note-text">${text}</span></div>`;
                                     }).join('') : ''}
                                 </div>
                             </div>
