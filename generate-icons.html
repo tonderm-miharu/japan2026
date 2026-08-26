@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate PWA Icons</title>
+    <style>
+        body {
+            background: #1a1a2e;
+            color: #e5e7eb;
+            font-family: system-ui, sans-serif;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 { margin-bottom: 30px; }
+        .icons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .icon-box {
+            background: #252540;
+            padding: 20px;
+            border-radius: 16px;
+        }
+        .icon-box h3 {
+            margin: 15px 0 10px;
+            color: #9ca3af;
+        }
+        canvas {
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        button {
+            background: #60a5fa;
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #93c5fd;
+        }
+        .instructions {
+            max-width: 600px;
+            margin: 30px auto;
+            text-align: left;
+            background: #252540;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .instructions h2 {
+            color: #60a5fa;
+            margin-bottom: 15px;
+        }
+        .instructions ol {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+        .instructions code {
+            background: #1a1a2e;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>PWA Icon Generator - JAPAN Bold</h1>
+
+    <div class="icons">
+        <div class="icon-box">
+            <canvas id="icon512" width="512" height="512"></canvas>
+            <h3>512x512</h3>
+            <button onclick="download('icon512', 'icon-512.png')">Download PNG</button>
+        </div>
+        <div class="icon-box">
+            <canvas id="icon192" width="192" height="192"></canvas>
+            <h3>192x192</h3>
+            <button onclick="download('icon192', 'icon-192.png')">Download PNG</button>
+        </div>
+        <div class="icon-box">
+            <canvas id="icon180" width="180" height="180"></canvas>
+            <h3>180x180 (iOS)</h3>
+            <button onclick="download('icon180', 'icon-180.png')">Download PNG</button>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h2>Instructions</h2>
+        <ol>
+            <li>Click each <strong>Download PNG</strong> button</li>
+            <li>Save the files to:<br><code>C:\Users\mi601303\OneDrive - O2\Desktop\PROJECT BIG JAPAN 2026\</code></li>
+            <li>Files needed:
+                <ul>
+                    <li><code>icon-512.png</code> - for manifest</li>
+                    <li><code>icon-192.png</code> - for manifest</li>
+                    <li><code>icon-180.png</code> - for iOS home screen</li>
+                </ul>
+            </li>
+            <li>After saving, commit to git and push</li>
+        </ol>
+    </div>
+
+    <script>
+        function drawIcon(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = canvas.width;
+            const scale = size / 180;
+
+            // Background
+            ctx.fillStyle = '#1a1a2e';
+            ctx.fillRect(0, 0, size, size);
+
+            // Glow effect for text
+            ctx.shadowColor = '#60a5fa';
+            ctx.shadowBlur = 12 * scale;
+
+            // Text
+            ctx.fillStyle = '#60a5fa';
+            ctx.font = `700 ${34 * scale}px system-ui, -apple-system, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.letterSpacing = `${4 * scale}px`;
+            ctx.fillText('JAPAN', size / 2, size * 0.52);
+
+            // Reset shadow for red line
+            ctx.shadowBlur = 0;
+
+            // Red underline
+            ctx.fillStyle = '#ef4444';
+            const lineWidth = 110 * scale;
+            const lineHeight = 4 * scale;
+            const lineX = (size - lineWidth) / 2;
+            const lineY = size * 0.62;
+
+            // Rounded rect
+            ctx.beginPath();
+            const radius = 2 * scale;
+            ctx.roundRect(lineX, lineY, lineWidth, lineHeight, radius);
+            ctx.fill();
+        }
+
+        function download(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // Draw all icons
+        drawIcon(document.getElementById('icon512'));
+        drawIcon(document.getElementById('icon192'));
+        drawIcon(document.getElementById('icon180'));
+    </script>
+</body>
+</html>
