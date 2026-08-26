@@ -1431,17 +1431,21 @@
                 box-shadow: none !important;
                 page-break-inside: avoid;
             }
-            .card-details,
-            .card-details[style],
-            .card-details[style="display: block;"],
-            .print-expanded,
-            body.printing .card-details {
+            .day-body,
+            .day-body[style],
+            body.printing .day-body {
                 display: block !important;
                 max-height: none !important;
                 opacity: 1 !important;
                 height: auto !important;
                 overflow: visible !important;
                 visibility: visible !important;
+            }
+            .day-card {
+                border: 1px solid #ccc !important;
+            }
+            .day-card.expanded {
+                border-color: #ccc !important;
             }
 
             /* Hide print button in print */
@@ -3215,12 +3219,12 @@
 
     // Print function - expand all cards and print
     function printItinerary() {
-        // Expand all cards
-        document.querySelectorAll('.card-details').forEach(details => {
-            details.setAttribute('data-was-hidden', details.style.display === 'none' ? 'true' : 'false');
-            details.style.display = 'block';
-            details.style.maxHeight = 'none';
-            details.style.opacity = '1';
+        // Expand all day cards
+        document.querySelectorAll('.day-card').forEach(card => {
+            card.classList.add('expanded');
+        });
+        document.querySelectorAll('.day-body').forEach(body => {
+            body.style.display = 'block';
         });
         document.body.classList.add('printing');
 
@@ -3230,13 +3234,11 @@
 
             // Restore after print dialog closes
             setTimeout(() => {
-                document.querySelectorAll('.card-details').forEach(details => {
-                    if (details.getAttribute('data-was-hidden') === 'true') {
-                        details.style.display = 'none';
-                        details.style.maxHeight = '';
-                        details.style.opacity = '';
-                    }
-                    details.removeAttribute('data-was-hidden');
+                document.querySelectorAll('.day-card').forEach(card => {
+                    card.classList.remove('expanded');
+                });
+                document.querySelectorAll('.day-body').forEach(body => {
+                    body.style.display = '';
                 });
                 document.body.classList.remove('printing');
             }, 500);
@@ -3455,29 +3457,21 @@
     }
 
     // Print support - expand all cards
-    let cardStates = [];
     window.addEventListener('beforeprint', () => {
-        cardStates = [];
-        document.querySelectorAll('.card-details').forEach((details, i) => {
-            cardStates[i] = {
-                display: details.style.display,
-                maxHeight: details.style.maxHeight,
-                opacity: details.style.opacity
-            };
-            details.style.setProperty('display', 'block', 'important');
-            details.style.setProperty('max-height', 'none', 'important');
-            details.style.setProperty('opacity', '1', 'important');
-            details.classList.add('print-expanded');
+        document.querySelectorAll('.day-card').forEach(card => {
+            card.classList.add('expanded');
+        });
+        document.querySelectorAll('.day-body').forEach(body => {
+            body.style.setProperty('display', 'block', 'important');
         });
         document.body.classList.add('printing');
     });
     window.addEventListener('afterprint', () => {
-        document.querySelectorAll('.card-details').forEach((details, i) => {
-            const state = cardStates[i] || { display: 'none', maxHeight: '', opacity: '' };
-            details.style.display = state.display;
-            details.style.maxHeight = state.maxHeight;
-            details.style.opacity = state.opacity;
-            details.classList.remove('print-expanded');
+        document.querySelectorAll('.day-card').forEach(card => {
+            card.classList.remove('expanded');
+        });
+        document.querySelectorAll('.day-body').forEach(body => {
+            body.style.display = '';
         });
         document.body.classList.remove('printing');
     });
