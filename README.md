@@ -123,9 +123,37 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 
 - Single-page HTML with inline CSS and JS
 - Fonts: Inter, DSEG7, Electrolize, Oxanium, Orbitron
-- Data stored directly in JS (DAYS, TASKS, HOTEL_INFO, POI_URLS, etc.)
+- Data stored directly in JS (DAYS, TASKS, HOTEL_INFO, POI_URLS, DAY_NOTES, etc.)
 - POI_URLS: 188 verified Google Maps search links
+- DAY_NOTES: Complete notes for all 53 days
 - Task state in localStorage
 - Responsive design (mobile / desktop)
 - Works offline (PWA with Service Worker, network-first strategy)
 - Installable as app on mobile (Add to Home Screen)
+
+## Design System
+
+### Accessibility
+- High contrast colors optimized for readability
+- text-dim: #b8b8b8, text-muted: #8a8a8a
+- Minimum font size 1rem on mobile
+- POI links with pill-style background for visibility
+
+### Icons
+- Monochrome design: #9ca3af (base) → #e5e7eb (hover/active)
+- No glow effects - clean, professional look
+- Functional colors only for:
+  - Flight icon (orange) - travel indicator
+  - Festival icon (pink) - special events
+  - Timeline dots - category indicators
+  - Checkboxes - completion state
+
+### Day Notes
+Each day card includes contextual notes:
+- ⚠️ Warnings (deadlines, reservations, tight schedules)
+- 🧺 Laundry reminders
+- 📦 Luggage shipping steps
+- ⛽ Fuel reminders
+- 👤 Contact reminders
+- 🍜 Local food tips
+- ☔ Weather backup plans
