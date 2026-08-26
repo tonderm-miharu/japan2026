@@ -1151,6 +1151,34 @@
             color: var(--orange);
             font-weight: 500;
         }
+        .note-summary {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            background: rgba(251,191,36,0.12);
+            border: 1px solid rgba(251,191,36,0.25);
+            border-radius: 6px;
+            font-size: 0.88rem;
+            color: var(--orange);
+            font-weight: 500;
+        }
+        .note-summary .hotel-note-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .note-summary .text-icon {
+            width: 14px;
+            height: 14px;
+            stroke: var(--orange);
+        }
+        .note-summary .hotel-note-sep {
+            color: rgba(251,191,36,0.5);
+            margin: 0 4px;
+        }
         @media (max-width: 900px) {
             .notes-section {
                 grid-column: 1 / -1;
@@ -2708,10 +2736,7 @@
                             <div class="notes-section" style="grid-column: 1 / -1;">
                                 <div class="detail-title"><svg class="section-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>Notes & Tips</div>
                                 <div class="notes-content">
-                                    ${d.note ? d.note.split('|').map(part => {
-                                        const parsed = parseTextWithIcons(part.trim());
-                                        return `<div class="note-item highlight"><span class="note-marker">${parsed.icon}</span><span class="note-text">${parsed.text}</span></div>`;
-                                    }).join('') : ''}
+                                    ${d.note ? `<div class="note-summary">${formatHotelNote(d.note)}</div>` : ''}
                                     ${DAY_NOTES[d.day] ? DAY_NOTES[d.day].map(n => {
                                         let cls = '';
                                         if (n.includes('⚠️') || n.includes('DEADLINE') || n.includes('TIGHT') || n.includes('NEMÁ') || n.includes('MUSÍ') || n.includes('HARD')) cls = 'warning';
