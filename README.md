@@ -77,7 +77,7 @@
 
 ### Modals (dark blue background)
 - **Tasks** - grouped by priority (High/Medium), compact display
-- **Hotels** - overview with prices, provider badges, payment status
+- **Hotels** - wide layout (700px desktop), single-row per hotel with date, name, badges, price; mobile: 2-row compact layout
 - **Contacts** - list of people to meet with dates
 - **Transport** - flights, cars, ferry
 
@@ -142,8 +142,8 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 - Installable as app on mobile (Add to Home Screen)
 
 ### PWA Icon
-- Design: "JAPAN" bold text with blue glow (#60a5fa), red underline (#ef4444)
-- Background: dark (#1a1a2e) matching dashboard theme
+- Design: "JAPAN" bold white text with white underline
+- Background: red (#ef4444) - Japanese flag inspired
 - Files: icon.svg (vector), icon-180/192/512.png (raster)
 - iOS: apple-touch-icon for home screen
 
