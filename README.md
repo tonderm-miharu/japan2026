@@ -131,6 +131,12 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 - Works offline (PWA with Service Worker, network-first strategy)
 - Installable as app on mobile (Add to Home Screen)
 
+### PWA Icon
+- Design: "JAPAN" bold text with blue glow (#60a5fa), red underline (#ef4444)
+- Background: dark (#1a1a2e) matching dashboard theme
+- Files: icon.svg (vector), icon-180/192/512.png (raster)
+- iOS: apple-touch-icon for home screen
+
 ## Design System
 
 ### Accessibility
