@@ -1433,6 +1433,7 @@
             }
             .card-details,
             .card-details[style],
+            .card-details[style="display: block;"],
             .print-expanded,
             body.printing .card-details {
                 display: block !important;
@@ -1441,6 +1442,11 @@
                 height: auto !important;
                 overflow: visible !important;
                 visibility: visible !important;
+            }
+
+            /* Hide print button in print */
+            [data-action="print"] {
+                display: none !important;
             }
             .card-header {
                 border-bottom: 1px solid #ddd;
@@ -1564,6 +1570,7 @@
                             <button class="view-btn" data-view="contacts"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg><span>Contacts</span></button>
                             <button class="view-btn" data-view="transport"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14"/><path d="M5 12h14"/><path d="M5 7h14"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg><span>Transport</span></button>
                             <button class="view-btn" data-action="weather"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg><span>Weather</span></button>
+                            <button class="view-btn" data-action="print"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg><span>Print</span></button>
                         </div>
                         <input type="text" class="nav-search" id="search" placeholder="Search...">
                     </div>
@@ -1575,6 +1582,7 @@
                             <button class="menu-item" data-view="contacts"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg><span>Contacts</span></button>
                             <button class="menu-item" data-view="transport"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14"/><path d="M5 12h14"/><path d="M5 7h14"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg><span>Transport</span></button>
                             <button class="menu-item" data-action="weather"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg><span>Weather</span></button>
+                            <button class="menu-item" data-action="print"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg><span>Print PDF</span></button>
                             <div class="menu-search">
                                 <input type="text" class="nav-search" id="searchMobile" placeholder="Search...">
                             </div>
@@ -3199,8 +3207,41 @@
                     updateAllWeather();
                 }
             }
+            if (action === 'print') {
+                printItinerary();
+            }
         });
     });
+
+    // Print function - expand all cards and print
+    function printItinerary() {
+        // Expand all cards
+        document.querySelectorAll('.card-details').forEach(details => {
+            details.setAttribute('data-was-hidden', details.style.display === 'none' ? 'true' : 'false');
+            details.style.display = 'block';
+            details.style.maxHeight = 'none';
+            details.style.opacity = '1';
+        });
+        document.body.classList.add('printing');
+
+        // Wait for DOM update, then print
+        setTimeout(() => {
+            window.print();
+
+            // Restore after print dialog closes
+            setTimeout(() => {
+                document.querySelectorAll('.card-details').forEach(details => {
+                    if (details.getAttribute('data-was-hidden') === 'true') {
+                        details.style.display = 'none';
+                        details.style.maxHeight = '';
+                        details.style.opacity = '';
+                    }
+                    details.removeAttribute('data-was-hidden');
+                });
+                document.body.classList.remove('printing');
+            }, 500);
+        }, 100);
+    }
 
     document.querySelectorAll('[data-close]').forEach(btn => {
         btn.addEventListener('click', () => {
