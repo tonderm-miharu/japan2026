@@ -140,20 +140,30 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 - POI links with pill-style background for visibility
 
 ### Icons
-- Monochrome design: #9ca3af (base) → #e5e7eb (hover/active)
-- No glow effects - clean, professional look
-- Functional colors only for:
+- Monochrome SVG design: #9ca3af (base) → #e5e7eb (hover/active)
+- Car icon: side profile (smooth sedan silhouette)
+- Bike icon: classic bicycle with diamond frame
+- Consistent across filters, tags, and inline text
+- Functional colors:
   - Flight icon (orange) - travel indicator
   - Festival icon (pink) - special events
+  - Calendar icon (red) - permanent, no glow
   - Timeline dots - category indicators
-  - Checkboxes - completion state
+
+### Filter Buttons
+- Inactive: gray border, gray icons
+- Active: light blue glow effect (#60a5fa)
+- Calendar: red icon permanent, gray border
 
 ### Day Notes
 Each day card includes contextual notes:
-- ⚠️ Warnings (deadlines, reservations, tight schedules)
-- 🧺 Laundry reminders
-- 📦 Luggage shipping steps
-- ⛽ Fuel reminders
-- 👤 Contact reminders
-- 🍜 Local food tips
-- ☔ Weather backup plans
+- Summary banner (orange highlight) with key reminders
+- Warning icons for deadlines, reservations, tight schedules
+- Laundry reminders
+- Luggage shipping steps
+- Fuel reminders
+- Contact reminders
+- Local food tips
+- Weather backup plans
+
+All emoji in notes automatically converted to monochrome SVG icons.
