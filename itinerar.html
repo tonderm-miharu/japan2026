@@ -883,6 +883,27 @@
         .hotel-card .meta { font-size: 0.85rem; color: var(--text-dim); }
         .hotel-card .price { font-size: 1.1rem; font-weight: 700; color: var(--green); }
 
+        .hotel-note {
+            margin-top: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-dim);
+        }
+        .hotel-note-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .hotel-note-item .text-icon {
+            width: 14px;
+            height: 14px;
+        }
+        .hotel-note-sep {
+            color: var(--text-muted);
+            margin: 0 2px;
+        }
         .hotel-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
         .hotel-badge {
             font-size: 0.75rem;
@@ -892,6 +913,16 @@
             align-items: center;
             gap: 4px;
             font-weight: 500;
+        }
+        .badge-icon {
+            width: 12px;
+            height: 12px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        .badge-icon-warning {
+            stroke: var(--red);
         }
         .badge-paid { background: rgba(52,211,153,0.2); color: var(--green); }
         .badge-onsite { background: rgba(251,191,36,0.2); color: var(--orange); }
@@ -909,6 +940,11 @@
         .badge-hotelweb { background: rgba(150,150,150,0.2); color: #BBB; }
 
         /* Weather styles */
+        .weather-icon {
+            stroke: #fbbf24;
+            stroke-width: 2;
+            fill: none;
+        }
         .weather-inline {
             display: inline-flex;
             align-items: center;
@@ -917,7 +953,14 @@
             color: var(--text-dim);
             margin-left: 8px;
         }
-        .weather-inline-icon { font-size: 1.1rem; }
+        .weather-inline-icon {
+            display: flex;
+            align-items: center;
+        }
+        .weather-inline-icon .weather-icon {
+            width: 20px;
+            height: 20px;
+        }
         .weather-inline-temp { font-weight: 600; color: var(--text); }
         .weather-badge {
             font-size: 0.7rem;
@@ -937,7 +980,14 @@
             border-radius: var(--radius-sm);
             margin-bottom: 14px;
         }
-        .weather-detail-icon { font-size: 2.8rem; }
+        .weather-detail-icon {
+            display: flex;
+            align-items: center;
+        }
+        .weather-detail-icon .weather-icon {
+            width: 48px;
+            height: 48px;
+        }
         .weather-detail-info { flex: 1; }
         .weather-detail-temp { font-size: 1.6rem; font-weight: 700; }
         .weather-detail-desc { font-size: 0.9rem; color: var(--text-dim); }
@@ -1364,7 +1414,7 @@
                             <button class="menu-item" data-view="transport"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14"/><path d="M5 12h14"/><path d="M5 7h14"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg><span>Transport</span></button>
                             <button class="menu-item" data-action="weather"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg><span>Weather</span></button>
                             <div class="menu-search">
-                                <input type="text" class="nav-search" id="searchMobile" placeholder="🔍 Search...">
+                                <input type="text" class="nav-search" id="searchMobile" placeholder="Search...">
                             </div>
                         </div>
                     </div>
@@ -1759,16 +1809,27 @@
         50: { payment: 'paid', provider: 'Trip' }, 51: { payment: 'paid', provider: 'Trip' }
     };
 
+    // Weather SVG icons
+    const WEATHER_ICONS = {
+        sun: '<svg class="weather-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>',
+        partlyCloudy: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M12 2v2M4.93 4.93l1.41 1.41M2 12h2"/><circle cx="12" cy="10" r="4"/><path d="M18 18H6a4 4 0 010-8h.29a6 6 0 0111.42 0H18a4 4 0 010 8z"/></svg>',
+        cloudy: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M18 18H6a4 4 0 010-8h.29a6 6 0 0111.42 0H18a4 4 0 010 8z"/></svg>',
+        rain: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M16 13v8M8 13v8M12 15v8"/><path d="M20 16.58A5 5 0 0018 7h-1.26A8 8 0 104 15.25"/></svg>',
+        storm: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M19 16.9A5 5 0 0018 7h-1.26a8 8 0 10-11.62 9"/><path d="M13 11l-4 6h5l-1 5"/></svg>',
+        fog: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M4 14h16M4 10h16M4 18h16"/></svg>',
+        flight: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5v5.5l-2 1.5v1.5l3.5-1 3.5 1v-1.5l-2-1.5v-5.5l8 2.5z"/></svg>'
+    };
+
     // Average weather by region and month
     const WEATHER_DEFAULTS = {
-        osaka: { 9: { icon: '🌤️', temp: '26-31°C', desc: 'Hot, humid, possible typhoons' }, 10: { icon: '☀️', temp: '20-26°C', desc: 'Pleasant, dry' } },
-        kyoto: { 9: { icon: '🌤️', temp: '24-30°C', desc: 'Warm, humid' }, 10: { icon: '☀️', temp: '18-24°C', desc: 'Ideal weather' } },
-        biwa: { 10: { icon: '☀️', temp: '16-22°C', desc: 'Pleasant, cooler mornings' } },
-        shimanami: { 10: { icon: '☀️', temp: '18-24°C', desc: 'Ideal for cycling' } },
-        kyushu: { 10: { icon: '🌤️', temp: '20-26°C', desc: 'Warm, occasional rain' } },
-        tokyo: { 10: { icon: '☀️', temp: '16-22°C', desc: 'Pleasant autumn' }, 11: { icon: '🌤️', temp: '12-18°C', desc: 'Cooler, dry' } },
-        okinawa: { 11: { icon: '⛅', temp: '22-26°C', desc: 'Tropical, possible rain' } },
-        transit: { 9: { icon: '✈️', temp: '–', desc: '' }, 11: { icon: '✈️', temp: '–', desc: '' } }
+        osaka: { 9: { icon: WEATHER_ICONS.partlyCloudy, temp: '26-31°C', desc: 'Hot, humid, possible typhoons' }, 10: { icon: WEATHER_ICONS.sun, temp: '20-26°C', desc: 'Pleasant, dry' } },
+        kyoto: { 9: { icon: WEATHER_ICONS.partlyCloudy, temp: '24-30°C', desc: 'Warm, humid' }, 10: { icon: WEATHER_ICONS.sun, temp: '18-24°C', desc: 'Ideal weather' } },
+        biwa: { 10: { icon: WEATHER_ICONS.sun, temp: '16-22°C', desc: 'Pleasant, cooler mornings' } },
+        shimanami: { 10: { icon: WEATHER_ICONS.sun, temp: '18-24°C', desc: 'Ideal for cycling' } },
+        kyushu: { 10: { icon: WEATHER_ICONS.partlyCloudy, temp: '20-26°C', desc: 'Warm, occasional rain' } },
+        tokyo: { 10: { icon: WEATHER_ICONS.sun, temp: '16-22°C', desc: 'Pleasant autumn' }, 11: { icon: WEATHER_ICONS.partlyCloudy, temp: '12-18°C', desc: 'Cooler, dry' } },
+        okinawa: { 11: { icon: WEATHER_ICONS.cloudy, temp: '22-26°C', desc: 'Tropical, possible rain' } },
+        transit: { 9: { icon: WEATHER_ICONS.flight, temp: '–', desc: '' }, 11: { icon: WEATHER_ICONS.flight, temp: '–', desc: '' } }
     };
 
     // OpenWeatherMap config (user can add own API key)
@@ -1813,11 +1874,11 @@
 
             if (!dayData) return null;
 
-            const iconMap = { '01': '☀️', '02': '🌤️', '03': '⛅', '04': '☁️', '09': '🌧️', '10': '🌦️', '11': '⛈️', '13': '🌨️', '50': '🌫️' };
+            const iconMap = { '01': WEATHER_ICONS.sun, '02': WEATHER_ICONS.partlyCloudy, '03': WEATHER_ICONS.cloudy, '04': WEATHER_ICONS.cloudy, '09': WEATHER_ICONS.rain, '10': WEATHER_ICONS.rain, '11': WEATHER_ICONS.storm, '13': WEATHER_ICONS.rain, '50': WEATHER_ICONS.fog };
             const owmIcon = dayData.weather[0].icon.slice(0, 2);
 
             return {
-                icon: iconMap[owmIcon] || '🌤️',
+                icon: iconMap[owmIcon] || WEATHER_ICONS.partlyCloudy,
                 temp: `${Math.round(dayData.main.temp)}°C`,
                 tempMax: `${Math.round(dayData.main.temp_max)}°C`,
                 desc: dayData.weather[0].description,
@@ -2464,9 +2525,18 @@
         '•': 'bullet'
     };
 
+    function formatHotelNote(text) {
+        // Split by | and format each part with icons
+        return text.split('|').map(part => {
+            const trimmed = part.trim();
+            const parsed = parseTextWithIcons(trimmed);
+            return `<span class="hotel-note-item">${parsed.icon}<span>${parsed.text}</span></span>`;
+        }).join('<span class="hotel-note-sep">|</span>');
+    }
+
     function parseTextWithIcons(text) {
         // Try to match emoji at start
-        const emojiRegex = /^([\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}]|★|•|✈️|♨️|⚠️|❌|❓|☔|⛽|⏰)/u;
+        const emojiRegex = /^(✈️|🚗|📱|💳|🧺|🎒|📦|📝|🎫|⛽|👤|👥|🍜|🍳|🍻|☔|🔦|🚲|♨️|♨|🌅|🌤️|☀️|🎌|🏙️|📍|🛣️|🎉|🎃|💻|💴|🔑|🛍️|❌|❓|🚋|📷|📶|🕐|⏰|⚠️|★|•|[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}])/u;
         const match = text.match(emojiRegex);
 
         if (match) {
@@ -2596,15 +2666,15 @@
                                 <div class="hotel-card">
                                     <div>
                                         <div class="name">${d.hotel}</div>
-                                        ${d.note ? `<div class="meta" style="margin-top:4px;color:var(--orange)">${d.note}</div>` : ''}
+                                        ${d.note ? `<div class="meta hotel-note">${formatHotelNote(d.note)}</div>` : ''}
                                         <div class="hotel-badges">
                                             ${getProviderBadge(HOTEL_INFO[d.day]?.provider)}
-                                            ${HOTEL_INFO[d.day]?.payment === 'paid' ? '<span class="hotel-badge badge-paid">✓ Paid</span>' : ''}
-                                            ${HOTEL_INFO[d.day]?.payment === 'on-site' ? '<span class="hotel-badge badge-onsite">$ On-site</span>' : ''}
-                                            ${d.cancel ? `<span class="hotel-badge badge-cancel">⚠ do ${d.cancel}</span>` : ''}
-                                            ${HOTEL_INFO[d.day]?.meals === 'breakfast' ? '<span class="hotel-badge badge-breakfast">🍳 Snídaně</span>' : ''}
-                                            ${HOTEL_INFO[d.day]?.meals === 'half-board' ? '<span class="hotel-badge badge-halfboard">🍽️ Polopenze</span>' : ''}
-                                            ${HOTEL_INFO[d.day]?.bonus ? `<span class="hotel-badge badge-bonus">★ ${HOTEL_INFO[d.day].bonus}</span>` : ''}
+                                            ${HOTEL_INFO[d.day]?.payment === 'paid' ? '<span class="hotel-badge badge-paid"><svg class="badge-icon" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Paid</span>' : ''}
+                                            ${HOTEL_INFO[d.day]?.payment === 'on-site' ? '<span class="hotel-badge badge-onsite"><svg class="badge-icon" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg>On-site</span>' : ''}
+                                            ${d.cancel ? `<span class="hotel-badge badge-cancel"><svg class="badge-icon badge-icon-warning" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>do ${d.cancel}</span>` : ''}
+                                            ${HOTEL_INFO[d.day]?.meals === 'breakfast' ? '<span class="hotel-badge badge-breakfast"><svg class="badge-icon" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2l-4 6 4 6"/><path d="M21 15v7"/></svg>Snídaně</span>' : ''}
+                                            ${HOTEL_INFO[d.day]?.meals === 'half-board' ? '<span class="hotel-badge badge-halfboard"><svg class="badge-icon" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2l-4 6 4 6"/><path d="M21 15v7"/></svg>Polopenze</span>' : ''}
+                                            ${HOTEL_INFO[d.day]?.bonus ? `<span class="hotel-badge badge-bonus"><svg class="badge-icon" viewBox="0 0 24 24"><path d="M12 2L9 9H3l5 4-2 7 6-4 6 4-2-7 5-4h-6L12 2z"/></svg>${HOTEL_INFO[d.day].bonus}</span>` : ''}
                                         </div>
                                     </div>
                                     <div style="text-align:right">
