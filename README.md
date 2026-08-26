@@ -26,14 +26,24 @@
 ### Navigation - Desktop
 - **Sidebar** - Timezone display + Calendar (sticky)
 - **Filters** - HO / Car / Bike / Onsen / People (gray default, blue glow when active)
-- **Views** - Tasks, Hotels, Contacts, Transport, Weather (purple glowing SVG icons)
+- **Views** - Tasks, Hotels, Contacts, Transport, Weather, Print (purple glowing SVG icons)
 - **Search** - real-time filtering, works with filters
 
 ### Navigation - Mobile
 - **Header** - Japan'26 | Timezone | Countdown
 - **Filters** - gray default, blue glow when active (icon + border light up)
 - **Calendar** - red glowing icon
-- **Hamburger** - Tasks, Hotels, Contacts, Transport, Weather (purple SVG icons), Search
+- **Hamburger** - Tasks, Hotels, Contacts, Transport, Weather, Print PDF (purple SVG icons), Search
+
+### Print / PDF Export
+- Click Print button (desktop view-row or mobile hamburger menu)
+- All 53 day cards automatically expand
+- Optimized print stylesheet:
+  - White background, black text
+  - Hidden interactive elements (filters, modals, buttons)
+  - Page breaks between cards
+  - Preserved note highlighting and badges
+- Save as PDF via browser print dialog
 
 ### Countdown
 - Vintage 7-segment digital display (DSEG7 font)
