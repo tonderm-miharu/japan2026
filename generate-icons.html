@@ -71,7 +71,7 @@
     </style>
 </head>
 <body>
-    <h1>PWA Icon Generator - JAPAN Bold</h1>
+    <h1>PWA Icon Generator - JAPAN Red</h1>
 
     <div class="icons">
         <div class="icon-box">
@@ -113,27 +113,19 @@
             const size = canvas.width;
             const scale = size / 180;
 
-            // Background
-            ctx.fillStyle = '#1a1a2e';
+            // Red background
+            ctx.fillStyle = '#ef4444';
             ctx.fillRect(0, 0, size, size);
 
-            // Glow effect for text
-            ctx.shadowColor = '#60a5fa';
-            ctx.shadowBlur = 12 * scale;
-
-            // Text
-            ctx.fillStyle = '#60a5fa';
+            // White text
+            ctx.fillStyle = 'white';
             ctx.font = `700 ${34 * scale}px system-ui, -apple-system, sans-serif`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.letterSpacing = `${4 * scale}px`;
             ctx.fillText('JAPAN', size / 2, size * 0.52);
 
-            // Reset shadow for red line
-            ctx.shadowBlur = 0;
-
-            // Red underline
-            ctx.fillStyle = '#ef4444';
+            // White underline
             const lineWidth = 110 * scale;
             const lineHeight = 4 * scale;
             const lineX = (size - lineWidth) / 2;
