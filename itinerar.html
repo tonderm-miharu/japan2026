@@ -1431,10 +1431,16 @@
                 box-shadow: none !important;
                 page-break-inside: avoid;
             }
-            .card-details {
+            .card-details,
+            .card-details[style],
+            .print-expanded,
+            body.printing .card-details {
                 display: block !important;
                 max-height: none !important;
                 opacity: 1 !important;
+                height: auto !important;
+                overflow: visible !important;
+                visibility: visible !important;
             }
             .card-header {
                 border-bottom: 1px solid #ddd;
@@ -3412,18 +3418,27 @@
     window.addEventListener('beforeprint', () => {
         cardStates = [];
         document.querySelectorAll('.card-details').forEach((details, i) => {
-            cardStates[i] = details.style.display;
-            details.style.display = 'block';
-            details.style.maxHeight = 'none';
-            details.style.opacity = '1';
+            cardStates[i] = {
+                display: details.style.display,
+                maxHeight: details.style.maxHeight,
+                opacity: details.style.opacity
+            };
+            details.style.setProperty('display', 'block', 'important');
+            details.style.setProperty('max-height', 'none', 'important');
+            details.style.setProperty('opacity', '1', 'important');
+            details.classList.add('print-expanded');
         });
+        document.body.classList.add('printing');
     });
     window.addEventListener('afterprint', () => {
         document.querySelectorAll('.card-details').forEach((details, i) => {
-            details.style.display = cardStates[i] || 'none';
-            details.style.maxHeight = '';
-            details.style.opacity = '';
+            const state = cardStates[i] || { display: 'none', maxHeight: '', opacity: '' };
+            details.style.display = state.display;
+            details.style.maxHeight = state.maxHeight;
+            details.style.opacity = state.opacity;
+            details.classList.remove('print-expanded');
         });
+        document.body.classList.remove('printing');
     });
     </script>
 </body>
