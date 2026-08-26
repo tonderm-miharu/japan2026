@@ -285,73 +285,73 @@
             box-shadow: none;
         }
 
-        .filter-btn:hover:not(.active) { border-color: var(--text-dim); color: var(--text); }
+        .filter-btn:hover:not(.active) { border-color: #6b7280; color: var(--text); }
+        .filter-btn:hover:not(.active) .filter-icon { stroke: #d1d5db; }
         .filter-btn.active {
-            background: transparent;
-            border-color: #60a5fa;
-            box-shadow: 0 0 6px #60a5fa, 0 0 12px rgba(59,130,246,0.3);
-            color: #60a5fa;
-            text-shadow: 0 0 4px #60a5fa, 0 0 8px #3b82f6;
+            background: rgba(255,255,255,0.05);
+            border-color: #e5e7eb;
+            color: #e5e7eb;
         }
         .filter-btn.active .filter-icon {
-            stroke: #60a5fa;
-            filter: drop-shadow(0 0 4px #60a5fa) drop-shadow(0 0 8px #3b82f6);
+            stroke: #e5e7eb;
         }
 
-        .filter-icon { width: 14px; height: 14px; display: none; }
+        .filter-icon {
+            width: 16px;
+            height: 16px;
+            display: none;
+            stroke: #9ca3af;
+            stroke-width: 2;
+            fill: none;
+            transition: stroke 0.15s;
+        }
         .filter-text { }
 
         @media (max-width: 900px) {
             .filter-icon {
                 display: block;
-                width: 28px;
-                height: 28px;
-                stroke: #6b7280;
-                filter: none;
-                transition: all 0.2s;
+                width: 26px;
+                height: 26px;
             }
             .filter-btn.active {
-                background: transparent;
-                border-color: #60a5fa;
-                box-shadow: 0 0 6px #60a5fa, 0 0 12px rgba(59,130,246,0.3);
+                background: rgba(255,255,255,0.08);
+                border-color: #e5e7eb;
             }
             .filter-btn.active .filter-icon {
-                stroke: #60a5fa;
-                filter: drop-shadow(0 0 4px #60a5fa) drop-shadow(0 0 8px #3b82f6);
+                stroke: #e5e7eb;
             }
             .filter-text { display: none; }
-            .filter-btn { padding: 6px 8px; }
+            .filter-btn { padding: 8px 10px; }
             .filter-btn[data-filter="ho"] {
-                color: #6b7280;
-                text-shadow: none;
-                font-size: 1.3rem;
-                font-weight: 500;
-                padding: 4px 10px;
-                transition: all 0.2s;
-                box-shadow: none;
-                border-color: #374151;
+                color: #9ca3af;
+                font-size: 1.2rem;
+                font-weight: 600;
+                padding: 6px 12px;
+                transition: all 0.15s;
+                border-color: #404040;
             }
             .filter-btn[data-filter="ho"]:hover:not(.active) {
-                color: #6b7280;
-                border-color: #4b5563;
+                color: #d1d5db;
+                border-color: #6b7280;
             }
             .filter-btn[data-filter="ho"].active {
-                background: transparent;
-                color: #60a5fa;
-                text-shadow: 0 0 4px #60a5fa, 0 0 8px #3b82f6;
-                border-color: #60a5fa;
-                box-shadow: 0 0 6px #60a5fa, 0 0 12px rgba(59,130,246,0.3);
+                background: rgba(255,255,255,0.08);
+                color: #e5e7eb;
+                border-color: #e5e7eb;
             }
             .filter-btn[data-filter="car"] .filter-icon {
-                width: 32px;
-                height: 32px;
+                width: 28px;
+                height: 28px;
             }
             .nav-btn .nav-btn-icon {
-                color: #60a5fa;
-                text-shadow: 0 0 4px #60a5fa, 0 0 8px #3b82f6;
-                font-size: 1.5rem;
-                transform: scaleX(1.8);
+                color: #9ca3af;
+                font-size: 1.4rem;
+                transform: scaleX(1.6);
                 display: inline-block;
+                transition: color 0.15s;
+            }
+            .nav-btn:hover .nav-btn-icon {
+                color: #e5e7eb;
             }
         }
 
@@ -376,14 +376,16 @@
         }
 
         .view-icon {
-            width: 14px;
-            height: 14px;
-            stroke: #8b5cf6;
-            filter: drop-shadow(0 0 3px #8b5cf6);
+            width: 16px;
+            height: 16px;
+            stroke: #9ca3af;
+            stroke-width: 2;
+            fill: none;
+            transition: stroke 0.15s;
         }
 
-        .view-btn:hover { border-color: var(--text-dim); color: var(--text); }
-        .view-btn:hover .view-icon { stroke: #a78bfa; filter: drop-shadow(0 0 5px #a78bfa); }
+        .view-btn:hover { border-color: #6b7280; color: var(--text); }
+        .view-btn:hover .view-icon { stroke: #e5e7eb; }
 
         @media (max-width: 900px) {
             .view-row { display: none; }
@@ -398,10 +400,13 @@
 
         .calendar-btn .filter-icon {
             display: block;
-            width: 28px;
-            height: 28px;
-            stroke: #ef4444;
-            filter: drop-shadow(0 0 4px #ef4444) drop-shadow(0 0 8px #dc2626);
+            width: 26px;
+            height: 26px;
+            stroke: #9ca3af;
+        }
+        .calendar-btn:hover .filter-icon,
+        .calendar-btn.active .filter-icon {
+            stroke: #e5e7eb;
         }
 
         .nav-search {
@@ -474,14 +479,16 @@
         }
 
         .menu-icon {
-            width: 18px;
-            height: 18px;
-            stroke: #8b5cf6;
-            filter: drop-shadow(0 0 3px #8b5cf6);
+            width: 20px;
+            height: 20px;
+            stroke: #9ca3af;
+            stroke-width: 2;
+            fill: none;
+            transition: stroke 0.15s;
         }
 
         .menu-item:hover { background: var(--bg-hover); }
-        .menu-item:hover .menu-icon { stroke: #a78bfa; filter: drop-shadow(0 0 5px #a78bfa); }
+        .menu-item:hover .menu-icon { stroke: #e5e7eb; }
 
         main {
             max-width: 1400px;
@@ -694,26 +701,29 @@
         }
         .day-hotel-icons {
             display: flex;
-            gap: 4px;
+            gap: 6px;
             align-items: center;
         }
         .tag-box {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 24px;
-            height: 20px;
-            border: 1px solid #374151;
+            width: 32px;
+            height: 26px;
+            border: 1px solid #404040;
             border-radius: 6px;
-            background: transparent;
+            background: rgba(255,255,255,0.03);
         }
         .tag-icon {
-            width: 14px;
-            height: 14px;
-            stroke: #60a5fa;
+            width: 18px;
+            height: 18px;
+            stroke: #9ca3af;
             fill: none;
             stroke-width: 2;
         }
+        .tag-icon.tag-flight { stroke: var(--orange); }
+        .tag-icon.tag-fest { stroke: var(--pink); }
+        .tag-icon.tag-ho { fill: #9ca3af; stroke: none; }
         .hotel-price { font-size: 0.9rem; font-weight: 700; color: var(--green); }
 
         .expand-btn {
@@ -723,12 +733,18 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: var(--bg-hover);
-            color: var(--text-dim);
-            font-size: 0.7rem;
-            transition: transform 0.2s;
+            background: rgba(255,255,255,0.05);
+            transition: transform 0.2s, background 0.15s;
         }
-
+        .expand-btn svg {
+            width: 14px;
+            height: 14px;
+            stroke: #9ca3af;
+            stroke-width: 2.5;
+            fill: none;
+        }
+        .day-card:hover .expand-btn { background: rgba(255,255,255,0.08); }
+        .day-card:hover .expand-btn svg { stroke: #d1d5db; }
         .day-card.expanded .expand-btn { transform: rotate(180deg); }
 
         .day-body {
@@ -793,12 +809,12 @@
                 align-items: center;
             }
             .mobile-tags .tag-box {
-                width: 22px;
-                height: 18px;
+                width: 28px;
+                height: 22px;
             }
             .mobile-tags .tag-icon {
-                width: 12px;
-                height: 12px;
+                width: 15px;
+                height: 15px;
             }
         }
 
@@ -2272,13 +2288,13 @@
 
     function getTagIcon(t) {
         const icons = {
-            ho: '<svg class="tag-icon" viewBox="0 0 24 24"><text x="3" y="17" font-size="14" font-weight="500" fill="#60a5fa" stroke="none">HO</text></svg>',
+            ho: '<svg class="tag-icon tag-ho" viewBox="0 0 24 24"><text x="4" y="16" font-size="12" font-weight="600" fill="#9ca3af" stroke="none">HO</text></svg>',
             car: '<svg class="tag-icon" viewBox="0 0 24 24"><path d="M5 17h14v-5l-2-4H7l-2 4v5z"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>',
             bike: '<svg class="tag-icon" viewBox="0 0 24 24"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M5.5 17.5l4-9h5l2 4"/><path d="M15 8.5l3.5 9"/><circle cx="9.5" cy="8.5" r="1"/></svg>',
             onsen: '<svg class="tag-icon" viewBox="0 0 24 24"><ellipse cx="12" cy="18" rx="8" ry="4"/><path d="M8 5c0 1.5 1 2.5 1 4s-1 2.5-1 4"/><path d="M12 5c0 1.5 1 2.5 1 4s-1 2.5-1 4"/><path d="M16 5c0 1.5 1 2.5 1 4s-1 2.5-1 4"/></svg>',
             meet: '<svg class="tag-icon" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg>',
-            flight: '<svg class="tag-icon" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5v5.5l-2 1.5v1.5l3.5-1 3.5 1v-1.5l-2-1.5v-5.5l8 2.5z"/></svg>',
-            fest: '<svg class="tag-icon" viewBox="0 0 24 24"><path d="M6 21V8"/><path d="M18 21V8"/><path d="M3 8h18"/><path d="M5 5h14"/></svg>'
+            flight: '<svg class="tag-icon tag-flight" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5v5.5l-2 1.5v1.5l3.5-1 3.5 1v-1.5l-2-1.5v-5.5l8 2.5z"/></svg>',
+            fest: '<svg class="tag-icon tag-fest" viewBox="0 0 24 24"><path d="M12 2L9 9H3l5 4-2 7 6-4 6 4-2-7 5-4h-6L12 2z"/></svg>'
         };
         if (!icons[t]) return '';
         return `<div class="tag-box">${icons[t]}</div>`;
@@ -2386,7 +2402,7 @@
                                 ${d.price ? `<div class="hotel-price">${d.price}</div>` : ''}
                             </div>
                         </div>
-                        <div class="expand-btn">▼</div>
+                        <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
                     </div>
                     <div class="day-body">
                         ${weatherDetail}
