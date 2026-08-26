@@ -1267,6 +1267,39 @@
         .view-item:last-child { border-bottom: none; }
         .view-item-date { color: #fef08a; font-weight: 500; }
         .view-item-price { color: #86efac; font-weight: 600; }
+
+        /* Hotels modal - wider on desktop */
+        #hotelsModal .task-modal {
+            max-width: 700px;
+        }
+        .hotel-row {
+            display: grid;
+            grid-template-columns: 70px 1fr auto auto;
+            gap: 12px;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .hotel-row:last-child { border-bottom: none; }
+        .hotel-date { color: #fef08a; font-weight: 600; font-size: 0.85rem; }
+        .hotel-name { color: #fff; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .hotel-badges { display: flex; gap: 4px; flex-wrap: wrap; }
+        .hotel-price { color: #86efac; font-weight: 600; font-size: 0.85rem; text-align: right; min-width: 70px; }
+
+        @media (max-width: 600px) {
+            #hotelsModal .task-modal {
+                max-width: 100%;
+            }
+            .hotel-row {
+                grid-template-columns: 1fr auto;
+                grid-template-rows: auto auto;
+                gap: 4px 8px;
+            }
+            .hotel-date { grid-column: 1; grid-row: 1; }
+            .hotel-price { grid-column: 2; grid-row: 1; }
+            .hotel-name { grid-column: 1 / -1; grid-row: 2; font-size: 0.8rem; color: rgba(255,255,255,0.85); }
+            .hotel-badges { display: none; }
+        }
         .view-total {
             display: flex;
             justify-content: space-between;
@@ -3044,13 +3077,11 @@
         });
         document.getElementById('hotelsContent').innerHTML = `
             ${hotels.map(h => `
-                <div class="view-item" style="flex-direction:column;align-items:flex-start;gap:4px;">
-                    <div style="display:flex;justify-content:space-between;width:100%;">
-                        <strong style="color:#fef08a;">${h.date}</strong>
-                        <span class="view-item-price">${h.price}</span>
-                    </div>
-                    <div style="font-size:0.8rem;color:#fff;">${h.hotel}</div>
-                    <div>${h.badges}</div>
+                <div class="hotel-row">
+                    <div class="hotel-date">${h.date}</div>
+                    <div class="hotel-name">${h.hotel}</div>
+                    <div class="hotel-badges">${h.badges}</div>
+                    <div class="hotel-price">${h.price}</div>
                 </div>
             `).join('')}
             <div class="view-total">
