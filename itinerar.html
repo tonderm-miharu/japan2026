@@ -24,16 +24,17 @@
             --bg-card: #141414;
             --bg-hover: #1a1a1a;
             --text: #f5f5f5;
-            --text-dim: #888;
-            --text-muted: #555;
-            --accent: #3b82f6;
-            --red: #ef4444;
-            --orange: #f59e0b;
-            --green: #10b981;
-            --purple: #8b5cf6;
-            --pink: #ec4899;
-            --cyan: #06b6d4;
-            --border: #222;
+            --text-dim: #b8b8b8;
+            --text-muted: #8a8a8a;
+            --accent: #60a5fa;
+            --accent-bright: #93c5fd;
+            --red: #f87171;
+            --orange: #fbbf24;
+            --green: #34d399;
+            --purple: #a78bfa;
+            --pink: #f472b6;
+            --cyan: #22d3ee;
+            --border: #2a2a2a;
             --radius: 12px;
             --radius-sm: 8px;
         }
@@ -459,14 +460,14 @@
         .menu-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             width: 100%;
-            padding: 10px 12px;
+            padding: 12px 14px;
             border-radius: 6px;
             border: none;
             background: transparent;
             color: var(--text);
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.15s;
             text-align: left;
@@ -515,11 +516,12 @@
         }
 
         .sidebar-title {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--text-muted);
+            color: var(--text-dim);
             margin-bottom: 12px;
+            font-weight: 600;
         }
 
         .phase-list { list-style: none; }
@@ -543,8 +545,8 @@
             border-radius: 50%;
         }
 
-        .phase-name { font-size: 0.85rem; flex: 1; }
-        .phase-dates { font-size: 0.75rem; color: var(--text-muted); }
+        .phase-name { font-size: 0.9rem; flex: 1; }
+        .phase-dates { font-size: 0.8rem; color: var(--text-dim); }
 
         .task-item {
             display: flex;
@@ -557,12 +559,12 @@
         .task-item:last-child { border-bottom: none; }
 
         .task-group-title {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            color: rgba(255,255,255,0.8);
-            margin: 12px 0 6px 0;
-            padding-bottom: 4px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            color: var(--text);
+            margin: 14px 0 8px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
         }
         .task-group-title:first-child { margin-top: 0; }
 
@@ -589,7 +591,7 @@
         .task-cb.done { background: #22c55e; border-color: #22c55e; }
         .task-cb.done::after { content: "✓"; color: #fff; font-size: 10px; display: flex; align-items: center; justify-content: center; height: 100%; }
 
-        .task-text { font-size: 0.8rem; color: rgba(255,255,255,0.9); }
+        .task-text { font-size: 0.9rem; color: var(--text); }
         .task-text.done { text-decoration: line-through; opacity: 0.5; }
 
         .task-priority {
@@ -634,16 +636,27 @@
 
         @media (max-width: 600px) {
             .day-head {
-                grid-template-columns: 52px 1fr 24px;
+                grid-template-columns: 52px 1fr 28px;
                 gap: 10px;
-                padding: 10px 12px;
+                padding: 12px 14px;
             }
             .day-tags, .day-hotel { display: none !important; }
-            .day-info h3 { font-size: 0.9rem; }
-            .day-info p { font-size: 0.75rem; line-height: 1.3; }
-            .day-num-box { min-width: 48px; height: 44px; }
-            .day-n { font-size: 0.85rem; }
-            .expand-btn { width: 24px; height: 24px; font-size: 0.6rem; }
+            .day-info h3 { font-size: 1rem; }
+            .day-info p { font-size: 0.9rem; line-height: 1.4; }
+            .day-num-box { min-width: 50px; height: 46px; }
+            .day-n { font-size: 0.9rem; }
+            .expand-btn { width: 28px; height: 28px; font-size: 0.7rem; }
+            .detail-section { padding: 14px; }
+            .timeline { padding-left: 22px; }
+            .tl-time { font-size: 0.95rem; }
+            .tl-text { font-size: 1rem; line-height: 1.5; }
+            .tl-note { font-size: 0.9rem; }
+            .poi-link { font-size: 0.95rem; padding: 6px 12px; }
+            .poi-list { gap: 10px; }
+            .day-task-item { font-size: 1rem; padding: 12px 0; }
+            .hotel-card .name { font-size: 1rem; }
+            .hotel-card .meta { font-size: 0.9rem; }
+            .hotel-badge { font-size: 0.75rem; padding: 3px 8px; }
         }
 
         .day-num-box {
@@ -661,9 +674,9 @@
         .day-n { font-size: 0.95rem; line-height: 1; white-space: nowrap; }
         .day-dow { font-size: 0.6rem; text-transform: uppercase; opacity: 0.8; }
 
-        .day-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
-        .day-info p { font-size: 0.8rem; color: var(--text-dim); }
-        .day-info small { font-size: 0.7rem; color: var(--text-muted); }
+        .day-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 3px; }
+        .day-info p { font-size: 0.9rem; color: var(--text-dim); }
+        .day-info small { font-size: 0.8rem; color: var(--text-muted); }
 
         .day-tags { display: none; }
 
@@ -673,7 +686,7 @@
             align-items: flex-end;
             gap: 2px;
         }
-        .hotel-name { font-size: 0.75rem; color: var(--text-dim); max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .hotel-name { font-size: 0.85rem; color: var(--text-dim); max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .day-hotel-row {
             display: flex;
             align-items: center;
@@ -701,7 +714,7 @@
             fill: none;
             stroke-width: 2;
         }
-        .hotel-price { font-size: 0.8rem; font-weight: 600; color: var(--green); }
+        .hotel-price { font-size: 0.9rem; font-weight: 700; color: var(--green); }
 
         .expand-btn {
             width: 28px;
@@ -735,6 +748,18 @@
 
         @media (max-width: 700px) { .detail-grid { grid-template-columns: 1fr; } }
 
+        /* Tablet/medium screen enhancements (601-900px) */
+        @media (min-width: 601px) and (max-width: 900px) {
+            .tl-time { font-size: 0.95rem; }
+            .tl-text { font-size: 1rem; }
+            .tl-note { font-size: 0.9rem; }
+            .poi-link { font-size: 0.95rem; }
+            .notes-content { font-size: 1rem; }
+            .day-task-item { font-size: 1rem; }
+            .hotel-card .name { font-size: 1rem; }
+            .hotel-card .meta { font-size: 0.9rem; }
+        }
+
         .detail-section {
             background: var(--bg-hover);
             border-radius: var(--radius-sm);
@@ -751,11 +776,12 @@
             margin-bottom: 0;
         }
         .detail-title {
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--text-muted);
+            color: var(--text-dim);
             margin-bottom: 10px;
+            font-weight: 600;
         }
         .mobile-tags {
             display: none;
@@ -814,9 +840,9 @@
         .tl-dot.sight { background: var(--green); }
         .tl-dot.work { background: var(--red); }
 
-        .tl-time { font-size: 0.75rem; color: var(--accent); font-weight: 600; }
-        .tl-text { font-size: 0.85rem; color: var(--text-dim); }
-        .tl-note { font-size: 0.75rem; color: var(--text-muted); font-style: italic; }
+        .tl-time { font-size: 0.9rem; color: var(--accent-bright); font-weight: 600; }
+        .tl-text { font-size: 0.95rem; color: var(--text); }
+        .tl-note { font-size: 0.85rem; color: var(--text-dim); font-style: italic; }
 
         .hotel-card {
             display: flex;
@@ -824,77 +850,78 @@
             gap: 12px;
         }
 
-        .hotel-card .name { font-size: 0.85rem; font-weight: 500; margin-bottom: 4px; }
-        .hotel-card .meta { font-size: 0.75rem; color: var(--text-dim); }
-        .hotel-card .price { font-size: 1rem; font-weight: 700; color: var(--green); }
+        .hotel-card .name { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; color: var(--text); }
+        .hotel-card .meta { font-size: 0.85rem; color: var(--text-dim); }
+        .hotel-card .price { font-size: 1.1rem; font-weight: 700; color: var(--green); }
 
-        .hotel-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+        .hotel-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
         .hotel-badge {
-            font-size: 0.65rem;
-            padding: 2px 6px;
-            border-radius: 4px;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 5px;
             display: inline-flex;
             align-items: center;
-            gap: 3px;
+            gap: 4px;
+            font-weight: 500;
         }
-        .badge-paid { background: rgba(16,185,129,0.15); color: var(--green); }
-        .badge-onsite { background: rgba(245,158,11,0.15); color: var(--orange); }
-        .badge-breakfast { background: rgba(59,130,246,0.15); color: var(--accent); }
-        .badge-halfboard { background: rgba(139,92,246,0.15); color: var(--purple); }
-        .badge-cancel { background: rgba(239,68,68,0.1); color: var(--red); }
-        .badge-bonus { background: rgba(6,182,212,0.15); color: var(--cyan); }
+        .badge-paid { background: rgba(52,211,153,0.2); color: var(--green); }
+        .badge-onsite { background: rgba(251,191,36,0.2); color: var(--orange); }
+        .badge-breakfast { background: rgba(96,165,250,0.2); color: var(--accent); }
+        .badge-halfboard { background: rgba(167,139,250,0.2); color: var(--purple); }
+        .badge-cancel { background: rgba(248,113,113,0.15); color: var(--red); }
+        .badge-bonus { background: rgba(34,211,238,0.2); color: var(--cyan); }
 
-        .badge-trip { background: rgba(0,104,201,0.2); color: #4DA3FF; }
-        .badge-agoda { background: rgba(231,76,60,0.2); color: #FF6B5B; }
-        .badge-booking { background: rgba(0,53,128,0.25); color: #5B9BFF; }
-        .badge-japanican { background: rgba(220,53,69,0.2); color: #FF5C6C; }
-        .badge-ikyu { background: rgba(50,50,50,0.3); color: #AAA; }
-        .badge-revolut { background: rgba(139,92,246,0.2); color: #A78BFA; }
-        .badge-hotelweb { background: rgba(100,100,100,0.2); color: #999; }
+        .badge-trip { background: rgba(77,163,255,0.25); color: #7FC1FF; }
+        .badge-agoda { background: rgba(255,107,91,0.25); color: #FF9A8F; }
+        .badge-booking { background: rgba(91,155,255,0.25); color: #8FC1FF; }
+        .badge-japanican { background: rgba(255,92,108,0.25); color: #FF9AA5; }
+        .badge-ikyu { background: rgba(170,170,170,0.2); color: #CCC; }
+        .badge-revolut { background: rgba(167,139,250,0.25); color: #C4B5FD; }
+        .badge-hotelweb { background: rgba(150,150,150,0.2); color: #BBB; }
 
         /* Weather styles */
         .weather-inline {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
+            gap: 5px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
             margin-left: 8px;
-            opacity: 0.8;
         }
-        .weather-inline-icon { font-size: 1rem; }
-        .weather-inline-temp { font-weight: 500; color: var(--text-dim); }
+        .weather-inline-icon { font-size: 1.1rem; }
+        .weather-inline-temp { font-weight: 600; color: var(--text); }
         .weather-badge {
-            font-size: 0.6rem;
-            padding: 2px 5px;
-            border-radius: 3px;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
             margin-left: 4px;
+            font-weight: 500;
         }
-        .weather-avg { background: rgba(100,100,100,0.3); color: #999; }
-        .weather-live { background: rgba(16,185,129,0.2); color: var(--green); }
+        .weather-avg { background: rgba(150,150,150,0.25); color: #bbb; }
+        .weather-live { background: rgba(52,211,153,0.25); color: var(--green); }
         .weather-detail {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px;
+            gap: 14px;
+            padding: 14px;
             background: var(--bg-hover);
             border-radius: var(--radius-sm);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
-        .weather-detail-icon { font-size: 2.5rem; }
+        .weather-detail-icon { font-size: 2.8rem; }
         .weather-detail-info { flex: 1; }
-        .weather-detail-temp { font-size: 1.5rem; font-weight: 700; }
-        .weather-detail-desc { font-size: 0.8rem; color: var(--text-dim); }
-        .weather-detail-extra { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+        .weather-detail-temp { font-size: 1.6rem; font-weight: 700; }
+        .weather-detail-desc { font-size: 0.9rem; color: var(--text-dim); }
+        .weather-detail-extra { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
 
-        .day-tasks-list { margin-top: 8px; }
+        .day-tasks-list { margin-top: 10px; }
         .day-task-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 0;
-            font-size: 0.8rem;
-            color: var(--text-dim);
+            gap: 10px;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: var(--text);
             border-bottom: 1px solid var(--border);
             cursor: pointer;
             transition: opacity 0.15s;
@@ -919,61 +946,75 @@
         .poi-link {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            color: var(--accent);
+            gap: 5px;
+            color: var(--accent-bright);
             text-decoration: none;
-            font-size: 0.75rem;
-            opacity: 0.8;
-            transition: opacity 0.15s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            background: rgba(96,165,250,0.12);
+            border-radius: 6px;
+            transition: all 0.15s;
         }
-        .poi-link:hover { opacity: 1; text-decoration: underline; }
+        .poi-link:hover {
+            background: rgba(96,165,250,0.25);
+            color: #fff;
+        }
         .poi-link { cursor: pointer; }
         .poi-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px;
-            padding-top: 8px;
+            gap: 8px;
+            margin-top: 10px;
+            padding-top: 10px;
             border-top: 1px dashed var(--border);
         }
 
         /* Notes section */
         .notes-section {
-            background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(59,130,246,0.1));
-            border: 1px solid rgba(139,92,246,0.3);
+            background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(96,165,250,0.12));
+            border: 1px solid rgba(167,139,250,0.4);
             border-radius: var(--radius-sm);
-            padding: 12px;
-            margin-top: 12px;
+            padding: 14px 16px;
+            margin-top: 14px;
         }
         .notes-section .detail-title {
-            color: #a78bfa;
-            margin-bottom: 8px;
+            color: #c4b5fd;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
         .notes-content {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            line-height: 1.6;
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.7;
         }
         .notes-content p {
-            margin: 0 0 6px 0;
+            margin: 0 0 8px 0;
         }
         .notes-content p:last-child {
             margin-bottom: 0;
         }
         .notes-highlight {
             color: var(--orange);
-            font-weight: 500;
+            font-weight: 600;
         }
         .notes-warning {
             color: var(--red);
-            font-weight: 500;
+            font-weight: 600;
         }
         .notes-tip {
             color: var(--green);
+            font-weight: 500;
         }
         @media (max-width: 900px) {
             .notes-section {
                 grid-column: 1 / -1;
+                padding: 12px 14px;
+            }
+            .notes-content {
+                font-size: 1rem;
+                line-height: 1.8;
             }
         }
 
