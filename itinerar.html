@@ -288,12 +288,13 @@
         .filter-btn:hover:not(.active) { border-color: #6b7280; color: var(--text); }
         .filter-btn:hover:not(.active) .filter-icon { stroke: #d1d5db; }
         .filter-btn.active {
-            background: rgba(255,255,255,0.05);
-            border-color: #e5e7eb;
-            color: #e5e7eb;
+            background: rgba(96,165,250,0.1);
+            border-color: #60a5fa;
+            color: #60a5fa;
+            box-shadow: 0 0 12px rgba(96,165,250,0.4);
         }
         .filter-btn.active .filter-icon {
-            stroke: #e5e7eb;
+            stroke: #60a5fa;
         }
 
         .filter-icon {
@@ -314,11 +315,12 @@
                 height: 26px;
             }
             .filter-btn.active {
-                background: rgba(255,255,255,0.08);
-                border-color: #e5e7eb;
+                background: rgba(96,165,250,0.1);
+                border-color: #60a5fa;
+                box-shadow: 0 0 12px rgba(96,165,250,0.4);
             }
             .filter-btn.active .filter-icon {
-                stroke: #e5e7eb;
+                stroke: #60a5fa;
             }
             .filter-text { display: none; }
             .filter-btn { padding: 8px 10px; }
@@ -335,9 +337,10 @@
                 border-color: #6b7280;
             }
             .filter-btn[data-filter="ho"].active {
-                background: rgba(255,255,255,0.08);
-                color: #e5e7eb;
-                border-color: #e5e7eb;
+                background: rgba(96,165,250,0.1);
+                color: #60a5fa;
+                border-color: #60a5fa;
+                box-shadow: 0 0 12px rgba(96,165,250,0.4);
             }
             .filter-btn[data-filter="car"] .filter-icon {
                 width: 28px;
@@ -398,15 +401,23 @@
             .calendar-btn { display: none; }
         }
 
+        .calendar-btn {
+            border-color: #ef4444;
+        }
         .calendar-btn .filter-icon {
             display: block;
             width: 26px;
             height: 26px;
-            stroke: #9ca3af;
+            stroke: #ef4444;
         }
-        .calendar-btn:hover .filter-icon,
+        .calendar-btn:hover {
+            border-color: #f87171;
+        }
+        .calendar-btn:hover .filter-icon {
+            stroke: #f87171;
+        }
         .calendar-btn.active .filter-icon {
-            stroke: #e5e7eb;
+            stroke: #ef4444;
         }
 
         .nav-search {
