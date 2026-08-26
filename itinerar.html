@@ -1398,8 +1398,129 @@
         ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
         @media print {
-            header, .sidebar { display: none !important; }
-            main { grid-template-columns: 1fr; }
+            /* Hide interactive elements */
+            header, .sidebar, .sticky-header, .progress-strip,
+            .modal, .menu-container, .filter-row, .view-row,
+            .nav-right, .countdown-box, .expand-btn,
+            .task-checkbox, .hotel-actions, button {
+                display: none !important;
+            }
+
+            /* Reset layout */
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 11pt;
+                line-height: 1.4;
+            }
+            main {
+                grid-template-columns: 1fr !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+            .cards-container {
+                padding: 0 !important;
+            }
+
+            /* Expand all cards */
+            .card {
+                background: white !important;
+                border: 1px solid #ccc !important;
+                margin-bottom: 15pt !important;
+                padding: 12pt !important;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+            }
+            .card-details {
+                display: block !important;
+                max-height: none !important;
+                opacity: 1 !important;
+            }
+            .card-header {
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 8pt;
+                margin-bottom: 8pt;
+            }
+
+            /* Text colors for print */
+            .card-title, .section-title, h3 {
+                color: black !important;
+            }
+            .day-date, .day-label, .timeline-time, .note-text, .task-text {
+                color: #333 !important;
+            }
+            .text-dim, .text-muted {
+                color: #666 !important;
+            }
+
+            /* Tags */
+            .tag-box {
+                border: 1px solid #999 !important;
+                background: #f5f5f5 !important;
+            }
+            .tag-icon, .text-icon {
+                stroke: #333 !important;
+            }
+
+            /* Timeline */
+            .timeline-item {
+                border-left: 2px solid #999 !important;
+            }
+            .timeline-dot {
+                background: #666 !important;
+                border-color: #666 !important;
+            }
+
+            /* Notes section */
+            .note-summary {
+                background: #fff8e1 !important;
+                border: 1px solid #ffc107 !important;
+                color: #333 !important;
+            }
+            .note-item {
+                border-left: 2px solid #ccc !important;
+            }
+            .note-item.warning {
+                border-left-color: #f44336 !important;
+            }
+            .note-item.highlight {
+                border-left-color: #ff9800 !important;
+            }
+
+            /* Hotel info */
+            .hotel-note {
+                background: #f5f5f5 !important;
+                border: 1px solid #ddd !important;
+                color: #333 !important;
+            }
+
+            /* POI links */
+            .poi-link {
+                color: #1976d2 !important;
+                text-decoration: underline !important;
+                background: none !important;
+            }
+
+            /* Weather */
+            .weather-badge {
+                border: 1px solid #ccc !important;
+                background: #f9f9f9 !important;
+            }
+            .weather-icon {
+                stroke: #666 !important;
+            }
+
+            /* Page breaks */
+            .card { page-break-inside: avoid; }
+            h2, h3 { page-break-after: avoid; }
+
+            /* Print header on each page */
+            @page {
+                margin: 1.5cm;
+                @top-center {
+                    content: "Japan 2026 Itinerary";
+                }
+            }
         }
     </style>
 </head>
@@ -3285,6 +3406,25 @@
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./sw.js').catch(() => {});
     }
+
+    // Print support - expand all cards
+    let cardStates = [];
+    window.addEventListener('beforeprint', () => {
+        cardStates = [];
+        document.querySelectorAll('.card-details').forEach((details, i) => {
+            cardStates[i] = details.style.display;
+            details.style.display = 'block';
+            details.style.maxHeight = 'none';
+            details.style.opacity = '1';
+        });
+    });
+    window.addEventListener('afterprint', () => {
+        document.querySelectorAll('.card-details').forEach((details, i) => {
+            details.style.display = cardStates[i] || 'none';
+            details.style.maxHeight = '';
+            details.style.opacity = '';
+        });
+    });
     </script>
 </body>
 </html>
