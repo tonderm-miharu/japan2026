@@ -356,7 +356,6 @@
 **Praktické:**
 - Shinsaibashi Arty Inn - uložit kufr, pak zpět do města
 - Okolí hotelu: Shinsaibashi, Dotonbori - pro první večer ideální
-- Koupit SIM kartu / ověřit eSIM funkčnost
 
 **Alternativa při dešti:**
 - Festival běží i v dešti, ale menší intenzita
@@ -421,7 +420,6 @@
 
 **🧺 PRANÍ - Doporučeno:**
 - Večer po HO (po 22:00?) nebo během dne před odjezdem
-- Coin laundry v okolí hotelu nebo v hotelu
 - První praní od začátku cesty (4 dny)
 
 **Praktické:**
@@ -502,7 +500,7 @@
 
 **Poznámky pro tento den:**
 - Critical Mass = cyklojízda městem, sociální událost
-- Sraz obvykle kolem 19:00-20:00, ověřit aktuální info
+- Sraz obvykle kolem 18:00-20:00, ověřit aktuální info
 - Potřeba: Hello Bike (bikeshare) nebo půjčené kolo
 
 **🚲 CRITICAL MASS - Příprava:**
@@ -594,13 +592,10 @@
 
 **Poznámky pro tento den:**
 - Takashi = kontaktovat předem (už mělo být)
-- Být flexibilní, následovat jeho návrhy
-- Možná ukáže místa mimo turistické trasy
 - Mít hotovost pro případné lokální podniky
 
 **Praktické:**
 - Nabitý telefon
-- Pohodlné boty (může být hodně chůze)
 - Kamera/fotoaparát pokud chceš dokumentovat
 
 ---
@@ -1484,6 +1479,11 @@
 - Pokud nikdo → vlastní program Tokyo
 - Možná něco co jsi neviděl, nebo revisit oblíbená místa
 
+**🗾 TOKYO NÁMĚTY (pro volné dny 37/38/43):**
+- **Takanawa Gateway City** - nová čtvrť u Takanawa Gateway station, moderní urbanismus 2024+
+- **Tsukishima** - večerní atmosféra, monjayaki (tokijská verze okonomiyaki), retro uličky
+- **Okolí Tokyo Station** - projít uložená místa z Google Maps!
+
 ---
 
 ### DEN 38 | Neděle 25.10.2026
@@ -1505,6 +1505,7 @@
 - Kasai Rinkai = vodní park, aquarium, chill
 - Nebo: Yanaka, Shimokitazawa, Koenji - retro/hipster Tokyo
 - Nebo: Day trip? Kamakura, Nikko, Kawagoe?
+- Nebo: Takanawa Gateway City, Tsukishima, Tokyo Station area (viz náměty den 37)
 
 **Příprava na road trip (zítra):**
 - [ ] Auto rezervace v Mishima - NEBOOKOVÁNO! Zařídit ASAP!
@@ -1652,6 +1653,11 @@
 - Den před Halloween
 - Minoru/Sata-san = kontaktovat předem
 - Bar Nekorob = Markův bar?
+
+**Denní program - náměty:**
+- Takanawa Gateway City (nová čtvrť)
+- Tsukishima monjayaki (večer před party?)
+- Tokyo Station area - uložená místa z Google Maps
 
 **Praktické:**
 - Denní program flexibilní
