@@ -1889,22 +1889,44 @@
 ---
 
 ### DEN 52 | Neděle 8.11.2026
-## NAHA → TAIPEI
+## NAHA → TAIPEI (Layover) → VIE
 
 **Časový plán:**
+- ~10:00 Check-out hotel, monorail na OKA
 - **11:55-12:35 Let OKA → TPE**
-- Večer: TPE 23:20 odlet do Vídně
+- ~13:15 Immigration + customs (visa-free pro CZ)
+- 13:30 MRT Airport Express → Taipei Main (~35 min)
+- 14:00 MRT na **Beimen** station
+
+**Taipei Layover Program (~6h):**
+- 14:00-16:30 **Dihua Street** (historická ulice)
+  - Tradiční obchody s čajem, bylinkami, sušeným ovocem
+  - Koloniální architektura, fotogenické uličky
+  - Čajovna ASW Tea House (doporučeno)
+  - Xiahai City God Temple
+- 16:30-17:30 **Dadaocheng Wharf** - nábřeží, káva, sunset
+- 17:30-18:30 Pozdní oběd/časná večeře - lokální street food
+- 18:30-19:30 **Ningxia Night Market**
+  - Menší, autentičtější než Shilin
+  - Oyster omelette, peanut ice cream roll, stinky tofu
+- 19:45 MRT zpět na Taipei Main
+- 20:15 Airport Express → Taoyuan Airport
+- 21:00 Check-in
+- **23:20 Let TPE → VIE**
+
+**Noc:** V letadle
 
 **Poznámky pro tento den:**
-- Check-out ráno, volný čas do 10:00
-- Letištní bus nebo monorail do OKA
-- Taipei = layover, možná rychlá prohlídka?
-- Noční let do Vídně
+- Taiwan = visa-free pro CZ, rychlá immigration
+- MRT Airport Express = 160 TWD (~130 CZK)
+- Uložit zavazadla: Taipei Main Station lockers
+- Ningxia = food paradise, menší fronty než Shilin
+- Mít TWD cash (směnárna na letišti nebo ATM)
 
-**Praktické:**
-- Taiwan entry: Visa-free pro CZ
-- Taipei layover options: Ximending, night market
-- Nebo letiště lounge
+**Co vzít s sebou z letadla:**
+- Malý batoh pro město
+- Nabíječka telefonu
+- Lehké oblečení (Taipei v listopadu ~22-25°C)
 
 ---
 
