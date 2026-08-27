@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>PWA Icon Mockups - Japan 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1a1a2e;
+            color: #e5e7eb;
+            font-family: system-ui, sans-serif;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        h1 { margin-bottom: 10px; color: #9ca3af; }
+        .subtitle { color: #6b7280; margin-bottom: 40px; }
+        h2 { margin: 40px 0 20px; color: #6b7280; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #252540;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+        .label {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .icon-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .icon {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .desc {
+            font-size: 0.75rem;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+        .phone-preview {
+            background: #000;
+            border-radius: 40px;
+            padding: 20px;
+            width: 200px;
+            margin: 40px auto;
+        }
+        .phone-screen {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 30px;
+            padding: 60px 20px 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .phone-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.2);
+        }
+        .phone-icon.app {
+            background: none;
+            overflow: hidden;
+        }
+        .phone-icon.app svg, .phone-icon.app div {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>PWA Icon Mockups</h1>
+    <p class="subtitle">Japan 2026 - Home Screen Icon (180x180px for iOS)</p>
+
+    <h2>Style A: Dark Minimal</h2>
+    <div class="grid">
+        <!-- A1: J26 Text -->
+        <div class="card">
+            <div class="label">A1: J26 Bold</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="#e5e7eb">J26</text>
+                    <rect x="30" y="130" width="120" height="3" fill="#ef4444" rx="1.5"/>
+                </svg>
+            </div>
+            <div class="desc">Dark background, white text, red accent line</div>
+        </div>
+
+        <!-- A2: JP'26 -->
+        <div class="card">
+            <div class="label">A2: JP'26</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="42" font-weight="700" fill="#e5e7eb">JP'26</text>
+                    <circle cx="90" cy="140" r="8" fill="#ef4444"/>
+                </svg>
+            </div>
+            <div class="desc">Japan abbreviation with red sun dot</div>
+        </div>
+
+        <!-- A3: Rising Sun minimal -->
+        <div class="card">
+            <div class="label">A3: Rising Sun</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <circle cx="90" cy="75" r="35" fill="#ef4444"/>
+                    <text x="90" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="#9ca3af">2026</text>
+                </svg>
+            </div>
+            <div class="desc">Red sun, year below</div>
+        </div>
+
+        <!-- A4: Torii Gate -->
+        <div class="card">
+            <div class="label">A4: Torii</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <g stroke="#ef4444" stroke-width="6" fill="none" stroke-linecap="round">
+                        <path d="M45 140V75"/>
+                        <path d="M135 140V75"/>
+                        <path d="M35 80h110"/>
+                        <path d="M40 65h100"/>
+                        <path d="M55 80v25h70v-25"/>
+                    </g>
+                    <text x="90" y="160" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="500" fill="#6b7280">'26</text>
+                </svg>
+            </div>
+            <div class="desc">Minimalist torii gate in red</div>
+        </div>
+    </div>
+
+    <h2>Style B: Gradient & Color</h2>
+    <div class="grid">
+        <!-- B1: Sunset gradient -->
+        <div class="card">
+            <div class="label">B1: Sunset</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <linearGradient id="sunset" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff6b6b"/>
+                            <stop offset="50%" style="stop-color:#feca57"/>
+                            <stop offset="100%" style="stop-color:#1a1a2e"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="180" height="180" fill="url(#sunset)"/>
+                    <circle cx="90" cy="90" r="30" fill="#fff" opacity="0.9"/>
+                    <text x="90" y="160" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#fff">J26</text>
+                </svg>
+            </div>
+            <div class="desc">Sunset gradient with white sun</div>
+        </div>
+
+        <!-- B2: Blue night -->
+        <div class="card">
+            <div class="label">B2: Night Sky</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <linearGradient id="night" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0f0c29"/>
+                            <stop offset="50%" style="stop-color:#302b63"/>
+                            <stop offset="100%" style="stop-color:#24243e"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="180" height="180" fill="url(#night)"/>
+                    <text x="90" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="48" font-weight="700" fill="#e5e7eb">J</text>
+                    <text x="90" y="140" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="300" fill="#60a5fa">2026</text>
+                </svg>
+            </div>
+            <div class="desc">Deep blue gradient, large J</div>
+        </div>
+
+        <!-- B3: Red circle -->
+        <div class="card">
+            <div class="label">B3: Flag Style</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#f5f5f5"/>
+                    <circle cx="90" cy="80" r="40" fill="#ef4444"/>
+                    <text x="90" y="155" text-anchor="middle" font-family="system-ui, sans-serif" font-size="26" font-weight="700" fill="#1a1a2e">2026</text>
+                </svg>
+            </div>
+            <div class="desc">Japanese flag inspired</div>
+        </div>
+
+        <!-- B4: Sakura -->
+        <div class="card">
+            <div class="label">B4: Sakura</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <g fill="#f9a8d4" opacity="0.8">
+                        <circle cx="90" cy="60" r="12"/>
+                        <circle cx="70" cy="75" r="10"/>
+                        <circle cx="110" cy="75" r="10"/>
+                        <circle cx="75" cy="95" r="8"/>
+                        <circle cx="105" cy="95" r="8"/>
+                    </g>
+                    <text x="90" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="#e5e7eb">J'26</text>
+                </svg>
+            </div>
+            <div class="desc">Abstract sakura blossoms</div>
+        </div>
+    </div>
+
+    <h2>Style C: Typography Focus</h2>
+    <div class="grid">
+        <!-- C1: Large J -->
+        <div class="card">
+            <div class="label">C1: Monogram J</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="100" font-weight="800" fill="#e5e7eb">J</text>
+                    <rect x="115" y="35" width="4" height="25" fill="#ef4444"/>
+                </svg>
+            </div>
+            <div class="desc">Bold J with red accent</div>
+        </div>
+
+        <!-- C2: Stacked -->
+        <div class="card">
+            <div class="label">C2: Stacked</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#ef4444"/>
+                    <text x="90" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="300" fill="#fff">JAPAN</text>
+                    <text x="90" y="130" text-anchor="middle" font-family="system-ui, sans-serif" font-size="48" font-weight="800" fill="#fff">2026</text>
+                </svg>
+            </div>
+            <div class="desc">Red background, stacked text</div>
+        </div>
+
+        <!-- C3: Kanji -->
+        <div class="card">
+            <div class="label">C3: Kanji</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="100" text-anchor="middle" font-family="serif" font-size="70" fill="#e5e7eb">日</text>
+                    <text x="90" y="155" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#ef4444">'26</text>
+                </svg>
+            </div>
+            <div class="desc">日 (sun/day) kanji</div>
+        </div>
+
+        <!-- C4: Outlined -->
+        <div class="card">
+            <div class="label">C4: Outlined</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="none" stroke="#e5e7eb" stroke-width="2">J26</text>
+                    <line x1="40" y1="135" x2="140" y2="135" stroke="#ef4444" stroke-width="3"/>
+                </svg>
+            </div>
+            <div class="desc">Outlined text, red underline</div>
+        </div>
+    </div>
+
+    <h2>Style D: Symbol + Text</h2>
+    <div class="grid">
+        <!-- D1: Mt Fuji -->
+        <div class="card">
+            <div class="label">D1: Mt. Fuji</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <path d="M90 45 L140 110 L40 110 Z" fill="#4b5563"/>
+                    <path d="M90 45 L110 75 L70 75 Z" fill="#e5e7eb"/>
+                    <circle cx="130" cy="50" r="15" fill="#ef4444"/>
+                    <text x="90" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="#9ca3af">'26</text>
+                </svg>
+            </div>
+            <div class="desc">Fuji silhouette with sun</div>
+        </div>
+
+        <!-- D2: Map pin -->
+        <div class="card">
+            <div class="label">D2: Location</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <path d="M90 30 C60 30 40 55 40 80 C40 115 90 145 90 145 C90 145 140 115 140 80 C140 55 120 30 90 30Z" fill="none" stroke="#ef4444" stroke-width="5"/>
+                    <circle cx="90" cy="78" r="18" fill="#ef4444"/>
+                    <text x="90" y="86" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#fff">JP</text>
+                </svg>
+            </div>
+            <div class="desc">Map pin with JP</div>
+        </div>
+
+        <!-- D3: Calendar -->
+        <div class="card">
+            <div class="label">D3: Calendar</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <rect x="35" y="50" width="110" height="95" rx="8" fill="none" stroke="#9ca3af" stroke-width="4"/>
+                    <path d="M35 75 L145 75" stroke="#9ca3af" stroke-width="4"/>
+                    <rect x="55" y="38" width="8" height="24" rx="2" fill="#9ca3af"/>
+                    <rect x="117" y="38" width="8" height="24" rx="2" fill="#9ca3af"/>
+                    <text x="90" y="125" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="#ef4444">26</text>
+                </svg>
+            </div>
+            <div class="desc">Calendar with 26</div>
+        </div>
+
+        <!-- D4: Plane -->
+        <div class="card">
+            <div class="label">D4: Travel</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <g transform="translate(90,75) rotate(-30)">
+                        <path d="M0 -35 L15 0 L8 0 L8 25 L-8 25 L-8 0 L-15 0 Z" fill="#e5e7eb"/>
+                        <path d="M-25 5 L25 5 L20 15 L-20 15 Z" fill="#e5e7eb"/>
+                    </g>
+                    <circle cx="130" cy="130" r="25" fill="none" stroke="#ef4444" stroke-width="3"/>
+                    <text x="130" y="138" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#ef4444">JP</text>
+                </svg>
+            </div>
+            <div class="desc">Plane with JP badge</div>
+        </div>
+    </div>
+
+    <h2>Preview on Home Screen</h2>
+    <div style="display: flex; gap: 40px; flex-wrap: wrap; justify-content: center;">
+        <div class="phone-preview">
+            <div class="phone-screen">
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon app">
+                    <svg viewBox="0 0 180 180">
+                        <rect width="180" height="180" fill="#1a1a2e"/>
+                        <text x="90" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="#e5e7eb">J26</text>
+                        <rect x="30" y="130" width="120" height="3" fill="#ef4444" rx="1.5"/>
+                    </svg>
+                </div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+            </div>
+        </div>
+        <div class="phone-preview">
+            <div class="phone-screen">
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon app">
+                    <svg viewBox="0 0 180 180">
+                        <rect width="180" height="180" fill="#1a1a2e"/>
+                        <circle cx="90" cy="75" r="35" fill="#ef4444"/>
+                        <text x="90" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="#9ca3af">2026</text>
+                    </svg>
+                </div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+            </div>
+        </div>
+        <div class="phone-preview">
+            <div class="phone-screen">
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon app">
+                    <svg viewBox="0 0 180 180">
+                        <rect width="180" height="180" fill="#1a1a2e"/>
+                        <path d="M90 45 L140 110 L40 110 Z" fill="#4b5563"/>
+                        <path d="M90 45 L110 75 L70 75 Z" fill="#e5e7eb"/>
+                        <circle cx="130" cy="50" r="15" fill="#ef4444"/>
+                        <text x="90" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="#9ca3af">'26</text>
+                    </svg>
+                </div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

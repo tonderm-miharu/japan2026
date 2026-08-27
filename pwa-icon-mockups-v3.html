@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>PWA Icon Mockups V3 - JAPAN/PLAN Variants</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1a1a2e;
+            color: #e5e7eb;
+            font-family: system-ui, sans-serif;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        h1 { margin-bottom: 10px; color: #9ca3af; }
+        .subtitle { color: #6b7280; margin-bottom: 40px; }
+        h2 { margin: 40px 0 20px; color: #6b7280; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: #252540;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+        .label {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .icon-wrapper {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 15px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .icon {
+            width: 100%;
+            height: 100%;
+        }
+        .desc {
+            font-size: 0.7rem;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+        .phone-preview {
+            background: #000;
+            border-radius: 40px;
+            padding: 20px;
+            width: 200px;
+            margin: 20px;
+        }
+        .phone-screen {
+            background: linear-gradient(135deg, #1a1a2e 0%, #252540 100%);
+            border-radius: 30px;
+            padding: 60px 20px 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .phone-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.1);
+        }
+        .phone-icon.app {
+            background: none;
+            overflow: hidden;
+        }
+        .phone-icon.app svg {
+            width: 100%;
+            height: 100%;
+        }
+        .preview-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>PWA Icon Mockups V3</h1>
+    <p class="subtitle">Varianty JAPAN / PLAN / TRIP</p>
+
+    <h2>JAPAN + Red Line</h2>
+    <div class="grid">
+        <!-- 1: JAPAN glow + red line -->
+        <div class="card">
+            <div class="label">JAPAN Glow + Red</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="japanglow1" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="300" letter-spacing="6" fill="#60a5fa" filter="url(#japanglow1)">JAPAN</text>
+                    <rect x="40" y="110" width="100" height="3" fill="#ef4444" rx="1.5"/>
+                </svg>
+            </div>
+            <div class="desc">Blue glow text, red underline</div>
+        </div>
+
+        <!-- 2: JAPAN bold + red line thick -->
+        <div class="card">
+            <div class="label">JAPAN Bold</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="japanglow2" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="4" fill="#60a5fa" filter="url(#japanglow2)">JAPAN</text>
+                    <rect x="35" y="112" width="110" height="4" fill="#ef4444" rx="2"/>
+                </svg>
+            </div>
+            <div class="desc">Bold text, thicker red line</div>
+        </div>
+
+        <!-- 3: JAPAN + red glow line -->
+        <div class="card">
+            <div class="label">Both Glow</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="japanglow3" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <filter id="redglow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="500" letter-spacing="5" fill="#60a5fa" filter="url(#japanglow3)">JAPAN</text>
+                    <rect x="40" y="110" width="100" height="3" fill="#ef4444" rx="1.5" filter="url(#redglow)"/>
+                </svg>
+            </div>
+            <div class="desc">Both text and line glow</div>
+        </div>
+
+        <!-- 4: JAPAN centered, line below -->
+        <div class="card">
+            <div class="label">Centered Minimal</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="japanglow4" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="5" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="30" font-weight="400" letter-spacing="8" fill="#60a5fa" filter="url(#japanglow4)">JAPAN</text>
+                    <line x1="55" y1="105" x2="125" y2="105" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="desc">Wide letter spacing, thin line</div>
+        </div>
+    </div>
+
+    <h2>JAPAN + TRIP</h2>
+    <div class="grid">
+        <!-- 5: JAPAN / TRIP stacked -->
+        <div class="card">
+            <div class="label">Stacked</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="tripglow1" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="30" font-weight="300" letter-spacing="6" fill="#60a5fa" filter="url(#tripglow1)">JAPAN</text>
+                    <rect x="40" y="90" width="100" height="2" fill="#ef4444" rx="1"/>
+                    <text x="90" y="125" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="700" letter-spacing="8" fill="#9ca3af">TRIP</text>
+                </svg>
+            </div>
+            <div class="desc">JAPAN blue, TRIP gray</div>
+        </div>
+
+        <!-- 6: JAPAN big, trip small -->
+        <div class="card">
+            <div class="label">Hierarchy</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="tripglow2" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="5" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="38" font-weight="600" letter-spacing="4" fill="#60a5fa" filter="url(#tripglow2)">JAPAN</text>
+                    <text x="90" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="400" letter-spacing="12" fill="#6b7280">TRIP</text>
+                    <rect x="50" y="135" width="80" height="2" fill="#ef4444" rx="1"/>
+                </svg>
+            </div>
+            <div class="desc">Big JAPAN, small TRIP</div>
+        </div>
+
+        <!-- 7: trip / JAPAN inverted -->
+        <div class="card">
+            <div class="label">Inverted</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="tripglow3" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="400" letter-spacing="10" fill="#6b7280">TRIP</text>
+                    <text x="90" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="700" letter-spacing="3" fill="#60a5fa" filter="url(#tripglow3)">JAPAN</text>
+                    <rect x="40" y="125" width="100" height="3" fill="#ef4444" rx="1.5"/>
+                </svg>
+            </div>
+            <div class="desc">Small trip above, big JAPAN</div>
+        </div>
+
+        <!-- 8: JAPAN TRIP same line -->
+        <div class="card">
+            <div class="label">Single Line</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="tripglow4" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="600" fill="#60a5fa" filter="url(#tripglow4)">
+                        <tspan>JAPAN</tspan><tspan fill="#ef4444"> | </tspan><tspan fill="#9ca3af">TRIP</tspan>
+                    </text>
+                    <rect x="30" y="100" width="120" height="2" fill="#3b4a6b" rx="1"/>
+                </svg>
+            </div>
+            <div class="desc">Inline with separator</div>
+        </div>
+    </div>
+
+    <h2>PLAN Variants</h2>
+    <div class="grid">
+        <!-- 9: PLAN simple -->
+        <div class="card">
+            <div class="label">PLAN Simple</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="planglow1" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="42" font-weight="700" letter-spacing="4" fill="#60a5fa" filter="url(#planglow1)">PLAN</text>
+                    <rect x="35" y="118" width="110" height="3" fill="#ef4444" rx="1.5"/>
+                </svg>
+            </div>
+            <div class="desc">Bold PLAN with glow</div>
+        </div>
+
+        <!-- 10: PLAN light -->
+        <div class="card">
+            <div class="label">PLAN Light</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="planglow2" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="5" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="40" font-weight="300" letter-spacing="8" fill="#60a5fa" filter="url(#planglow2)">PLAN</text>
+                    <line x1="45" y1="115" x2="135" y2="115" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="desc">Light weight, wide spacing</div>
+        </div>
+
+        <!-- 11: JP over PLAN -->
+        <div class="card">
+            <div class="label">JP / PLAN</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="planglow3" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#e5e7eb">JP</text>
+                    <rect x="60" y="80" width="60" height="2" fill="#ef4444" rx="1"/>
+                    <text x="90" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="300" letter-spacing="6" fill="#60a5fa" filter="url(#planglow3)">PLAN</text>
+                </svg>
+            </div>
+            <div class="desc">JP above, PLAN below</div>
+        </div>
+
+        <!-- 12: JAPAN small over PLAN big -->
+        <div class="card">
+            <div class="label">JAPAN/PLAN</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="planglow4" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="400" letter-spacing="8" fill="#9ca3af">JAPAN</text>
+                    <text x="90" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="44" font-weight="700" letter-spacing="3" fill="#60a5fa" filter="url(#planglow4)">PLAN</text>
+                    <rect x="35" y="128" width="110" height="3" fill="#ef4444" rx="1.5"/>
+                </svg>
+            </div>
+            <div class="desc">Small JAPAN, big PLAN</div>
+        </div>
+    </div>
+
+    <h2>Creative Combinations</h2>
+    <div class="grid">
+        <!-- 13: Boxed JAPAN -->
+        <div class="card">
+            <div class="label">Boxed</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="boxglow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <rect x="25" y="60" width="130" height="60" rx="8" fill="none" stroke="#60a5fa" stroke-width="2" filter="url(#boxglow)"/>
+                    <text x="90" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="30" font-weight="600" letter-spacing="6" fill="#e5e7eb">JAPAN</text>
+                    <rect x="55" y="130" width="70" height="3" fill="#ef4444" rx="1.5"/>
+                </svg>
+            </div>
+            <div class="desc">Bordered box with glow</div>
+        </div>
+
+        <!-- 14: Vertical -->
+        <div class="card">
+            <div class="label">Vertical</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="vertglow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="75" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#60a5fa" filter="url(#vertglow)">J</text>
+                    <text x="75" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#60a5fa" filter="url(#vertglow)">A</text>
+                    <text x="75" y="99" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#60a5fa" filter="url(#vertglow)">P</text>
+                    <text x="75" y="126" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#60a5fa" filter="url(#vertglow)">A</text>
+                    <text x="75" y="153" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="#60a5fa" filter="url(#vertglow)">N</text>
+                    <rect x="95" y="30" width="3" height="135" fill="#ef4444" rx="1.5"/>
+                </svg>
+            </div>
+            <div class="desc">Vertical JAPAN, red bar</div>
+        </div>
+
+        <!-- 15: Split J/APAN -->
+        <div class="card">
+            <div class="label">Split J</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="splitglow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="5" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="55" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="60" font-weight="800" fill="#60a5fa" filter="url(#splitglow)">J</text>
+                    <text x="120" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="300" letter-spacing="2" fill="#9ca3af">APAN</text>
+                    <rect x="85" y="100" width="60" height="2" fill="#ef4444" rx="1"/>
+                </svg>
+            </div>
+            <div class="desc">Big J, small APAN</div>
+        </div>
+
+        <!-- 16: Badge style -->
+        <div class="card">
+            <div class="label">Badge</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="badgeglow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <circle cx="90" cy="90" r="60" fill="none" stroke="#3b4a6b" stroke-width="2"/>
+                    <circle cx="90" cy="90" r="50" fill="none" stroke="#60a5fa" stroke-width="2" filter="url(#badgeglow)"/>
+                    <text x="90" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="600" letter-spacing="4" fill="#e5e7eb">JAPAN</text>
+                    <text x="90" y="108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="400" letter-spacing="6" fill="#6b7280">TRIP</text>
+                    <circle cx="90" cy="130" r="4" fill="#ef4444"/>
+                </svg>
+            </div>
+            <div class="desc">Badge with circles</div>
+        </div>
+
+        <!-- 17: Underline double -->
+        <div class="card">
+            <div class="label">Double Line</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="doubleglow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="500" letter-spacing="5" fill="#60a5fa" filter="url(#doubleglow)">JAPAN</text>
+                    <line x1="40" y1="105" x2="140" y2="105" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="50" y1="112" x2="130" y2="112" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
+                </svg>
+            </div>
+            <div class="desc">Double red underline</div>
+        </div>
+
+        <!-- 18: Gradient text -->
+        <div class="card">
+            <div class="label">Gradient Text</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <linearGradient id="textgrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#60a5fa"/>
+                            <stop offset="100%" style="stop-color:#a78bfa"/>
+                        </linearGradient>
+                        <filter id="gradglow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="34" font-weight="600" letter-spacing="4" fill="url(#textgrad)" filter="url(#gradglow)">JAPAN</text>
+                    <rect x="40" y="112" width="100" height="3" fill="#ef4444" rx="1.5"/>
+                </svg>
+            </div>
+            <div class="desc">Blue-purple gradient</div>
+        </div>
+
+        <!-- 19: Minimal dot -->
+        <div class="card">
+            <div class="label">Dot Accent</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="dotglow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="400" letter-spacing="6" fill="#60a5fa" filter="url(#dotglow)">JAPAN</text>
+                    <circle cx="90" cy="125" r="6" fill="#ef4444"/>
+                </svg>
+            </div>
+            <div class="desc">Red dot below</div>
+        </div>
+
+        <!-- 20: JP large -->
+        <div class="card">
+            <div class="label">JP Big</div>
+            <div class="icon-wrapper">
+                <svg class="icon" viewBox="0 0 180 180">
+                    <defs>
+                        <filter id="jpglow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="6" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <rect width="180" height="180" fill="#1a1a2e"/>
+                    <text x="90" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="70" font-weight="700" fill="#60a5fa" filter="url(#jpglow)">JP</text>
+                    <rect x="40" y="125" width="100" height="4" fill="#ef4444" rx="2"/>
+                </svg>
+            </div>
+            <div class="desc">Large JP monogram</div>
+        </div>
+    </div>
+
+    <h2>Preview on Home Screen</h2>
+    <div class="preview-row">
+        <div class="phone-preview">
+            <div class="phone-screen">
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon app">
+                    <svg viewBox="0 0 180 180">
+                        <defs><filter id="pg1" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                        <rect width="180" height="180" fill="#1a1a2e"/>
+                        <text x="90" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="500" letter-spacing="5" fill="#60a5fa" filter="url(#pg1)">JAPAN</text>
+                        <rect x="40" y="110" width="100" height="3" fill="#ef4444" rx="1.5"/>
+                    </svg>
+                </div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+            </div>
+        </div>
+        <div class="phone-preview">
+            <div class="phone-screen">
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon app">
+                    <svg viewBox="0 0 180 180">
+                        <defs><filter id="pg2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                        <rect width="180" height="180" fill="#1a1a2e"/>
+                        <text x="90" y="65" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="400" letter-spacing="8" fill="#9ca3af">JAPAN</text>
+                        <text x="90" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="44" font-weight="700" letter-spacing="3" fill="#60a5fa" filter="url(#pg2)">PLAN</text>
+                        <rect x="35" y="128" width="110" height="3" fill="#ef4444" rx="1.5"/>
+                    </svg>
+                </div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+            </div>
+        </div>
+        <div class="phone-preview">
+            <div class="phone-screen">
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon app">
+                    <svg viewBox="0 0 180 180">
+                        <defs><filter id="pg3" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                        <rect width="180" height="180" fill="#1a1a2e"/>
+                        <text x="90" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="30" font-weight="300" letter-spacing="6" fill="#60a5fa" filter="url(#pg3)">JAPAN</text>
+                        <rect x="40" y="90" width="100" height="2" fill="#ef4444" rx="1"/>
+                        <text x="90" y="125" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="700" letter-spacing="8" fill="#9ca3af">TRIP</text>
+                    </svg>
+                </div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+            </div>
+        </div>
+        <div class="phone-preview">
+            <div class="phone-screen">
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon app">
+                    <svg viewBox="0 0 180 180">
+                        <defs><filter id="pg4" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+                        <rect width="180" height="180" fill="#1a1a2e"/>
+                        <text x="90" y="105" text-anchor="middle" font-family="system-ui, sans-serif" font-size="70" font-weight="700" fill="#60a5fa" filter="url(#pg4)">JP</text>
+                        <rect x="40" y="125" width="100" height="4" fill="#ef4444" rx="2"/>
+                    </svg>
+                </div>
+                <div class="phone-icon"></div>
+                <div class="phone-icon"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Header Mockups</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0f0f0f;
+            color: #e5e7eb;
+            font-family: 'Inter', system-ui, sans-serif;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        h1 { font-size: 1rem; color: #9ca3af; margin-bottom: 20px; text-align: center; }
+        h2 { font-size: 0.8rem; color: #6b7280; margin: 30px 0 15px; text-transform: uppercase; letter-spacing: 2px; }
+
+        .card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border-left: 3px solid #22c55e;
+        }
+
+        /* ============ CURRENT VERSION ============ */
+        .current .day-head {
+            display: grid;
+            grid-template-columns: 52px 1fr 28px;
+            gap: 10px;
+            padding: 12px 14px;
+            align-items: center;
+        }
+        .current .day-num-box {
+            min-width: 50px;
+            height: 46px;
+            padding: 0 6px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background: #22c55e;
+            color: #000;
+        }
+        .current .day-n { font-size: 0.9rem; line-height: 1; }
+        .current .day-dow { font-size: 0.6rem; text-transform: uppercase; opacity: 0.8; }
+        .current .day-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 3px; }
+        .current .day-info p { font-size: 0.9rem; color: #b8b8b8; line-height: 1.4; }
+        .current .expand-btn {
+            width: 28px;
+            height: 28px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .current .expand-btn svg { width: 16px; height: 16px; stroke: #9ca3af; fill: none; stroke-width: 2; }
+
+        /* ============ VARIANT A: Top-aligned, tighter spacing ============ */
+        .variant-a .day-head {
+            display: grid;
+            grid-template-columns: 52px 1fr 28px;
+            gap: 10px;
+            padding: 12px 14px;
+            align-items: start; /* TOP ALIGN */
+        }
+        .variant-a .day-num-box {
+            min-width: 50px;
+            height: auto;
+            padding: 6px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background: #22c55e;
+            color: #000;
+            margin-top: 2px; /* Align with title baseline */
+        }
+        .variant-a .day-n { font-size: 0.9rem; line-height: 1; }
+        .variant-a .day-dow { font-size: 0.6rem; text-transform: uppercase; opacity: 0.8; }
+        .variant-a .day-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 2px; }
+        .variant-a .day-info p { font-size: 0.9rem; color: #b8b8b8; line-height: 1.25; } /* TIGHTER LINE HEIGHT */
+        .variant-a .expand-btn {
+            width: 28px;
+            height: 28px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+        .variant-a .expand-btn svg { width: 16px; height: 16px; stroke: #9ca3af; fill: none; stroke-width: 2; }
+
+        /* ============ VARIANT B: Minimal gaps ============ */
+        .variant-b .day-head {
+            display: grid;
+            grid-template-columns: 52px 1fr 28px;
+            gap: 10px;
+            padding: 10px 14px;
+            align-items: start;
+        }
+        .variant-b .day-num-box {
+            min-width: 50px;
+            padding: 5px 6px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background: #22c55e;
+            color: #000;
+        }
+        .variant-b .day-n { font-size: 0.9rem; line-height: 1; }
+        .variant-b .day-dow { font-size: 0.55rem; text-transform: uppercase; opacity: 0.8; margin-top: 1px; }
+        .variant-b .day-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1px; line-height: 1.2; }
+        .variant-b .day-info p { font-size: 0.9rem; color: #b8b8b8; line-height: 1.2; margin: 0; }
+        .variant-b .expand-btn {
+            width: 28px;
+            height: 28px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .variant-b .expand-btn svg { width: 16px; height: 16px; stroke: #9ca3af; fill: none; stroke-width: 2; }
+
+        /* ============ VARIANT C: Flex with baseline ============ */
+        .variant-c .day-head {
+            display: flex;
+            gap: 10px;
+            padding: 10px 14px;
+            align-items: flex-start;
+        }
+        .variant-c .day-num-box {
+            min-width: 50px;
+            padding: 5px 6px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background: #22c55e;
+            color: #000;
+            flex-shrink: 0;
+        }
+        .variant-c .day-n { font-size: 0.9rem; line-height: 1; }
+        .variant-c .day-dow { font-size: 0.55rem; text-transform: uppercase; opacity: 0.8; margin-top: 1px; }
+        .variant-c .day-info { flex: 1; min-width: 0; }
+        .variant-c .day-info h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0; line-height: 1.15; }
+        .variant-c .day-info p { font-size: 0.9rem; color: #b8b8b8; line-height: 1.15; margin-top: 2px; }
+        .variant-c .expand-btn {
+            width: 28px;
+            height: 28px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .variant-c .expand-btn svg { width: 16px; height: 16px; stroke: #9ca3af; fill: none; stroke-width: 2; }
+
+        /* ============ VARIANT D: Ultra compact ============ */
+        .variant-d .day-head {
+            display: flex;
+            gap: 10px;
+            padding: 8px 14px;
+            align-items: flex-start;
+        }
+        .variant-d .day-num-box {
+            min-width: 48px;
+            padding: 4px 5px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background: #22c55e;
+            color: #000;
+            flex-shrink: 0;
+        }
+        .variant-d .day-n { font-size: 0.85rem; line-height: 1; }
+        .variant-d .day-dow { font-size: 0.5rem; text-transform: uppercase; opacity: 0.8; margin-top: 1px; }
+        .variant-d .day-info { flex: 1; min-width: 0; }
+        .variant-d .day-info h3 { font-size: 1rem; font-weight: 600; margin: 0; line-height: 1.1; }
+        .variant-d .day-info p { font-size: 0.85rem; color: #b8b8b8; line-height: 1.1; margin-top: 1px; }
+        .variant-d .expand-btn {
+            width: 24px;
+            height: 24px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .variant-d .expand-btn svg { width: 14px; height: 14px; stroke: #9ca3af; fill: none; stroke-width: 2; }
+
+        .weather { color: #fbbf24; font-size: 0.85rem; margin-left: 8px; }
+        .label {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .card { position: relative; }
+    </style>
+</head>
+<body>
+    <h1>Card Header Mockups - Mobile</h1>
+
+    <h2>Current (reference)</h2>
+    <div class="current">
+        <div class="card">
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">21.9</span>
+                    <span class="day-dow">MON</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Osaka – Architektura – Nakanoshima → Kitahama → Semba</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">22.9</span>
+                    <span class="day-dow">TUE</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Sakai – Kofun, Shimano Museum</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Variant A: Top-aligned + tighter</h2>
+    <div class="variant-a">
+        <div class="card">
+            <span class="label">A</span>
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">21.9</span>
+                    <span class="day-dow">MON</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Osaka – Architektura – Nakanoshima → Kitahama → Semba</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">22.9</span>
+                    <span class="day-dow">TUE</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Sakai – Kofun, Shimano Museum</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Variant B: Minimal gaps</h2>
+    <div class="variant-b">
+        <div class="card">
+            <span class="label">B</span>
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">21.9</span>
+                    <span class="day-dow">MON</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Osaka – Architektura – Nakanoshima → Kitahama → Semba</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">22.9</span>
+                    <span class="day-dow">TUE</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Sakai – Kofun, Shimano Museum</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Variant C: Flex baseline</h2>
+    <div class="variant-c">
+        <div class="card">
+            <span class="label">C</span>
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">21.9</span>
+                    <span class="day-dow">MON</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Osaka – Architektura – Nakanoshima → Kitahama → Semba</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">22.9</span>
+                    <span class="day-dow">TUE</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Sakai – Kofun, Shimano Museum</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Variant D: Ultra compact</h2>
+    <div class="variant-d">
+        <div class="card">
+            <span class="label">D</span>
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">21.9</span>
+                    <span class="day-dow">MON</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Osaka – Architektura – Nakanoshima → Kitahama → Semba</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">22.9</span>
+                    <span class="day-dow">TUE</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Sakai – Kofun, Shimano Museum</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Comparison with 3-line subtitle</h2>
+    <div class="variant-c">
+        <div class="card">
+            <span class="label">C - Long</span>
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">24.9</span>
+                    <span class="day-dow">THU</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Takedao – Railway trail, tunnels, nature, hiking, waterfalls</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+    </div>
+    <div class="current">
+        <div class="card">
+            <span class="label" style="background:#6b7280;">Current</span>
+            <div class="day-head">
+                <div class="day-num-box">
+                    <span class="day-n">24.9</span>
+                    <span class="day-dow">THU</span>
+                </div>
+                <div class="day-info">
+                    <h3>OSAKA <span class="weather">31°C</span></h3>
+                    <p>Takedao – Railway trail, tunnels, nature, hiking, waterfalls</p>
+                </div>
+                <div class="expand-btn"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

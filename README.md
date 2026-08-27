@@ -74,6 +74,7 @@
 - Google Maps links for 188 POI (opens app directly on mobile)
 - Tag icons (HO, car, bike, onsen, meet, flight, fest)
 - Automatic daily tasks (luggage, car, check-in)
+- Mobile: compact header with date box aligned to title top edge
 
 ### Modals (dark blue background)
 - **Tasks** - grouped by priority (High/Medium), compact display
