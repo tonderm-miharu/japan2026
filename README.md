@@ -118,7 +118,7 @@ Professional printable travel guide (`japan-travel-guide.html`):
 - [ ] Shimanami multi-day bike rental (Oct 6-7)
 - [ ] Takachiho Yokagura reservation (Oct 14)
 - [ ] Accommodation Oct 26-29 (Izu/Fuji road trip)
-- [ ] Express bus Yufuin-Kumamoto reservation (Oct 11)
+- [x] Express bus Yufuin-Kumamoto ✅ BOOKED (KOSOKUBUS #1020648778, 13:50→18:03)
 - [ ] Send luggage Fukuyama→Matsuyama (Oct 6)
 - [ ] Send luggage Kumamoto→Nagasaki (Oct 16)
 

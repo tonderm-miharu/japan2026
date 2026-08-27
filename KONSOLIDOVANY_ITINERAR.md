@@ -468,8 +468,10 @@
 **Program:**
 - **Lake Kinrin brzy rano** (pred turisty)
 - Snidane / checkout
-- **Express bus Yufuin - Kumamoto**
-  - Task: Overit a rezervovat!
+- **Express bus Yufuin - Kumamoto** ✅ BOOKED
+  - KOSOKUBUS, Booking #1020648778
+  - Odjezd: Yufuin Station Bus Center 13:50
+  - Prijezd: JR Kumamoto Station Stop No. 7, 18:03
 - Po prijezdu:
   - Check-in
   - Sakuranobaba / okoli hradu (pokud cas dovoli)
@@ -1024,7 +1026,7 @@
 
 ### Letenky/Doprava
 - [ ] Rezervovat/overit ferry Yawatahama - Beppu 13:00 (8.10.)
-- [ ] **Rezervace express bus Yufuin - Kumamoto (11.10.)**
+- [x] **Express bus Yufuin - Kumamoto (11.10.)** ✅ KOSOKUBUS #1020648778 (13:50→18:03)
 - [ ] Overit bus Shimabara - Unzen a Unzen - Obama
 
 ### Ubytovani

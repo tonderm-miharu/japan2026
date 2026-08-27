@@ -91,7 +91,7 @@
 - [ ] JR Pass aktivace (pokud používáš)
 - [ ] Shinkansen Shin-Osaka → Fukuyama (5.10.) - reserved seat
 - [ ] Ferry Yawatahama → Beppu (8.10., 13:00) - NUTNÁ REZERVACE
-- [ ] Express bus Yufuin → Kumamoto (11.10.) - NUTNÁ REZERVACE
+- [x] Express bus Yufuin → Kumamoto (11.10.) - ✅ BOOKED KOSOKUBUS #1020648778 (13:50→18:03)
 - [ ] Ferry Kumamoto → Shimabara (16.10., 09:25) - ověřit nutnost rezervace
 - [ ] teamLab Biovortex (1.10.) - NUTNÉ PŘEDEM
 - [ ] Takachiho Yokagura (14.10., 20:00) - NUTNÁ REZERVACE
@@ -1025,8 +1025,11 @@
 **Program:**
 - **Lake Kinrin brzy ráno** (před turisty!)
 - Snídaně / checkout
-- **Express bus Yufuin → Kumamoto**
-  - ⚠️ NUTNÁ REZERVACE!
+- **Express bus Yufuin → Kumamoto** ✅ BOOKED
+  - KOSOKUBUS, Booking #1020648778
+  - Odjezd: Yufuin Station Bus Center 13:50
+  - Příjezd: JR Kumamoto Station Stop No. 7, 18:03
+  - Potvrzení: email + login na kosokubus.com
 - Po příjezdu:
   - Check-in
   - Sakuranobaba / okolí hradu (pokud čas)
@@ -2004,7 +2007,7 @@
 
 ### NUTNÉ PŘEDEM:
 - [ ] Ferry Yawatahama → Beppu (8.10., 13:00)
-- [ ] Express bus Yufuin → Kumamoto (11.10.)
+- [x] Express bus Yufuin → Kumamoto (11.10.) ✅ KOSOKUBUS #1020648778
 - [ ] teamLab Biovortex Kyoto (1.10.)
 - [ ] Takachiho Yokagura (14.10., 20:00)
 - [ ] Multi-day bike Onomichi → Imabari (6-7.10.)
