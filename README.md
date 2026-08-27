@@ -114,7 +114,7 @@ Professional printable travel guide (`japan-travel-guide.html`):
 ### High Priority
 - [x] Ferry Yawatahama-Beppu 13:00 (Oct 8) – buy at port
 - [x] Ferry Kumamoto-Shimabara Ocean Arrow 09:25 (Oct 16) – buy at port
-- [ ] teamLab Biovortex tickets (Oct 1)
+- [x] teamLab Biovortex ✅ BOOKED (Oct 1, 10:30-11:00 entry)
 - [ ] Shimanami multi-day bike rental (Oct 6-7)
 - [ ] Takachiho Yokagura reservation (Oct 14)
 - [ ] Accommodation Oct 26-29 (Izu/Fuji road trip)

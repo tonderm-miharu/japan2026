@@ -93,7 +93,7 @@
 - [x] Ferry Yawatahama → Beppu (8.10., 13:00) - koupit na místě v přístavu
 - [x] Express bus Yufuin → Kumamoto (11.10.) - ✅ BOOKED KOSOKUBUS #1020648778 (13:50→18:03)
 - [x] Ferry Kumamoto → Shimabara Ocean Arrow (16.10., 09:25) - koupit na místě v přístavu
-- [ ] teamLab Biovortex (1.10.) - NUTNÉ PŘEDEM
+- [x] teamLab Biovortex (1.10.) - ✅ BOOKED vstup 10:30-11:00 (vstupenka v emailu, lze změnit do 2h před)
 - [ ] Takachiho Yokagura (14.10., 20:00) - NUTNÁ REZERVACE
 - [ ] Multi-day bike Onomichi-Imabari (6-7.10.) - doporučeno předem
 
@@ -665,7 +665,8 @@
 
 **Časový plán:**
 - 09:00 Check-out, kufr odeslat/uložit
-- 09:30-12:00 teamLab Biovortex Kyoto (~2.5h)
+- 10:30-11:00 VSTUP teamLab Biovortex Kyoto (vstupenka v emailu)
+- ~13:00 Konec teamLab
 - 12:00-13:00 Oběd v okolí Kyoto Station
 - 13:00-14:00 Kyoto → Otsu/Seta (JR ~10 min + shuttle)
 - 14:30-15:00 Ofurocafe Biwakoza
@@ -675,16 +676,17 @@
 **Noc:** Ofurocafe Biwakoza
 
 **Poznámky pro tento den:**
-- teamLab Biovortex = NUTNÉ VSTUPENKY PŘEDEM
+- ✅ teamLab Biovortex = VSTUPENKA KOUPENA (vstup 10:30-11:00)
+- Vstupenka v emailu (folder Letenky), lze změnit do 2h před vstupem
 - Nový formát, otevřeno 2024
 - Ofurocafe = onsen + coworking koncept, unikátní
 
 **⚠️ DŮLEŽITÉ:**
-- [ ] Koupit teamLab vstupenky PŘEDEM
+- [x] ~~Koupit teamLab vstupenky~~ ✅ DONE
 - [ ] Kufr: Coin locker Kyoto Station nebo poslat do Hikone?
 
 **Praktické:**
-- teamLab: Ranní slot = méně lidí
+- teamLab: Vstup 10:30, slot není příliš ranní = dobrý kompromis
 - Ofurocafe: Relax + práce, ideální combo
 - Večeře v Ofurocafe nebo okolí
 
@@ -2009,7 +2011,7 @@
 - [x] Ferry Yawatahama → Beppu (8.10., 13:00) - koupit na místě
 - [x] Ferry Kumamoto → Shimabara Ocean Arrow (16.10., 09:25) - koupit na místě
 - [x] Express bus Yufuin → Kumamoto (11.10.) ✅ KOSOKUBUS #1020648778
-- [ ] teamLab Biovortex Kyoto (1.10.)
+- [x] teamLab Biovortex Kyoto (1.10.) ✅ vstup 10:30-11:00
 - [ ] Takachiho Yokagura (14.10., 20:00)
 - [ ] Multi-day bike Onomichi → Imabari (6-7.10.)
 - [ ] Auto Mishima (26-29.10.) **NEBOOKOVÁNO!**
