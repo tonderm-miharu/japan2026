@@ -11,6 +11,7 @@
 | File | Description |
 |------|-------------|
 | `itinerar.html` | Interactive HTML dashboard |
+| `japan-travel-guide.html` | Printable PDF travel guide (open in browser, Print → Save as PDF) |
 | `KONSOLIDOVANY_ITINERAR.md` | Detailed itinerary in Markdown format |
 | `ADJUSTED_MASTER_PLAN.md` | Enhanced "second brain" document with logistics, prep steps, laundry schedule, risks |
 | `ROZVRH.xlsx` | Schedule and hotels spreadsheet |
@@ -44,6 +45,16 @@
   - Page breaks between cards
   - Preserved note highlighting and badges
 - Save as PDF via browser print dialog
+
+### Travel Guide PDF
+Professional printable travel guide (`japan-travel-guide.html`):
+- Cover page with trip statistics (53 days, 7 regions, 188 POI, 29 hotels)
+- Statistics page with region breakdown bars
+- Phase maps as hand-drawn style sketches with numbered POI markers
+- Day cards with date left, day number right
+- Detailed notes with color-coded warnings/tasks/tips
+- Complete reference tables (laundry, luggage shipping, car rentals, deadlines, contacts)
+- Open in browser → Print → Save as PDF
 
 ### Countdown
 - Vintage 7-segment digital display (DSEG7 font)
