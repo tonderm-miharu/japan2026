@@ -194,73 +194,55 @@
             border-top: 1px solid rgba(255,255,255,0.3);
         }
 
-        /* Phase Map */
-        .phase-map {
+        /* Phase Highlights */
+        .phase-highlights {
             background: white;
-            padding: 20px 50px;
+            padding: 24px 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .highlight-card {
+            text-align: center;
+            padding: 16px;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .highlight-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 12px;
             display: flex;
-            gap: 30px;
+            align-items: center;
+            justify-content: center;
         }
 
-        .map-sketch {
-            width: 280px;
-            height: 200px;
-            background: #fefce8;
-            border: 2px solid #fde68a;
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .map-sketch svg {
+        .highlight-icon svg {
             width: 100%;
             height: 100%;
         }
 
-        .map-legend {
-            flex: 1;
-            font-size: 8pt;
-        }
-
-        .map-legend h4 {
+        .highlight-title {
             font-size: 10pt;
-            margin-bottom: 10px;
-            color: #92400e;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
         }
 
-        .poi-list-map {
-            columns: 2;
-            column-gap: 20px;
+        .highlight-subtitle {
+            font-size: 8pt;
+            color: #6b7280;
         }
 
-        .poi-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 6px;
-            margin-bottom: 6px;
-            break-inside: avoid;
-        }
-
-        .poi-marker {
-            width: 16px;
-            height: 16px;
-            background: var(--phase-color);
-            border-radius: 50% 50% 50% 0;
-            transform: rotate(-45deg);
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .highlight-day {
             font-size: 7pt;
-            font-weight: 700;
-            color: white;
+            color: var(--phase-color);
+            font-weight: 600;
+            margin-top: 6px;
         }
-
-        .poi-marker span {
-            transform: rotate(45deg);
-        }
-
-        .poi-text { line-height: 1.3; }
 
         /* Day Card */
         .day-card {
@@ -567,38 +549,69 @@
     <div class="dates">Days 1-9 | September 18-26, 2026 | 9 days</div>
 </div>
 
-<div class="phase-map" style="--phase-color: var(--osaka)">
-    <div class="map-sketch">
-        <svg viewBox="0 0 280 200">
-            <!-- Osaka Bay sketch -->
-            <path d="M0 80 Q50 70 100 90 Q150 110 200 95 Q250 80 280 100 L280 200 L0 200 Z" fill="#bfdbfe" opacity="0.3"/>
-            <!-- Land outline -->
-            <path d="M20 60 Q60 40 120 50 Q180 60 240 45 Q260 50 270 70 L270 180 L10 180 Z" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,2"/>
-            <!-- Rivers -->
-            <path d="M80 50 Q90 80 85 120 Q80 150 90 180" fill="none" stroke="#60a5fa" stroke-width="1"/>
-            <path d="M140 45 Q150 70 145 100 Q140 130 150 180" fill="none" stroke="#60a5fa" stroke-width="1"/>
-            <!-- POI markers -->
-            <circle cx="60" cy="140" r="6" fill="#f97316"/><text x="60" y="143" text-anchor="middle" font-size="7" fill="white" font-weight="bold">1</text>
-            <circle cx="100" cy="90" r="6" fill="#f97316"/><text x="100" y="93" text-anchor="middle" font-size="7" fill="white" font-weight="bold">2</text>
-            <circle cx="150" cy="100" r="6" fill="#f97316"/><text x="150" y="103" text-anchor="middle" font-size="7" fill="white" font-weight="bold">3</text>
-            <circle cx="180" cy="120" r="6" fill="#f97316"/><text x="180" y="123" text-anchor="middle" font-size="7" fill="white" font-weight="bold">4</text>
-            <circle cx="130" cy="140" r="6" fill="#f97316"/><text x="130" y="143" text-anchor="middle" font-size="7" fill="white" font-weight="bold">5</text>
-            <circle cx="200" cy="80" r="6" fill="#f97316"/><text x="200" y="83" text-anchor="middle" font-size="7" fill="white" font-weight="bold">6</text>
-            <!-- Labels -->
-            <text x="140" y="25" text-anchor="middle" font-family="Caveat" font-size="14" fill="#64748b">Osaka Region</text>
-            <text x="240" y="170" font-family="Caveat" font-size="10" fill="#94a3b8">Bay</text>
-        </svg>
-    </div>
-    <div class="map-legend">
-        <h4>Key Locations</h4>
-        <div class="poi-list-map">
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--osaka)"><span>1</span></div><div class="poi-text"><strong>Kishiwada</strong><br>Danjiri Festival</div></div>
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--osaka)"><span>2</span></div><div class="poi-text"><strong>Nakanoshima</strong><br>Architecture walk</div></div>
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--osaka)"><span>3</span></div><div class="poi-text"><strong>Sakai</strong><br>Kofun, Shimano Museum</div></div>
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--osaka)"><span>4</span></div><div class="poi-text"><strong>Osaka Bay</strong><br>Maishima, ATC</div></div>
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--osaka)"><span>5</span></div><div class="poi-text"><strong>Shinsaibashi</strong><br>Base hotel area</div></div>
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--osaka)"><span>6</span></div><div class="poi-text"><strong>Takedao</strong><br>Abandoned railway</div></div>
+<div class="phase-highlights" style="--phase-color: var(--osaka)">
+    <!-- Danjiri Festival -->
+    <div class="highlight-card">
+        <div class="highlight-icon">
+            <svg viewBox="0 0 80 80" fill="none" stroke="#f97316" stroke-width="1.5">
+                <!-- Danjiri cart stylized -->
+                <rect x="15" y="35" width="50" height="30" rx="3" fill="#fef3c7" stroke="#f97316"/>
+                <rect x="20" y="40" width="40" height="15" fill="none" stroke="#f97316" stroke-dasharray="2,2"/>
+                <circle cx="22" cy="68" r="5" fill="#f97316"/>
+                <circle cx="58" cy="68" r="5" fill="#f97316"/>
+                <path d="M25 35 L40 15 L55 35" stroke="#f97316" stroke-width="2"/>
+                <rect x="37" y="18" width="6" height="17" fill="#f97316"/>
+                <!-- Lanterns -->
+                <circle cx="25" cy="28" r="4" fill="#fbbf24" stroke="#f97316"/>
+                <circle cx="55" cy="28" r="4" fill="#fbbf24" stroke="#f97316"/>
+            </svg>
         </div>
+        <div class="highlight-title">Danjiri Festival</div>
+        <div class="highlight-subtitle">Wild cart racing in Kishiwada</div>
+        <div class="highlight-day">Day 2-3</div>
+    </div>
+    <!-- Architecture -->
+    <div class="highlight-card">
+        <div class="highlight-icon">
+            <svg viewBox="0 0 80 80" fill="none" stroke="#f97316" stroke-width="1.5">
+                <!-- Modern building silhouette -->
+                <rect x="10" y="25" width="25" height="45" fill="#fff7ed" stroke="#f97316"/>
+                <rect x="45" y="15" width="25" height="55" fill="#fff7ed" stroke="#f97316"/>
+                <line x1="10" y1="35" x2="35" y2="35" stroke="#f97316" stroke-dasharray="3,2"/>
+                <line x1="10" y1="45" x2="35" y2="45" stroke="#f97316" stroke-dasharray="3,2"/>
+                <line x1="10" y1="55" x2="35" y2="55" stroke="#f97316" stroke-dasharray="3,2"/>
+                <line x1="45" y1="25" x2="70" y2="25" stroke="#f97316" stroke-dasharray="3,2"/>
+                <line x1="45" y1="35" x2="70" y2="35" stroke="#f97316" stroke-dasharray="3,2"/>
+                <line x1="45" y1="45" x2="70" y2="45" stroke="#f97316" stroke-dasharray="3,2"/>
+                <line x1="45" y1="55" x2="70" y2="55" stroke="#f97316" stroke-dasharray="3,2"/>
+                <!-- Dome detail -->
+                <ellipse cx="22" cy="25" rx="8" ry="5" fill="none" stroke="#f97316"/>
+            </svg>
+        </div>
+        <div class="highlight-title">Nakanoshima</div>
+        <div class="highlight-subtitle">Historic banking district architecture</div>
+        <div class="highlight-day">Day 4</div>
+    </div>
+    <!-- Takedao Railway -->
+    <div class="highlight-card">
+        <div class="highlight-icon">
+            <svg viewBox="0 0 80 80" fill="none" stroke="#f97316" stroke-width="1.5">
+                <!-- Tunnel entrance -->
+                <path d="M15 70 L15 35 Q15 20 40 20 Q65 20 65 35 L65 70" fill="#fff7ed" stroke="#f97316"/>
+                <ellipse cx="40" cy="35" rx="20" ry="12" fill="none" stroke="#f97316"/>
+                <!-- Railway tracks -->
+                <line x1="25" y1="70" x2="30" y2="45" stroke="#f97316" stroke-width="2"/>
+                <line x1="55" y1="70" x2="50" y2="45" stroke="#f97316" stroke-width="2"/>
+                <line x1="28" y1="55" x2="52" y2="55" stroke="#f97316"/>
+                <line x1="26" y1="62" x2="54" y2="62" stroke="#f97316"/>
+                <!-- Trees -->
+                <circle cx="8" cy="50" r="8" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+                <circle cx="72" cy="45" r="10" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+            </svg>
+        </div>
+        <div class="highlight-title">Takedao Trail</div>
+        <div class="highlight-subtitle">Abandoned railway tunnels in nature</div>
+        <div class="highlight-day">Day 7</div>
     </div>
 </div>
 
@@ -886,35 +899,73 @@
     <div class="dates">Days 10-14 | September 27 - October 1, 2026 | 5 days</div>
 </div>
 
-<div class="phase-map" style="--phase-color: var(--kyoto)">
-    <div class="map-sketch">
-        <svg viewBox="0 0 280 200">
-            <!-- Kyoto basin sketch -->
-            <path d="M30 30 Q60 20 140 25 Q220 30 260 40 L270 180 Q200 190 140 185 Q80 180 20 175 Z" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,2"/>
-            <!-- Mountains -->
-            <path d="M20 60 L40 30 L60 55 L80 25 L100 50 L120 20 L140 45 L160 25 L180 50 L200 30 L220 55 L240 35 L260 50" fill="none" stroke="#d1d5db" stroke-width="1"/>
-            <!-- Kamo River -->
-            <path d="M150 30 Q145 80 150 130 Q155 170 150 195" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
-            <!-- POI markers -->
-            <circle cx="120" cy="80" r="6" fill="#a855f7"/><text x="120" y="83" text-anchor="middle" font-size="7" fill="white" font-weight="bold">1</text>
-            <circle cx="160" cy="100" r="6" fill="#a855f7"/><text x="160" y="103" text-anchor="middle" font-size="7" fill="white" font-weight="bold">2</text>
-            <circle cx="200" cy="140" r="6" fill="#a855f7"/><text x="200" y="143" text-anchor="middle" font-size="7" fill="white" font-weight="bold">3</text>
-            <circle cx="80" cy="150" r="6" fill="#a855f7"/><text x="80" y="153" text-anchor="middle" font-size="7" fill="white" font-weight="bold">4</text>
-            <circle cx="240" cy="170" r="6" fill="#a855f7"/><text x="240" y="173" text-anchor="middle" font-size="7" fill="white" font-weight="bold">5</text>
-            <!-- Labels -->
-            <text x="140" y="15" text-anchor="middle" font-family="Caveat" font-size="14" fill="#64748b">Kyoto Basin</text>
-            <text x="165" y="70" font-family="Caveat" font-size="9" fill="#60a5fa">Kamo R.</text>
-        </svg>
-    </div>
-    <div class="map-legend">
-        <h4>Key Locations</h4>
-        <div class="poi-list-map">
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--kyoto)"><span>1</span></div><div class="poi-text"><strong>Nijo Castle</strong><br>Imperial Palace area</div></div>
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--kyoto)"><span>2</span></div><div class="poi-text"><strong>Gion</strong><br>Traditional district</div></div>
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--kyoto)"><span>3</span></div><div class="poi-text"><strong>Uji</strong><br>Byodo-in, tea</div></div>
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--kyoto)"><span>4</span></div><div class="poi-text"><strong>Kyoto Station</strong><br>Hiroshi Hara</div></div>
-            <div class="poi-item"><div class="poi-marker" style="--phase-color: var(--kyoto)"><span>5</span></div><div class="poi-text"><strong>Otsu</strong><br>Ofurocafe Biwakoza</div></div>
+<div class="phase-highlights" style="--phase-color: var(--kyoto)">
+    <!-- Byodo-in -->
+    <div class="highlight-card">
+        <div class="highlight-icon">
+            <svg viewBox="0 0 80 80" fill="none" stroke="#a855f7" stroke-width="1.5">
+                <!-- Phoenix Hall stylized -->
+                <rect x="25" y="45" width="30" height="20" fill="#faf5ff" stroke="#a855f7"/>
+                <path d="M25 45 L40 30 L55 45" fill="#faf5ff" stroke="#a855f7"/>
+                <!-- Wings -->
+                <path d="M25 50 L10 45 L5 55 L25 55" fill="#faf5ff" stroke="#a855f7"/>
+                <path d="M55 50 L70 45 L75 55 L55 55" fill="#faf5ff" stroke="#a855f7"/>
+                <!-- Phoenix on top -->
+                <ellipse cx="40" cy="28" rx="4" ry="3" fill="#a855f7"/>
+                <!-- Reflection -->
+                <path d="M15 70 Q40 75 65 70" stroke="#a855f7" stroke-dasharray="2,2" opacity="0.5"/>
+                <path d="M20 73 Q40 77 60 73" stroke="#a855f7" stroke-dasharray="2,2" opacity="0.3"/>
+            </svg>
         </div>
+        <div class="highlight-title">Byodo-in Temple</div>
+        <div class="highlight-subtitle">UNESCO Phoenix Hall in Uji</div>
+        <div class="highlight-day">Day 12</div>
+    </div>
+    <!-- teamLab -->
+    <div class="highlight-card">
+        <div class="highlight-icon">
+            <svg viewBox="0 0 80 80" fill="none" stroke="#a855f7" stroke-width="1.5">
+                <!-- Digital art waves -->
+                <path d="M10 50 Q20 40 30 50 Q40 60 50 50 Q60 40 70 50" stroke="#a855f7" stroke-width="2"/>
+                <path d="M10 40 Q20 30 30 40 Q40 50 50 40 Q60 30 70 40" stroke="#c084fc" stroke-width="2"/>
+                <path d="M10 30 Q20 20 30 30 Q40 40 50 30 Q60 20 70 30" stroke="#e879f9" stroke-width="2"/>
+                <!-- Particles -->
+                <circle cx="15" cy="25" r="2" fill="#a855f7"/>
+                <circle cx="35" cy="20" r="2" fill="#c084fc"/>
+                <circle cx="55" cy="22" r="2" fill="#e879f9"/>
+                <circle cx="65" cy="28" r="2" fill="#a855f7"/>
+                <circle cx="25" cy="55" r="2" fill="#c084fc"/>
+                <circle cx="45" cy="58" r="2" fill="#e879f9"/>
+                <circle cx="60" cy="52" r="2" fill="#a855f7"/>
+                <!-- Frame -->
+                <rect x="5" y="15" width="70" height="50" rx="5" fill="none" stroke="#a855f7" stroke-dasharray="4,2"/>
+            </svg>
+        </div>
+        <div class="highlight-title">teamLab Biovortex</div>
+        <div class="highlight-subtitle">Immersive digital art experience</div>
+        <div class="highlight-day">Day 14</div>
+    </div>
+    <!-- Matcha -->
+    <div class="highlight-card">
+        <div class="highlight-icon">
+            <svg viewBox="0 0 80 80" fill="none" stroke="#a855f7" stroke-width="1.5">
+                <!-- Tea bowl -->
+                <ellipse cx="40" cy="55" rx="22" ry="8" fill="#faf5ff" stroke="#a855f7"/>
+                <path d="M18 55 Q18 70 40 70 Q62 70 62 55" fill="#faf5ff" stroke="#a855f7"/>
+                <!-- Matcha surface -->
+                <ellipse cx="40" cy="48" rx="18" ry="6" fill="#bbf7d0" stroke="#22c55e"/>
+                <!-- Steam -->
+                <path d="M30 40 Q28 30 32 25" stroke="#a855f7" stroke-dasharray="2,2" opacity="0.5"/>
+                <path d="M40 38 Q38 28 42 20" stroke="#a855f7" stroke-dasharray="2,2" opacity="0.5"/>
+                <path d="M50 40 Q48 30 52 25" stroke="#a855f7" stroke-dasharray="2,2" opacity="0.5"/>
+                <!-- Chasen (whisk) hint -->
+                <line x1="55" y1="35" x2="65" y2="20" stroke="#a855f7" stroke-width="2"/>
+                <path d="M63 22 L67 18 M65 20 L68 22 M64 23 L70 20" stroke="#a855f7"/>
+            </svg>
+        </div>
+        <div class="highlight-title">Uji Matcha</div>
+        <div class="highlight-subtitle">Tea culture at its finest</div>
+        <div class="highlight-day">Day 12</div>
     </div>
 </div>
 
