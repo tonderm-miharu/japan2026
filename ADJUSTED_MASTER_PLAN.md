@@ -90,9 +90,9 @@
 ### Před odjezdem (do 17.9.):
 - [ ] JR Pass aktivace (pokud používáš)
 - [ ] Shinkansen Shin-Osaka → Fukuyama (5.10.) - reserved seat
-- [ ] Ferry Yawatahama → Beppu (8.10., 13:00) - NUTNÁ REZERVACE
+- [x] Ferry Yawatahama → Beppu (8.10., 13:00) - koupit na místě v přístavu
 - [x] Express bus Yufuin → Kumamoto (11.10.) - ✅ BOOKED KOSOKUBUS #1020648778 (13:50→18:03)
-- [ ] Ferry Kumamoto → Shimabara (16.10., 09:25) - ověřit nutnost rezervace
+- [x] Ferry Kumamoto → Shimabara Ocean Arrow (16.10., 09:25) - koupit na místě v přístavu
 - [ ] teamLab Biovortex (1.10.) - NUTNÉ PŘEDEM
 - [ ] Takachiho Yokagura (14.10., 20:00) - NUTNÁ REZERVACE
 - [ ] Multi-day bike Onomichi-Imabari (6-7.10.) - doporučeno předem
@@ -1211,7 +1211,7 @@
 **Časový plán:**
 - 07:30 Yamato kufr
 - 08:45 Kumamoto Port
-- **09:25 FERRY Ocean Arrow → Shimabara**
+- **09:25 FERRY Ocean Arrow → Shimabara** (koupit na místě v přístavu)
 - ~10:00-10:15 Přesun do centra Shimabary
 - 10:20-11:30 **Shimabara Castle**
 - 11:30-12:15 Shimabara Samurai District + springs
@@ -2006,7 +2006,8 @@
 ## 3.6 REZERVACE - Checklist
 
 ### NUTNÉ PŘEDEM:
-- [ ] Ferry Yawatahama → Beppu (8.10., 13:00)
+- [x] Ferry Yawatahama → Beppu (8.10., 13:00) - koupit na místě
+- [x] Ferry Kumamoto → Shimabara Ocean Arrow (16.10., 09:25) - koupit na místě
 - [x] Express bus Yufuin → Kumamoto (11.10.) ✅ KOSOKUBUS #1020648778
 - [ ] teamLab Biovortex Kyoto (1.10.)
 - [ ] Takachiho Yokagura (14.10., 20:00)
