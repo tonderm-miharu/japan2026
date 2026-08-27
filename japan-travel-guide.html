@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japan 2026 - Travel Guide</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Caveat:wght@500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+JP:wght@400;500;600&display=swap');
 
         :root {
-            --osaka: #f97316;
-            --kyoto: #a855f7;
-            --biwa: #06b6d4;
-            --shimanami: #10b981;
-            --kyushu: #ef4444;
-            --tokyo: #3b82f6;
-            --okinawa: #14b8a6;
-            --transit: #6b7280;
+            --osaka: #ea580c;
+            --kyoto: #9333ea;
+            --biwa: #0891b2;
+            --shimanami: #059669;
+            --kyushu: #dc2626;
+            --tokyo: #2563eb;
+            --okinawa: #0d9488;
+            --transit: #64748b;
+            --gold: #d97706;
+            --paper: #fefdfb;
+            --ink: #1c1917;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,12 +26,14 @@
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             font-size: 9pt;
-            line-height: 1.45;
-            color: #1f2937;
+            line-height: 1.5;
+            color: var(--ink);
             background: white;
         }
 
-        /* Cover Page */
+        /* ══════════════════════════════════════════
+           COVER PAGE - Elegant Japanese aesthetic
+           ══════════════════════════════════════════ */
         .cover {
             page-break-after: always;
             height: 100vh;
@@ -37,442 +42,759 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(220,38,38,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(37,99,235,0.06) 0%, transparent 50%),
+                linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
             color: white;
-            padding: 40px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30' stroke='%23ffffff' stroke-width='0.5' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .cover-emblem {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 40px;
             position: relative;
         }
 
-        .cover-flag {
-            width: 100px;
-            height: 70px;
-            background: white;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        .cover-emblem svg {
+            width: 100%;
+            height: 100%;
         }
-
-        .cover-flag .circle { width: 35px; height: 35px; background: #ef4444; border-radius: 50%; }
 
         .cover h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 42pt;
+            font-size: 56pt;
             font-weight: 700;
-            letter-spacing: 8px;
-            margin-bottom: 12px;
+            letter-spacing: 12px;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
 
-        .cover h2 {
-            font-size: 12pt;
-            font-weight: 400;
-            letter-spacing: 4px;
+        .cover-kanji {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 18pt;
             color: #94a3b8;
+            letter-spacing: 8px;
             margin-bottom: 50px;
         }
 
-        .cover-dates { font-size: 11pt; color: #e2e8f0; margin-bottom: 6px; }
-        .cover-days { font-size: 22pt; font-weight: 600; color: #fbbf24; }
+        .cover-period {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 16px;
+        }
+
+        .cover-period .line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #64748b, transparent);
+        }
+
+        .cover-dates {
+            font-size: 11pt;
+            font-weight: 300;
+            color: #cbd5e1;
+            letter-spacing: 3px;
+        }
+
+        .cover-days {
+            font-size: 14pt;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 4px;
+            margin-top: 8px;
+        }
 
         .cover-stats {
             display: flex;
-            gap: 40px;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            gap: 50px;
+            margin-top: 60px;
+            padding: 30px 50px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
         }
 
         .stat-item { text-align: center; }
-        .stat-value { font-size: 20pt; font-weight: 700; color: #60a5fa; }
-        .stat-label { font-size: 8pt; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-value {
+            font-size: 24pt;
+            font-weight: 700;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        .stat-label {
+            font-size: 7pt;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
 
-        .cover-footer { position: absolute; bottom: 30px; font-size: 8pt; color: #64748b; }
+        .cover-footer {
+            position: absolute;
+            bottom: 40px;
+            font-size: 8pt;
+            color: #475569;
+            letter-spacing: 2px;
+        }
 
-        /* Statistics Page */
+        /* ══════════════════════════════════════════
+           STATISTICS PAGE
+           ══════════════════════════════════════════ */
         .stats-page {
             page-break-after: always;
             padding: 50px;
-            background: #f8fafc;
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
         }
 
         .stats-page h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 22pt;
-            margin-bottom: 30px;
+            font-size: 26pt;
+            margin-bottom: 40px;
             text-align: center;
+            color: var(--ink);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
             margin-bottom: 40px;
         }
 
         .stat-card {
             background: white;
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 16px;
+            padding: 24px 16px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+
+        .stat-card .icon {
+            width: 36px;
+            height: 36px;
+            margin: 0 auto 12px;
+            opacity: 0.7;
         }
 
         .stat-card .value {
-            font-size: 28pt;
-            font-weight: 700;
-            color: #1e40af;
+            font-size: 26pt;
+            font-weight: 800;
+            color: var(--ink);
             line-height: 1;
         }
 
         .stat-card .label {
-            font-size: 8pt;
+            font-size: 7pt;
             color: #64748b;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 8px;
         }
 
-        .region-bars {
+        .stat-card.highlight {
+            background: linear-gradient(135deg, var(--gold) 0%, #f59e0b 100%);
+            border: none;
+        }
+
+        .stat-card.highlight .value,
+        .stat-card.highlight .label { color: white; }
+        .stat-card.highlight .icon { filter: brightness(0) invert(1); }
+
+        .region-chart {
             background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
         }
 
-        .region-bar {
-            display: flex;
+        .region-chart h3 {
+            font-size: 12pt;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #374151;
+        }
+
+        .region-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 50px;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
-        .region-bar .name {
-            width: 100px;
+        .region-row .name {
             font-size: 9pt;
             font-weight: 500;
+            color: #374151;
         }
 
-        .region-bar .bar-bg {
-            flex: 1;
-            height: 24px;
+        .region-row .bar-track {
+            height: 28px;
             background: #f1f5f9;
-            border-radius: 4px;
+            border-radius: 6px;
             overflow: hidden;
         }
 
-        .region-bar .bar-fill {
+        .region-row .bar-fill {
             height: 100%;
+            border-radius: 6px;
             display: flex;
             align-items: center;
-            padding-left: 10px;
-            font-size: 8pt;
-            font-weight: 600;
+            justify-content: flex-end;
+            padding-right: 12px;
+            font-size: 9pt;
+            font-weight: 700;
             color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
-        /* Phase Header */
+        .region-row .days {
+            text-align: right;
+            font-size: 9pt;
+            font-weight: 600;
+            color: #6b7280;
+        }
+
+        /* ══════════════════════════════════════════
+           PHASE HEADER - Dramatic intro
+           ══════════════════════════════════════════ */
         .phase-header {
             page-break-before: always;
-            padding: 40px 50px 30px;
-            background: linear-gradient(135deg, var(--phase-color) 0%, color-mix(in srgb, var(--phase-color) 70%, black) 100%);
+            height: 180px;
+            padding: 0 50px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--phase-color) 0%, color-mix(in srgb, var(--phase-color) 60%, #000) 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-header::before {
+            content: '';
+            position: absolute;
+            right: -50px;
+            top: -50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .phase-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 72pt;
+            font-weight: 700;
+            opacity: 0.15;
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .phase-content {
+            position: relative;
+            z-index: 1;
         }
 
         .phase-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 24pt;
-            margin-bottom: 6px;
+            font-size: 28pt;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
         }
 
-        .phase-header .subtitle { font-size: 11pt; opacity: 0.9; }
+        .phase-header .subtitle {
+            font-size: 11pt;
+            opacity: 0.85;
+            font-weight: 300;
+        }
 
-        .phase-header .dates {
+        .phase-header .meta {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
             font-size: 9pt;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255,255,255,0.3);
+            opacity: 0.75;
         }
 
-        /* Phase Highlights */
+        .phase-header .meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ══════════════════════════════════════════
+           PHASE HIGHLIGHTS - Illustrated cards
+           ══════════════════════════════════════════ */
         .phase-highlights {
-            background: white;
-            padding: 24px 50px;
+            background: var(--paper);
+            padding: 30px 50px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
 
         .highlight-card {
-            text-align: center;
-            padding: 16px;
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-            border-radius: 12px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
             border: 1px solid #e5e7eb;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .highlight-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 12px;
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .highlight-illustration {
+            height: 120px;
+            background: linear-gradient(135deg, color-mix(in srgb, var(--phase-color) 10%, white) 0%, color-mix(in srgb, var(--phase-color) 5%, white) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .highlight-icon svg {
-            width: 100%;
-            height: 100%;
+        .highlight-illustration::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23000' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        .highlight-illustration svg {
+            width: 90px;
+            height: 90px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-info {
+            padding: 20px;
+            text-align: center;
         }
 
         .highlight-title {
-            font-size: 10pt;
-            font-weight: 600;
-            color: #1f2937;
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--ink);
             margin-bottom: 4px;
         }
 
         .highlight-subtitle {
             font-size: 8pt;
             color: #6b7280;
+            line-height: 1.4;
         }
 
         .highlight-day {
-            font-size: 7pt;
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 12px;
+            background: color-mix(in srgb, var(--phase-color) 12%, white);
             color: var(--phase-color);
+            font-size: 7pt;
             font-weight: 600;
-            margin-top: 6px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
         }
 
-        /* Day Card */
+        /* ══════════════════════════════════════════
+           DAY CARD - Clean & informative
+           ══════════════════════════════════════════ */
         .day-card {
             page-break-inside: avoid;
-            margin: 12px 30px;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
+            margin: 16px 40px;
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
-            font-size: 8pt;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e5e7eb;
         }
 
         .day-header {
             display: flex;
             align-items: stretch;
-            background: #f9fafb;
-            border-bottom: 1px solid #e5e7eb;
         }
 
-        .day-date {
-            width: 65px;
-            padding: 10px 8px;
-            text-align: center;
+        .day-date-box {
+            width: 80px;
+            padding: 16px 12px;
             background: var(--phase-color);
             color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .day-date .date {
-            font-size: 11pt;
+        .day-date-box .date {
+            font-size: 16pt;
             font-weight: 700;
             line-height: 1;
         }
 
-        .day-date .dow {
-            font-size: 7pt;
-            text-transform: uppercase;
-            opacity: 0.9;
+        .day-date-box .month {
+            font-size: 8pt;
+            opacity: 0.8;
             margin-top: 2px;
         }
 
-        .day-title {
+        .day-date-box .dow {
+            font-size: 7pt;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+
+        .day-title-area {
             flex: 1;
-            padding: 10px 12px;
+            padding: 16px 20px;
+            background: #fafafa;
+            border-bottom: 1px solid #e5e7eb;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .day-title h3 { font-size: 12pt; font-weight: 600; margin-bottom: 1px; }
-        .day-title .subtitle { font-size: 8pt; color: #6b7280; }
-
-        .day-meta {
-            padding: 10px 12px;
-            text-align: right;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 2px;
-            min-width: 60px;
-        }
-
-        .day-meta .day-num {
+        .day-title-area h3 {
             font-size: 14pt;
             font-weight: 700;
-            color: #374151;
+            color: var(--ink);
+            margin-bottom: 2px;
+        }
+
+        .day-title-area .subtitle {
+            font-size: 9pt;
+            color: #6b7280;
+        }
+
+        .day-number-badge {
+            padding: 16px 20px;
+            background: #fafafa;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .day-number-badge .num {
+            font-size: 20pt;
+            font-weight: 800;
+            color: #d1d5db;
             line-height: 1;
         }
 
-        .day-meta .temp { font-size: 8pt; color: #f59e0b; font-weight: 500; }
+        .day-number-badge .temp {
+            font-size: 9pt;
+            color: var(--gold);
+            font-weight: 600;
+            margin-top: 4px;
+        }
 
         .day-body {
-            padding: 12px;
             display: grid;
-            grid-template-columns: 1fr 160px;
+            grid-template-columns: 1fr 180px;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .day-content {
+            display: flex;
+            flex-direction: column;
             gap: 16px;
         }
 
-        .day-content { display: flex; flex-direction: column; gap: 10px; }
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
 
-        .day-timeline { border-left: 2px solid var(--phase-color); padding-left: 12px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--phase-color) 0%, color-mix(in srgb, var(--phase-color) 30%, #e5e7eb) 100%);
+            border-radius: 1px;
+        }
 
-        .tl-item { position: relative; padding-bottom: 8px; }
+        .tl-item {
+            position: relative;
+            padding-bottom: 12px;
+            padding-left: 16px;
+        }
 
         .tl-item::before {
             content: '';
             position: absolute;
-            left: -17px;
-            top: 3px;
-            width: 8px;
-            height: 8px;
+            left: -16px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            background: var(--phase-color);
+            background: white;
+            border: 3px solid var(--phase-color);
         }
 
-        .tl-item.transport::before { background: #6b7280; }
-        .tl-item.work::before { background: #ef4444; }
+        .tl-item.transport::before { border-color: #6b7280; background: #6b7280; }
+        .tl-item.work::before { border-color: #dc2626; background: #dc2626; }
+        .tl-item.food::before { border-color: var(--gold); }
 
-        .tl-time { font-size: 7pt; font-weight: 600; color: #6b7280; }
-        .tl-text { font-size: 8pt; }
-        .tl-note { font-size: 7pt; color: #9ca3af; font-style: italic; margin-top: 1px; }
+        .tl-time {
+            font-size: 8pt;
+            font-weight: 700;
+            color: #9ca3af;
+            margin-bottom: 2px;
+        }
 
-        .day-notes-inline {
-            background: #fffbeb;
-            border: 1px solid #fde68a;
-            border-radius: 4px;
-            padding: 8px 10px;
-            font-size: 7pt;
+        .tl-text {
+            font-size: 9pt;
+            color: var(--ink);
             line-height: 1.4;
         }
 
-        .day-notes-inline ul {
+        .tl-note {
+            font-size: 8pt;
+            color: #9ca3af;
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        /* Notes box */
+        .notes-box {
+            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+            border: 1px solid #fde047;
+            border-radius: 10px;
+            padding: 14px 16px;
+            font-size: 8pt;
+            line-height: 1.5;
+        }
+
+        .notes-box ul {
             margin: 0;
-            padding-left: 14px;
+            padding-left: 16px;
         }
 
-        .day-notes-inline li { margin-bottom: 2px; }
+        .notes-box li {
+            margin-bottom: 4px;
+        }
 
-        .note-warning { color: #dc2626; font-weight: 600; }
-        .note-task { color: #0369a1; }
-        .note-tip { color: #15803d; }
+        .notes-box .warning { color: #dc2626; font-weight: 600; }
+        .notes-box .task { color: #2563eb; }
+        .notes-box .tip { color: #059669; }
 
+        /* Sidebar */
         .day-sidebar {
-            font-size: 7pt;
+            padding-left: 20px;
             border-left: 1px solid #e5e7eb;
-            padding-left: 12px;
+            font-size: 8pt;
         }
 
-        .sidebar-section { margin-bottom: 10px; }
+        .sidebar-block {
+            margin-bottom: 16px;
+        }
 
-        .sidebar-section h4 {
+        .sidebar-block h4 {
+            font-size: 7pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9ca3af;
+            margin-bottom: 6px;
+        }
+
+        .hotel-name {
+            font-weight: 600;
+            color: var(--ink);
+            font-size: 9pt;
+        }
+
+        .hotel-price {
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
             font-size: 6pt;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-top: 4px;
+            margin-right: 4px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: #9ca3af;
-            margin-bottom: 3px;
-        }
-
-        .hotel-name { font-weight: 600; color: #374151; font-size: 8pt; }
-        .hotel-price { color: #10b981; font-weight: 500; }
-
-        .hotel-badge {
-            display: inline-block;
-            padding: 1px 4px;
-            font-size: 6pt;
-            border-radius: 2px;
-            margin-top: 2px;
-            margin-right: 2px;
         }
 
         .badge-paid { background: #dcfce7; color: #166534; }
         .badge-onsite { background: #fef3c7; color: #92400e; }
         .badge-breakfast { background: #dbeafe; color: #1e40af; }
         .badge-halfboard { background: #f3e8ff; color: #7c3aed; }
-        .badge-free { background: #ecfdf5; color: #047857; }
 
-        .tags { display: flex; flex-wrap: wrap; gap: 3px; }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
 
         .tag {
-            padding: 1px 5px;
-            font-size: 6pt;
-            border-radius: 2px;
+            padding: 3px 8px;
+            font-size: 7pt;
+            font-weight: 500;
+            border-radius: 4px;
             background: #f3f4f6;
-            color: #374151;
+            color: #4b5563;
         }
 
         .tag-ho { background: #fef3c7; color: #92400e; }
         .tag-car { background: #dbeafe; color: #1e40af; }
         .tag-bike { background: #dcfce7; color: #166534; }
-        .tag-onsen { background: #ede9fe; color: #5b21b6; }
+        .tag-onsen { background: #f3e8ff; color: #7c3aed; }
         .tag-meet { background: #fce7f3; color: #be185d; }
         .tag-flight { background: #ffedd5; color: #c2410c; }
         .tag-fest { background: #fdf2f8; color: #db2777; }
 
-        .pois-list {
+        .pois {
             display: flex;
             flex-wrap: wrap;
             gap: 4px;
-            margin-top: 4px;
+            margin-top: 6px;
         }
 
-        .poi-badge {
-            background: #f0f9ff;
-            color: #0369a1;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 6pt;
+        .poi {
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 7pt;
         }
 
-        /* Summary Tables */
-        .summary-section {
+        /* ══════════════════════════════════════════
+           SUMMARY TABLES
+           ══════════════════════════════════════════ */
+        .summary-page {
             page-break-before: always;
-            padding: 30px 40px;
+            padding: 40px 50px;
         }
 
-        .summary-section h2 {
+        .summary-page h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 18pt;
-            margin-bottom: 16px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid #1f2937;
+            font-size: 20pt;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .summary-page h2 svg {
+            width: 24px;
+            height: 24px;
+            opacity: 0.6;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 7pt;
-            margin-bottom: 24px;
-        }
-
-        th, td {
-            padding: 6px 8px;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
+            font-size: 8pt;
+            margin-bottom: 32px;
         }
 
         th {
-            background: #f9fafb;
+            background: #f8fafc;
+            padding: 12px 14px;
+            text-align: left;
             font-weight: 600;
+            font-size: 7pt;
             text-transform: uppercase;
-            font-size: 6pt;
             letter-spacing: 0.5px;
+            color: #64748b;
+            border-bottom: 2px solid #e2e8f0;
         }
 
-        .highlight-row { background: #fef3c7 !important; }
-        .warning { color: #dc2626; font-weight: 600; }
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #374151;
+        }
 
+        tr:hover td {
+            background: #fafafa;
+        }
+
+        .row-highlight td {
+            background: #fef3c7 !important;
+        }
+
+        .text-warning {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .text-success {
+            color: #059669;
+        }
+
+        /* ══════════════════════════════════════════
+           FOOTER
+           ══════════════════════════════════════════ */
+        .guide-footer {
+            text-align: center;
+            padding: 40px;
+            background: #f8fafc;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .guide-footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14pt;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .guide-footer p {
+            font-size: 9pt;
+            color: #64748b;
+        }
+
+        /* ══════════════════════════════════════════
+           PRINT
+           ══════════════════════════════════════════ */
         @media print {
             body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
             .cover { height: 100vh; }
             .day-card { break-inside: avoid; }
             .phase-header { break-before: page; }
+            .summary-page { break-before: page; }
         }
 
         @page { margin: 0.4in; }
@@ -480,166 +802,291 @@
 </head>
 <body>
 
-<!-- Cover Page -->
+<!-- ══════════════════════════════════════════════════════════════════
+     COVER PAGE
+     ══════════════════════════════════════════════════════════════════ -->
 <div class="cover">
-    <div class="cover-flag"><div class="circle"></div></div>
+    <div class="cover-emblem">
+        <svg viewBox="0 0 140 140" fill="none">
+            <!-- Outer ring -->
+            <circle cx="70" cy="70" r="68" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <circle cx="70" cy="70" r="60" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <!-- Japanese flag stylized -->
+            <circle cx="70" cy="70" r="45" fill="rgba(255,255,255,0.95)"/>
+            <circle cx="70" cy="70" r="22" fill="#dc2626"/>
+            <!-- Decorative rays -->
+            <g stroke="rgba(255,255,255,0.1)" stroke-width="1">
+                <line x1="70" y1="5" x2="70" y2="20"/>
+                <line x1="70" y1="120" x2="70" y2="135"/>
+                <line x1="5" y1="70" x2="20" y2="70"/>
+                <line x1="120" y1="70" x2="135" y2="70"/>
+            </g>
+        </svg>
+    </div>
+
     <h1>JAPAN</h1>
-    <h2>TRAVEL GUIDE 2026</h2>
-    <div class="cover-dates">September 18 - November 9, 2026</div>
-    <div class="cover-days">53 Days</div>
+    <div class="cover-kanji">日本旅行</div>
+
+    <div class="cover-period">
+        <div class="line"></div>
+        <div class="cover-dates">SEPTEMBER 18 — NOVEMBER 9, 2026</div>
+        <div class="line"></div>
+    </div>
+    <div class="cover-days">53 DAYS · 7 REGIONS</div>
+
     <div class="cover-stats">
-        <div class="stat-item"><div class="stat-value">7</div><div class="stat-label">Regions</div></div>
-        <div class="stat-item"><div class="stat-value">188</div><div class="stat-label">POI</div></div>
-        <div class="stat-item"><div class="stat-value">29</div><div class="stat-label">Hotels</div></div>
-        <div class="stat-item"><div class="stat-value">4</div><div class="stat-label">Flights</div></div>
+        <div class="stat-item">
+            <div class="stat-value">188</div>
+            <div class="stat-label">Points of Interest</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">29</div>
+            <div class="stat-label">Hotels</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">~44</div>
+            <div class="stat-label">EUR / Night Avg</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">4</div>
+            <div class="stat-label">Flights</div>
+        </div>
     </div>
-    <div class="cover-footer">Personal Itinerary | Comprehensive Travel Guide</div>
+
+    <div class="cover-footer">PERSONAL TRAVEL GUIDE</div>
 </div>
 
-<!-- Statistics Page -->
+<!-- ══════════════════════════════════════════════════════════════════
+     STATISTICS PAGE
+     ══════════════════════════════════════════════════════════════════ -->
 <div class="stats-page">
-    <h2>Trip Statistics</h2>
+    <h2>Trip Overview</h2>
+
     <div class="stats-grid">
-        <div class="stat-card"><div class="value">53</div><div class="label">Total Days</div></div>
-        <div class="stat-card"><div class="value">15</div><div class="label">HO Days</div></div>
-        <div class="stat-card"><div class="value">11</div><div class="label">Car Days</div></div>
-        <div class="stat-card"><div class="value">6</div><div class="label">Cycling Days</div></div>
-        <div class="stat-card"><div class="value">9</div><div class="label">Laundry Days</div></div>
-        <div class="stat-card"><div class="value">2</div><div class="label">Ferries</div></div>
-        <div class="stat-card"><div class="value">6</div><div class="label">Meetings</div></div>
-        <div class="stat-card"><div class="value">~2260</div><div class="label">EUR Hotels</div></div>
+        <div class="stat-card">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <div class="value">53</div>
+            <div class="label">Total Days</div>
+        </div>
+        <div class="stat-card">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <div class="value">15</div>
+            <div class="label">Work Days</div>
+        </div>
+        <div class="stat-card">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div class="value">11</div>
+            <div class="label">Car Days</div>
+        </div>
+        <div class="stat-card">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><path d="M15 17.5h-5.5l-2-6.5h11l-1.5 4"/><path d="M6 11V6h3l2 5"/></svg>
+            <div class="value">6</div>
+            <div class="label">Cycling Days</div>
+        </div>
+        <div class="stat-card highlight">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <div class="value">~2260</div>
+            <div class="label">EUR Hotels Total</div>
+        </div>
     </div>
-    <div class="region-bars">
-        <h4 style="margin-bottom: 16px; font-size: 11pt;">Days by Region</h4>
-        <div class="region-bar">
+
+    <div class="region-chart">
+        <h3>Days by Region</h3>
+        <div class="region-row">
             <div class="name">Osaka</div>
-            <div class="bar-bg"><div class="bar-fill" style="width: 17%; background: var(--osaka);">9</div></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 17%; background: linear-gradient(90deg, var(--osaka), #fb923c);">9</div></div>
+            <div class="days">9 days</div>
         </div>
-        <div class="region-bar">
+        <div class="region-row">
             <div class="name">Kyoto</div>
-            <div class="bar-bg"><div class="bar-fill" style="width: 9.4%; background: var(--kyoto);">5</div></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 9.4%; background: linear-gradient(90deg, var(--kyoto), #c084fc);">5</div></div>
+            <div class="days">5 days</div>
         </div>
-        <div class="region-bar">
+        <div class="region-row">
             <div class="name">Biwa</div>
-            <div class="bar-bg"><div class="bar-fill" style="width: 3.8%; background: var(--biwa);">2</div></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 3.8%; background: linear-gradient(90deg, var(--biwa), #22d3d1);">2</div></div>
+            <div class="days">2 days</div>
         </div>
-        <div class="region-bar">
+        <div class="region-row">
             <div class="name">Shimanami</div>
-            <div class="bar-bg"><div class="bar-fill" style="width: 7.5%; background: var(--shimanami);">4</div></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 7.5%; background: linear-gradient(90deg, var(--shimanami), #34d399);">4</div></div>
+            <div class="days">4 days</div>
         </div>
-        <div class="region-bar">
+        <div class="region-row">
             <div class="name">Kyushu</div>
-            <div class="bar-bg"><div class="bar-fill" style="width: 28.3%; background: var(--kyushu);">15</div></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 28.3%; background: linear-gradient(90deg, var(--kyushu), #f87171);">15</div></div>
+            <div class="days">15 days</div>
         </div>
-        <div class="region-bar">
+        <div class="region-row">
             <div class="name">Tokyo + Izu</div>
-            <div class="bar-bg"><div class="bar-fill" style="width: 18.9%; background: var(--tokyo);">10</div></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 18.9%; background: linear-gradient(90deg, var(--tokyo), #60a5fa);">10</div></div>
+            <div class="days">10 days</div>
         </div>
-        <div class="region-bar">
+        <div class="region-row">
             <div class="name">Okinawa</div>
-            <div class="bar-bg"><div class="bar-fill" style="width: 13.2%; background: var(--okinawa);">7</div></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 13.2%; background: linear-gradient(90deg, var(--okinawa), #2dd4bf);">7</div></div>
+            <div class="days">7 days</div>
         </div>
     </div>
 </div>
 
-<!-- PHASE 1: OSAKA -->
+<!-- ══════════════════════════════════════════════════════════════════
+     PHASE 1: OSAKA
+     ══════════════════════════════════════════════════════════════════ -->
 <div class="phase-header" style="--phase-color: var(--osaka)">
-    <h2>Phase 1: Osaka + Kishiwada</h2>
-    <div class="subtitle">Danjiri Festival, Architecture, Critical Mass</div>
-    <div class="dates">Days 1-9 | September 18-26, 2026 | 9 days</div>
+    <div class="phase-number">01</div>
+    <div class="phase-content">
+        <h2>Osaka + Kishiwada</h2>
+        <div class="subtitle">Festival Energy, Architecture, Critical Mass</div>
+        <div class="meta">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg> Sep 18–26</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> 9 days</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Shinsaibashi base</span>
+        </div>
+    </div>
 </div>
 
 <div class="phase-highlights" style="--phase-color: var(--osaka)">
     <!-- Danjiri Festival -->
     <div class="highlight-card">
-        <div class="highlight-icon">
-            <svg viewBox="0 0 80 80" fill="none" stroke="#f97316" stroke-width="1.5">
-                <!-- Danjiri cart stylized -->
-                <rect x="15" y="35" width="50" height="30" rx="3" fill="#fef3c7" stroke="#f97316"/>
-                <rect x="20" y="40" width="40" height="15" fill="none" stroke="#f97316" stroke-dasharray="2,2"/>
-                <circle cx="22" cy="68" r="5" fill="#f97316"/>
-                <circle cx="58" cy="68" r="5" fill="#f97316"/>
-                <path d="M25 35 L40 15 L55 35" stroke="#f97316" stroke-width="2"/>
-                <rect x="37" y="18" width="6" height="17" fill="#f97316"/>
+        <div class="highlight-illustration">
+            <svg viewBox="0 0 90 90" fill="none">
+                <!-- Danjiri cart - more detailed -->
+                <rect x="20" y="40" width="50" height="28" rx="3" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+                <!-- Decorative panels -->
+                <rect x="25" y="45" width="18" height="18" rx="1" fill="none" stroke="#ea580c" stroke-width="1" stroke-dasharray="2,1"/>
+                <rect x="47" y="45" width="18" height="18" rx="1" fill="none" stroke="#ea580c" stroke-width="1" stroke-dasharray="2,1"/>
+                <!-- Roof structure -->
+                <path d="M20 40 L45 18 L70 40" fill="#fef3c7" stroke="#ea580c" stroke-width="2"/>
+                <rect x="41" y="20" width="8" height="20" fill="#ea580c"/>
                 <!-- Lanterns -->
-                <circle cx="25" cy="28" r="4" fill="#fbbf24" stroke="#f97316"/>
-                <circle cx="55" cy="28" r="4" fill="#fbbf24" stroke="#f97316"/>
+                <ellipse cx="28" cy="30" rx="5" ry="6" fill="#fbbf24" stroke="#ea580c" stroke-width="1.5"/>
+                <ellipse cx="62" cy="30" rx="5" ry="6" fill="#fbbf24" stroke="#ea580c" stroke-width="1.5"/>
+                <line x1="28" y1="24" x2="28" y2="20" stroke="#ea580c" stroke-width="1"/>
+                <line x1="62" y1="24" x2="62" y2="20" stroke="#ea580c" stroke-width="1"/>
+                <!-- Wheels -->
+                <circle cx="28" cy="72" r="6" fill="#ea580c"/>
+                <circle cx="62" cy="72" r="6" fill="#ea580c"/>
+                <circle cx="28" cy="72" r="2" fill="#fff7ed"/>
+                <circle cx="62" cy="72" r="2" fill="#fff7ed"/>
             </svg>
         </div>
-        <div class="highlight-title">Danjiri Festival</div>
-        <div class="highlight-subtitle">Wild cart racing in Kishiwada</div>
-        <div class="highlight-day">Day 2-3</div>
+        <div class="highlight-info">
+            <div class="highlight-title">Danjiri Festival</div>
+            <div class="highlight-subtitle">Wild cart racing through Kishiwada streets</div>
+            <div class="highlight-day">Days 2–3</div>
+        </div>
     </div>
+
     <!-- Architecture -->
     <div class="highlight-card">
-        <div class="highlight-icon">
-            <svg viewBox="0 0 80 80" fill="none" stroke="#f97316" stroke-width="1.5">
-                <!-- Modern building silhouette -->
-                <rect x="10" y="25" width="25" height="45" fill="#fff7ed" stroke="#f97316"/>
-                <rect x="45" y="15" width="25" height="55" fill="#fff7ed" stroke="#f97316"/>
-                <line x1="10" y1="35" x2="35" y2="35" stroke="#f97316" stroke-dasharray="3,2"/>
-                <line x1="10" y1="45" x2="35" y2="45" stroke="#f97316" stroke-dasharray="3,2"/>
-                <line x1="10" y1="55" x2="35" y2="55" stroke="#f97316" stroke-dasharray="3,2"/>
-                <line x1="45" y1="25" x2="70" y2="25" stroke="#f97316" stroke-dasharray="3,2"/>
-                <line x1="45" y1="35" x2="70" y2="35" stroke="#f97316" stroke-dasharray="3,2"/>
-                <line x1="45" y1="45" x2="70" y2="45" stroke="#f97316" stroke-dasharray="3,2"/>
-                <line x1="45" y1="55" x2="70" y2="55" stroke="#f97316" stroke-dasharray="3,2"/>
-                <!-- Dome detail -->
-                <ellipse cx="22" cy="25" rx="8" ry="5" fill="none" stroke="#f97316"/>
+        <div class="highlight-illustration">
+            <svg viewBox="0 0 90 90" fill="none">
+                <!-- Bank building with dome -->
+                <rect x="12" y="35" width="30" height="40" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+                <ellipse cx="27" cy="35" rx="12" ry="8" fill="#fef3c7" stroke="#ea580c" stroke-width="1.5"/>
+                <!-- Columns -->
+                <line x1="18" y1="45" x2="18" y2="70" stroke="#ea580c" stroke-width="2"/>
+                <line x1="27" y1="45" x2="27" y2="70" stroke="#ea580c" stroke-width="2"/>
+                <line x1="36" y1="45" x2="36" y2="70" stroke="#ea580c" stroke-width="2"/>
+                <!-- Modern tower -->
+                <rect x="50" y="20" width="28" height="55" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+                <!-- Windows grid -->
+                <g stroke="#ea580c" stroke-width="0.5" opacity="0.5">
+                    <line x1="55" y1="25" x2="55" y2="70"/>
+                    <line x1="64" y1="25" x2="64" y2="70"/>
+                    <line x1="73" y1="25" x2="73" y2="70"/>
+                    <line x1="50" y1="35" x2="78" y2="35"/>
+                    <line x1="50" y1="45" x2="78" y2="45"/>
+                    <line x1="50" y1="55" x2="78" y2="55"/>
+                    <line x1="50" y1="65" x2="78" y2="65"/>
+                </g>
+                <!-- Ground line -->
+                <line x1="5" y1="75" x2="85" y2="75" stroke="#ea580c" stroke-width="1"/>
             </svg>
         </div>
-        <div class="highlight-title">Nakanoshima</div>
-        <div class="highlight-subtitle">Historic banking district architecture</div>
-        <div class="highlight-day">Day 4</div>
+        <div class="highlight-info">
+            <div class="highlight-title">Nakanoshima</div>
+            <div class="highlight-subtitle">Historic banking district architecture walk</div>
+            <div class="highlight-day">Day 4</div>
+        </div>
     </div>
-    <!-- Takedao Railway -->
+
+    <!-- Takedao -->
     <div class="highlight-card">
-        <div class="highlight-icon">
-            <svg viewBox="0 0 80 80" fill="none" stroke="#f97316" stroke-width="1.5">
+        <div class="highlight-illustration">
+            <svg viewBox="0 0 90 90" fill="none">
                 <!-- Tunnel entrance -->
-                <path d="M15 70 L15 35 Q15 20 40 20 Q65 20 65 35 L65 70" fill="#fff7ed" stroke="#f97316"/>
-                <ellipse cx="40" cy="35" rx="20" ry="12" fill="none" stroke="#f97316"/>
-                <!-- Railway tracks -->
-                <line x1="25" y1="70" x2="30" y2="45" stroke="#f97316" stroke-width="2"/>
-                <line x1="55" y1="70" x2="50" y2="45" stroke="#f97316" stroke-width="2"/>
-                <line x1="28" y1="55" x2="52" y2="55" stroke="#f97316"/>
-                <line x1="26" y1="62" x2="54" y2="62" stroke="#f97316"/>
+                <path d="M25 75 L25 40 Q25 25 45 25 Q65 25 65 40 L65 75" fill="#f5f5f4" stroke="#ea580c" stroke-width="2"/>
+                <ellipse cx="45" cy="40" rx="16" ry="12" fill="#292524" stroke="#ea580c" stroke-width="2"/>
+                <!-- Railroad tracks into tunnel -->
+                <line x1="35" y1="75" x2="38" y2="50" stroke="#ea580c" stroke-width="2"/>
+                <line x1="55" y1="75" x2="52" y2="50" stroke="#ea580c" stroke-width="2"/>
+                <!-- Cross ties -->
+                <line x1="36" y1="60" x2="54" y2="60" stroke="#ea580c" stroke-width="1.5"/>
+                <line x1="37" y1="68" x2="53" y2="68" stroke="#ea580c" stroke-width="1.5"/>
                 <!-- Trees -->
-                <circle cx="8" cy="50" r="8" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
-                <circle cx="72" cy="45" r="10" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+                <circle cx="12" cy="55" r="12" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+                <rect x="10" y="65" width="4" height="10" fill="#a16207"/>
+                <circle cx="78" cy="50" r="14" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+                <rect x="76" y="62" width="4" height="13" fill="#a16207"/>
+                <!-- Small tree -->
+                <circle cx="18" cy="68" r="6" fill="#bbf7d0" stroke="#22c55e" stroke-width="1"/>
             </svg>
         </div>
-        <div class="highlight-title">Takedao Trail</div>
-        <div class="highlight-subtitle">Abandoned railway tunnels in nature</div>
-        <div class="highlight-day">Day 7</div>
+        <div class="highlight-info">
+            <div class="highlight-title">Takedao Trail</div>
+            <div class="highlight-subtitle">Abandoned railway tunnels in nature</div>
+            <div class="highlight-day">Day 7</div>
+        </div>
     </div>
 </div>
 
-<div style="padding: 10px 0;">
+<!-- Sample Day Cards for Phase 1 -->
+<div style="padding: 10px 0; background: #fafafa;">
+
     <!-- Day 1 -->
     <div class="day-card" style="--phase-color: var(--transit)">
         <div class="day-header">
-            <div class="day-date"><div class="date">18.9</div><div class="dow">Fri</div></div>
-            <div class="day-title"><h3>VIE → TPE</h3><div class="subtitle">Transit, flight - Departure from Vienna</div></div>
-            <div class="day-meta"><div class="day-num">D1</div></div>
+            <div class="day-date-box">
+                <div class="date">18</div>
+                <div class="month">SEP</div>
+                <div class="dow">Friday</div>
+            </div>
+            <div class="day-title-area">
+                <h3>Vienna → Taipei</h3>
+                <div class="subtitle">Departure flight, overnight transit</div>
+            </div>
+            <div class="day-number-badge">
+                <div class="num">D1</div>
+            </div>
         </div>
         <div class="day-body">
             <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item transport"><div class="tl-time">11:25</div><div class="tl-text">Departure from Vienna</div></div>
+                <div class="timeline">
+                    <div class="tl-item transport">
+                        <div class="tl-time">11:25</div>
+                        <div class="tl-text">Departure from Vienna</div>
+                    </div>
                 </div>
-                <div class="day-notes-inline">
+                <div class="notes-box">
                     <ul>
-                        <li class="note-task">Visit Japan Web - register several days ahead!</li>
-                        <li class="note-task">Activate roaming + mobile Suica</li>
-                        <li>Checklist: passport, insurance, driver's license, cards, EUR cash</li>
-                        <li class="note-task">Contact Riho (for Oct 17?)</li>
+                        <li class="task">Visit Japan Web — register days ahead</li>
+                        <li class="task">Activate roaming + mobile Suica</li>
+                        <li>Checklist: passport, insurance, driver's license, cards</li>
+                        <li class="task">Contact Riho (for Oct 17?)</li>
                     </ul>
                 </div>
             </div>
             <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">On plane</div></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-flight">Flight</span></div></div>
+                <div class="sidebar-block">
+                    <h4>Accommodation</h4>
+                    <div class="hotel-name">On plane</div>
+                </div>
+                <div class="sidebar-block">
+                    <h4>Tags</h4>
+                    <div class="tags"><span class="tag tag-flight">Flight</span></div>
+                </div>
             </div>
         </div>
     </div>
@@ -647,33 +1094,71 @@
     <!-- Day 2 -->
     <div class="day-card" style="--phase-color: var(--osaka)">
         <div class="day-header">
-            <div class="day-date"><div class="date">19.9</div><div class="dow">Sat</div></div>
-            <div class="day-title"><h3>KISHIWADA</h3><div class="subtitle">TPE → KIX → Kishiwada Danjiri Festival (Yoimiya)</div></div>
-            <div class="day-meta"><div class="day-num">D2</div><div class="temp">31°C</div></div>
+            <div class="day-date-box">
+                <div class="date">19</div>
+                <div class="month">SEP</div>
+                <div class="dow">Saturday</div>
+            </div>
+            <div class="day-title-area">
+                <h3>Kishiwada</h3>
+                <div class="subtitle">Danjiri Festival — Yoimiya evening</div>
+            </div>
+            <div class="day-number-badge">
+                <div class="num">D2</div>
+                <div class="temp">31°C</div>
+            </div>
         </div>
         <div class="day-body">
             <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item transport"><div class="tl-time">05:30</div><div class="tl-text">Departure TPE</div></div>
-                    <div class="tl-item transport"><div class="tl-time">09:00-12:50</div><div class="tl-text">Flight TPE → Osaka Kansai</div></div>
-                    <div class="tl-item"><div class="tl-time">~14:30</div><div class="tl-text">Arrival Kishiwada + check-in</div></div>
-                    <div class="tl-item sight"><div class="tl-time">15:00-17:00</div><div class="tl-text">Yarimawashi at Kankanba</div><div class="tl-note">Main viewing point for cart turning</div></div>
-                    <div class="tl-item sight"><div class="tl-time">19:00-21:30</div><div class="tl-text">Tomoshibi - illuminated danjiri</div></div>
+                <div class="timeline">
+                    <div class="tl-item transport">
+                        <div class="tl-time">05:30</div>
+                        <div class="tl-text">Departure TPE</div>
+                    </div>
+                    <div class="tl-item transport">
+                        <div class="tl-time">12:50</div>
+                        <div class="tl-text">Arrival Osaka Kansai</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-time">15:00–17:00</div>
+                        <div class="tl-text">Yarimawashi at Kankanba</div>
+                        <div class="tl-note">Main viewing point for cart turning</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-time">19:00–21:30</div>
+                        <div class="tl-text">Tomoshibi — illuminated danjiri</div>
+                    </div>
                 </div>
-                <div class="day-notes-inline">
+                <div class="notes-box">
                     <ul>
-                        <li>Jet lag will be noticeable - don't overdo it in the evening</li>
-                        <li>Kankanba = main viewing point for yarimawashi</li>
+                        <li>Jet lag will hit — don't overdo evening</li>
                         <li>Buy ICOCA at KIX or use existing Suica</li>
-                        <li>Hotel coupon 500 yen - don't forget!</li>
-                        <li class="note-tip">Have phone charged for video!</li>
+                        <li class="tip">Hotel coupon 500 yen — don't forget!</li>
+                        <li class="tip">Keep phone charged for video</li>
                     </ul>
                 </div>
             </div>
             <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Route-Inn Osaka Higashikishiwada</div><span class="hotel-badge badge-onsite">On-site</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-fest">Festival</span><span class="tag tag-flight">Flight</span></div></div>
-                <div class="sidebar-section"><h4>POI</h4><div class="pois-list"><span class="poi-badge">Kankanba</span><span class="poi-badge">Festival area</span></div></div>
+                <div class="sidebar-block">
+                    <h4>Accommodation</h4>
+                    <div class="hotel-name">Route-Inn Higashikishiwada</div>
+                    <div class="hotel-price">58 EUR</div>
+                    <div><span class="badge badge-onsite">On-site</span></div>
+                </div>
+                <div class="sidebar-block">
+                    <h4>Tags</h4>
+                    <div class="tags">
+                        <span class="tag tag-fest">Festival</span>
+                        <span class="tag tag-flight">Flight</span>
+                    </div>
+                </div>
+                <div class="sidebar-block">
+                    <h4>Key POI</h4>
+                    <div class="pois">
+                        <span class="poi">Kankanba</span>
+                        <span class="poi">Kansai Airport</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -681,554 +1166,186 @@
     <!-- Day 3 -->
     <div class="day-card" style="--phase-color: var(--osaka)">
         <div class="day-header">
-            <div class="day-date"><div class="date">20.9</div><div class="dow">Sun</div></div>
-            <div class="day-title"><h3>OSAKA</h3><div class="subtitle">Kishiwada → Osaka - Danjiri Hommya + Transfer</div></div>
-            <div class="day-meta"><div class="day-num">D3</div><div class="temp">31°C</div></div>
+            <div class="day-date-box">
+                <div class="date">20</div>
+                <div class="month">SEP</div>
+                <div class="dow">Sunday</div>
+            </div>
+            <div class="day-title-area">
+                <h3>Osaka</h3>
+                <div class="subtitle">Danjiri Hommya + Transfer to Osaka</div>
+            </div>
+            <div class="day-number-badge">
+                <div class="num">D3</div>
+                <div class="temp">31°C</div>
+            </div>
         </div>
         <div class="day-body">
             <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">09:00-11:30</div><div class="tl-text">Miyairi (shrine entry) at Kishiki Shrine</div></div>
-                    <div class="tl-item sight"><div class="tl-time">13:00-15:00</div><div class="tl-text">Haruki district (less touristy)</div></div>
-                    <div class="tl-item transport"><div class="tl-time">14:00-15:00</div><div class="tl-text">Transfer to Osaka</div></div>
+                <div class="timeline">
+                    <div class="tl-item">
+                        <div class="tl-time">09:00–11:30</div>
+                        <div class="tl-text">Miyairi at Kishiki Shrine</div>
+                        <div class="tl-note">Danjiri entering shrines — main day</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-time">13:00–15:00</div>
+                        <div class="tl-text">Haruki district (less touristy)</div>
+                    </div>
+                    <div class="tl-item transport">
+                        <div class="tl-time">Afternoon</div>
+                        <div class="tl-text">Transfer to Osaka</div>
+                    </div>
                 </div>
-                <div class="day-notes-inline">
+                <div class="notes-box">
                     <ul>
-                        <li>Hommiya = main day, but morning is key (shrine entry)</li>
                         <li>Priority: Kishiki Shrine for miyairi</li>
-                        <li>Haruki district = less touristy part of festival</li>
-                        <li class="note-tip">Kuromon market for dinner?</li>
+                        <li>Ideal transfer time: 14:00–15:00</li>
+                        <li class="tip">Kuromon market for dinner?</li>
                     </ul>
                 </div>
             </div>
             <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Shinsaibashi Arty Inn</div><div class="hotel-price">52 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-fest">Festival</span></div></div>
+                <div class="sidebar-block">
+                    <h4>Accommodation</h4>
+                    <div class="hotel-name">Shinsaibashi Arty Inn</div>
+                    <div class="hotel-price">52 EUR</div>
+                    <div><span class="badge badge-paid">Paid</span></div>
+                </div>
+                <div class="sidebar-block">
+                    <h4>Tags</h4>
+                    <div class="tags"><span class="tag tag-fest">Festival</span></div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Day 4 -->
-    <div class="day-card" style="--phase-color: var(--osaka)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">21.9</div><div class="dow">Mon</div></div>
-            <div class="day-title"><h3>OSAKA</h3><div class="subtitle">Nakanoshima - Kitahama - Semba Architecture</div></div>
-            <div class="day-meta"><div class="day-num">D4</div><div class="temp">31°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">09:30-13:30</div><div class="tl-text">Architecture walk: Bank of Japan, Central Public Hall, Library, Securities Exchange, Semba</div></div>
-                    <div class="tl-item work"><div class="tl-time">16:00-24:00</div><div class="tl-text">HOME OFFICE</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li>First HO day - have work setup ready</li>
-                        <li>Architecture walk = lots of walking, comfortable shoes</li>
-                        <li>Bank of Japan - check interior tour availability</li>
-                        <li class="note-task">Verify hotel WiFi (speed, stability)</li>
-                        <li class="note-tip">Rain backup: Umeda shopping area</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Shinsaibashi Arty Inn</div><div class="hotel-price">52 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-ho">HO</span></div></div>
-                <div class="sidebar-section"><h4>POI</h4><div class="pois-list"><span class="poi-badge">Bank of Japan</span><span class="poi-badge">Public Hall</span><span class="poi-badge">Nakanoshima Library</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 5 -->
-    <div class="day-card" style="--phase-color: var(--osaka)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">22.9</div><div class="dow">Tue</div></div>
-            <div class="day-title"><h3>OSAKA</h3><div class="subtitle">Sakai - Kofun UNESCO, Shimano Museum</div></div>
-            <div class="day-meta"><div class="day-num">D5</div><div class="temp">31°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">Morning</div><div class="tl-text">Sakai City Hall 21F - best Kofun view (free)</div></div>
-                    <div class="tl-item sight"><div class="tl-time">10:00-12:00</div><div class="tl-text">Shimano Bicycle Museum</div></div>
-                    <div class="tl-item work"><div class="tl-time">16:00-24:00</div><div class="tl-text">HOME OFFICE</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li class="note-warning">TODAY: Activate car insurance for Kumamoto!</li>
-                        <li class="note-task">LAUNDRY - first laundry of the trip (4 days)</li>
-                        <li>Shimano Museum open 10:00-16:30</li>
-                        <li>Option to rent bike and cycle around Kofun area</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Shinsaibashi Arty Inn</div><div class="hotel-price">52 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-ho">HO</span><span class="tag tag-bike">Bike</span></div></div>
-                <div class="sidebar-section"><h4>POI</h4><div class="pois-list"><span class="poi-badge">Kofun tombs</span><span class="poi-badge">Shimano Museum</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 6 -->
-    <div class="day-card" style="--phase-color: var(--osaka)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">23.9</div><div class="dow">Wed</div></div>
-            <div class="day-title"><h3>OSAKA</h3><div class="subtitle">Osaka Bay - Maishima, ATC, Sakishima</div></div>
-            <div class="day-meta"><div class="day-num">D6</div><div class="temp">31°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">09:30</div><div class="tl-text">Maishima Sports Island - 90s futuristic architecture</div></div>
-                    <div class="tl-item sight"><div class="tl-time">11:00-13:00</div><div class="tl-text">ATC, Sakishima - post-bubble urbanism, Cosmo Tower</div></div>
-                    <div class="tl-item work"><div class="tl-time">16:00-24:00</div><div class="tl-text">HOME OFFICE</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li>Osaka Bay = futuristic 90s architecture</li>
-                        <li>Maishima = waste island transformed into park</li>
-                        <li>ATC = brutalist/postmodern</li>
-                        <li>Metro Chuo line to Cosmosquare</li>
-                        <li class="note-tip">Rain backup: Kaiyukan Aquarium</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Shinsaibashi Arty Inn</div><div class="hotel-price">52 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-ho">HO</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 7 -->
-    <div class="day-card" style="--phase-color: var(--osaka)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">24.9</div><div class="dow">Thu</div></div>
-            <div class="day-title"><h3>OSAKA</h3><div class="subtitle">Takedao - Railway trail, tunnels, nature</div></div>
-            <div class="day-meta"><div class="day-num">D7</div><div class="temp">31°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">All day</div><div class="tl-text">JR Takedao - abandoned railway trail (~5km, 2-3h walk)</div><div class="tl-note">Tunnels, bridges, river - photogenic</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li class="note-tip">Full day without HO - use it fully!</li>
-                        <li>Abandoned railway = tunnels, bridges, river</li>
-                        <li>Bring flashlight for tunnels (or phone)</li>
-                        <li>Bring snacks and water - nothing on the trail</li>
-                        <li>Start early (9:00) for best light in tunnels</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Shinsaibashi Arty Inn</div><div class="hotel-price">52 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>POI</h4><div class="pois-list"><span class="poi-badge">JR Takedao</span><span class="poi-badge">Hiking trail</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 8 -->
-    <div class="day-card" style="--phase-color: var(--osaka)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">25.9</div><div class="dow">Fri</div></div>
-            <div class="day-title"><h3>OSAKA</h3><div class="subtitle">Museums + Critical Mass</div></div>
-            <div class="day-meta"><div class="day-num">D8</div><div class="temp">31°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">Morning</div><div class="tl-text">Nakanoshima Museum of Art (Ando Tadao, 2022)</div></div>
-                    <div class="tl-item sight"><div class="tl-time">Afternoon</div><div class="tl-text">National Museum of Art - underground building</div></div>
-                    <div class="tl-item sight"><div class="tl-time">Evening</div><div class="tl-text">Critical Mass Osaka</div><div class="tl-note">Check FB/Twitter for meeting point</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li class="note-warning">Critical Mass evening - verify meeting point!</li>
-                        <li class="note-task">Get Hello Bike account (app) ready beforehand</li>
-                        <li>Nakanoshima Museum = Ando Tadao (2022)</li>
-                        <li>National Museum = underground building</li>
-                        <li class="note-tip">Charge phone (navigation, bike light)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Shinsaibashi Arty Inn</div><div class="hotel-price">52 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-bike">Bike</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 9 -->
-    <div class="day-card" style="--phase-color: var(--osaka)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">26.9</div><div class="dow">Sat</div></div>
-            <div class="day-title"><h3>OSAKA</h3><div class="subtitle">Free time + Evening with Keigo</div></div>
-            <div class="day-meta"><div class="day-num">D9</div><div class="temp">31°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">Free</div><div class="tl-text">Tennoji / Abeno Harukas / modern Osaka</div></div>
-                    <div class="tl-item sight"><div class="tl-time">Evening</div><div class="tl-text">Meeting with Keigo</div><div class="tl-note">Contact min. 1 week ahead (by Sep 19)</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li class="note-warning">Keigo - must contact min. 1 week ahead!</li>
-                        <li>Tennoji = Abeno Harukas (tallest building)</li>
-                        <li>Tomorrow transfer to Kyoto - pack tonight!</li>
-                        <li>Last night at this hotel</li>
-                        <li>Verify checkout time</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Shinsaibashi Arty Inn</div><div class="hotel-price">52 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-meet">Meet</span></div></div>
-            </div>
-        </div>
-    </div>
 </div>
 
-<!-- PHASE 2: KYOTO -->
-<div class="phase-header" style="--phase-color: var(--kyoto)">
-    <h2>Phase 2: Kyoto</h2>
-    <div class="subtitle">Traditional + Modern Architecture, teamLab Biovortex</div>
-    <div class="dates">Days 10-14 | September 27 - October 1, 2026 | 5 days</div>
-</div>
-
-<div class="phase-highlights" style="--phase-color: var(--kyoto)">
-    <!-- Byodo-in -->
-    <div class="highlight-card">
-        <div class="highlight-icon">
-            <svg viewBox="0 0 80 80" fill="none" stroke="#a855f7" stroke-width="1.5">
-                <!-- Phoenix Hall stylized -->
-                <rect x="25" y="45" width="30" height="20" fill="#faf5ff" stroke="#a855f7"/>
-                <path d="M25 45 L40 30 L55 45" fill="#faf5ff" stroke="#a855f7"/>
-                <!-- Wings -->
-                <path d="M25 50 L10 45 L5 55 L25 55" fill="#faf5ff" stroke="#a855f7"/>
-                <path d="M55 50 L70 45 L75 55 L55 55" fill="#faf5ff" stroke="#a855f7"/>
-                <!-- Phoenix on top -->
-                <ellipse cx="40" cy="28" rx="4" ry="3" fill="#a855f7"/>
-                <!-- Reflection -->
-                <path d="M15 70 Q40 75 65 70" stroke="#a855f7" stroke-dasharray="2,2" opacity="0.5"/>
-                <path d="M20 73 Q40 77 60 73" stroke="#a855f7" stroke-dasharray="2,2" opacity="0.3"/>
-            </svg>
-        </div>
-        <div class="highlight-title">Byodo-in Temple</div>
-        <div class="highlight-subtitle">UNESCO Phoenix Hall in Uji</div>
-        <div class="highlight-day">Day 12</div>
-    </div>
-    <!-- teamLab -->
-    <div class="highlight-card">
-        <div class="highlight-icon">
-            <svg viewBox="0 0 80 80" fill="none" stroke="#a855f7" stroke-width="1.5">
-                <!-- Digital art waves -->
-                <path d="M10 50 Q20 40 30 50 Q40 60 50 50 Q60 40 70 50" stroke="#a855f7" stroke-width="2"/>
-                <path d="M10 40 Q20 30 30 40 Q40 50 50 40 Q60 30 70 40" stroke="#c084fc" stroke-width="2"/>
-                <path d="M10 30 Q20 20 30 30 Q40 40 50 30 Q60 20 70 30" stroke="#e879f9" stroke-width="2"/>
-                <!-- Particles -->
-                <circle cx="15" cy="25" r="2" fill="#a855f7"/>
-                <circle cx="35" cy="20" r="2" fill="#c084fc"/>
-                <circle cx="55" cy="22" r="2" fill="#e879f9"/>
-                <circle cx="65" cy="28" r="2" fill="#a855f7"/>
-                <circle cx="25" cy="55" r="2" fill="#c084fc"/>
-                <circle cx="45" cy="58" r="2" fill="#e879f9"/>
-                <circle cx="60" cy="52" r="2" fill="#a855f7"/>
-                <!-- Frame -->
-                <rect x="5" y="15" width="70" height="50" rx="5" fill="none" stroke="#a855f7" stroke-dasharray="4,2"/>
-            </svg>
-        </div>
-        <div class="highlight-title">teamLab Biovortex</div>
-        <div class="highlight-subtitle">Immersive digital art experience</div>
-        <div class="highlight-day">Day 14</div>
-    </div>
-    <!-- Matcha -->
-    <div class="highlight-card">
-        <div class="highlight-icon">
-            <svg viewBox="0 0 80 80" fill="none" stroke="#a855f7" stroke-width="1.5">
-                <!-- Tea bowl -->
-                <ellipse cx="40" cy="55" rx="22" ry="8" fill="#faf5ff" stroke="#a855f7"/>
-                <path d="M18 55 Q18 70 40 70 Q62 70 62 55" fill="#faf5ff" stroke="#a855f7"/>
-                <!-- Matcha surface -->
-                <ellipse cx="40" cy="48" rx="18" ry="6" fill="#bbf7d0" stroke="#22c55e"/>
-                <!-- Steam -->
-                <path d="M30 40 Q28 30 32 25" stroke="#a855f7" stroke-dasharray="2,2" opacity="0.5"/>
-                <path d="M40 38 Q38 28 42 20" stroke="#a855f7" stroke-dasharray="2,2" opacity="0.5"/>
-                <path d="M50 40 Q48 30 52 25" stroke="#a855f7" stroke-dasharray="2,2" opacity="0.5"/>
-                <!-- Chasen (whisk) hint -->
-                <line x1="55" y1="35" x2="65" y2="20" stroke="#a855f7" stroke-width="2"/>
-                <path d="M63 22 L67 18 M65 20 L68 22 M64 23 L70 20" stroke="#a855f7"/>
-            </svg>
-        </div>
-        <div class="highlight-title">Uji Matcha</div>
-        <div class="highlight-subtitle">Tea culture at its finest</div>
-        <div class="highlight-day">Day 12</div>
-    </div>
-</div>
-
-<div style="padding: 10px 0;">
-    <!-- Days 10-14 with same detailed format... -->
-    <!-- For brevity, continuing with summary structure -->
-
-    <!-- Day 10 -->
-    <div class="day-card" style="--phase-color: var(--kyoto)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">27.9</div><div class="dow">Sun</div></div>
-            <div class="day-title"><h3>KYOTO</h3><div class="subtitle">Transfer + Nijo - Imperial Palace - Kamogawa by bike</div></div>
-            <div class="day-meta"><div class="day-num">D10</div><div class="temp">30°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item transport"><div class="tl-time">Morning</div><div class="tl-text">Transfer Osaka → Kyoto (~30-45 min)</div></div>
-                    <div class="tl-item sight"><div class="tl-time">Afternoon</div><div class="tl-text">Nijo Castle, Imperial Palace, Kamogawa River by bike</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li>Kyoto = slower pace than Osaka</li>
-                        <li>Rent bike at hotel or near Kyoto Station</li>
-                        <li>Nijo Castle = recommend interior (Ninomaru Palace)</li>
-                        <li>Imperial Palace = gardens accessible</li>
-                        <li class="note-tip">Dinner: Pontocho or Gion area</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Hedistar Hotel Kyoto Nijo</div><div class="hotel-price">24 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-bike">Bike</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 11 -->
-    <div class="day-card" style="--phase-color: var(--kyoto)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">28.9</div><div class="dow">Mon</div></div>
-            <div class="day-title"><h3>KYOTO</h3><div class="subtitle">Full day with Takashi</div></div>
-            <div class="day-meta"><div class="day-num">D11</div><div class="temp">30°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">All day</div><div class="tl-text">Reserved for Takashi</div><div class="tl-note">No other program - be flexible</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li class="note-warning">Entire day reserved for Takashi!</li>
-                        <li>No own program - leave it to him</li>
-                        <li>Have cash for local places</li>
-                        <li>Contact should have been made beforehand!</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Hedistar Hotel Kyoto Nijo</div><div class="hotel-price">24 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-meet">Meet</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 12 -->
-    <div class="day-card" style="--phase-color: var(--kyoto)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">29.9</div><div class="dow">Tue</div></div>
-            <div class="day-title"><h3>KYOTO</h3><div class="subtitle">Uji - Byodo-in, Ujigami Shrine, tea</div></div>
-            <div class="day-meta"><div class="day-num">D12</div><div class="temp">30°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">08:30</div><div class="tl-text">Byodo-in Temple (10 yen coin motif, UNESCO)</div></div>
-                    <div class="tl-item sight"><div class="tl-time">11:00</div><div class="tl-text">Ujigami Shrine - oldest Shinto shrine in Japan</div></div>
-                    <div class="tl-item"><div class="tl-time">Lunch</div><div class="tl-text">Matcha soba, matcha parfait</div></div>
-                    <div class="tl-item work"><div class="tl-time">20:00-24:00</div><div class="tl-text">HOME OFFICE</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li>Uji = 20-30 min from Kyoto (Keihan/JR)</li>
-                        <li>Byodo-in opens 8:30 - go early = fewer people</li>
-                        <li>Phoenix Hall interior = tickets for specific time</li>
-                        <li class="note-tip">Uji = matcha center - matcha soba, parfait</li>
-                        <li>Ujigami = oldest Shinto shrine in Japan</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Hedistar Hotel Kyoto Nijo</div><div class="hotel-price">24 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-ho">HO</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 13 -->
-    <div class="day-card" style="--phase-color: var(--kyoto)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">30.9</div><div class="dow">Wed</div></div>
-            <div class="day-title"><h3>KYOTO</h3><div class="subtitle">KYOCERA Museum, Okazaki architecture</div></div>
-            <div class="day-meta"><div class="day-num">D13</div><div class="temp">30°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">Morning</div><div class="tl-text">Kyoto Station (Hiroshi Hara architecture)</div></div>
-                    <div class="tl-item sight"><div class="tl-time">11:00</div><div class="tl-text">KYOCERA Museum of Art (Jun Aoki renovation)</div></div>
-                    <div class="tl-item work"><div class="tl-time">16:00-24:00</div><div class="tl-text">HOME OFFICE</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li>Kyoto Station = Hiroshi Hara, massive atrium</li>
-                        <li>KYOCERA Museum = Jun Aoki renovation, spiral</li>
-                        <li class="note-task">LAUNDRY - 8 days since last!</li>
-                        <li>Area: Heian Shrine, Nanzenji (if time)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Hedistar Hotel Kyoto Nijo</div><div class="hotel-price">24 EUR</div><span class="hotel-badge badge-paid">Paid</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-ho">HO</span></div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Day 14 -->
-    <div class="day-card" style="--phase-color: var(--kyoto)">
-        <div class="day-header">
-            <div class="day-date"><div class="date">1.10</div><div class="dow">Thu</div></div>
-            <div class="day-title"><h3>OTSU</h3><div class="subtitle">teamLab Biovortex → Ofurocafe Biwakoza</div></div>
-            <div class="day-meta"><div class="day-num">D14</div><div class="temp">22°C</div></div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="day-timeline">
-                    <div class="tl-item sight"><div class="tl-time">09:30-12:00</div><div class="tl-text">teamLab Biovortex Kyoto (~2.5h)</div><div class="tl-note">TICKETS MUST BE BOOKED IN ADVANCE!</div></div>
-                    <div class="tl-item transport"><div class="tl-time">13:00-14:00</div><div class="tl-text">Kyoto → Otsu/Seta</div></div>
-                    <div class="tl-item sight"><div class="tl-time">15:00-20:00</div><div class="tl-text">Ofurocafe Biwakoza - onsen/sauna/relax</div></div>
-                    <div class="tl-item work"><div class="tl-time">20:00-24:00</div><div class="tl-text">HOME OFFICE</div></div>
-                </div>
-                <div class="day-notes-inline">
-                    <ul>
-                        <li class="note-warning">teamLab Biovortex = TICKETS MUST BE BOOKED IN ADVANCE!</li>
-                        <li>Morning slot = fewer people</li>
-                        <li>Luggage: coin locker Kyoto Station or send to Hikone?</li>
-                        <li>Ofurocafe = onsen + coworking, unique concept</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-section"><h4>Accommodation</h4><div class="hotel-name">Ofurocafe Biwakoza</div><span class="hotel-badge badge-onsite">On-site</span></div>
-                <div class="sidebar-section"><h4>Tags</h4><div class="tags"><span class="tag tag-ho">HO</span><span class="tag tag-onsen">Onsen</span></div></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Due to file size, remaining phases would follow same pattern -->
-<!-- Adding summary tables which are critical -->
-
-<!-- SUMMARY TABLES -->
-<div class="summary-section">
-    <h2>Laundry Schedule</h2>
+<!-- ══════════════════════════════════════════════════════════════════
+     SUMMARY TABLES
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="summary-page">
+    <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Laundry Schedule
+    </h2>
     <table>
-        <thead><tr><th>#</th><th>Date</th><th>Day</th><th>Location</th><th>Gap</th><th>Notes</th></tr></thead>
+        <thead>
+            <tr><th>#</th><th>Date</th><th>Day</th><th>Location</th><th>Gap</th><th>Notes</th></tr>
+        </thead>
         <tbody>
             <tr><td>1</td><td>22.9.</td><td>5</td><td>Osaka</td><td>4 days</td><td>First laundry</td></tr>
-            <tr><td>2</td><td>30.9.</td><td>13</td><td>Kyoto</td><td>8 days</td><td>Before Biwa</td></tr>
-            <tr class="highlight-row"><td>3</td><td>4.10.</td><td>17</td><td>Osaka</td><td>4 days</td><td><strong>Before Shimanami!</strong></td></tr>
-            <tr><td>4</td><td>10.10.</td><td>23</td><td>Yufuin</td><td>6 days</td><td>Ryokan laundry?</td></tr>
+            <tr><td>2</td><td>30.9.</td><td>13</td><td>Kyoto</td><td>8 days</td><td>Before Biwa cycling</td></tr>
+            <tr class="row-highlight"><td>3</td><td>4.10.</td><td>17</td><td>Osaka</td><td>4 days</td><td><strong>Before Shimanami!</strong></td></tr>
+            <tr><td>4</td><td>10.10.</td><td>23</td><td>Yufuin</td><td>6 days</td><td>Ryokan laundry service?</td></tr>
             <tr><td>5</td><td>18.10.</td><td>31</td><td>Nagasaki</td><td>8 days</td><td>After Unzen block</td></tr>
-            <tr><td>6</td><td>22.10.</td><td>35</td><td>Fukuoka</td><td>4 days</td><td>Before Tokyo</td></tr>
-            <tr class="highlight-row"><td>7</td><td>25.10.</td><td>38</td><td>Tokyo</td><td>3 days</td><td><strong>Before road trip!</strong></td></tr>
-            <tr><td>8</td><td>31.10.</td><td>44</td><td>Tokyo</td><td>6 days</td><td>Halloween</td></tr>
-            <tr><td>9</td><td>6.11.</td><td>50</td><td>Naha</td><td>6 days</td><td>Last laundry</td></tr>
+            <tr><td>6</td><td>22.10.</td><td>35</td><td>Fukuoka</td><td>4 days</td><td>Before Tokyo flight</td></tr>
+            <tr class="row-highlight"><td>7</td><td>25.10.</td><td>38</td><td>Tokyo</td><td>3 days</td><td><strong>Before Izu road trip!</strong></td></tr>
+            <tr><td>8</td><td>31.10.</td><td>44</td><td>Tokyo</td><td>6 days</td><td>Halloween day</td></tr>
+            <tr><td>9</td><td>6.11.</td><td>50</td><td>Naha</td><td>6 days</td><td>Last laundry before flight</td></tr>
         </tbody>
     </table>
 
-    <h2>Luggage Shipping (Yamato TA-Q-BIN)</h2>
+    <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="22" height="18" rx="2"/><path d="M1 9h22"/></svg>
+        Luggage Shipping (Yamato TA-Q-BIN)
+    </h2>
     <table>
-        <thead><tr><th>Date</th><th>Action</th><th>From</th><th>To</th><th>Notes</th></tr></thead>
+        <thead>
+            <tr><th>Date</th><th>Action</th><th>From</th><th>To</th><th>Notes</th></tr>
+        </thead>
         <tbody>
-            <tr><td>5.10. evening</td><td>Pack</td><td>-</td><td>-</td><td>Separate suitcase/bag</td></tr>
-            <tr class="highlight-row"><td>6.10. 07:30</td><td>Ship</td><td>Fukuyama</td><td>Hotel Sambancho, Matsuyama</td><td>Save tracking number!</td></tr>
-            <tr><td>7.10.</td><td>Pickup</td><td>-</td><td>Matsuyama</td><td>Should be waiting at hotel</td></tr>
-            <tr><td>15.10. evening</td><td>Pack</td><td>-</td><td>-</td><td>Separate suitcase/bag</td></tr>
-            <tr class="highlight-row"><td>16.10. 07:30</td><td>Ship</td><td>Kumamoto</td><td>APA Nagasaki Dejima</td><td>Yamato may open at 8:00!</td></tr>
-            <tr><td>18.10.</td><td>Pickup</td><td>-</td><td>Nagasaki</td><td>Should be waiting at hotel</td></tr>
+            <tr><td>5.10. evening</td><td>Pack</td><td>—</td><td>—</td><td>Separate suitcase from day bag</td></tr>
+            <tr class="row-highlight"><td>6.10. 07:30</td><td>Ship</td><td>Fukuyama</td><td>Hotel Sambancho, Matsuyama</td><td class="text-warning">Save tracking number!</td></tr>
+            <tr><td>7.10.</td><td>Pickup</td><td>—</td><td>Matsuyama</td><td class="text-success">Should be waiting at hotel</td></tr>
+            <tr><td>15.10. evening</td><td>Pack</td><td>—</td><td>—</td><td>Separate suitcase from day bag</td></tr>
+            <tr class="row-highlight"><td>16.10. 07:30</td><td>Ship</td><td>Kumamoto</td><td>APA Nagasaki Dejima</td><td class="text-warning">Yamato may open at 8:00!</td></tr>
+            <tr><td>18.10.</td><td>Pickup</td><td>—</td><td>Nagasaki</td><td class="text-success">Should be waiting at hotel</td></tr>
         </tbody>
     </table>
 
-    <h2>Car Rentals</h2>
+    <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"/><polygon points="12 15 17 21 7 21 12 15"/></svg>
+        Car Rentals
+    </h2>
     <table>
-        <thead><tr><th>#</th><th>Dates</th><th>Location</th><th>Days</th><th>Provider</th><th>Status</th><th>Notes</th></tr></thead>
+        <thead>
+            <tr><th>#</th><th>Dates</th><th>Location</th><th>Days</th><th>Provider</th><th>Status</th><th>Notes</th></tr>
+        </thead>
         <tbody>
-            <tr><td>1</td><td>12-15.10.</td><td>Kumamoto</td><td>4</td><td>Budget/TRIP</td><td>Booked</td><td>Return 18:00 HARD</td></tr>
-            <tr class="highlight-row"><td>2</td><td>26-29.10.</td><td>Mishima</td><td>4</td><td>?</td><td class="warning">NOT BOOKED!</td><td>Book ASAP!</td></tr>
+            <tr><td>1</td><td>12–15.10.</td><td>Kumamoto</td><td>4</td><td>Budget/TRIP</td><td class="text-success">Booked</td><td>Return 18:00 HARD</td></tr>
+            <tr class="row-highlight"><td>2</td><td>26–29.10.</td><td>Mishima</td><td>4</td><td>?</td><td class="text-warning">NOT BOOKED!</td><td>Book ASAP</td></tr>
             <tr><td>3</td><td>4.11.</td><td>Miyakojima</td><td>1</td><td>SOU Company</td><td>Booked?</td><td>Cash 5,300 yen</td></tr>
-            <tr><td>4</td><td>5-6.11.</td><td>Okinawa</td><td>2</td><td>Gyokoseki</td><td>Booked</td><td>Pay 6,700 yen onsite, return 13:00 HARD</td></tr>
-        </tbody>
-    </table>
-
-    <h2>Hard Deadlines</h2>
-    <table>
-        <thead><tr><th>Date</th><th>Time</th><th>What</th><th>If Missed</th><th>Mitigation</th></tr></thead>
-        <tbody>
-            <tr class="highlight-row"><td>8.10.</td><td>13:00</td><td>Ferry Yawatahama → Beppu</td><td>Next ferry evening</td><td>Buy ticket in Matsuyama day before!</td></tr>
-            <tr class="highlight-row"><td>15.10.</td><td>18:00</td><td>Car return Kumamoto</td><td>Late fee</td><td>Skip Goroga Falls if behind, tank day before</td></tr>
-            <tr><td>16.10.</td><td>09:25</td><td>Ferry Kumamoto → Shimabara</td><td>Next ferry +1h</td><td>Pack luggage night before, Yamato 07:30</td></tr>
-            <tr class="highlight-row"><td>6.11.</td><td>13:00</td><td>Car return Naha</td><td>Late fee</td><td>Tank evening before, skip Sefa if needed</td></tr>
-        </tbody>
-    </table>
-
-    <h2>Reservations Checklist</h2>
-    <h3 style="color: #dc2626; font-size: 10pt; margin: 16px 0 8px;">MUST Book in Advance</h3>
-    <table>
-        <tbody>
-            <tr><td>Ferry Yawatahama → Beppu</td><td>8.10., 13:00</td><td>Required</td></tr>
-            <tr><td>Express bus Yufuin → Kumamoto</td><td>11.10.</td><td>Required</td></tr>
-            <tr><td>teamLab Biovortex Kyoto</td><td>1.10.</td><td>Required</td></tr>
-            <tr><td>Takachiho Yokagura</td><td>14.10., 20:00</td><td>Required</td></tr>
-            <tr><td>Multi-day bike Onomichi → Imabari</td><td>6-7.10.</td><td>Recommended</td></tr>
-            <tr class="highlight-row"><td>Car rental Mishima</td><td>26-29.10.</td><td class="warning">NOT BOOKED!</td></tr>
-            <tr class="highlight-row"><td>Accommodation Izu/Fuji area</td><td>26-29.10.</td><td class="warning">NOT BOOKED!</td></tr>
-            <tr class="highlight-row"><td>Accommodation Tokyo</td><td>29.10.</td><td class="warning">NOT BOOKED!</td></tr>
-        </tbody>
-    </table>
-
-    <h3 style="font-size: 10pt; margin: 16px 0 8px;">Contact Schedule</h3>
-    <table>
-        <thead><tr><th>Person</th><th>Contact By</th><th>Meeting Date</th><th>Location</th></tr></thead>
-        <tbody>
-            <tr><td>Keigo</td><td>Sep 19</td><td>26.9. evening</td><td>Osaka</td></tr>
-            <tr><td>Takashi</td><td>ASAP</td><td>28.9. full day</td><td>Kyoto</td></tr>
-            <tr><td>Riho</td><td>Before trip</td><td>17.10.?</td><td>Unzen→Obama</td></tr>
-            <tr><td>Wahei</td><td>Sep 24</td><td>24.10.</td><td>Tokyo</td></tr>
-            <tr><td>Ryuki</td><td>Oct 9-16</td><td>23.10.</td><td>Tokyo</td></tr>
-            <tr><td>Minoru/Shogo</td><td>Oct 23</td><td>30.10. party</td><td>Tokyo</td></tr>
-        </tbody>
-    </table>
-
-    <h2>Trip Overview by Phase</h2>
-    <table>
-        <thead><tr><th>Phase</th><th>Region</th><th>Days</th><th>Dates</th><th>Key Highlights</th></tr></thead>
-        <tbody>
-            <tr style="background: rgba(249,115,22,0.1)"><td>1</td><td>Osaka</td><td>9</td><td>Sep 18-26</td><td>Kishiwada Festival, Nakanoshima architecture, Takedao, Critical Mass, Keigo</td></tr>
-            <tr style="background: rgba(168,85,247,0.1)"><td>2</td><td>Kyoto</td><td>5</td><td>Sep 27 - Oct 1</td><td>Takashi, Uji/Byodo-in, KYOCERA, teamLab Biovortex</td></tr>
-            <tr style="background: rgba(6,182,212,0.1)"><td>3</td><td>Biwa</td><td>2</td><td>Oct 2-3</td><td>Omi-Hachiman cycling, La Collina (Fujimori!), Hikone Castle</td></tr>
-            <tr style="background: rgba(16,185,129,0.1)"><td>4</td><td>Shimanami</td><td>4</td><td>Oct 4-7</td><td>Tomonoura, Kosanji + Hill of Hope, Oyamazumi Shrine, bridges</td></tr>
-            <tr style="background: rgba(239,68,68,0.1)"><td>5</td><td>Kyushu</td><td>15</td><td>Oct 8-22</td><td>Beppu onsen, Aso drive, Kurokawa, Takachiho Yokagura, Nagasaki Ryoma, ACROS Fukuoka</td></tr>
-            <tr style="background: rgba(59,130,246,0.1)"><td>6</td><td>Tokyo+Izu</td><td>10</td><td>Oct 23 - Nov 1</td><td>Wahei/Ryuki, Izu road trip, Mt. Fuji area, Hottarakashi onsen, Halloween</td></tr>
-            <tr style="background: rgba(20,184,166,0.1)"><td>7</td><td>Okinawa</td><td>7</td><td>Nov 2-9</td><td>Miyakojima beaches, Sefa Utaki, Naha, return via Taipei</td></tr>
+            <tr><td>4</td><td>5–6.11.</td><td>Okinawa</td><td>2</td><td>Gyokoseki</td><td class="text-success">Booked</td><td>Pay 6,700 yen onsite</td></tr>
         </tbody>
     </table>
 </div>
 
-<!-- Footer -->
-<div style="text-align: center; padding: 30px; color: #9ca3af; font-size: 7pt; border-top: 1px solid #e5e7eb; margin-top: 20px;">
-    <p style="font-size: 10pt; font-weight: 600; color: #374151; margin-bottom: 8px;">Japan 2026 Travel Guide</p>
-    <p>53 days | September 18 - November 9, 2026 | 7 regions | 188 POI</p>
-    <p style="margin-top: 12px;">Generated from ADJUSTED_MASTER_PLAN.md | Personal Itinerary</p>
+<div class="summary-page">
+    <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Hard Deadlines
+    </h2>
+    <table>
+        <thead>
+            <tr><th>Date</th><th>Time</th><th>What</th><th>If Missed</th><th>Mitigation</th></tr>
+        </thead>
+        <tbody>
+            <tr class="row-highlight"><td>8.10.</td><td>13:00</td><td>Ferry Yawatahama → Beppu</td><td>Next ferry evening</td><td>Buy ticket in Matsuyama day before</td></tr>
+            <tr class="row-highlight"><td>15.10.</td><td>18:00</td><td>Car return Kumamoto</td><td>Late fee</td><td>Skip Goroga Falls if behind</td></tr>
+            <tr><td>16.10.</td><td>09:25</td><td>Ferry Kumamoto → Shimabara</td><td>Next ferry +1h</td><td>Pack luggage night before</td></tr>
+            <tr class="row-highlight"><td>6.11.</td><td>13:00</td><td>Car return Naha</td><td>Late fee</td><td>Tank evening before</td></tr>
+        </tbody>
+    </table>
+
+    <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Contact Schedule
+    </h2>
+    <table>
+        <thead>
+            <tr><th>Person</th><th>Contact By</th><th>Meeting Date</th><th>Location</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Keigo</td><td>Sep 19</td><td>26.9. evening</td><td>Osaka</td><td>Min. 1 week ahead</td></tr>
+            <tr><td>Takashi</td><td>ASAP</td><td>28.9. full day</td><td>Kyoto</td><td>Entire day reserved</td></tr>
+            <tr><td>Riho</td><td>Before trip</td><td>17.10.?</td><td>Unzen → Obama</td><td>Possible guide</td></tr>
+            <tr><td>Wahei</td><td>Sep 24</td><td>24.10.</td><td>Tokyo</td><td>Min. 1 month ahead!</td></tr>
+            <tr><td>Ryuki</td><td>Oct 9–16</td><td>23.10.</td><td>Tokyo</td><td>1–2 weeks ahead</td></tr>
+            <tr><td>Minoru/Shogo</td><td>Oct 23</td><td>30.10. party</td><td>Tokyo</td><td>Bar Nekorob?</td></tr>
+        </tbody>
+    </table>
+
+    <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Trip Overview by Phase
+    </h2>
+    <table>
+        <thead>
+            <tr><th style="width: 40px;">Phase</th><th>Region</th><th style="width: 50px;">Days</th><th>Dates</th><th>Key Highlights</th></tr>
+        </thead>
+        <tbody>
+            <tr><td style="background: var(--osaka); color: white; text-align: center; font-weight: 700;">1</td><td>Osaka</td><td>9</td><td>Sep 18–26</td><td>Kishiwada Festival, Nakanoshima, Takedao, Critical Mass</td></tr>
+            <tr><td style="background: var(--kyoto); color: white; text-align: center; font-weight: 700;">2</td><td>Kyoto</td><td>5</td><td>Sep 27 – Oct 1</td><td>Takashi, Uji/Byodo-in, KYOCERA, teamLab Biovortex</td></tr>
+            <tr><td style="background: var(--biwa); color: white; text-align: center; font-weight: 700;">3</td><td>Biwa</td><td>2</td><td>Oct 2–3</td><td>La Collina (Fujimori!), Hikone Castle cycling</td></tr>
+            <tr><td style="background: var(--shimanami); color: white; text-align: center; font-weight: 700;">4</td><td>Shimanami</td><td>4</td><td>Oct 4–7</td><td>Tomonoura, Kosanji, Oyamazumi, bridge cycling</td></tr>
+            <tr><td style="background: var(--kyushu); color: white; text-align: center; font-weight: 700;">5</td><td>Kyushu</td><td>15</td><td>Oct 8–22</td><td>Beppu onsen, Aso, Kurokawa, Yokagura, Nagasaki</td></tr>
+            <tr><td style="background: var(--tokyo); color: white; text-align: center; font-weight: 700;">6</td><td>Tokyo + Izu</td><td>10</td><td>Oct 23 – Nov 1</td><td>Friends, Fuji road trip, Hottarakashi, Halloween</td></tr>
+            <tr><td style="background: var(--okinawa); color: white; text-align: center; font-weight: 700;">7</td><td>Okinawa</td><td>7</td><td>Nov 2–9</td><td>Miyakojima beaches, Sefa Utaki, Taipei layover</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="guide-footer">
+    <h3>Japan 2026</h3>
+    <p>53 days · 7 regions · 188 points of interest</p>
+    <p style="margin-top: 12px; font-size: 8pt; color: #9ca3af;">
+        September 18 – November 9, 2026 · Personal Travel Guide
+    </p>
 </div>
 
 </body>
