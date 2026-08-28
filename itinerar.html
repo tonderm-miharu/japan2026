@@ -1155,6 +1155,15 @@
             gap: 5px;
             font-weight: 500;
         }
+        .hotel-badge-link {
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .hotel-badge-link:hover {
+            filter: brightness(1.2);
+            transform: scale(1.05);
+        }
         .badge-icon {
             width: 14px;
             height: 14px;
@@ -3039,7 +3048,7 @@
 
     function getProviderBadge(provider) {
         if (!provider) return '';
-        const map = {
+        const classMap = {
             'Trip': 'badge-trip',
             'Agoda': 'badge-agoda',
             'Booking': 'badge-booking',
@@ -3048,7 +3057,19 @@
             'Revolut': 'badge-revolut',
             'Hotel Web': 'badge-hotelweb'
         };
-        return `<span class="hotel-badge ${map[provider] || ''}">${provider}</span>`;
+        const urlMap = {
+            'Trip': 'https://www.trip.com/mytrips/',
+            'Agoda': 'https://www.agoda.com/mybooking/',
+            'Booking': 'https://www.booking.com/mybooking.html',
+            'JAPANiCAN': 'https://www.japanican.com/en/mybooking/',
+            'IKYU': 'https://www.ikyu.com/ap/srch/UMMyPage.aspx',
+            'Revolut': 'https://www.revolut.com/'
+        };
+        const url = urlMap[provider];
+        if (url) {
+            return `<a href="${url}" target="_blank" class="hotel-badge hotel-badge-link ${classMap[provider] || ''}" onclick="event.stopPropagation()">${provider}</a>`;
+        }
+        return `<span class="hotel-badge ${classMap[provider] || ''}">${provider}</span>`;
     }
 
     // ═══════════════════════════════════════════════════════════════
@@ -3498,8 +3519,21 @@
                 'Trip': 'badge-trip', 'Agoda': 'badge-agoda', 'Booking': 'badge-booking',
                 'JAPANiCAN': 'badge-japanican', 'IKYU': 'badge-ikyu', 'Revolut': 'badge-revolut', 'Hotel Web': 'badge-hotelweb'
             }[info.provider] || '';
+            const providerUrl = {
+                'Trip': 'https://www.trip.com/mytrips/',
+                'Agoda': 'https://www.agoda.com/mybooking/',
+                'Booking': 'https://www.booking.com/mybooking.html',
+                'JAPANiCAN': 'https://www.japanican.com/en/mybooking/',
+                'IKYU': 'https://www.ikyu.com/ap/srch/UMMyPage.aspx',
+                'Revolut': 'https://www.revolut.com/',
+                'Hotel Web': null
+            }[info.provider];
             let badges = '';
-            if (info.provider) badges += `<span class="hotel-badge ${providerClass}">${info.provider}</span> `;
+            if (info.provider && providerUrl) {
+                badges += `<a href="${providerUrl}" target="_blank" class="hotel-badge hotel-badge-link ${providerClass}">${info.provider}</a> `;
+            } else if (info.provider) {
+                badges += `<span class="hotel-badge ${providerClass}">${info.provider}</span> `;
+            }
             if (info.payment === 'paid') badges += '<span class="hotel-badge badge-paid">✓ Paid</span> ';
             if (info.payment === 'on-site') badges += `<span class="hotel-badge badge-onsite">¥ On-site${info.jpy ? ' ' + info.jpy : ''}</span> `;
             if (d.cancel) badges += `<span class="hotel-badge badge-cancel">⚠ ${d.cancel}</span> `;
