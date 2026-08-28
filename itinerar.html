@@ -417,27 +417,58 @@
             stroke: #ef4444;
         }
 
+        .search-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            flex: 1;
+            min-width: 60px;
+            max-width: 200px;
+        }
         .nav-search {
-            padding: 6px 10px;
+            padding: 6px 28px 6px 10px;
             border-radius: 14px;
             border: 1px solid var(--border);
             background: transparent;
             color: var(--text);
             font-size: 0.75rem;
-            flex: 1;
-            min-width: 60px;
-            max-width: 200px;
+            width: 100%;
             outline: none;
             transition: all 0.15s;
         }
 
         .nav-search:focus { border-color: var(--accent); }
         .nav-search::placeholder { color: var(--text-dim); }
+        .search-clear {
+            position: absolute;
+            right: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            border: none;
+            background: var(--text-muted);
+            color: var(--bg);
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            line-height: 1;
+            padding: 0;
+        }
+        .search-clear:hover { background: var(--text-dim); }
+        .search-wrapper.has-value .search-clear { display: flex; }
 
         .menu-search {
             padding: 8px 4px 4px;
             border-top: 1px solid var(--border);
             margin-top: 4px;
+        }
+        .menu-search .search-wrapper {
+            width: 100%;
+            max-width: none;
         }
         .menu-search .nav-search {
             width: 100%;
@@ -445,7 +476,7 @@
         }
 
         @media (max-width: 900px) {
-            .nav-search:not(.menu-search .nav-search) { display: none; }
+            .search-wrapper:not(.menu-search .search-wrapper) { display: none; }
             .header-top { gap: 8px; }
             .countdown { margin-left: 0; white-space: nowrap; text-shadow: none !important; }
         }
@@ -1854,7 +1885,7 @@
                             <button class="view-btn" data-action="weather"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg><span>Weather</span></button>
                             <button class="view-btn" data-action="print"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg><span>Print</span></button>
                         </div>
-                        <input type="text" class="nav-search" id="search" placeholder="Search...">
+                        <div class="search-wrapper"><input type="text" class="nav-search" id="search" placeholder="Search..."><button type="button" class="search-clear" aria-label="Clear search">&times;</button></div>
                     </div>
                     <div class="menu-container">
                         <button class="nav-btn" id="menuBtn"><span class="nav-btn-icon">☰</span><span class="news-badge" id="newsBadge"></span></button>
@@ -1866,7 +1897,7 @@
                             <button class="menu-item" data-view="transport"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14"/><path d="M5 12h14"/><path d="M5 7h14"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg><span>Transport</span></button>
                             <button class="menu-item" data-action="weather"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg><span>Weather</span></button>
                             <div class="menu-search">
-                                <input type="text" class="nav-search" id="searchMobile" placeholder="Search...">
+                                <div class="search-wrapper"><input type="text" class="nav-search" id="searchMobile" placeholder="Search..."><button type="button" class="search-clear" aria-label="Clear search">&times;</button></div>
                             </div>
                         </div>
                     </div>
@@ -3428,12 +3459,33 @@
     const searchInput = document.getElementById('search');
     const searchMobile = document.getElementById('searchMobile');
 
-    if (searchInput) {
-        searchInput.addEventListener('input', () => handleSearch(searchInput.value.toLowerCase()));
+    function setupSearchClear(input) {
+        if (!input) return;
+        const wrapper = input.closest('.search-wrapper');
+        const clearBtn = wrapper?.querySelector('.search-clear');
+        if (!wrapper || !clearBtn) return;
+
+        const updateClearVisibility = () => {
+            wrapper.classList.toggle('has-value', input.value.length > 0);
+        };
+
+        input.addEventListener('input', () => {
+            handleSearch(input.value.toLowerCase());
+            updateClearVisibility();
+        });
+
+        clearBtn.addEventListener('click', () => {
+            input.value = '';
+            handleSearch('');
+            updateClearVisibility();
+            input.focus();
+        });
+
+        updateClearVisibility();
     }
-    if (searchMobile) {
-        searchMobile.addEventListener('input', () => handleSearch(searchMobile.value.toLowerCase()));
-    }
+
+    setupSearchClear(searchInput);
+    setupSearchClear(searchMobile);
 
     // Hamburger menu dropdown
     const menuBtn = document.getElementById('menuBtn');
