@@ -3061,14 +3061,14 @@
         const url = PROVIDER_URLS[provider];
         if (!url) return;
 
-        // On mobile/PWA, use location.href to trigger app deep link
-        // On desktop, open in new tab
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        if (isMobile) {
-            window.location.href = url;
-        } else {
-            window.open(url, '_blank');
-        }
+        // Create temporary <a> element - iOS handles native links better for deep linking
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
     }
 
     function getProviderBadge(provider) {
