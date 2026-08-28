@@ -470,6 +470,26 @@
 
         .menu-dropdown.open { display: block; }
 
+        /* News badge on hamburger */
+        .nav-btn { position: relative; }
+        .news-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            min-width: 16px;
+            height: 16px;
+            padding: 0 4px;
+            background: #ef4444;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .news-badge:empty { display: none; }
+
         .menu-item {
             display: flex;
             align-items: center;
@@ -562,6 +582,168 @@
 
         .phase-name { font-size: 0.9rem; flex: 1; }
         .phase-dates { font-size: 0.8rem; color: var(--text-dim); }
+
+        /* News sidebar section */
+        .sidebar-news {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 14px;
+            margin-top: 12px;
+        }
+        .sidebar-news-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+        .sidebar-news-header svg { width: 14px; height: 14px; stroke: #d1d5db; }
+        .news-list { display: flex; flex-direction: column; gap: 8px; }
+        .news-item {
+            padding: 10px;
+            background: rgba(0,0,0,0.15);
+            border-radius: 6px;
+            border-left: 3px solid #6b7280;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .news-item:hover { background: rgba(0,0,0,0.25); }
+        .news-item.news-warning { border-left-color: #ef4444; }
+        .news-item.news-transport { border-left-color: #3b82f6; }
+        .news-item-title {
+            font-size: 0.8rem;
+            color: var(--text);
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .news-item-meta {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        .news-empty {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 12px;
+        }
+        .news-offline {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-align: center;
+            padding: 8px;
+            font-style: italic;
+        }
+        .news-more {
+            display: block;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 6px;
+            transition: background 0.15s;
+        }
+        .news-more:hover { background: rgba(255,255,255,0.05); }
+
+        /* News modal */
+        .news-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 60px 16px 16px;
+            z-index: 200;
+            overflow-y: auto;
+        }
+        .news-modal-overlay.open { display: flex; }
+        .news-modal {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 500px;
+            max-height: calc(100vh - 100px);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .news-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        .news-modal-header h2 {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .news-modal-header h2 svg { width: 20px; height: 20px; stroke: #d1d5db; }
+        .news-modal-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+        .news-modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+        .news-modal-close:hover { color: var(--text); }
+        .news-modal-content {
+            padding: 16px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        .news-modal-item {
+            padding: 14px;
+            background: rgba(0,0,0,0.15);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #6b7280;
+        }
+        .news-modal-item.news-warning { border-left-color: #ef4444; }
+        .news-modal-item.news-transport { border-left-color: #3b82f6; }
+        .news-modal-item-cat {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .news-modal-item-title {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+        .news-modal-item-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .news-modal-footer {
+            padding: 12px 16px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .news-modal-footer a {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+        .news-modal-footer a:hover { color: var(--text); }
 
         .task-item {
             display: flex;
@@ -1610,6 +1792,7 @@
                     </div>
                     <div class="nav-right">
                         <div class="view-row">
+                            <button class="view-btn" data-modal="news"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1"/><path d="M18 14v4a2 2 0 002 2"/><path d="M18 11V7a2 2 0 012-2 2 2 0 012 2v11a2 2 0 01-2 2"/><line x1="6" y1="10" x2="12" y2="10"/><line x1="6" y1="14" x2="10" y2="14"/></svg><span>News</span></button>
                             <button class="view-btn" data-modal="calendar"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg><span>Calendar</span></button>
                             <button class="view-btn" data-modal="tasks"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9"/></svg><span>Tasks</span></button>
                             <button class="view-btn" data-view="hotels"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 9h1"/><path d="M14 9h1"/><path d="M9 13h1"/><path d="M14 13h1"/></svg><span>Hotels</span></button>
@@ -1621,8 +1804,9 @@
                         <input type="text" class="nav-search" id="search" placeholder="Search...">
                     </div>
                     <div class="menu-container">
-                        <button class="nav-btn" id="menuBtn"><span class="nav-btn-icon">☰</span></button>
+                        <button class="nav-btn" id="menuBtn"><span class="nav-btn-icon">☰</span><span class="news-badge" id="newsBadge"></span></button>
                         <div class="menu-dropdown" id="menuDropdown">
+                            <button class="menu-item" data-modal="news"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1"/><path d="M18 14v4a2 2 0 002 2"/><path d="M18 11V7a2 2 0 012-2 2 2 0 012 2v11a2 2 0 01-2 2"/><line x1="6" y1="10" x2="12" y2="10"/><line x1="6" y1="14" x2="10" y2="14"/></svg><span>News</span><span class="news-badge" id="newsBadgeMenu" style="position:static;margin-left:auto"></span></button>
                             <button class="menu-item" data-modal="tasks"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9"/></svg><span>Tasks</span></button>
                             <button class="menu-item" data-view="hotels"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 9h1"/><path d="M14 9h1"/><path d="M9 13h1"/><path d="M14 13h1"/></svg><span>Hotels</span></button>
                             <button class="menu-item" data-view="contacts"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg><span>Contacts</span></button>
@@ -1646,10 +1830,38 @@
                 <div class="tz-block"><span class="tz-label">Prague</span><span class="tz-time tz-time-cz" id="tzCzSidebar">--:--</span></div>
             </div>
             <div class="sidebar-calendar" id="sidebarCalendar"></div>
+            <div class="sidebar-news" id="sidebarNews">
+                <div class="sidebar-news-header">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1"/><path d="M18 14v4a2 2 0 002 2"/><path d="M18 11V7a2 2 0 012-2 2 2 0 012 2v11a2 2 0 01-2 2"/><line x1="6" y1="10" x2="12" y2="10"/><line x1="6" y1="14" x2="10" y2="14"/></svg>
+                    Japan News
+                </div>
+                <div class="news-list" id="sidebarNewsList">
+                    <div class="news-offline">Loading...</div>
+                </div>
+                <a href="https://www3.nhk.or.jp/nhkworld/en/news/" target="_blank" class="news-more">More on NHK World →</a>
+            </div>
         </aside>
 
         <section class="days" id="days"></section>
     </main>
+
+    <div class="news-modal-overlay" id="newsModal">
+        <div class="news-modal">
+            <div class="news-modal-header">
+                <div>
+                    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1"/><path d="M18 14v4a2 2 0 002 2"/><path d="M18 11V7a2 2 0 012-2 2 2 0 012 2v11a2 2 0 01-2 2"/><line x1="6" y1="10" x2="12" y2="10"/><line x1="6" y1="14" x2="10" y2="14"/></svg>Japan News</h2>
+                    <div class="news-modal-sub">via NHK World</div>
+                </div>
+                <button class="news-modal-close" id="closeNewsModal">&times;</button>
+            </div>
+            <div class="news-modal-content" id="newsModalContent">
+                <div class="news-offline">Loading news...</div>
+            </div>
+            <div class="news-modal-footer">
+                <a href="https://www3.nhk.or.jp/nhkworld/en/news/" target="_blank">More news on NHK World →</a>
+            </div>
+        </div>
+    </div>
 
     <div class="task-modal-overlay" id="taskModal">
         <div class="task-modal">
@@ -2794,6 +3006,148 @@
         return `<span class="hotel-badge ${map[provider] || ''}">${provider}</span>`;
     }
 
+    // ═══════════════════════════════════════════════════════════════
+    // NEWS FROM NHK WORLD
+    // ═══════════════════════════════════════════════════════════════
+    let newsCache = { items: [], lastFetch: 0 };
+    const NEWS_CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
+    const NEWS_API = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww3.nhk.or.jp%2Frss%2Fnews%2Fcat0.xml';
+
+    // Keywords for categorization
+    const WARNING_KEYWORDS = ['typhoon', 'earthquake', 'tsunami', 'quake', 'storm', 'flood', 'landslide', 'volcano', 'eruption', 'emergency', 'evacuation', 'warning', 'alert', 'disaster'];
+    const TRANSPORT_KEYWORDS = ['train', 'rail', 'shinkansen', 'jr ', 'delay', 'suspended', 'airport', 'flight', 'bus', 'ferry'];
+
+    function categorizeNews(title) {
+        const lower = title.toLowerCase();
+        if (WARNING_KEYWORDS.some(k => lower.includes(k))) return 'warning';
+        if (TRANSPORT_KEYWORDS.some(k => lower.includes(k))) return 'transport';
+        return 'general';
+    }
+
+    function timeAgo(dateStr) {
+        const date = new Date(dateStr);
+        const now = new Date();
+        const diff = Math.floor((now - date) / 1000);
+        if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+        if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+        return Math.floor(diff / 86400) + 'd ago';
+    }
+
+    async function fetchNews() {
+        // Check cache
+        if (newsCache.items.length > 0 && Date.now() - newsCache.lastFetch < NEWS_CACHE_DURATION) {
+            return newsCache.items;
+        }
+
+        try {
+            const response = await fetch(NEWS_API, { timeout: 10000 });
+            if (!response.ok) throw new Error('Network error');
+            const data = await response.json();
+
+            if (data.status === 'ok' && data.items) {
+                newsCache.items = data.items.slice(0, 10).map(item => ({
+                    title: item.title,
+                    link: item.link,
+                    pubDate: item.pubDate,
+                    category: categorizeNews(item.title)
+                }));
+                newsCache.lastFetch = Date.now();
+                return newsCache.items;
+            }
+            throw new Error('Invalid response');
+        } catch (e) {
+            console.log('News fetch failed (offline?):', e.message);
+            return null; // null = offline/error
+        }
+    }
+
+    function renderNewsSidebar(news) {
+        const container = document.getElementById('sidebarNewsList');
+        if (!container) return;
+
+        if (news === null) {
+            container.innerHTML = '<div class="news-offline">Offline - news unavailable</div>';
+            return;
+        }
+
+        if (news.length === 0) {
+            container.innerHTML = '<div class="news-empty">No news available</div>';
+            return;
+        }
+
+        // Show max 3 items in sidebar
+        const items = news.slice(0, 3);
+        container.innerHTML = items.map(n => `
+            <div class="news-item news-${n.category}" onclick="window.open('${n.link}', '_blank')">
+                <div class="news-item-title">${n.title}</div>
+                <div class="news-item-meta">${timeAgo(n.pubDate)}</div>
+            </div>
+        `).join('');
+    }
+
+    function renderNewsModal(news) {
+        const container = document.getElementById('newsModalContent');
+        if (!container) return;
+
+        if (news === null) {
+            container.innerHTML = '<div class="news-offline">Unable to load news. Check your internet connection.</div>';
+            return;
+        }
+
+        if (news.length === 0) {
+            container.innerHTML = '<div class="news-empty">No news available</div>';
+            return;
+        }
+
+        const catLabels = { warning: '⚠️ Alert', transport: '🚃 Transport', general: '📰 News' };
+        container.innerHTML = news.map(n => `
+            <div class="news-modal-item news-${n.category}" onclick="window.open('${n.link}', '_blank')" style="cursor:pointer">
+                <div class="news-modal-item-cat">${catLabels[n.category]}</div>
+                <div class="news-modal-item-title">${n.title}</div>
+                <div class="news-modal-item-meta">${timeAgo(n.pubDate)}</div>
+            </div>
+        `).join('');
+    }
+
+    function updateNewsBadge(news) {
+        const badge = document.getElementById('newsBadge');
+        const badgeMenu = document.getElementById('newsBadgeMenu');
+
+        if (!news || news.length === 0) {
+            if (badge) badge.textContent = '';
+            if (badgeMenu) badgeMenu.textContent = '';
+            return;
+        }
+
+        // Count warnings/transport news as "important"
+        const importantCount = news.filter(n => n.category === 'warning' || n.category === 'transport').length;
+        const displayCount = importantCount > 0 ? importantCount : '';
+
+        if (badge) badge.textContent = displayCount;
+        if (badgeMenu) badgeMenu.textContent = displayCount;
+    }
+
+    async function initNews() {
+        const news = await fetchNews();
+        renderNewsSidebar(news);
+        renderNewsModal(news);
+        updateNewsBadge(news);
+    }
+
+    // News modal handlers
+    function openNewsModal() {
+        document.getElementById('newsModal').classList.add('open');
+        // Clear badge when opened
+        const badge = document.getElementById('newsBadge');
+        const badgeMenu = document.getElementById('newsBadgeMenu');
+        if (badge) badge.textContent = '';
+        if (badgeMenu) badgeMenu.textContent = '';
+    }
+
+    function closeNewsModal() {
+        document.getElementById('newsModal').classList.remove('open');
+    }
+
     function renderTasks() {
         const containers = [document.getElementById('tasks'), document.getElementById('tasksMobile')];
         const saved = JSON.parse(localStorage.getItem('japan2026_tasks') || '{}');
@@ -3072,6 +3426,18 @@
         if (e.target.id === 'taskModal') {
             document.getElementById('taskModal').classList.remove('visible');
         }
+    });
+
+    // News modal handlers
+    document.querySelectorAll('[data-modal="news"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (menuDropdown) menuDropdown.classList.remove('open');
+            openNewsModal();
+        });
+    });
+    document.getElementById('closeNewsModal').addEventListener('click', closeNewsModal);
+    document.getElementById('newsModal').addEventListener('click', (e) => {
+        if (e.target.id === 'newsModal') closeNewsModal();
     });
 
     // View modal handlers
@@ -3442,6 +3808,7 @@
     renderProgressStrip();
     renderTasks();
     renderDays();
+    initNews(); // Load news from NHK World
     updateCountdown(true); // Animate on page load
 
     // Scroll to current day on page load
