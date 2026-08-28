@@ -1838,7 +1838,7 @@
                 <div class="news-list" id="sidebarNewsList">
                     <div class="news-offline">Loading...</div>
                 </div>
-                <a href="https://www3.nhk.or.jp/nhkworld/en/news/" target="_blank" class="news-more">More on NHK World →</a>
+                <a href="https://www.japantimes.co.jp/" target="_blank" class="news-more">More on Japan Times →</a>
             </div>
         </aside>
 
@@ -1850,7 +1850,7 @@
             <div class="news-modal-header">
                 <div>
                     <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1"/><path d="M18 14v4a2 2 0 002 2"/><path d="M18 11V7a2 2 0 012-2 2 2 0 012 2v11a2 2 0 01-2 2"/><line x1="6" y1="10" x2="12" y2="10"/><line x1="6" y1="14" x2="10" y2="14"/></svg>Japan News</h2>
-                    <div class="news-modal-sub">via NHK World</div>
+                    <div class="news-modal-sub">via Japan Times</div>
                 </div>
                 <button class="news-modal-close" id="closeNewsModal">&times;</button>
             </div>
@@ -1858,7 +1858,7 @@
                 <div class="news-offline">Loading news...</div>
             </div>
             <div class="news-modal-footer">
-                <a href="https://www3.nhk.or.jp/nhkworld/en/news/" target="_blank">More news on NHK World →</a>
+                <a href="https://www.japantimes.co.jp/" target="_blank">More news on NHK World →</a>
             </div>
         </div>
     </div>
@@ -3011,7 +3011,7 @@
     // ═══════════════════════════════════════════════════════════════
     let newsCache = { items: [], lastFetch: 0 };
     const NEWS_CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
-    const NEWS_API = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww3.nhk.or.jp%2Fnhkworld%2Fen%2Fnews%2Frss.xml';
+    const NEWS_API = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.japantimes.co.jp%2Ffeed%2F';
 
     // Keywords for categorization
     const WARNING_KEYWORDS = ['typhoon', 'earthquake', 'tsunami', 'quake', 'storm', 'flood', 'landslide', 'volcano', 'eruption', 'emergency', 'evacuation', 'warning', 'alert', 'disaster'];
