@@ -34,7 +34,7 @@
 - **Header** - Japan'26 | Timezone | Countdown
 - **Filters** - gray default, blue glow when active (icon + border light up)
 - **Calendar** - red glowing icon
-- **Hamburger** - Tasks, Hotels, Contacts, Transport, Weather, Print PDF (purple SVG icons), Search
+- **Hamburger** - Tasks, Hotels, Contacts, Transport, Weather (purple SVG icons), Search
 
 ### Print / PDF Export
 - Click Print button (desktop view-row or mobile hamburger menu)
@@ -48,7 +48,7 @@
 
 ### Travel Guide PDF
 Professional printable travel guide (`japan-travel-guide.html`):
-- Cover page with trip statistics (53 days, 7 regions, 188 POI, 29 hotels)
+- Cover page with trip statistics (53 days, 7 regions, 189 POI, 29 hotels)
 - Statistics page with region breakdown bars
 - Phase maps as hand-drawn style sketches with numbered POI markers
 - Day cards with date left, day number right
@@ -82,14 +82,14 @@ Professional printable travel guide (`japan-travel-guide.html`):
 - Color-coded: green (weekday), gray (weekend), with HO indicator
 - Weather icon with temperature
 - Expandable details with timeline and POI
-- Google Maps links for 188 POI (opens app directly on mobile)
-- Tag icons (HO, car, bike, onsen, meet, flight, fest)
+- Google Maps links for 189 POI (opens app directly on mobile)
+- Tag icons (HO, car, bike, onsen, meet, flight, fest) - enlarged 22px, bright gray (#d1d5db)
 - Automatic daily tasks (luggage, car, check-in)
 - Mobile: compact header with date box aligned to title top edge
 
 ### Modals (dark blue background)
-- **Tasks** - grouped by priority (High/Medium), compact display
-- **Hotels** - wide layout (700px desktop), single-row per hotel with date, name, badges, price; mobile: 2-row compact layout
+- **Tasks** - grouped by priority (High/Medium), chronologically sorted, checkbox aligned to top of text
+- **Hotels** - wide layout (700px desktop), single-row per hotel with date, name, badges, price; mobile: 2-row compact layout; "On-site" badges show JPY amount to pay
 - **Contacts** - list of people to meet with dates
 - **Transport** - flights, cars, ferry
 
@@ -117,7 +117,8 @@ Professional printable travel guide (`japan-travel-guide.html`):
 - [x] teamLab Biovortex ✅ BOOKED (Oct 1, 10:30-11:00 entry)
 - [ ] Shimanami multi-day bike rental (Oct 6-7)
 - [ ] Takachiho Yokagura reservation (Oct 14)
-- [ ] Accommodation Oct 26-29 (Izu/Fuji road trip)
+- [ ] Accommodation Oct 26-29 (Izu/Fuji road trip) – 4 nights!
+- [ ] Car rental Mishima (Oct 26-29) – NOT BOOKED!
 - [x] Express bus Yufuin-Kumamoto ✅ BOOKED (KOSOKUBUS #1020648778, 13:50→18:03)
 - [ ] Send luggage Fukuyama→Matsuyama (Oct 6)
 - [ ] Send luggage Kumamoto→Nagasaki (Oct 16)
@@ -146,7 +147,7 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 - Single-page HTML with inline CSS and JS
 - Fonts: Inter, DSEG7, Electrolize, Oxanium, Orbitron
 - Data stored directly in JS (DAYS, TASKS, HOTEL_INFO, POI_URLS, DAY_NOTES, etc.)
-- POI_URLS: 188 verified Google Maps search links
+- POI_URLS: 189 verified Google Maps search links
 - DAY_NOTES: Complete notes for all 53 days
 - Task state in localStorage
 - Responsive design (mobile / desktop)
@@ -168,9 +169,11 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 - POI links with pill-style background for visibility
 
 ### Icons
-- Monochrome SVG design: #9ca3af (base) → #e5e7eb (hover/active)
+- Monochrome SVG design: #d1d5db (base) → #e5e7eb (hover/active)
+- Tag icons: 22px in 36×30px boxes, bright and readable
 - Car icon: side profile (smooth sedan silhouette)
 - Bike icon: classic bicycle with diamond frame
+- HO icon: bold text "HO" matching filter button style
 - Consistent across filters, tags, and inline text
 - Functional colors:
   - Flight icon (orange) - travel indicator
@@ -182,6 +185,13 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 - Inactive: gray border, gray icons
 - Active: light blue glow effect (#60a5fa)
 - Calendar: red icon permanent, gray border
+
+### Hotel Badges
+- Enlarged for readability (0.85rem in cards, 0.7rem in modal)
+- Color-coded: Paid (green), On-site (orange), Breakfast (blue), Half-board (purple)
+- Provider badges: Trip, Agoda, Booking, JAPANiCAN, IKYU, Revolut, Hotel Web
+- On-site badges include JPY amount: "On-site ¥10,700"
+- Cancel deadline badges with warning icon
 
 ### Day Notes
 Each day card includes contextual notes:

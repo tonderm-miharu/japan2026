@@ -84,9 +84,9 @@
 - Rano: shrine entry - jiny zazitekt nez sobotni jizdy
 
 **Hotel:** Shinsaibashi Arty Inn
-- Provider: Trip.
+- Provider: Agoda
 - Zrusit do: 18.9.
-- Cena: 43 EUR
+- Cena: 52 EUR
 
 **Poznamka:** Volný večer v Osace
 
@@ -106,7 +106,7 @@
 - 13:30-15:00 Obed + presun zpet
 - 16:00-24:00 **HOME OFFICE**
 
-**Hotel:** Shinsaibashi Arty Inn (43 EUR)
+**Hotel:** Shinsaibashi Arty Inn (52 EUR)
 
 ---
 
@@ -121,7 +121,7 @@
   - Pripadne cyklistika
 - 16:00-24:00 **HOME OFFICE**
 
-**Hotel:** Shinsaibashi Arty Inn (43 EUR)
+**Hotel:** Shinsaibashi Arty Inn (52 EUR)
 
 ---
 
@@ -135,7 +135,7 @@
 - 13:00-15:00 Obed + navrat
 - 16:00-24:00 **HOME OFFICE**
 
-**Hotel:** Shinsaibashi Arty Inn (43 EUR)
+**Hotel:** Shinsaibashi Arty Inn (52 EUR)
 
 ---
 
@@ -146,7 +146,7 @@
 - JR Takedao - stara zeleznicni trat / tunely / priroda
 - Cely den bez HO
 
-**Hotel:** Shinsaibashi Arty Inn (43 EUR)
+**Hotel:** Shinsaibashi Arty Inn (52 EUR)
 
 ---
 
@@ -160,7 +160,7 @@
 - **Vecer: Critical Mass Osaka**
   - Zajistit vcas Hello Bike
 
-**Hotel:** Shinsaibashi Arty Inn (43 EUR)
+**Hotel:** Shinsaibashi Arty Inn (52 EUR)
 
 ---
 
@@ -174,7 +174,7 @@
 - **Vecer: Setkani s Keigo**
   - Napsat min. 1 tyden predem
 
-**Hotel:** Shinsaibashi Arty Inn (43 EUR)
+**Hotel:** Shinsaibashi Arty Inn (52 EUR)
 
 ---
 
@@ -243,12 +243,15 @@
 ### KYOTO - TEAMLAB - OTSU
 
 **Program:**
-- 09:00 Check-out, kufr odeslat/ulozit
-- 09:30-12:00 teamLab Biovortex Kyoto (~2.5h)
-- 12:00-13:00 Obed v okoli Kyoto Station
-- 13:00-14:00 Kyoto - Otsu/Seta (JR ~10 min + shuttle)
-- 14:30-15:00 Ofurocafe Biwakoza
-- 15:00-20:00 Onsen/sauna/relax
+- 08:30 Check-out, kufr do coin locker Kyoto Station
+- 08:45-09:45 **Toji Temple** (pagoda, otevreno od 8:00, 5 min od stanice)
+- 10:00 Zpet ke Kyoto Station
+- **10:30-12:30 teamLab Biovortex Kyoto** (vstup 10:30-11:00, ~2h uvnitr)
+- 12:30-13:30 Obed v okoli Kyoto Station
+- 13:30-15:30 Volny cas / Kyoto Station architektura (Hiroshi Hara)
+- 15:30-16:00 JR Kyoto - Seta (~20 min)
+- 16:00+ Ofurocafe Biwakoza
+- 16:00-20:00 Onsen/sauna/relax
 - 20:00-24:00 **HOME OFFICE**
 
 **Hotel:** Ofurocafe Biwakoza
@@ -256,7 +259,7 @@
 - Zrusit do: 28.9.
 - Cena: 41 EUR (platba na miste 7,584 yen)
 
-**Task:** Vcas koupit vstupenky do teamLab Biovortex
+**Poznamka:** teamLab vstupenka KOUPENA (vstup 10:30-11:00)
 
 ---
 
@@ -1088,7 +1091,7 @@
 | Datum | Mesto | Hotel | Provider | Cena | Stav |
 |-------|-------|-------|----------|------|------|
 | 19.9. | Kishiwada | Route-Inn Osaka Higashikishiwada | Hotel Web | 58 EUR | Zrusit do 14.9. |
-| 20.-26.9. | Osaka | Shinsaibashi Arty Inn | Trip. | 43 EUR/noc | Zrusit do 18.9. |
+| 20.-26.9. | Osaka | Shinsaibashi Arty Inn | Agoda | 52 EUR/noc | Zrusit do 18.9. |
 | 27.-29.9. | Kyoto | Hedistar Hotel Kyoto Nijo | Trip. | 24 EUR/noc | Paid |
 | 30.9. | Kyoto | Hedistar Hotel Kyoto Nijo | Trip. | 25 EUR | Paid (separate) |
 | 1.10. | Otsu | Ofurocafe Biwakoza | JAPANiCAN | 41 EUR | Zrusit do 28.9. |

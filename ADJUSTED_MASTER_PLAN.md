@@ -664,13 +664,15 @@
 ## KYOTO → teamLab → OTSU
 
 **Časový plán:**
-- 09:00 Check-out, kufr odeslat/uložit
-- 10:30-11:00 VSTUP teamLab Biovortex Kyoto (vstupenka v emailu)
-- ~13:00 Konec teamLab
-- 12:00-13:00 Oběd v okolí Kyoto Station
-- 13:00-14:00 Kyoto → Otsu/Seta (JR ~10 min + shuttle)
-- 14:30-15:00 Ofurocafe Biwakoza
-- 15:00-20:00 Onsen/sauna/relax
+- 08:30 Check-out, kufr do coin locker Kyoto Station
+- 08:45-09:45 **Toji Temple** (pagoda, otevřeno od 8:00, 5 min od stanice)
+- 10:00 Zpět ke Kyoto Station
+- **10:30-12:30 teamLab Biovortex Kyoto** (vstup 10:30-11:00, ~2h uvnitř)
+- 12:30-13:30 Oběd v okolí Kyoto Station
+- 13:30-15:30 Volný čas / Kyoto Station architektura (Hiroshi Hara)
+- 15:30-16:00 JR Kyoto → Seta (~20 min)
+- 16:00+ Ofurocafe Biwakoza
+- 16:00-20:00 Onsen/sauna/relax
 - 20:00-24:00 **HOME OFFICE**
 
 **Noc:** Ofurocafe Biwakoza
@@ -678,15 +680,18 @@
 **Poznámky pro tento den:**
 - ✅ teamLab Biovortex = VSTUPENKA KOUPENA (vstup 10:30-11:00)
 - Vstupenka v emailu (folder Letenky), lze změnit do 2h před vstupem
-- Nový formát, otevřeno 2024
+- Toji = pětipatrová pagoda, UNESCO, nejstarší v Kyotu
+- Kyoto Station = Hiroshi Hara architektura, masivní atrium
 - Ofurocafe = onsen + coworking koncept, unikátní
 
 **⚠️ DŮLEŽITÉ:**
 - [x] ~~Koupit teamLab vstupenky~~ ✅ DONE
-- [ ] Kufr: Coin locker Kyoto Station nebo poslat do Hikone?
+- [x] Kufr: Coin locker Kyoto Station
 
 **Praktické:**
-- teamLab: Vstup 10:30, slot není příliš ranní = dobrý kompromis
+- Toji: Otevírá 8:00, ~45 min na prohlídku
+- teamLab: Vstup 10:30, počítat s ~2h uvnitř
+- Kyoto Station: Pokud čas, projít architekturu
 - Ofurocafe: Relax + práce, ideální combo
 - Večeře v Ofurocafe nebo okolí
 
