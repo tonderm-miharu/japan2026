@@ -604,6 +604,21 @@
             font-weight: 600;
         }
         .sidebar-news-header svg { width: 14px; height: 14px; stroke: var(--text-dim); }
+        .sidebar-news-badge {
+            background: #ef4444;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            min-width: 16px;
+            height: 16px;
+            padding: 0 4px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+        }
+        .sidebar-news-badge:empty { display: none; }
         .news-list {
             display: flex;
             flex-direction: column;
@@ -1863,6 +1878,7 @@
                 <div class="sidebar-news-header">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1"/><path d="M18 14v4a2 2 0 002 2"/><path d="M18 11V7a2 2 0 012-2 2 2 0 012 2v11a2 2 0 01-2 2"/><line x1="6" y1="10" x2="12" y2="10"/><line x1="6" y1="14" x2="10" y2="14"/></svg>
                     Japan News
+                    <span class="sidebar-news-badge" id="sidebarNewsBadge"></span>
                 </div>
                 <div class="news-list" id="sidebarNewsList">
                     <div class="news-offline">Loading...</div>
@@ -3140,10 +3156,12 @@
     function updateNewsBadge(news) {
         const badge = document.getElementById('newsBadge');
         const badgeMenu = document.getElementById('newsBadgeMenu');
+        const badgeSidebar = document.getElementById('sidebarNewsBadge');
 
         if (!news || news.length === 0) {
             if (badge) badge.textContent = '';
             if (badgeMenu) badgeMenu.textContent = '';
+            if (badgeSidebar) badgeSidebar.textContent = '';
             return;
         }
 
@@ -3153,6 +3171,7 @@
 
         if (badge) badge.textContent = displayCount;
         if (badgeMenu) badgeMenu.textContent = displayCount;
+        if (badgeSidebar) badgeSidebar.textContent = displayCount;
     }
 
     async function initNews() {
