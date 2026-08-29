@@ -4091,7 +4091,7 @@
         const content = modal.querySelector('.task-modal');
         if (content) {
             content.addEventListener('click', (e) => {
-                if (e.target.closest('a, button, input, .task-item, .hotel-row, .transport-row, .calendar-day, .view-item')) return;
+                if (e.target.closest('a, button, input, .task-item, .calendar-day')) return;
                 modal.classList.remove('visible');
             });
         }
