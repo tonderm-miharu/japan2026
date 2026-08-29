@@ -3541,6 +3541,15 @@
             });
         });
 
+        // Mobile: tap on expanded card body to collapse
+        container.querySelectorAll('.day-body').forEach(body => {
+            body.addEventListener('click', (e) => {
+                // Don't collapse if clicking on a link, button, or checkbox
+                if (e.target.closest('a, button, .day-task-cb, .poi-link')) return;
+                body.parentElement.classList.remove('expanded');
+            });
+        });
+
         // Day task checkboxes
         const dayTasksState = JSON.parse(localStorage.getItem('japan2026_daytasks') || '{}');
         container.querySelectorAll('.day-task-item').forEach(item => {
