@@ -1094,12 +1094,20 @@
         .day-card.expanded .expand-btn { transform: rotate(180deg); }
 
         .day-body {
-            display: none;
-            padding: 0 16px 16px;
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 16px;
             border-top: 1px solid var(--border);
+            opacity: 0;
+            transition: max-height 0.3s ease-out, opacity 0.2s ease-out, padding 0.3s ease-out;
         }
 
-        .day-card.expanded .day-body { display: block; }
+        .day-card.expanded .day-body {
+            max-height: 2000px;
+            opacity: 1;
+            padding: 0 16px 16px;
+            transition: max-height 0.4s ease-in, opacity 0.3s ease-in, padding 0.3s ease-in;
+        }
 
         .detail-grid {
             display: grid;
@@ -1210,6 +1218,15 @@
             border: 2px solid var(--bg-hover);
         }
 
+        @media (max-width: 900px) {
+            .tl-dot {
+                width: 12px;
+                height: 12px;
+                left: -22px;
+                top: 3px;
+            }
+        }
+
         .tl-dot.transport { background: var(--purple); }
         .tl-dot.food { background: var(--orange); }
         .tl-dot.sight { background: var(--green); }
@@ -1295,10 +1312,15 @@
         .badge-hotelweb { background: rgba(150,150,150,0.2); color: #BBB; }
 
         /* Weather styles */
+        @keyframes weather-pulse {
+            0%, 100% { opacity: 0.85; }
+            50% { opacity: 1; }
+        }
         .weather-icon {
             stroke: #fbbf24;
             stroke-width: 2;
             fill: none;
+            animation: weather-pulse 3s ease-in-out infinite;
         }
         .weather-inline {
             display: inline-flex;
@@ -1410,6 +1432,10 @@
         }
         .poi-link:hover .poi-icon {
             stroke: #fff;
+        }
+        .poi-link:active {
+            transform: scale(0.95);
+            background: rgba(96,165,250,0.35);
         }
         .poi-icon {
             width: 14px;
