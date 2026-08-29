@@ -225,10 +225,10 @@
             .tz-prague {
                 display: block;
                 font-family: 'DSEG7', monospace;
-                font-size: 1.2rem;
+                font-size: 1.6rem;
                 color: #3b82f6;
-                letter-spacing: 0.5px;
-                text-shadow: 0 0 6px rgba(59,130,246,0.4);
+                letter-spacing: 1px;
+                -webkit-text-stroke: 0.5px #3b82f6;
             }
             .nav-buttons {
                 width: auto;
@@ -551,12 +551,7 @@
         @media (max-width: 900px) {
             .search-wrapper:not(.menu-search .search-wrapper) { display: none; }
             .header-top { gap: 8px; }
-            .countdown {
-                margin-left: 0;
-                white-space: nowrap;
-                text-shadow: 0 0 8px currentColor;
-                opacity: 0.95;
-            }
+            .countdown { margin-left: 0; white-space: nowrap; text-shadow: none !important; }
         }
 
         .menu-container {
@@ -4219,23 +4214,14 @@
             hour: '2-digit',
             minute: '2-digit'
         }).format(now);
-        const czTimeWithSec = new Intl.DateTimeFormat('en-GB', {
-            timeZone: 'Europe/Prague',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        }).format(now);
-
         ['tzJpMobile', 'tzJpSidebar'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.textContent = jpTime;
         });
-        ['tzCzMobile', 'tzCzSidebar'].forEach(id => {
+        ['tzCzMobile', 'tzCzSidebar', 'tzPragueMobile'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.textContent = czTime;
         });
-        const pragueMobile = document.getElementById('tzPragueMobile');
-        if (pragueMobile) pragueMobile.textContent = czTimeWithSec;
     }
     updateTimezone();
     setInterval(updateTimezone, 1000);
