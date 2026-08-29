@@ -34,6 +34,13 @@ Deploy by pushing to `master` - GitHub Pages auto-deploys from root.
 - `renderCalendar()` - sidebar/modal calendar with day color-coding
 - `applyFilters()` - filter by HO/car/bike/onsen/people tags
 - `handleSearch()` - real-time text search across cards
+- `renderTransport()` - transport modal with flights, cars, ferries
+
+**Modals**:
+- Tasks, Hotels, Contacts, Transport - standard dark modals with SVG icons
+- Summary - red-themed modal with 7-region trip timeline (highlighted button)
+- Calendar - compact day picker
+- News - Japan Times RSS feed
 
 **PWA setup**:
 - `sw.js` - Service Worker with network-first caching strategy

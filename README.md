@@ -31,10 +31,10 @@
 - **Search** - real-time filtering, works with filters
 
 ### Navigation - Mobile
-- **Header** - Japan'26 | Timezone | Countdown
+- **Header** - Japan'26 | Timezone | Countdown | Search field
 - **Filters** - gray default, blue glow when active (icon + border light up)
 - **Calendar** - red glowing icon
-- **Hamburger** - Tasks, Hotels, Contacts, Transport, Weather (purple SVG icons), Search
+- **Hamburger** - News, Tasks, Hotels, Contacts, Transport, Weather, Summary (red highlight)
 
 ### Print / PDF Export
 - Click Print button (desktop view-row or mobile hamburger menu)
@@ -87,11 +87,12 @@ Professional printable travel guide (`japan-travel-guide.html`):
 - Automatic daily tasks (luggage, car, check-in)
 - Mobile: compact header with date box aligned to title top edge
 
-### Modals (dark blue background)
+### Modals (dark background, SVG icons in headers)
 - **Tasks** - grouped by priority (High/Medium), chronologically sorted, checkbox aligned to top of text
 - **Hotels** - wide layout (700px desktop), single-row per hotel with date, name, badges, price; mobile: 2-row compact layout; "On-site" badges show JPY amount to pay
 - **Contacts** - list of people to meet with dates
-- **Transport** - flights, cars, ferry
+- **Transport** - sections: Flights, Bus, Car Rentals, Ferry (each with SVG icon)
+- **Summary** - red-themed modal with 53-day trip timeline showing 7 regions and key places (Osaka, Kyoto, Lake Biwa, Shimanami, Kyushu, Tokyo+Izu, Okinawa)
 
 ### Weather
 - Static averages by region and month
@@ -174,11 +175,14 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 - Car icon: side profile (smooth sedan silhouette)
 - Bike icon: classic bicycle with diamond frame
 - HO icon: bold text "HO" matching filter button style
-- Consistent across filters, tags, and inline text
+- Modal headers: unified SVG icons (no emojis) - Tasks, Hotels, Contacts, Transport, Summary
+- Transport sections: Bus, Flights, Car Rentals, Ferry with matching SVG icons
+- Consistent across filters, tags, modals, and inline text
 - Functional colors:
   - Flight icon (orange) - travel indicator
   - Festival icon (pink) - special events
   - Calendar icon (red) - permanent, no glow
+  - Summary button (red gradient) - highlighted call-to-action
   - Timeline dots - category indicators
 
 ### Filter Buttons
