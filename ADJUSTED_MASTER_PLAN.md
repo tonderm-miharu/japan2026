@@ -265,6 +265,8 @@
 ## VIE → TPE (Let)
 
 **Program:**
+- 08:08 Bus Most SNP → VIE (lístek koupený)
+- 09:00 Příjezd letiště Vídeň
 - 11:25 Odlet Vídeň
 
 **Noc:** V letadle
@@ -297,8 +299,9 @@
 ## TPE → KIX → KISHIWADA
 
 **Časový plán:**
-- 05:30 Odlet TPE
-- 09:00-12:50 Let TPE → Osaka Kansai
+- 05:30 Přílet TPE (z VIE)
+- 09:00 Odlet TPE
+- 12:50 Přílet KIX
 - ~14:30 Příjezd Kishiwada + check-in
 
 **Program - Kishiwada Danjiri Festival (Yoimiya):**

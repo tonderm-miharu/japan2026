@@ -35,6 +35,10 @@
 ## DEN 1 | Patek 18.9.2026
 ### VIE - TPE (Presun)
 
+**Bus:**
+- 08:08 Most SNP → VIE (listek koupen)
+- 09:00 Prilet na letiste
+
 **Let:**
 - Odlet z Vidne 11:25
 
@@ -46,8 +50,8 @@
 ### TPE - KIX - KISHIWADA
 
 **Casovy plan:**
-- 05:30 Odlet TPE
-- 09:00-12:50 Let TPE - OSA (Osaka Kansai)
+- 05:30 Prilet TPE (z VIE)
+- 09:00 Odlet TPE
 - 12:50 Prilet KIX
 - ~14:30-15:00 Pripad do Kishiwady + hotel
 
@@ -1131,8 +1135,9 @@
 ## LETY (zakoupene)
 | Datum | Trasa | Cas | Poznamka |
 |-------|-------|-----|----------|
-| 18.9. | VIE - TPE | 11:25 | |
-| 19.9. | TPE - OSA | 05:30-12:50 | KIX |
+| 18.9. | Most SNP - VIE | 08:08-09:00 | Bus, listek koupen |
+| 18.-19.9. | VIE - TPE | 11:25-05:30 | China Airlines |
+| 19.9. | TPE - KIX | 09:00-12:50 | China Airlines |
 | 23.10. | FUK - HND | 12:25-14:10 | |
 | 2.11. | HND - MMY | 08:20-12:50 | ANA |
 | 5.11. | MMY - OKA | 11:00-11:55 | JAL |
