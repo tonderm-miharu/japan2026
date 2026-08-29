@@ -4147,7 +4147,7 @@
                 const isTaskModal = modal.id === 'taskModal';
                 const isCalendarModal = modal.id === 'calendarModal';
                 if (e.target.closest('a, button, input')) return;
-                if (isTaskModal && e.target.closest('.task-item')) return;
+                if (isTaskModal && e.target.closest('.task-item-compact')) return;
                 if (isCalendarModal && e.target.closest('.calendar-day')) return;
                 modal.classList.remove('visible');
             });
