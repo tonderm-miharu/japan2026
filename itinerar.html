@@ -1775,14 +1775,14 @@
         /* Overview modal */
         .overview-modal {
             max-width: 100%;
-            background: linear-gradient(165deg, rgba(30,10,10,0.98), rgba(20,8,8,0.98));
-            border: 1px solid rgba(239,68,68,0.3);
+            background: linear-gradient(165deg, rgba(60,15,15,0.98), rgba(35,10,10,0.98));
+            border: 1px solid rgba(239,68,68,0.5);
         }
         .overview-modal .task-modal-header {
-            border-bottom-color: rgba(239,68,68,0.25);
+            border-bottom-color: rgba(239,68,68,0.35);
         }
         .overview-modal .task-modal-header h2 {
-            color: #fca5a5;
+            color: #fecaca;
         }
         .overview-content {
             padding-top: 8px;
@@ -2185,7 +2185,7 @@
                             <button class="view-btn" data-view="contacts"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg><span>Contacts</span></button>
                             <button class="view-btn" data-view="transport"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14"/><path d="M5 12h14"/><path d="M5 7h14"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg><span>Transport</span></button>
                             <button class="view-btn" data-action="weather"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg><span>Weather</span></button>
-                            <button class="view-btn view-btn-highlight" data-modal="overview"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 6 4 9 4 13a8 8 0 0016 0c0-4-4-7-8-11z"/><circle cx="12" cy="14" r="3"/></svg><span>53 Days</span></button>
+                            <button class="view-btn view-btn-highlight" data-modal="overview"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 6 4 9 4 13a8 8 0 0016 0c0-4-4-7-8-11z"/><circle cx="12" cy="14" r="3"/></svg><span>Summary</span></button>
                             <button class="view-btn" data-action="print"><svg class="view-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg><span>Print</span></button>
                         </div>
                         <div class="search-wrapper"><input type="text" class="nav-search" id="search" placeholder="Search..."><button type="button" class="search-clear" aria-label="Clear search">&times;</button></div>
@@ -2199,7 +2199,7 @@
                             <button class="menu-item" data-view="contacts"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg><span>Contacts</span></button>
                             <button class="menu-item" data-view="transport"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14"/><path d="M5 12h14"/><path d="M5 7h14"/><circle cx="7" cy="17" r="1"/><circle cx="17" cy="17" r="1"/></svg><span>Transport</span></button>
                             <button class="menu-item" data-action="weather"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg><span>Weather</span></button>
-                            <button class="menu-item menu-item-highlight" data-modal="overview"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 6 4 9 4 13a8 8 0 0016 0c0-4-4-7-8-11z"/><circle cx="12" cy="14" r="3"/></svg><span>53 Days</span></button>
+                            <button class="menu-item menu-item-highlight" data-modal="overview"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 6 4 9 4 13a8 8 0 0016 0c0-4-4-7-8-11z"/><circle cx="12" cy="14" r="3"/></svg><span>Summary</span></button>
                         </div>
                     </div>
                 </div>
@@ -2302,7 +2302,7 @@
     <div class="task-modal-overlay" id="overviewModal">
         <div class="task-modal overview-modal">
             <div class="task-modal-header">
-                <h2><svg style="width:22px;height:22px;vertical-align:-4px;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><path d="M12 2C8 6 4 9 4 13a8 8 0 0016 0c0-4-4-7-8-11z"/><circle cx="12" cy="14" r="3"/></svg>53 Days in Japan</h2>
+                <h2><svg style="width:22px;height:22px;vertical-align:-4px;margin-right:6px" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><path d="M12 2C8 6 4 9 4 13a8 8 0 0016 0c0-4-4-7-8-11z"/><circle cx="12" cy="14" r="3"/></svg>53-Day Summary</h2>
                 <button class="task-modal-close" data-close="overviewModal">&times;</button>
             </div>
             <div class="overview-content">
