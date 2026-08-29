@@ -50,6 +50,13 @@
             color: var(--text);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Enable :active on touch devices */
+        .filter-btn, .nav-btn, .day-block, .menu-item {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* Sticky Header Container */
@@ -2034,7 +2041,7 @@
         }
     </style>
 </head>
-<body>
+<body ontouchstart="">
     <div class="sticky-header">
         <div class="progress-strip" id="progressStrip"></div>
         <header>
