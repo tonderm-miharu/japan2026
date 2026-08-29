@@ -1763,7 +1763,68 @@
             margin-top: 8px;
         }
 
-        
+
+        /* Overview modal */
+        .overview-modal {
+            max-width: 100%;
+        }
+        .overview-content {
+            padding-top: 8px;
+        }
+        .overview-stats {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+        .overview-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .overview-phase {
+            display: grid;
+            grid-template-columns: 6px 1fr;
+            grid-template-rows: auto auto;
+            gap: 4px 12px;
+        }
+        .phase-bar {
+            grid-row: 1 / -1;
+            background: var(--phase-color);
+            border-radius: 3px;
+            min-height: 100%;
+        }
+        .phase-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .phase-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--phase-color);
+        }
+        .phase-dates {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            white-space: nowrap;
+        }
+        .phase-places {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.4;
+        }
+        @media (min-width: 600px) {
+            .overview-modal {
+                max-width: 420px;
+            }
+        }
+
         /* Calendar */
         .calendar-modal { max-width: 280px; padding: 10px; }
         .calendar-modal .task-modal-header { display: none; }
@@ -2116,6 +2177,7 @@
                         <button class="nav-btn" id="menuBtn"><span class="nav-btn-icon">☰</span><span class="news-badge" id="newsBadge"></span></button>
                         <div class="menu-dropdown" id="menuDropdown">
                             <button class="menu-item" data-modal="news"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1"/><path d="M18 14v4a2 2 0 002 2"/><path d="M18 11V7a2 2 0 012-2 2 2 0 012 2v11a2 2 0 01-2 2"/><line x1="6" y1="10" x2="12" y2="10"/><line x1="6" y1="14" x2="10" y2="14"/></svg><span>News</span><span class="news-badge" id="newsBadgeMenu" style="position:static;margin-left:auto"></span></button>
+                            <button class="menu-item" data-modal="overview"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/></svg><span>Overview</span></button>
                             <button class="menu-item" data-modal="tasks"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9"/></svg><span>Tasks</span></button>
                             <button class="menu-item" data-view="hotels"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 9h1"/><path d="M14 9h1"/><path d="M9 13h1"/><path d="M14 13h1"/></svg><span>Hotels</span></button>
                             <button class="menu-item" data-view="contacts"><svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0114 0v2"/></svg><span>Contacts</span></button>
@@ -2220,6 +2282,94 @@
                 <button class="task-modal-close" data-close="calendarModal">&times;</button>
             </div>
             <div id="calendarContent"></div>
+        </div>
+    </div>
+
+    <div class="task-modal-overlay" id="overviewModal">
+        <div class="task-modal overview-modal">
+            <div class="task-modal-header">
+                <h2>🗾 Trip Overview</h2>
+                <button class="task-modal-close" data-close="overviewModal">&times;</button>
+            </div>
+            <div class="overview-content">
+                <div class="overview-stats">
+                    <span>53 days</span><span>•</span><span>7 regions</span><span>•</span><span>Sep 18 – Nov 9</span>
+                </div>
+                <div class="overview-timeline">
+                    <div class="overview-phase" style="--phase-color: #6b7280">
+                        <div class="phase-bar"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Transit</div>
+                            <div class="phase-dates">18.9. (1 day)</div>
+                        </div>
+                        <div class="phase-places">Vienna → Taipei</div>
+                    </div>
+                    <div class="overview-phase" style="--phase-color: #f59e0b">
+                        <div class="phase-bar"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Osaka</div>
+                            <div class="phase-dates">19.–26.9. (8 days)</div>
+                        </div>
+                        <div class="phase-places">Kishiwada, Nakanoshima, Sakai, Maishima, Takedao</div>
+                    </div>
+                    <div class="overview-phase" style="--phase-color: #8b5cf6">
+                        <div class="phase-bar"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Kyoto</div>
+                            <div class="phase-dates">27.9.–1.10. (5 days)</div>
+                        </div>
+                        <div class="phase-places">Nijo, Uji, teamLab, Otsu</div>
+                    </div>
+                    <div class="overview-phase" style="--phase-color: #06b6d4">
+                        <div class="phase-bar"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Lake Biwa</div>
+                            <div class="phase-dates">2.–3.10. (2 days)</div>
+                        </div>
+                        <div class="phase-places">Omi-Hachiman, Hikone, La Collina</div>
+                    </div>
+                    <div class="overview-phase" style="--phase-color: #ec4899">
+                        <div class="phase-bar"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Shimanami</div>
+                            <div class="phase-dates">4.–7.10. (4 days)</div>
+                        </div>
+                        <div class="phase-places">Tomonoura, Onomichi, Kosanji, Matsuyama</div>
+                    </div>
+                    <div class="overview-phase" style="--phase-color: #ef4444">
+                        <div class="phase-bar"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Kyushu</div>
+                            <div class="phase-dates">8.–22.10. (15 days)</div>
+                        </div>
+                        <div class="phase-places">Beppu, Yufuin, Aso, Kurokawa, Takachiho, Kumamoto, Unzen, Nagasaki</div>
+                    </div>
+                    <div class="overview-phase" style="--phase-color: #3b82f6">
+                        <div class="phase-bar"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Tokyo + Izu</div>
+                            <div class="phase-dates">23.10.–1.11. (10 days)</div>
+                        </div>
+                        <div class="phase-places">Tokyo, Shimoda, Kawazu, Fujinomiya, Yamanashi</div>
+                    </div>
+                    <div class="overview-phase" style="--phase-color: #10b981">
+                        <div class="phase-bar"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Okinawa</div>
+                            <div class="phase-dates">2.–8.11. (7 days)</div>
+                        </div>
+                        <div class="phase-places">Miyakojima, Naha, Churaumi, Nago</div>
+                    </div>
+                    <div class="overview-phase" style="--phase-color: #6b7280">
+                        <div class="phase-bar"></div>
+                        <div class="phase-info">
+                            <div class="phase-name">Return</div>
+                            <div class="phase-dates">9.11. (1 day)</div>
+                        </div>
+                        <div class="phase-places">Taipei → Vienna</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -3832,6 +3982,19 @@
     document.getElementById('closeNewsModal').addEventListener('click', closeNewsModal);
     document.getElementById('newsModal').addEventListener('click', (e) => {
         if (e.target.id === 'newsModal') closeNewsModal();
+    });
+
+    // Overview modal handler
+    document.querySelectorAll('[data-modal="overview"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (menuDropdown) menuDropdown.classList.remove('open');
+            document.getElementById('overviewModal').classList.add('visible');
+        });
+    });
+    document.getElementById('overviewModal').addEventListener('click', (e) => {
+        if (e.target.id === 'overviewModal') {
+            document.getElementById('overviewModal').classList.remove('visible');
+        }
     });
 
     // View modal handlers
