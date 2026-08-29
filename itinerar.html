@@ -1626,6 +1626,13 @@
             align-items: center;
         }
 
+        .countdown-sign {
+            display: inline-flex;
+            align-items: center;
+            height: 1.3em;
+            margin-right: 1px;
+        }
+
         .digit-wrapper {
             height: 1.3em;
             overflow: hidden;
@@ -4163,7 +4170,7 @@
         const digits = String(value).padStart(3, '0').split('');
 
         // Build HTML with digit wrappers
-        let html = `<span>${sign}</span>`;
+        let html = `<span class="countdown-sign">${sign}</span>`;
         digits.forEach((d, i) => {
             html += `<div class="digit-wrapper"><div class="digit-roll" id="cd-d${i}">`;
             for (let n = 9; n >= 0; n--) {
@@ -4285,7 +4292,8 @@
             }
         }
     }
-    scrollToToday();
+    // Delay scroll to ensure layout is ready (especially on desktop)
+    setTimeout(scrollToToday, 100);
 
     // Timezone display
     function updateTimezone() {
