@@ -2198,6 +2198,14 @@
     </div>
 
     <script>
+    // DEBUG: Set to simulate a specific date (e.g., '2026-09-29' for day 12)
+    // Set to null for real date
+    const DEBUG_DATE = '2026-09-29';
+
+    function getToday() {
+        return DEBUG_DATE ? new Date(DEBUG_DATE) : new Date();
+    }
+
     const TASKS = [
         // Before departure
         { id: 't10', text: 'Contact Keigo (min. 1 week before 26.9.)', priority: 'med' },
@@ -3966,7 +3974,7 @@
     }
 
     function renderCalendar(targetId) {
-        const today = new Date();
+        const today = getToday();
         const todayStr = `${today.getDate()}.${today.getMonth()+1}.${today.getFullYear()}`;
 
         const daysByDate = {};
@@ -4123,7 +4131,7 @@
     // Countdown - vintage digital style with rolling animation
     function updateCountdown(animate = false) {
         const tripStart = new Date('2026-09-18');
-        const today = new Date();
+        const today = getToday();
         today.setHours(0, 0, 0, 0);
         tripStart.setHours(0, 0, 0, 0);
         const diff = Math.round((tripStart - today) / (1000 * 60 * 60 * 24));
@@ -4192,7 +4200,7 @@
     // Progress Strip
     function renderProgressStrip() {
         const tripStart = new Date('2026-09-18');
-        const today = new Date();
+        const today = getToday();
         today.setHours(0, 0, 0, 0);
         tripStart.setHours(0, 0, 0, 0);
         const currentDay = Math.round((today - tripStart) / (1000 * 60 * 60 * 24)) + 1;
@@ -4261,7 +4269,7 @@
     // Scroll to current day on page load
     function scrollToToday() {
         const tripStart = new Date('2026-09-18');
-        const today = new Date();
+        const today = getToday();
         today.setHours(0, 0, 0, 0);
         tripStart.setHours(0, 0, 0, 0);
         const diff = Math.round((today - tripStart) / (1000 * 60 * 60 * 24));
