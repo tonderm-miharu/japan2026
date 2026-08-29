@@ -1312,15 +1312,10 @@
         .badge-hotelweb { background: rgba(150,150,150,0.2); color: #BBB; }
 
         /* Weather styles */
-        @keyframes weather-pulse {
-            0%, 100% { opacity: 0.85; }
-            50% { opacity: 1; }
-        }
         .weather-icon {
             stroke: #fbbf24;
             stroke-width: 2;
             fill: none;
-            animation: weather-pulse 3s ease-in-out infinite;
         }
         .weather-inline {
             display: inline-flex;
@@ -1432,10 +1427,6 @@
         }
         .poi-link:hover .poi-icon {
             stroke: #fff;
-        }
-        .poi-link:active {
-            transform: scale(0.95);
-            background: rgba(96,165,250,0.35);
         }
         .poi-icon {
             width: 14px;
