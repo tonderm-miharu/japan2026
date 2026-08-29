@@ -196,6 +196,12 @@
                 background: rgba(255,255,255,0.05);
                 color: var(--text);
                 font-size: 0.8rem;
+                transition: border-color 0.2s, box-shadow 0.2s;
+            }
+            .mobile-search:focus {
+                outline: none;
+                border-color: #60a5fa;
+                box-shadow: 0 0 8px rgba(96,165,250,0.3);
             }
             .mobile-search::placeholder {
                 color: var(--text-muted);
@@ -219,9 +225,10 @@
             .tz-prague {
                 display: block;
                 font-family: 'DSEG7', monospace;
-                font-size: 1.4rem;
+                font-size: 1.2rem;
                 color: #3b82f6;
-                letter-spacing: 1px;
+                letter-spacing: 0.5px;
+                text-shadow: 0 0 6px rgba(59,130,246,0.4);
             }
             .nav-buttons {
                 width: auto;
@@ -544,7 +551,12 @@
         @media (max-width: 900px) {
             .search-wrapper:not(.menu-search .search-wrapper) { display: none; }
             .header-top { gap: 8px; }
-            .countdown { margin-left: 0; white-space: nowrap; text-shadow: none !important; }
+            .countdown {
+                margin-left: 0;
+                white-space: nowrap;
+                text-shadow: 0 0 8px currentColor;
+                opacity: 0.95;
+            }
         }
 
         .menu-container {
@@ -4207,15 +4219,23 @@
             hour: '2-digit',
             minute: '2-digit'
         }).format(now);
+        const czTimeWithSec = new Intl.DateTimeFormat('en-GB', {
+            timeZone: 'Europe/Prague',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        }).format(now);
 
         ['tzJpMobile', 'tzJpSidebar'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.textContent = jpTime;
         });
-        ['tzCzMobile', 'tzCzSidebar', 'tzPragueMobile'].forEach(id => {
+        ['tzCzMobile', 'tzCzSidebar'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.textContent = czTime;
         });
+        const pragueMobile = document.getElementById('tzPragueMobile');
+        if (pragueMobile) pragueMobile.textContent = czTimeWithSec;
     }
     updateTimezone();
     setInterval(updateTimezone, 1000);
