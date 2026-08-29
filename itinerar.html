@@ -3793,9 +3793,7 @@
                 'JAPANiCAN': 'badge-japanican', 'IKYU': 'badge-ikyu', 'Revolut': 'badge-revolut', 'Hotel Web': 'badge-hotelweb'
             }[info.provider] || '';
             let badges = '';
-            if (info.provider && PROVIDER_URLS[info.provider]) {
-                badges += `<span class="hotel-badge hotel-badge-link ${providerClass}" onclick="openProviderApp('${info.provider}', event)">${info.provider}</span> `;
-            } else if (info.provider) {
+            if (info.provider) {
                 badges += `<span class="hotel-badge ${providerClass}">${info.provider}</span> `;
             }
             if (info.payment === 'paid') badges += '<span class="hotel-badge badge-paid">✓ Paid</span> ';
