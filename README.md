@@ -134,6 +134,7 @@ Professional printable travel guide (`japan-travel-guide.html`):
 - [ ] Takashi - for Sep 28
 - [x] Wahei - ✅ CONFIRMED Oct 25 lunch
 - [ ] Ryuki - 1-2 weeks before Oct 23
+- [ ] Ippei - min. 1 week before Oct 23
 
 ## Adjusted Master Plan
 

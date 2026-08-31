@@ -58,4 +58,26 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 - `japan-travel-guide.html` - printable PDF version (open → Print → Save as PDF)
 - `mockups/` - UI design iterations
 - `ADJUSTED_MASTER_PLAN.md`, `KONSOLIDOVANY_ITINERAR.md` - detailed trip planning docs
+- `HACHIJOJIMA_AOGASHIMA_PLAN.md` - alternative Oct 26-29 plan (pending heli booking)
 - `ROZVRH.xlsx` - source spreadsheet for schedule/hotels
+
+## Pending: Hachijojima/Aogashima Implementation
+
+**Status:** Current itinerary has Izu/Yamanashi plan for Oct 26-29. If helicopter booking succeeds (Sep 27-28), update to Hachijojima/Aogashima.
+
+**Days to update:** 39, 40, 41, 42 (Oct 26-29)
+
+**Quick implementation checklist:**
+1. Update DAYS array entries for days 39-42 with new content from `HACHIJOJIMA_AOGASHIMA_PLAN.md`
+2. Add POI_URLS for: Hachijojima, Hachijo Fuji, Aogashima, Nanbara Senjojiki, etc.
+3. Update DAY_TASKS[39]: flight check-in instead of car pickup
+4. Update DAY_NOTES for days 39-42
+5. Update HOTEL_INFO for new hotels (Hachijojima hotel, Minshuku Aogashima)
+6. Update Transport modal with ANA HND↔Hachijo flights
+7. Mark tasks t17, t18, t19, t20 as done
+
+**New day structure:**
+- Day 39: Tokyo → Hachijojima (ANA flight, Hachijo Fuji, onsen)
+- Day 40: Hachijojima → Aogashima (heli, caldera, stargazing)
+- Day 41: Aogashima → Hachijojima (heli, exploration)
+- Day 42: Hachijojima → Tokyo (ANA flight, hotel check-in)
