@@ -17,16 +17,15 @@ Replacing original Izu/Yamanashi road trip with unique island adventure. Aogashi
 
 **If unsuccessful:** Fallback to Izu/Yamanashi plan (keep current itinerary)
 
-### Phase 2: ONLY AFTER successful heli booking
+### Phase 2: ONLY AFTER successful heli booking (Task t19, t20)
 
-| Order | What to book | Where |
-|-------|--------------|-------|
-| 1 | ANA flight HND→Hachijo Oct 26 | ana.co.jp |
-| 2 | ANA flight Hachijo→HND Oct 29 | ana.co.jp |
-| 3 | Hotel Hachijojima (Oct 26 & 28) | Booking.com |
-| 4 | Minshuku Aogashima (Oct 27) | Phone call (Japanese) |
-| 5 | Car Hachijojima (Oct 26 & 28) | Toyota Rent-a-Car |
-| 6 | Hotel Tokyo Oct 29 | Extend Sunlite Shinjuku or new booking |
+| Order | What to book | Where | Task |
+|-------|--------------|-------|------|
+| 1 | ANA flights HND↔Hachijo Oct 26+29 | ana.co.jp | t19 |
+| 2 | Hotel Tokyo Oct 29 | Sunlite or new | t20 |
+| 3 | Hotel Hachijojima (Oct 26 & 28) | Booking.com | t6 |
+| 4 | Minshuku Aogashima (Oct 27) | Phone call | t6 |
+| 5 | Car Hachijojima (Oct 26 & 28) | Toyota Rent-a-Car | t16 |
 
 ---
 

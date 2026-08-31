@@ -14,6 +14,7 @@
 | `japan-travel-guide.html` | Printable PDF travel guide (open in browser, Print → Save as PDF) |
 | `KONSOLIDOVANY_ITINERAR.md` | Detailed itinerary in Markdown format |
 | `ADJUSTED_MASTER_PLAN.md` | Enhanced "second brain" document with logistics, prep steps, laundry schedule, risks |
+| `HACHIJOJIMA_AOGASHIMA_PLAN.md` | Alternative Oct 26-29 plan: Hachijojima + Aogashima (pending heli booking) |
 | `ROZVRH.xlsx` | Schedule and hotels spreadsheet |
 
 ## Dashboard Features
@@ -118,8 +119,12 @@ Professional printable travel guide (`japan-travel-guide.html`):
 - [x] teamLab Biovortex ✅ BOOKED (Oct 1, 10:30-11:00 entry)
 - [ ] Shimanami multi-day bike rental (Oct 6-7)
 - [ ] Takachiho Yokagura reservation (Oct 14)
-- [ ] Accommodation Oct 26-29 (Izu/Fuji road trip) – 4 nights!
-- [ ] Car rental Mishima (Oct 26-29) – NOT BOOKED!
+- [ ] **Sep 27 9:00 JP** - Buy HELI Oct 27 HJJ→AOG (tohoair.co.jp)
+- [ ] **Sep 28 9:00 JP** - Buy HELI Oct 28 AOG→HJJ (tohoair.co.jp)
+- [ ] After heli: ANA flights HND↔Hachijo Oct 26+29 (ana.co.jp)
+- [ ] Accommodation Oct 26-29 (Izu OR Hachijo - after heli decision)
+- [ ] Car rental Oct 26-29 (Mishima OR Hachijo - after heli decision)
+- [ ] Hotel Tokyo Oct 29 (if Hachijo plan)
 - [x] Express bus Yufuin-Kumamoto ✅ BOOKED (KOSOKUBUS #1020648778, 13:50→18:03)
 - [ ] Send luggage Fukuyama→Matsuyama (Oct 6)
 - [ ] Send luggage Kumamoto→Nagasaki (Oct 16)

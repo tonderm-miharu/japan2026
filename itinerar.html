@@ -2397,6 +2397,8 @@
         // Before departure
         { id: 't17', text: '🚁 27.9. BUY HELI Oct 27 HJJ→AOG (tohoair.co.jp 9:00 JP)', priority: 'high' },
         { id: 't18', text: '🚁 28.9. BUY HELI Oct 28 AOG→HJJ (tohoair.co.jp 9:00 JP)', priority: 'high' },
+        { id: 't19', text: '✈️ After heli: ANA flights HND↔Hachijo 26+29.10. (ana.co.jp)', priority: 'high' },
+        { id: 't20', text: '🏨 After heli: Hotel Tokyo Oct 29 (Sunlite or new)', priority: 'high' },
         { id: 't10', text: 'Contact Keigo (min. 1 week before 26.9.)', priority: 'med' },
         { id: 't11', text: '✅ Wahei confirmed - 25.10. lunch', priority: 'done' },
         { id: 't12', text: 'Contact Riho (before trip)', priority: 'med' },
@@ -2826,6 +2828,8 @@
     const DAY_TASKS = {
         1: ['✈️ Check-in CI 064 VIE→TPE (24h before)', '📱 Activate roaming', '💳 Activate Suica'],
         5: ['🧺 Laundry (first since trip start)', '🚗 Activate Kumamoto car insurance'],
+        10: ['🚁 9:00 JP - Buy heli Oct 27 HJJ→AOG (tohoair.co.jp)'],
+        11: ['🚁 9:00 JP - Buy heli Oct 28 AOG→HJJ (tohoair.co.jp)', '✈️ If heli success: Book ANA HND↔Hachijo'],
         13: ['🧺 Laundry (before Biwa cycling)'],
         17: ['🧺 Laundry (before Shimanami - IMPORTANT!)'],
         18: ['🎒 Evening: Pack luggage, prepare Shimanami bag'],
@@ -3395,12 +3399,16 @@
         question: '<svg class="text-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>',
         no: '<svg class="text-icon text-icon-warning" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>',
         bullet: '<svg class="text-icon text-icon-bullet" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg>',
-        star: '<svg class="text-icon text-icon-highlight" viewBox="0 0 24 24"><path d="M12 2L9 9H3l5 4-2 7 6-4 6 4-2-7 5-4h-6L12 2z"/></svg>'
+        star: '<svg class="text-icon text-icon-highlight" viewBox="0 0 24 24"><path d="M12 2L9 9H3l5 4-2 7 6-4 6 4-2-7 5-4h-6L12 2z"/></svg>',
+        heli: '<svg class="text-icon" viewBox="0 0 24 24"><path d="M4 10h16M12 3v7M6 19l1-6h10l1 6M7 13h10M8 19h8"/><circle cx="12" cy="10" r="2"/></svg>',
+        hotel: '<svg class="text-icon" viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/><path d="M9 12h.01M15 12h.01"/></svg>'
     };
 
     // Map emoji to icon keys
     const EMOJI_MAP = {
         '✈️': 'flight', '✈': 'flight',
+        '🚁': 'heli',
+        '🏨': 'hotel',
         '🚗': 'car',
         '📱': 'phone',
         '💳': 'card',
@@ -3450,7 +3458,7 @@
 
     function parseTextWithIcons(text) {
         // Try to match emoji at start
-        const emojiRegex = /^(✈️|🚗|📱|💳|🧺|🎒|📦|📝|🎫|⛽|👤|👥|🍜|🍳|🍻|☔|🔦|🚲|♨️|♨|🌅|🌤️|☀️|🎌|🏙️|📍|🛣️|🎉|🎃|💻|💴|🔑|🛍️|❌|❓|🚋|📷|📶|🕐|⏰|⚠️|★|•|[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}])/u;
+        const emojiRegex = /^(✈️|🚁|🏨|🚗|📱|💳|🧺|🎒|📦|📝|🎫|⛽|👤|👥|🍜|🍳|🍻|☔|🔦|🚲|♨️|♨|🌅|🌤️|☀️|🎌|🏙️|📍|🛣️|🎉|🎃|💻|💴|🔑|🛍️|❌|❓|🚋|📷|📶|🕐|⏰|⚠️|★|•|[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F600}-\u{1F64F}]|[\u{1F680}-\u{1F6FF}])/u;
         const match = text.match(emojiRegex);
 
         if (match) {
@@ -3668,10 +3676,11 @@
                 <div class="task-group-title">${title}</div>
                 ${tasks.map(t => {
                     const done = saved[t.id] || false;
+                    const parsed = parseTextWithIcons(t.text);
                     return `
                         <div class="task-item-compact">
                             <div class="task-cb ${done ? 'done' : ''}" data-task="${t.id}"></div>
-                            <span class="task-text ${done ? 'done' : ''}">${t.text}</span>
+                            <span class="task-text ${done ? 'done' : ''}">${parsed.icon}<span>${parsed.text}</span></span>
                         </div>
                     `;
                 }).join('')}
