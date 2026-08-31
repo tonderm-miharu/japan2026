@@ -127,7 +127,7 @@ Professional printable travel guide (`japan-travel-guide.html`):
 ### Medium
 - [ ] Keigo - min. 1 week before Sep 26
 - [ ] Takashi - for Sep 28
-- [ ] Wahei - min. 1 month before Oct 24
+- [x] Wahei - ✅ CONFIRMED Oct 25 lunch
 - [ ] Ryuki - 1-2 weeks before Oct 23
 
 ## Adjusted Master Plan
