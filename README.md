@@ -11,7 +11,7 @@
 | File | Description |
 |------|-------------|
 | `itinerar.html` | Interactive HTML dashboard |
-| `japan-travel-guide.html` | Printable PDF travel guide (open in browser, Print → Save as PDF) |
+| `japan-travel-guide.html` | Magazine-style travel guide (opens via PDF button, then Print → Save as PDF) |
 | `KONSOLIDOVANY_ITINERAR.md` | Detailed itinerary in Markdown format |
 | `ADJUSTED_MASTER_PLAN.md` | Enhanced "second brain" document with logistics, prep steps, laundry schedule, risks |
 | `HACHIJOJIMA_AOGASHIMA_PLAN.md` | Alternative Oct 26-29 plan: Hachijojima + Aogashima (pending heli booking) |
@@ -28,34 +28,24 @@
 ### Navigation - Desktop
 - **Sidebar** - Timezone display + Calendar (sticky)
 - **Filters** - HO / Car / Bike / Onsen / People (gray default, blue glow when active)
-- **Views** - Tasks, Hotels, Contacts, Transport, Weather, Print (purple glowing SVG icons)
+- **Views** - Tasks, Hotels, Contacts, Transport, Weather, PDF, Summary (SVG icons)
 - **Search** - real-time filtering, works with filters
 
 ### Navigation - Mobile
 - **Header** - Japan'26 | Timezone | Countdown | Search field
 - **Filters** - gray default, blue glow when active (icon + border light up)
 - **Calendar** - red glowing icon
-- **Hamburger** - News, Tasks, Hotels, Contacts, Transport, Weather, Summary (red highlight)
+- **Hamburger** - News, Tasks, Hotels, Contacts, Transport, Weather, PDF, Summary (red highlight)
 
-### Print / PDF Export
-- Click Print button (desktop view-row or mobile hamburger menu)
-- All 53 day cards automatically expand
-- Optimized print stylesheet:
-  - White background, black text
-  - Hidden interactive elements (filters, modals, buttons)
-  - Page breaks between cards
-  - Preserved note highlighting and badges
-- Save as PDF via browser print dialog
-
-### Travel Guide PDF
-Professional printable travel guide (`japan-travel-guide.html`):
-- Cover page with trip statistics (53 days, 7 regions, 189 POI, 29 hotels)
-- Statistics page with region breakdown bars
-- Phase maps as hand-drawn style sketches with numbered POI markers
-- Day cards with date left, day number right
-- Detailed notes with color-coded warnings/tasks/tips
-- Complete reference tables (laundry, luggage shipping, car rentals, deadlines, contacts)
-- Open in browser → Print → Save as PDF
+### PDF Export
+- Click PDF button (desktop view-row or mobile hamburger menu)
+- Opens `japan-travel-guide.html` in new tab
+- Professional magazine-style travel guide:
+  - Toner-friendly cover (white background, outline frames)
+  - Feature articles: Onsen, Shimanami Kaido, Sakamoto Ryoma, Aogashima
+  - Regional chapters with day cards (dates only, no day numbers)
+  - Culture boxes, hotel spotlights, transport reference
+- Print → Save as PDF from the travel guide page
 
 ### Countdown
 - Vintage 7-segment digital display (DSEG7 font)

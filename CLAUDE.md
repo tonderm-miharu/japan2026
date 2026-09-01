@@ -55,7 +55,7 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 
 ## Other Files
 
-- `japan-travel-guide.html` - printable PDF version (open → Print → Save as PDF)
+- `japan-travel-guide.html` - magazine-style travel guide (PDF button opens it, then Print → Save as PDF)
 - `mockups/` - UI design iterations
 - `ADJUSTED_MASTER_PLAN.md`, `KONSOLIDOVANY_ITINERAR.md` - detailed trip planning docs
 - `HACHIJOJIMA_AOGASHIMA_PLAN.md` - alternative Oct 26-29 plan (pending heli booking)
