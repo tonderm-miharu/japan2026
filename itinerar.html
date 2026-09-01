@@ -1353,6 +1353,7 @@
         .badge-ikyu { background: rgba(170,170,170,0.2); color: #CCC; }
         .badge-revolut { background: rgba(167,139,250,0.25); color: #C4B5FD; }
         .badge-hotelweb { background: rgba(150,150,150,0.2); color: #BBB; }
+        .badge-klook { background: rgba(255,111,48,0.25); color: #FF8F5F; }
 
         /* Weather styles */
         .weather-icon {
@@ -1737,6 +1738,11 @@
         /* Transport modal - wider on desktop */
         #transportModal .task-modal {
             max-width: 550px;
+        }
+
+        /* Task modal - wider on desktop */
+        #taskModal .task-modal {
+            max-width: 600px;
         }
 
         /* Hotels modal - wider on desktop */
@@ -2369,7 +2375,7 @@
                             <div class="phase-name">Tokyo + Izu</div>
                             <div class="phase-dates">23.10.–1.11. (10 days)</div>
                         </div>
-                        <div class="phase-places">Shinjuku, Mt. Omuro, Jogasaki Coast, Kawazu, Mt. Fuji, Hottarakashi Onsen</div>
+                        <div class="phase-places">Shinjuku, Mt. Omuro, Jogasaki Coast, Kawazu, Hottarakashi Onsen</div>
                     </div>
                     <div class="overview-phase" style="--phase-color: #10b981">
                         <div class="phase-bar"></div>
@@ -2399,10 +2405,12 @@
         { id: 't18', text: '🚁 28.9. BUY HELI Oct 28 AOG→HJJ (tohoair.co.jp 9:00 JP)', priority: 'high' },
         { id: 't19', text: '✈️ After heli: ANA flights HND↔Hachijo 26+29.10. (ana.co.jp)', priority: 'high' },
         { id: 't20', text: '🏨 After heli: Hotel Tokyo Oct 29 (Sunlite or new)', priority: 'high' },
+        { id: 't22', text: '🏨 If heli fails: Cancel Hachijojima booking by 20.10.', priority: 'high' },
+        { id: 't23', text: '🏨 If heli OK: Book Aogashima minshuku (call)', priority: 'high' },
         { id: 't10', text: 'Contact Keigo (min. 1 week before 26.9.)', priority: 'med' },
         { id: 't11', text: '✅ Wahei confirmed - 25.10. lunch', priority: 'done' },
         { id: 't12', text: 'Contact Riho (before trip)', priority: 'med' },
-        { id: 't21', text: '👤 Contact Ippei (min. 1 week before 23.10.)', priority: 'med' },
+        { id: 't21', text: 'Contact Ippei (min. 1 week before 23.10.)', priority: 'med' },
         { id: 't13', text: 'Visit Japan Web (few days before)', priority: 'high' },
         { id: 't14', text: 'Activate roaming package', priority: 'high' },
         { id: 't15', text: 'Activate & charge mobile Suica', priority: 'high' },
@@ -2616,6 +2624,7 @@
         'Takanawa Gateway City': 'https://www.google.com/maps/search/Takanawa+Gateway+Station/',
         'Tsukishima': 'https://www.google.com/maps/search/Tsukishima/',
         'Tokyo Station': 'https://www.google.com/maps/search/Tokyo+Station/',
+        'Azabudai Hills Gallery': 'https://www.google.com/maps/search/Azabudai+Hills+Gallery/',
         'Dogo Onsen': 'https://www.google.com/maps/search/Dogo+Onsen/'
     };
 
@@ -2646,7 +2655,7 @@
         { day: 24, dow: 'Sun', date: '11.10.2026', title: 'Yufuin → Kumamoto', subtitle: 'Express bus, Lake Kinrin', region: 'kyushu', tags: [], hotel: 'Hotel The Gate Kumamoto', price: '32 EUR', cancel: '9.10.', pois: [{name:'Lake Kinrin', coords:[33.2694,131.3583]}, {name:'Kumamoto Castle', coords:[32.8062,130.7058]}, {name:'Sakuranobaba', coords:[32.8050,130.7040]}, {name:'Hotel The Gate Kumamoto', coords:[32.8032,130.7079]}], timeline: [{time:'Early morning', text:'Lake Kinrin', type:'sight'}, {time:'', text:'Breakfast / checkout', type:''}, {time:'13:50', text:'Express bus → Kumamoto (KOSOKUBUS)', type:'transport', note:'Booking #1020648778'}, {time:'18:03', text:'Arrival Kumamoto Station', type:'transport'}, {time:'Evening', text:'Sakuranobaba / castle / rest', type:'sight'}] },
         { day: 25, dow: 'Mon', date: '12.10.2026', title: 'Kumamoto → Minamiaso', subtitle: 'AUTO START | Sports Day', region: 'kyushu', tags: ['car','fest'], hotel: 'Shiki no Mori', price: '52 EUR', cancel: '7.10.', pois: [{name:'Budget Car Kumamoto', coords:[32.8032,130.7079]}, {name:'Takamori', coords:[32.8167,131.1167]}, {name:'Yusui Tunnel Park', coords:[32.8200,131.1200]}, {name:'Shirakawa Suigen', coords:[32.8833,131.0500]}, {name:'Shiki no Mori', coords:[32.8850,131.0520]}], timeline: [{time:'09:30', text:'Car pickup – Budget', type:'transport'}, {time:'', text:'Takamori / Yusui Tunnel Park', type:'sight'}, {time:'', text:'Lunch', type:'food'}, {time:'', text:'Shirakawa Suigen', type:'sight'}, {time:'', text:'Scenic drive Minamiaso', type:'sight'}, {time:'Evening', text:'Onsen + dinner', type:'sight'}], note: 'SPORTS DAY | BREAKFAST included' },
         { day: 26, dow: 'Tue', date: '13.10.2026', title: 'Minamiaso → Aso → Kurokawa', subtitle: 'Kusasenri, Yamanami Highway', region: 'kyushu', tags: ['car','onsen'], hotel: 'Container House Villa', price: '52 EUR', cancel: '28.9.', pois: [{name:'Kusasenri', coords:[32.8833,131.0833]}, {name:'Aso viewpoints', coords:[32.8917,131.0833]}, {name:'Tadewara Wetlands', coords:[33.0833,131.2500]}, {name:'Makinoto Pass', coords:[33.0667,131.2167]}, {name:'Kurokawa Onsen', coords:[33.1000,131.1333]}], timeline: [{time:'Morning departure', text:'Kusasenri', type:'sight'}, {time:'', text:'Aso viewpoints', type:'sight'}, {time:'', text:'Lunch', type:'food'}, {time:'', text:'Tadewara Wetlands', type:'sight'}, {time:'', text:'Makinoto Pass', type:'sight'}, {time:'', text:'Yamanami Highway', type:'sight'}, {time:'', text:'Kurokawa Onsen', type:'sight'}, {time:'Evening', text:'Onsen hopping', type:'sight'}], note: 'Skipping Aso crater' },
-        { day: 27, dow: 'Wed', date: '14.10.2026', title: 'Kurokawa → Takachiho', subtitle: 'Takachiho Gorge, Yokagura 20:00', region: 'kyushu', tags: ['car'], hotel: 'Hotel Grateful Takachiho', price: '56 EUR', cancel: '12.10.', pois: [{name:'Kurokawa Onsen', coords:[33.1000,131.1333]}, {name:'Takachiho Gorge', coords:[32.7133,131.3067]}, {name:'Takachiho Shrine', coords:[32.7167,131.3083]}, {name:'Takachiho Yokagura', coords:[32.7133,131.3067]}], timeline: [{time:'Slower morning', text:'Breakfast + onsen', type:''}, {time:'', text:'Drive → Takachiho', type:'transport'}, {time:'', text:'Lunch', type:'food'}, {time:'', text:'Takachiho Gorge', type:'sight'}, {time:'', text:'Takachiho Shrine', type:'sight'}, {time:'20:00', text:'Takachiho Yokagura', type:'sight', note:'Reserve!'}] },
+        { day: 27, dow: 'Wed', date: '14.10.2026', title: 'Kurokawa → Takachiho', subtitle: 'Takachiho Gorge, Yokagura 20:00', region: 'kyushu', tags: ['car'], hotel: 'Hotel Grateful Takachiho', price: '50 EUR', pois: [{name:'Kurokawa Onsen', coords:[33.1000,131.1333]}, {name:'Takachiho Gorge', coords:[32.7133,131.3067]}, {name:'Takachiho Shrine', coords:[32.7167,131.3083]}, {name:'Takachiho Yokagura', coords:[32.7133,131.3067]}], timeline: [{time:'Slower morning', text:'Breakfast + onsen', type:''}, {time:'', text:'Drive → Takachiho', type:'transport'}, {time:'', text:'Lunch', type:'food'}, {time:'', text:'Takachiho Gorge', type:'sight'}, {time:'', text:'Takachiho Shrine', type:'sight'}, {time:'20:00', text:'Takachiho Yokagura', type:'sight', note:'Reserve!'}] },
         { day: 28, dow: 'Thu', date: '15.10.2026', title: 'Takachiho → Tsujun → Kumamoto', subtitle: 'AUTO KONEC 18:00', region: 'kyushu', tags: ['car'], hotel: 'Hotel The Gate Kumamoto', price: '22 EUR', cancel: '13.10.', pois: [{name:'Kunimigaoka', coords:[32.7200,131.3100]}, {name:'Amano Iwato', coords:[32.7483,131.3533]}, {name:'Amano Yasukawara', coords:[32.7500,131.3550]}, {name:'Tsujun Bridge', coords:[32.6833,130.9500]}, {name:'Kumamoto Budget', coords:[32.8032,130.7079]}], timeline: [{time:'Morning', text:'Kunimigaoka viewpoint', type:'sight'}, {time:'', text:'Amano Iwato + Amano Yasukawara', type:'sight'}, {time:'', text:'Drive → Yamato', type:'transport'}, {time:'', text:'Tsujun Bridge', type:'sight'}, {time:'13:00', text:'Water discharge', type:'sight', note:'Must confirm!'}, {time:'', text:'Return to Kumamoto', type:'transport'}, {time:'18:00', text:'DEADLINE: Return car', type:''}] },
         { day: 29, dow: 'Fri', date: '16.10.2026', title: 'Kumamoto → Shimabara → Unzen', subtitle: 'Ocean Arrow, Unzen Jigoku', region: 'kyushu', tags: ['onsen'], hotel: 'Oedo Onsen Monogatari', price: '63 EUR', cancel: '8.10.', pois: [{name:'Kumamoto Port', coords:[32.7833,130.6667]}, {name:'Shimabara Port', coords:[32.7833,130.3667]}, {name:'Shimabara Castle', coords:[32.7867,130.3667]}, {name:'Samurai District', coords:[32.7850,130.3650]}, {name:'Unzen Jigoku', coords:[32.7400,130.2600]}, {name:'Oedo Onsen Monogatari', coords:[32.7410,130.2590]}], timeline: [{time:'Morning', text:'Kufr → Nagasaki', type:''}, {time:'08:45', text:'Kumamoto Port', type:'transport'}, {time:'09:25', text:'Ferry → Shimabara', type:'transport'}, {time:'10:20–11:30', text:'Shimabara Castle', type:'sight'}, {time:'11:30–12:15', text:'Samurai District', type:'sight'}, {time:'12:15–13:00', text:'Lunch (somen)', type:'food'}, {time:'~13:00', text:'Bus → Unzen', type:'transport'}, {time:'15:00–16:15', text:'Unzen Jigoku', type:'sight'}, {time:'16:15–17:00', text:'Unzen town', type:'sight'}, {time:'17:00+', text:'Hotel / onsen', type:'sight'}], note: 'HALF BOARD, check-in do 19h' },
         { day: 30, dow: 'Sat', date: '17.10.2026', title: 'Unzen → Nita Pass → Obama', subtitle: 'Nita Ropeway, Hot Foot 105', region: 'kyushu', tags: ['onsen','meet'], hotel: 'JISCO Hotel', price: '50 EUR', cancel: '15.10.', pois: [{name:'Unzen', coords:[32.7400,130.2600]}, {name:'Nita Pass', coords:[32.7667,130.2333]}, {name:'Nita Ropeway', coords:[32.7680,130.2320]}, {name:'Obama Onsen', coords:[32.7333,130.1833]}, {name:'Hot Foot 105', coords:[32.7340,130.1840]}], timeline: [{time:'07:30–08:15', text:'Snídaně', type:'food'}, {time:'~09:00', text:'Taxi na Nita Pass', type:'transport', note:'Only in good weather!'}, {time:'09:30–11:00', text:'Nita Pass + Ropeway', type:'sight'}, {time:'~11:00', text:'Return taxi', type:'transport'}, {time:'~12:00–13:00', text:'Bus → Obama', type:'transport'}, {time:'13:00–14:00', text:'Lunch + steam cooking', type:'food'}, {time:'14:00–15:30', text:'Obama Onsen town', type:'sight'}, {time:'~17:00', text:'Hotel', type:''}], note: '👥 Možná provázení: Riho' },
@@ -2656,7 +2665,7 @@
         { day: 34, dow: 'Wed', date: '21.10.2026', title: 'Ureshino → Takeo → Fukuoka', subtitle: 'Mifuneyama Rakuen, Takeo Shrine', region: 'kyushu', tags: [], hotel: 'Hotel CASVI Tenjin', price: '57 EUR', cancel: '18.10.', pois: [{name:'Ureshino', coords:[33.0500,130.0333]}, {name:'Mifuneyama Rakuen', coords:[33.2167,129.9667]}, {name:'Takeo Shrine', coords:[33.1950,129.9867]}, {name:'Great Camphor Tree', coords:[33.1952,129.9870]}, {name:'Takeo City Library', coords:[33.1933,129.9883]}, {name:'Hotel CASVI Tenjin', coords:[33.5903,130.4017]}], timeline: [{time:'08:00–09:00', text:'Snídaně', type:'food'}, {time:'09:00–10:00', text:'Last onsen', type:'sight'}, {time:'~10:00', text:'Checkout', type:''}, {time:'~11:00–12:30', text:'Mifuneyama Rakuen', type:'sight'}, {time:'12:30–13:15', text:'Takeo Shrine + Camphor Tree', type:'sight'}, {time:'13:15–14:15', text:'Takeo Onsen + lunch', type:'food'}, {time:'14:15–14:45', text:'Takeo City Library', type:'sight'}, {time:'~15:00', text:'Departure → Fukuoka', type:'transport'}, {time:'~16:15–16:30', text:'Hotel', type:''}] },
         { day: 35, dow: 'Thu', date: '22.10.2026', title: 'Fukuoka', subtitle: 'Modern Architecture Day', region: 'kyushu', tags: [], hotel: 'Hotel CASVI Tenjin', price: '57 EUR', pois: [{name:'Ohori Park', coords:[33.5850,130.3767]}, {name:'Fukuoka Art Museum', coords:[33.5867,130.3783]}, {name:'Momochi', coords:[33.5950,130.3517]}, {name:'ACROS Fukuoka', coords:[33.5903,130.4017]}, {name:'Tenjin', coords:[33.5917,130.3983]}, {name:'Nakasu', coords:[33.5950,130.4067]}], timeline: [{time:'Morning', text:'Ohori Park', type:'sight'}, {time:'Morning', text:'Fukuoka Art Museum', type:'sight'}, {time:'Afternoon', text:'Momochi + coast', type:'sight'}, {time:'Late afternoon', text:'ACROS Fukuoka', type:'sight'}, {time:'Evening', text:'Tenjin – Nakasu – yatai', type:'food'}], note: 'Backup: Itoshima' },
         { day: 36, dow: 'Fri', date: '23.10.2026', title: 'Fukuoka → Tokyo', subtitle: 'NH252', region: 'tokyo', tags: ['flight'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', cancel: '20.10.', pois: [{name:'Fukuoka Airport', coords:[33.5858,130.4508]}, {name:'Haneda Airport', coords:[35.5494,139.7798]}, {name:'Hotel Sunlite Shinjuku', coords:[35.6895,139.6917]}], timeline: [{time:'08:00–09:00', text:'Snídaně', type:'food'}, {time:'09:00–09:30', text:'Checkout', type:''}, {time:'~09:30', text:'→ airport (subway)', type:'transport'}, {time:'12:25–14:10', text:'NH252 FUK → HND (ANA)', type:'transport'}, {time:'Afternoon', text:'Check-in Tokyo', type:''}], note: '✈️ NH252 | BREAKFAST | Connect with Ryuki' },
-        { day: 37, dow: 'Sat', date: '24.10.2026', title: 'Tokyo', subtitle: 'Shogo? Minoru? Free day', region: 'tokyo', tags: [], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Shinjuku', coords:[35.6895,139.6917]}, {name:'Takanawa Gateway City', coords:[35.6300,139.7400]}, {name:'Tsukishima', coords:[35.6644,139.7836]}, {name:'Tokyo Station', coords:[35.6812,139.7671]}], timeline: [{time:'Daytime', text:'Takanawa / Tsukishima / Tokyo Station', type:'sight'}, {time:'Evening', text:'Shogo? Minoru?', type:'sight'}], note: '🗾 Náměty: Takanawa Gateway City, Tsukishima (monjayaki), Tokyo Station area' },
+        { day: 37, dow: 'Sat', date: '24.10.2026', title: 'Tokyo', subtitle: 'Shogo? Minoru? Free day', region: 'tokyo', tags: [], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Shinjuku', coords:[35.6895,139.6917]}, {name:'Takanawa Gateway City', coords:[35.6300,139.7400]}, {name:'Azabudai Hills Gallery', coords:[35.6600,139.7400]}, {name:'Tsukishima', coords:[35.6644,139.7836]}, {name:'Tokyo Station', coords:[35.6812,139.7671]}], timeline: [{time:'Daytime', text:'Takanawa / Azabudai Hills / Tsukishima', type:'sight'}, {time:'Evening', text:'Shogo? Minoru?', type:'sight'}], note: '🗾 Náměty: Takanawa Gateway, Azabudai Hills Gallery, Tsukishima (monjayaki)' },
         { day: 38, dow: 'Sun', date: '25.10.2026', title: 'Tokyo + Wahei', subtitle: 'Lunch with Wahei', region: 'tokyo', tags: ['meet'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Kasai Rinkai Park', coords:[35.6367,139.8617]}, {name:'Shinjuku', coords:[35.6895,139.6917]}, {name:'Takanawa Gateway City', coords:[35.6300,139.7400]}, {name:'Tsukishima', coords:[35.6644,139.7836]}, {name:'Tokyo Station', coords:[35.6812,139.7671]}], timeline: [{time:'Lunch', text:'Meeting with Wahei', type:'sight'}, {time:'Afternoon', text:'Kasai Rinkai Park / free time', type:'sight'}], note: '🧺 PRANÍ před road trip! | ✅ Wahei confirmed' },
         { day: 39, dow: 'Mon', date: '26.10.2026', title: 'Tokyo → Izu', subtitle: 'AUTO START | Mt. Omuro, Jogasaki', region: 'tokyo', tags: ['car'], hotel: 'TBD (NEBOOKOVÁNO)', price: '–', pois: [{name:'Mishima Station', coords:[35.1264,138.9117]}, {name:'Mt. Omuro', coords:[34.9000,139.0833]}, {name:'Jogasaki Coast', coords:[34.8833,139.1167]}, {name:'Kadowaki Bridge', coords:[34.8850,139.1183]}, {name:'Hokkawa Onsen', coords:[34.7833,139.0500]}], timeline: [{time:'Morning', text:'Shinkansen → Mishima', type:'transport'}, {time:'', text:'Car pickup', type:''}, {time:'', text:'Mt. Omuro (chairlift, crater)', type:'sight'}, {time:'', text:'Jogasaki Coast', type:'sight'}, {time:'Late afternoon', text:'Hokkawa / Higashi-Izu', type:''}, {time:'Evening', text:'Hokkawa Onsen', type:'sight'}], note: 'ZMĚNA ČASU EU! | NEBOOKOVÁNO' },
         { day: 40, dow: 'Tue', date: '27.10.2026', title: 'Higashi-Izu → Kawazu → Fujinomiya', subtitle: 'Kawazu Loop Bridge, Mt. Fuji WH Centre', region: 'tokyo', tags: ['car'], hotel: 'TBD (NEBOOKOVÁNO)', price: '–', pois: [{name:'Kawazu Loop Bridge', coords:[34.7500,139.0000]}, {name:'Kawazu Seven Waterfalls', coords:[34.7583,139.0083]}, {name:'Mt. Fuji World Heritage Centre', coords:[35.2167,138.6167]}, {name:'Fujinomiya', coords:[35.2222,138.6203]}], timeline: [{time:'Morning', text:'Departure', type:'transport'}, {time:'', text:'Kawazu Loop Bridge', type:'sight'}, {time:'', text:'Seven Waterfalls (optional)', type:'sight'}, {time:'', text:'Lunch', type:'food'}, {time:'', text:'Mt. Fuji World Heritage Centre (Shigeru Ban!)', type:'sight'}, {time:'Evening', text:'Večeře ve Fujinomiya', type:'food'}], note: 'Nejnáročnější den | NEBOOKOVÁNO' },
@@ -2706,7 +2715,7 @@
         24: { payment: 'paid', provider: 'Agoda' },
         25: { payment: 'paid', provider: 'IKYU', meals: 'breakfast' },
         26: { payment: 'paid', provider: 'Booking' },
-        27: { payment: 'on-site', provider: 'JAPANiCAN', jpy: '10,120' },
+        27: { payment: 'paid', provider: 'Klook', meals: 'breakfast' },
         28: { payment: 'paid', provider: 'Agoda' },
         29: { payment: 'paid', provider: 'Revolut', meals: 'half-board' },
         30: { payment: 'paid', provider: 'Agoda' },
@@ -3029,7 +3038,6 @@
             'Beppu = onsen paradise, visited before',
             'Hyotan Onsen = outdoor rotenburo',
             'Takegawara Onsen = historic, sand baths',
-            '⚠️ Don\'t overdo the onsens - dehydration!'
         ],
         // DAY 23 - Yufuin
         23: [
@@ -3162,6 +3170,7 @@
         // DAY 39 - Tokyo→Izu
         39: [
             '🕐 EU TIME CHANGE! Tokyo-Prague: from +7h to +8h',
+            '⚠️ ALT PLAN: Hachijojima booked (Noboryuso), cancel by 20.10. if Izu',
             'Shinkansen Tokyo→Mishima (~1h), then car',
             'Mt. Omuro = volcanic crater, 360° view',
             'Jogasaki = dramatic coastline, lava formations',
@@ -3296,6 +3305,7 @@
         { name: 'Riho', when: 'before trip', day: 30, note: 'Maybe guide 17.10. (Unzen→Obama)' },
         { name: 'Wahei', when: '25.10. lunch', day: 38, note: '✅ CONFIRMED - Tokyo lunch' },
         { name: 'Ryuki', when: '1-2 weeks before 23.10.', day: 36, note: 'Tokyo' },
+        { name: 'Ippei', when: 'min. 1 week before 23.10.', day: 36, note: 'Tokyo' },
         { name: 'Minoru / Shogo', when: 'before trip', day: 43, note: 'Party in Tokyo' },
     ];
 
@@ -3483,7 +3493,8 @@
         'Booking': 'https://www.booking.com/mybooking.html',
         'JAPANiCAN': 'https://www.japanican.com/en/mybooking/',
         'IKYU': 'https://www.ikyu.com/ap/srch/UMMyPage.aspx',
-        'Revolut': 'https://app.revolut.com/'
+        'Revolut': 'https://app.revolut.com/',
+        'Klook': 'https://www.klook.com/en-US/account/booking'
     };
 
     function openProviderApp(provider, event) {
@@ -3511,7 +3522,8 @@
             'JAPANiCAN': 'badge-japanican',
             'IKYU': 'badge-ikyu',
             'Revolut': 'badge-revolut',
-            'Hotel Web': 'badge-hotelweb'
+            'Hotel Web': 'badge-hotelweb',
+            'Klook': 'badge-klook'
         };
         const url = PROVIDER_URLS[provider];
         if (url) {
@@ -3681,7 +3693,7 @@
                     return `
                         <div class="task-item-compact">
                             <div class="task-cb ${done ? 'done' : ''}" data-task="${t.id}"></div>
-                            <span class="task-text ${done ? 'done' : ''}">${parsed.icon}<span>${parsed.text}</span></span>
+                            <span class="task-text ${done ? 'done' : ''}">${parsed.text}</span>
                         </div>
                     `;
                 }).join('')}
@@ -4025,7 +4037,7 @@
             const info = HOTEL_INFO[d.day] || {};
             const providerClass = {
                 'Trip': 'badge-trip', 'Agoda': 'badge-agoda', 'Booking': 'badge-booking',
-                'JAPANiCAN': 'badge-japanican', 'IKYU': 'badge-ikyu', 'Revolut': 'badge-revolut', 'Hotel Web': 'badge-hotelweb'
+                'JAPANiCAN': 'badge-japanican', 'IKYU': 'badge-ikyu', 'Revolut': 'badge-revolut', 'Hotel Web': 'badge-hotelweb', 'Klook': 'badge-klook'
             }[info.provider] || '';
             let badges = '';
             if (info.provider) {
@@ -4099,7 +4111,7 @@
                 <div class="transport-row">
                     <span class="transport-date">2.11.</span>
                     <span class="transport-route">HND → OKA</span>
-                    <span class="transport-time">08:20–11:25</span>
+                    <span class="transport-time">08:20–11:15</span>
                     <span class="transport-badges"><span class="transport-badge provider">NH467</span><span class="transport-badge airline">ANA</span></span>
                 </div>
                 <div class="transport-row">
@@ -4167,6 +4179,15 @@
                     <span class="transport-route">Kumamoto → Shimabara</span>
                     <span class="transport-time">09:25</span>
                     <span class="transport-badge warning">Na místě</span>
+                </div>
+            </div>
+            <div class="view-section">
+                <h3><svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6v10a3 3 0 003 3h10a3 3 0 003-3V6"/><path d="M4 11h16M7 19l-2 3M17 19l2 3M8 6V2M16 6V2M9 2h6"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></svg>Bus</h3>
+                <div class="transport-row">
+                    <span class="transport-date">11.10.</span>
+                    <span class="transport-route">Yufuin → Kumamoto</span>
+                    <span class="transport-time">13:50–18:03</span>
+                    <span class="transport-badges"><span class="transport-badge provider">KOSOKUBUS</span><span class="transport-badge" style="background:rgba(34,197,94,0.2);color:#86efac">✓ Paid</span></span>
                 </div>
             </div>
         `;

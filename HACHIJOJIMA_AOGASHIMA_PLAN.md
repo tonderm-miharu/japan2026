@@ -62,13 +62,25 @@ Replacing original Izu/Yamanashi road trip with unique island adventure. Aogashi
 
 ---
 
-## Budget: ~745 EUR
+## Booking Status
+
+| Item | Status | Details |
+|------|--------|---------|
+| **Hotel Hachijojima** | ✅ BOOKED | Noboryuso Vacation STAY 40250, 3 nights (26-29.10.), 37€/night = 111€, Booking.com, cancel free until 20.10. |
+| Helicopter | ⏳ Sep 27-28 | tohoair.co.jp |
+| ANA flights | ⏳ After heli | ana.co.jp |
+| Minshuku Aogashima | ⏳ After heli | Phone call required |
+| Hotel Tokyo Oct 29 | ⏳ After heli | Sunlite or new |
+
+---
+
+## Budget: ~720 EUR
 
 | Item | EUR |
 |------|-----|
 | ANA flights (return) | 180 |
 | Helicopter (return) | 140 |
-| Hotels Hachijo (2 nights) | 145 |
+| Hotel Hachijo (3 nights) | 111 |
 | Minshuku Aogashima | 50 |
 | Car (2 days) | 60 |
 | Fuel | 12 |
