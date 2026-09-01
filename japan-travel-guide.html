@@ -21,11 +21,10 @@
             --kyushu: #dc2626;
             --tokyo: #2563eb;
             --okinawa: #0d9488;
-            --transit: #6b7280;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        @page { margin: 12mm; size: A4; }
+        @page { margin: 10mm; size: A4; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -140,18 +139,85 @@
         }
 
         /* ══════════════════════════════════════════
-           OVERVIEW PAGE
+           TABLE OF CONTENTS
+           ══════════════════════════════════════════ */
+        .toc-page {
+            page-break-after: always;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .toc-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .toc-header .kanji {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 14pt;
+            color: var(--aka);
+            letter-spacing: 8px;
+        }
+
+        .toc-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32pt;
+            font-weight: 400;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px 50px;
+        }
+
+        .toc-section {
+            border-left: 3px solid var(--aka);
+            padding-left: 20px;
+        }
+
+        .toc-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14pt;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 9pt;
+            color: #ccc;
+        }
+
+        .toc-item span:last-child {
+            color: var(--aka);
+            font-weight: 500;
+        }
+
+        /* ══════════════════════════════════════════
+           OVERVIEW PAGE (DARK)
            ══════════════════════════════════════════ */
         .overview-page {
             page-break-after: always;
             padding: 40px;
+            background: linear-gradient(180deg, #1a1a1a 0%, #252525 100%);
+            color: white;
+            min-height: 100vh;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
 
         .section-header .kanji {
@@ -163,133 +229,137 @@
 
         .section-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 24pt;
-            color: var(--kuro);
-            font-weight: 500;
-            margin-top: 6px;
+            font-size: 28pt;
+            font-weight: 400;
+            margin-top: 8px;
         }
 
         .overview-stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 20px;
+            margin-bottom: 40px;
         }
 
         .stat-box {
             text-align: center;
-            padding: 20px 10px;
-            border: 1px solid var(--border);
+            padding: 25px 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .stat-box .value {
             font-family: 'Noto Serif JP', serif;
-            font-size: 28pt;
+            font-size: 36pt;
             font-weight: 600;
             color: var(--aka);
+            line-height: 1;
         }
 
         .stat-box .label {
-            font-size: 7pt;
+            font-size: 8pt;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #666;
-            margin-top: 5px;
+            letter-spacing: 2px;
+            color: #888;
+            margin-top: 8px;
         }
 
         .overview-timeline {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
         }
 
         .overview-phase {
             display: grid;
-            grid-template-columns: 10px 100px 1fr;
-            gap: 15px;
+            grid-template-columns: 12px 120px 1fr;
+            gap: 20px;
             align-items: start;
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .phase-dot {
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
         .phase-info .name {
             font-family: 'Playfair Display', serif;
-            font-size: 12pt;
+            font-size: 14pt;
             font-weight: 500;
         }
 
         .phase-info .dates {
-            font-size: 8pt;
+            font-size: 9pt;
             color: #888;
+            margin-top: 2px;
         }
 
         .phase-places {
-            font-size: 8pt;
-            color: #555;
-            line-height: 1.4;
+            font-size: 9pt;
+            color: #aaa;
+            line-height: 1.6;
         }
 
         /* ══════════════════════════════════════════
-           FEATURE ARTICLES (TONER-FRIENDLY)
+           FEATURE ARTICLES (MAGAZINE STYLE)
            ══════════════════════════════════════════ */
         .feature-page {
             page-break-after: always;
-            padding: 40px;
+            padding: 0;
+            min-height: 100vh;
         }
 
-        .feature-header {
-            border: 2px solid var(--kuro);
-            padding: 30px;
-            margin-bottom: 25px;
+        .feature-hero {
+            background: linear-gradient(135deg, var(--kuro) 0%, #2a2a2a 100%);
+            color: white;
+            padding: 50px 40px 40px;
             position: relative;
         }
 
-        .feature-header::before {
+        .feature-hero::after {
             content: '';
             position: absolute;
-            top: 8px;
-            left: 8px;
-            right: -8px;
-            bottom: -8px;
-            border: 1px solid var(--border);
-            z-index: -1;
+            bottom: 0;
+            left: 40px;
+            right: 40px;
+            height: 4px;
+            background: var(--aka);
         }
 
         .feature-category {
-            font-size: 8pt;
+            font-size: 9pt;
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--aka);
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
         .feature-title {
             font-family: 'Playfair Display', serif;
-            font-size: 28pt;
-            font-weight: 500;
-            line-height: 1.2;
-            margin-bottom: 10px;
+            font-size: 36pt;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 15px;
         }
 
         .feature-subtitle {
-            font-size: 10pt;
-            color: #666;
+            font-size: 12pt;
+            color: #999;
+            font-weight: 300;
         }
 
         .feature-body {
+            padding: 35px 40px;
             columns: 2;
-            column-gap: 30px;
+            column-gap: 35px;
         }
 
         .feature-body p {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             text-align: justify;
             hyphens: auto;
         }
@@ -297,54 +367,57 @@
         .feature-body .lead {
             font-size: 11pt;
             color: #333;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            font-weight: 400;
         }
 
         .feature-body h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 12pt;
+            font-size: 13pt;
             color: var(--aka);
-            margin: 18px 0 8px;
+            margin: 22px 0 10px;
             break-after: avoid;
         }
 
         .feature-quote {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 11pt;
-            color: #444;
-            padding: 15px 20px;
-            border-left: 3px solid var(--aka);
-            margin: 15px 0;
-            background: var(--hai);
+            font-size: 12pt;
+            color: #333;
+            padding: 20px 25px;
+            border-left: 4px solid var(--aka);
+            margin: 20px 0;
+            background: linear-gradient(90deg, rgba(196,30,58,0.08) 0%, transparent 100%);
             break-inside: avoid;
         }
 
         .feature-box {
-            border: 1px solid var(--border);
-            padding: 15px;
-            margin: 15px 0;
+            background: var(--kuro);
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
             break-inside: avoid;
         }
 
         .feature-box h4 {
-            font-size: 9pt;
+            font-size: 10pt;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--aka);
-            margin-bottom: 8px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid var(--border);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
 
         .feature-box ul {
             list-style: none;
-            font-size: 8pt;
+            font-size: 9pt;
         }
 
         .feature-box li {
-            padding: 3px 0 3px 12px;
+            padding: 5px 0 5px 15px;
             position: relative;
+            color: #ccc;
         }
 
         .feature-box li::before {
@@ -362,164 +435,163 @@
         }
 
         .region-header {
-            padding: 30px 40px;
-            border-bottom: 3px solid;
-            margin-bottom: 0;
+            padding: 40px;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: relative;
         }
 
-        .region-header.osaka { border-color: var(--osaka); }
-        .region-header.kyoto { border-color: var(--kyoto); }
-        .region-header.biwa { border-color: var(--biwa); }
-        .region-header.shimanami { border-color: var(--shimanami); }
-        .region-header.kyushu { border-color: var(--kyushu); }
-        .region-header.tokyo { border-color: var(--tokyo); }
-        .region-header.okinawa { border-color: var(--okinawa); }
-        .region-header.transit { border-color: var(--transit); }
+        .region-header.osaka { background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%); }
+        .region-header.kyoto { background: linear-gradient(135deg, #7c22a5 0%, #9333ea 100%); }
+        .region-header.biwa { background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%); }
+        .region-header.shimanami { background: linear-gradient(135deg, #047857 0%, #059669 100%); }
+        .region-header.kyushu { background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%); }
+        .region-header.tokyo { background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%); }
+        .region-header.okinawa { background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%); }
 
         .region-title-block {
             display: flex;
             align-items: baseline;
-            gap: 20px;
+            gap: 25px;
         }
 
         .region-kanji {
             font-family: 'Noto Serif JP', serif;
-            font-size: 36pt;
+            font-size: 48pt;
             font-weight: 600;
+            opacity: 0.9;
         }
-
-        .region-header.osaka .region-kanji { color: var(--osaka); }
-        .region-header.kyoto .region-kanji { color: var(--kyoto); }
-        .region-header.biwa .region-kanji { color: var(--biwa); }
-        .region-header.shimanami .region-kanji { color: var(--shimanami); }
-        .region-header.kyushu .region-kanji { color: var(--kyushu); }
-        .region-header.tokyo .region-kanji { color: var(--tokyo); }
-        .region-header.okinawa .region-kanji { color: var(--okinawa); }
-        .region-header.transit .region-kanji { color: var(--transit); }
 
         .region-name {
             font-family: 'Playfair Display', serif;
-            font-size: 20pt;
-            font-weight: 500;
+            font-size: 28pt;
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
         }
 
         .region-dates {
-            font-size: 10pt;
-            color: #666;
+            font-size: 11pt;
+            opacity: 0.8;
         }
 
         .region-content {
-            padding: 25px 40px;
+            padding: 30px 40px;
+        }
+
+        .region-intro {
+            font-size: 10pt;
+            color: #555;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.7;
         }
 
         /* ══════════════════════════════════════════
-           DAY CARDS - DETAILED
+           DAY CARDS - DATE BASED
            ══════════════════════════════════════════ */
         .day-card {
             border: 1px solid var(--border);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             page-break-inside: avoid;
         }
 
         .day-header {
             display: grid;
-            grid-template-columns: 70px 1fr auto;
-            gap: 15px;
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--border);
-            background: var(--hai);
+            grid-template-columns: 100px 1fr auto;
+            gap: 20px;
+            padding: 15px 20px;
+            background: var(--kuro);
+            color: white;
         }
 
-        .day-num-block {
+        .day-date-block {
             text-align: center;
-            border-right: 1px solid var(--border);
-            padding-right: 15px;
+            border-right: 1px solid rgba(255,255,255,0.2);
+            padding-right: 20px;
         }
 
-        .day-num {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 22pt;
-            font-weight: 600;
+        .day-date-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 24pt;
+            font-weight: 500;
             line-height: 1;
         }
 
-        .day-dow {
-            font-size: 7pt;
+        .day-date-month {
+            font-size: 10pt;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #888;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-top: 4px;
         }
 
-        .day-date {
+        .day-dow {
             font-size: 8pt;
-            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.5;
+            margin-top: 2px;
         }
 
         .day-title-block h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 13pt;
-            font-weight: 500;
-            margin-bottom: 2px;
+            font-size: 16pt;
+            font-weight: 400;
+            margin-bottom: 4px;
         }
 
         .day-title-block .subtitle {
-            font-size: 9pt;
-            color: #666;
+            font-size: 10pt;
+            opacity: 0.7;
         }
 
         .day-hotel {
             text-align: right;
-            font-size: 8pt;
+            font-size: 9pt;
         }
 
         .day-hotel .name {
-            font-weight: 600;
-            color: var(--kuro);
+            font-weight: 500;
+            margin-bottom: 2px;
         }
 
         .day-hotel .price {
             color: var(--aka);
-            font-weight: 500;
-        }
-
-        .day-hotel .provider {
-            color: #888;
-            font-size: 7pt;
+            font-weight: 600;
         }
 
         .day-body {
-            padding: 12px 15px;
+            padding: 20px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 25px;
         }
 
         .day-timeline h4, .day-notes h4 {
             font-size: 8pt;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             color: var(--aka);
-            margin-bottom: 8px;
-            padding-bottom: 4px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
             border-bottom: 1px solid var(--border);
         }
 
         .timeline-item {
             display: grid;
-            grid-template-columns: 55px 1fr;
-            gap: 8px;
-            padding: 3px 0;
-            font-size: 8pt;
+            grid-template-columns: 60px 1fr;
+            gap: 10px;
+            padding: 5px 0;
+            font-size: 9pt;
         }
 
         .timeline-item .time {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 7pt;
+            font-size: 8pt;
             color: #666;
         }
 
@@ -527,17 +599,11 @@
             color: var(--kuro);
         }
 
-        .timeline-item .note {
-            color: var(--aka);
-            font-style: italic;
-            font-size: 7pt;
-        }
-
         .note-item {
-            font-size: 8pt;
-            padding: 2px 0 2px 10px;
+            font-size: 9pt;
+            padding: 4px 0 4px 12px;
             position: relative;
-            color: #444;
+            color: #555;
         }
 
         .note-item::before {
@@ -545,7 +611,7 @@
             position: absolute;
             left: 0;
             color: var(--aka);
-            font-size: 7pt;
+            font-size: 8pt;
         }
 
         .note-item.warning {
@@ -553,146 +619,104 @@
             font-weight: 500;
         }
 
-        .day-tasks {
-            grid-column: 1 / -1;
-            padding-top: 10px;
-            border-top: 1px dashed var(--border);
-            margin-top: 5px;
-        }
-
-        .day-tasks h4 {
-            font-size: 8pt;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #666;
-            margin-bottom: 6px;
-        }
-
-        .task-item {
-            display: inline-block;
-            font-size: 7pt;
-            padding: 3px 8px;
-            background: var(--hai);
-            border: 1px solid var(--border);
-            margin: 2px 4px 2px 0;
-        }
-
-        .day-pois {
-            grid-column: 1 / -1;
-            padding-top: 8px;
-            border-top: 1px solid var(--border);
-        }
-
-        .day-pois h4 {
-            font-size: 7pt;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #888;
-            margin-bottom: 4px;
-        }
-
-        .poi-list {
-            font-size: 7pt;
-            color: #666;
+        .note-item.tip {
+            color: var(--shimanami);
         }
 
         /* ══════════════════════════════════════════
            HOTEL SPOTLIGHT
            ══════════════════════════════════════════ */
         .hotel-spotlight {
-            background: var(--hai);
-            border: 1px solid var(--border);
-            padding: 12px 15px;
-            margin: 10px 0;
+            background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 15px 20px;
+            margin: 15px 0;
             break-inside: avoid;
         }
 
         .hotel-spotlight h5 {
-            font-size: 9pt;
+            font-size: 10pt;
             font-weight: 600;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .hotel-spotlight h5::before {
-            content: '★';
-            color: var(--aka);
+            margin-bottom: 6px;
+            color: #92400e;
         }
 
         .hotel-spotlight p {
-            font-size: 8pt;
-            color: #555;
+            font-size: 9pt;
+            color: #78350f;
+            line-height: 1.5;
         }
 
         /* ══════════════════════════════════════════
-           REFERENCE PAGES
+           CULTURAL SIDEBAR
+           ══════════════════════════════════════════ */
+        .culture-box {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            break-inside: avoid;
+        }
+
+        .culture-box h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 12pt;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .culture-box h4::before {
+            content: '文化';
+            font-family: 'Noto Serif JP', serif;
+            font-size: 10pt;
+            color: #a5b4fc;
+        }
+
+        .culture-box p {
+            font-size: 9pt;
+            color: #c7d2fe;
+            line-height: 1.6;
+        }
+
+        /* ══════════════════════════════════════════
+           TRANSPORT REFERENCE
            ══════════════════════════════════════════ */
         .reference-page {
             page-break-after: always;
             padding: 40px;
+            background: linear-gradient(180deg, #1a1a1a 0%, #252525 100%);
+            color: white;
+            min-height: 100vh;
         }
 
         .ref-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 8pt;
-            margin-top: 15px;
+            font-size: 9pt;
+            margin-top: 20px;
         }
 
         .ref-table th {
             text-align: left;
-            padding: 8px 10px;
-            background: var(--kuro);
+            padding: 12px 15px;
+            background: rgba(196,30,58,0.3);
             color: white;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 7pt;
+            font-size: 8pt;
         }
 
         .ref-table td {
-            padding: 8px 10px;
-            border-bottom: 1px solid var(--border);
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
         }
 
-        .ref-table tr:nth-child(even) {
-            background: var(--hai);
-        }
-
-        .contacts-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .contact-card {
-            border: 1px solid var(--border);
-            padding: 15px;
-        }
-
-        .contact-card .name {
-            font-weight: 600;
-            font-size: 11pt;
-            margin-bottom: 4px;
-        }
-
-        .contact-card .when {
-            font-size: 9pt;
-            color: #666;
-        }
-
-        .contact-card .note {
-            font-size: 8pt;
-            color: #888;
-            margin-top: 5px;
-        }
-
-        .contact-card .confirmed {
-            color: var(--shimanami);
-            font-weight: 500;
+        .ref-table tr:hover td {
+            background: rgba(255,255,255,0.05);
         }
 
         /* ══════════════════════════════════════════
@@ -712,10 +736,10 @@
         .back-cover .quote {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 16pt;
-            max-width: 400px;
+            font-size: 18pt;
+            max-width: 450px;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #444;
         }
 
@@ -728,7 +752,7 @@
         .back-cover .logo {
             margin-top: 60px;
             font-family: 'Noto Serif JP', serif;
-            font-size: 24pt;
+            font-size: 28pt;
             color: var(--aka);
         }
 
@@ -737,7 +761,7 @@
            ══════════════════════════════════════════ */
         @media print {
             body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .day-card { break-inside: avoid; }
+            .day-card, .feature-box, .culture-box, .hotel-spotlight { break-inside: avoid; }
         }
     </style>
 </head>
@@ -765,7 +789,52 @@
             <div class="cover-feature">Onsen Culture</div>
             <div class="cover-feature">Shimanami Kaido</div>
             <div class="cover-feature">Sakamoto Ryoma</div>
-            <div class="cover-feature">Aogashima Adventure</div>
+            <div class="cover-feature">Remote Islands</div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         TABLE OF CONTENTS
+         ══════════════════════════════════════════ -->
+    <div class="toc-page">
+        <div class="toc-header">
+            <div class="kanji">目次</div>
+            <h2>Contents</h2>
+        </div>
+
+        <div class="toc-grid">
+            <div class="toc-section">
+                <h3>Features</h3>
+                <div class="toc-item"><span>The Art of Onsen</span><span>4</span></div>
+                <div class="toc-item"><span>Shimanami Kaido</span><span>6</span></div>
+                <div class="toc-item"><span>Sakamoto Ryoma Trail</span><span>8</span></div>
+                <div class="toc-item"><span>Aogashima: Edge of the World</span><span>10</span></div>
+            </div>
+
+            <div class="toc-section">
+                <h3>Regions</h3>
+                <div class="toc-item"><span>Osaka (Sep 19-26)</span><span>12</span></div>
+                <div class="toc-item"><span>Kyoto (Sep 27 - Oct 1)</span><span>14</span></div>
+                <div class="toc-item"><span>Lake Biwa (Oct 2-3)</span><span>16</span></div>
+                <div class="toc-item"><span>Shimanami (Oct 4-7)</span><span>17</span></div>
+                <div class="toc-item"><span>Kyushu (Oct 8-22)</span><span>19</span></div>
+                <div class="toc-item"><span>Tokyo & Izu (Oct 23 - Nov 1)</span><span>24</span></div>
+                <div class="toc-item"><span>Okinawa (Nov 2-8)</span><span>27</span></div>
+            </div>
+
+            <div class="toc-section">
+                <h3>Practical</h3>
+                <div class="toc-item"><span>Transport Schedule</span><span>29</span></div>
+                <div class="toc-item"><span>Car Rentals</span><span>29</span></div>
+            </div>
+
+            <div class="toc-section">
+                <h3>Cultural Notes</h3>
+                <div class="toc-item"><span>Onsen Etiquette</span><span>5</span></div>
+                <div class="toc-item"><span>Danjiri Festival</span><span>12</span></div>
+                <div class="toc-item"><span>Yokagura Performance</span><span>21</span></div>
+                <div class="toc-item"><span>Ryukyu Kingdom</span><span>27</span></div>
+            </div>
         </div>
     </div>
 
@@ -775,7 +844,7 @@
     <div class="overview-page">
         <div class="section-header">
             <div class="kanji">概要</div>
-            <h2>Trip Overview</h2>
+            <h2>Journey Overview</h2>
         </div>
 
         <div class="overview-stats">
@@ -792,8 +861,8 @@
                 <div class="label">Hotels</div>
             </div>
             <div class="stat-box">
-                <div class="value">~300km</div>
-                <div class="label">By Bicycle</div>
+                <div class="value">~300</div>
+                <div class="label">Km by Bike</div>
             </div>
         </div>
 
@@ -802,63 +871,63 @@
                 <div class="phase-dot" style="background: var(--osaka)"></div>
                 <div class="phase-info">
                     <div class="name">Osaka</div>
-                    <div class="dates">Sep 19-26 (8 days)</div>
+                    <div class="dates">Sep 19-26</div>
                 </div>
-                <div class="phase-places">Kishiwada Danjiri Festival, Nakanoshima architecture, Sakai (Kofun tombs, Shimano Museum), Maishima, Takedao Tunnels, Critical Mass Osaka</div>
+                <div class="phase-places">Kishiwada Danjiri Festival, Nakanoshima architecture walk, Sakai kofun tombs & Shimano Museum, abandoned Takedao tunnels, Critical Mass Osaka</div>
             </div>
 
             <div class="overview-phase">
                 <div class="phase-dot" style="background: var(--kyoto)"></div>
                 <div class="phase-info">
                     <div class="name">Kyoto</div>
-                    <div class="dates">Sep 27 - Oct 1 (5 days)</div>
+                    <div class="dates">Sep 27 - Oct 1</div>
                 </div>
-                <div class="phase-places">Nijo Castle, Imperial Palace, Uji (Byodo-in, matcha), KYOCERA Museum, teamLab Biovortex, full day with Takashi</div>
+                <div class="phase-places">Nijo Castle, Imperial Palace, Uji matcha town, KYOCERA Museum, teamLab Biovortex, full day with local friend Takashi</div>
             </div>
 
             <div class="overview-phase">
                 <div class="phase-dot" style="background: var(--biwa)"></div>
                 <div class="phase-info">
                     <div class="name">Lake Biwa</div>
-                    <div class="dates">Oct 2-3 (2 days)</div>
+                    <div class="dates">Oct 2-3</div>
                 </div>
-                <div class="phase-places">Omi-Hachiman cycling, La Collina (Fujimori architecture), Azuchi Castle ruins, Hikone Castle, Nagahama Kurokabe</div>
+                <div class="phase-places">Omi-Hachiman cycling, La Collina (Fujimori architecture), Azuchi Castle ruins, Hikone Castle, Nagahama Kurokabe district</div>
             </div>
 
             <div class="overview-phase">
                 <div class="phase-dot" style="background: var(--shimanami)"></div>
                 <div class="phase-info">
                     <div class="name">Shimanami</div>
-                    <div class="dates">Oct 4-7 (4 days)</div>
+                    <div class="dates">Oct 4-7</div>
                 </div>
-                <div class="phase-places">Tomonoura (Ponyo, Ryoma), Onomichi, Kosanji Temple, Hill of Hope, Shimanami Kaido 2-day cycling, Oyamazumi Shrine, Kurushima Bridge, Matsuyama</div>
+                <div class="phase-places">Tomonoura (Ponyo town), Onomichi, 70km island-hopping cycle, Kosanji Temple, Oyamazumi Shrine, Kurushima Kaikyo Bridge</div>
             </div>
 
             <div class="overview-phase">
                 <div class="phase-dot" style="background: var(--kyushu)"></div>
                 <div class="phase-info">
                     <div class="name">Kyushu</div>
-                    <div class="dates">Oct 8-22 (15 days)</div>
+                    <div class="dates">Oct 8-22</div>
                 </div>
-                <div class="phase-places">Beppu onsens, Yufuin, Aso volcano, Kurokawa tegata, Takachiho Gorge + Yokagura, Unzen jigoku, Nagasaki (Ryoma route), Ureshino, Fukuoka yatai</div>
+                <div class="phase-places">Beppu hell onsens, Yufuin, Mt. Aso caldera, Kurokawa tegata, Takachiho Gorge & Yokagura, Unzen jigoku, Nagasaki Ryoma trail, Ureshino onsen, Fukuoka yatai</div>
             </div>
 
             <div class="overview-phase">
                 <div class="phase-dot" style="background: var(--tokyo)"></div>
                 <div class="phase-info">
                     <div class="name">Tokyo + Izu</div>
-                    <div class="dates">Oct 23 - Nov 1 (10 days)</div>
+                    <div class="dates">Oct 23 - Nov 1</div>
                 </div>
-                <div class="phase-places">Wahei lunch, Izu Peninsula OR Aogashima adventure, Mt. Omuro, Jogasaki Coast, Hottarakashi Onsen, Halloween, Azabudai Hills</div>
+                <div class="phase-places">Takanawa Gateway City, Azabudai Hills, Izu Peninsula OR Aogashima adventure, Mt. Fuji viewpoints, Hottarakashi sunrise onsen, Halloween in Shinjuku</div>
             </div>
 
             <div class="overview-phase">
                 <div class="phase-dot" style="background: var(--okinawa)"></div>
                 <div class="phase-info">
                     <div class="name">Okinawa</div>
-                    <div class="dates">Nov 2-8 (7 days)</div>
+                    <div class="dates">Nov 2-8</div>
                 </div>
-                <div class="phase-places">Miyakojima, Irabu Bridge, Yonaha Maehama Beach, Sefa Utaki, Nirai-Kanai Bridge, Cape Chinen, Naha, Taipei layover</div>
+                <div class="phase-places">Miyakojima paradise, Irabu Bridge, Yonaha Maehama Beach, Sefa Utaki sacred site, Nirai-Kanai serpentine, Cape Chinen, Taipei layover</div>
             </div>
         </div>
     </div>
@@ -867,7 +936,7 @@
          FEATURE: ONSEN
          ══════════════════════════════════════════ -->
     <div class="feature-page">
-        <div class="feature-header">
+        <div class="feature-hero">
             <div class="feature-category">Culture & Tradition</div>
             <h1 class="feature-title">The Art of Onsen</h1>
             <p class="feature-subtitle">Japan's sacred bathing culture across volcanic landscapes</p>
@@ -876,36 +945,44 @@
         <div class="feature-body">
             <p class="lead">Japan sits atop the Pacific Ring of Fire, blessed with over 27,000 natural hot springs. The onsen tradition dates back to the 8th century, creating sanctuaries of relaxation where social barriers dissolve along with one's clothes.</p>
 
-            <h3>Beppu - Hell on Earth</h3>
-            <p>With eight distinct "hells" and more hot spring sources than anywhere else in Japan, Beppu produces enough hot water to fill 100 Olympic pools daily. Steam rises from streets, cooking pits bubble with geothermal heat.</p>
+            <h3>Beppu: Hell on Earth</h3>
+            <p>With eight distinct "hells" (jigoku) and more hot spring sources than anywhere else in Japan, Beppu produces enough hot water to fill 100 Olympic pools daily. Steam rises from streets, cooking pits bubble with geothermal heat, and the sulfurous air signals you've entered Japan's onsen capital.</p>
+            <p>The Kannawa district offers the most concentrated onsen experience, with public baths ranging from simple neighborhood sento to elaborate facilities with multiple pools at different temperatures. Don't miss jigoku-mushi: food steamed in volcanic vents.</p>
 
             <h3>Kurokawa Onsen</h3>
-            <p>Hidden in Kumamoto's mountains, this intimate village offers the tegata system - a wooden pass granting access to three different ryokan baths. Lantern-lit paths connect traditional inns with cave baths, riverside rotenburo, and forest-view pools.</p>
+            <p>Hidden in Kumamoto's mountains, this intimate village offers the tegata system — a wooden pass granting access to three different ryokan baths. Lantern-lit paths connect traditional inns with cave baths, riverside rotenburo, and forest-view pools. Each ryokan maintains its own character: some carved into cliffsides, others overlooking rushing streams.</p>
 
             <div class="feature-quote">
                 "In an onsen, rank and status dissolve in the steam. A CEO soaks beside a student. The water makes us equal."
             </div>
 
+            <h3>Unzen: Volcanic Inferno</h3>
+            <p>Shimabara Peninsula's volcanic hotspot offers otherworldly landscapes of steaming vents and bubbling mud pools. Walk through the Unzen Jigoku (Unzen Hell) before retreating to your ryokan's private rotenburo overlooking the apocalyptic scenery.</p>
+
+            <h3>Hottarakashi: Mountain-Top Dawn</h3>
+            <p>Perched high above Kofu in Yamanashi Prefecture, this rustic onsen offers what many consider Japan's finest sunrise view. Arrive before dawn, soak in the outdoor pools as the first light hits Mt. Fuji's snow-capped peak. The name means "left alone" — a reference to its deliberately undeveloped character.</p>
+
             <div class="feature-box">
                 <h4>Onsen Etiquette</h4>
                 <ul>
-                    <li>Wash thoroughly before entering</li>
-                    <li>Never wear swimwear (unless specified)</li>
-                    <li>Keep towel out of the water</li>
-                    <li>Don't swim or splash</li>
-                    <li>Tattoos may restrict access</li>
-                    <li>Limit soaking to 15-20 minutes</li>
+                    <li>Wash thoroughly at the shower stations before entering any pool</li>
+                    <li>Never wear swimwear in traditional onsen (some tourist spots allow it)</li>
+                    <li>Keep your small towel out of the water — place it on your head or poolside</li>
+                    <li>Don't swim, splash, or submerge your head</li>
+                    <li>Tattoos may restrict access — research tattoo-friendly facilities</li>
+                    <li>Limit soaking to 15-20 minutes to avoid overheating</li>
+                    <li>Hydrate well — the minerals and heat are dehydrating</li>
                 </ul>
             </div>
 
             <h3>This Journey's Onsen Highlights</h3>
-            <p><strong>Beppu (Oct 8-9):</strong> Kannawa streets, Myoban mud baths, jigoku-mushi cooking</p>
-            <p><strong>Yufuin (Oct 10):</strong> Elegant ryokan at foot of Mount Yufu, FREE BIKE included</p>
-            <p><strong>Kurokawa (Oct 13):</strong> Tegata onsen hopping, 3 baths for 1,500 yen</p>
-            <p><strong>Unzen (Oct 16):</strong> Half-board at Oedo Onsen with jigoku views</p>
-            <p><strong>Obama (Oct 17):</strong> Hot Foot 105 - Japan's longest foot bath (105m)</p>
-            <p><strong>Ureshino (Oct 20):</strong> "Beautiful skin" mineral waters</p>
-            <p><strong>Hottarakashi (Oct 28):</strong> Mountain-top pools with Mt. Fuji sunrise views</p>
+            <p><strong>Oct 8-9 Beppu:</strong> Kannawa streets, Myoban mud baths, jigoku-mushi cooking experience</p>
+            <p><strong>Oct 10 Yufuin:</strong> Elegant ryokan at foot of Mount Yufu, free bike rental included</p>
+            <p><strong>Oct 13 Kurokawa:</strong> Evening tegata onsen hopping, three baths for ¥1,500</p>
+            <p><strong>Oct 16 Unzen:</strong> Half-board ryokan with jigoku views, multiple indoor and outdoor baths</p>
+            <p><strong>Oct 17 Obama:</strong> Hot Foot 105 — Japan's longest foot bath at 105 meters</p>
+            <p><strong>Oct 20 Ureshino:</strong> Famous "beautiful skin" mineral waters, tea-infused baths</p>
+            <p><strong>Oct 28 Hottarakashi:</strong> Pre-dawn mountain-top soak with Mt. Fuji sunrise views</p>
         </div>
     </div>
 
@@ -913,39 +990,97 @@
          FEATURE: SHIMANAMI
          ══════════════════════════════════════════ -->
     <div class="feature-page">
-        <div class="feature-header">
+        <div class="feature-hero">
             <div class="feature-category">Adventure</div>
             <h1 class="feature-title">Shimanami Kaido</h1>
-            <p class="feature-subtitle">70km across the Seto Inland Sea - Japan's most spectacular cycling route</p>
+            <p class="feature-subtitle">70 kilometers across the Seto Inland Sea — Japan's most spectacular cycling route</p>
         </div>
 
         <div class="feature-body">
-            <p class="lead">Connecting Honshu to Shikoku across six islands, the Shimanami Kaido is more than a bridge - it's a journey through maritime history, artistic villages, and breathtaking coastal scenery.</p>
+            <p class="lead">Connecting Honshu to Shikoku across six islands, the Shimanami Kaido is more than a bridge system — it's a journey through maritime history, artistic villages, citrus groves, and breathtaking coastal scenery that unfolds at bicycle pace.</p>
 
             <h3>The Route</h3>
-            <p>Starting from Onomichi, the route crosses Mukaishima, Innoshima, Ikuchijima, Omishima, Hakatajima, and Oshima before reaching Imabari. Each island offers citrus groves, ancient shrines, contemporary art, and fishing villages where time moves slowly.</p>
+            <p>Starting from the hillside town of Onomichi, the route crosses Mukaishima, Innoshima, Ikuchijima, Omishima, Hakatajima, and Oshima before reaching Imabari on Shikoku. Each island offers its own character: citrus farms scenting the air with yuzu and mikan, ancient shrines housing samurai treasures, contemporary art installations, and fishing villages where time moves at the rhythm of the tides.</p>
+            <p>A blue line painted on the road serves as your guide, leading you from bridge to bridge. The cycling path is separated from vehicle traffic, making it safe and meditative.</p>
 
-            <h3>Ikuchijima: Art & History</h3>
-            <p>Home to Kosanji Temple - a millionaire's tribute featuring replicas of famous buildings - and the stunning Hill of Hope with marble sculptures overlooking the sea.</p>
+            <h3>Ikuchijima: Art & Devotion</h3>
+            <p>Home to Kosanji Temple, a millionaire's tribute to his mother featuring replicas of famous buildings from across Japan — Nikko's Yomeimon Gate, Byodo-in's Phoenix Hall — all rendered in brilliant color. Above the temple, the Hill of Hope offers stunning marble sculptures overlooking the island-dotted sea. The Shiomachi shopping street below preserves Showa-era charm.</p>
+
+            <div class="feature-quote">
+                "The bridges are the punctuation marks. The islands are the sentences. Together they tell the story of the Inland Sea."
+            </div>
 
             <h3>Omishima: Sacred Island</h3>
-            <p>Oyamazumi Shrine has stood for over 2,600 years, housing Japan's largest samurai armor collection. Stay at SANDO, a modern guesthouse bridging tradition and contemporary design.</p>
+            <p>Oyamazumi Shrine has stood for over 2,600 years, housing Japan's largest collection of samurai armor and weapons — 80% of the nationally designated treasures in this category. The shrine's camphor trees are over 2,500 years old. Sleep at SANDO, a beautifully converted guesthouse bridging tradition and contemporary design.</p>
+
+            <h3>The Bridges</h3>
+            <p>Each of the seven bridges offers different perspectives: the elegant curves of Tatara (once the longest cable-stayed span), the dramatic triple suspension of Kurushima Kaikyo connecting three islands at once. From the dedicated cycling paths, you're eye-level with the cables, the sea spread beneath you.</p>
 
             <div class="feature-box">
                 <h4>Practical Tips</h4>
                 <ul>
-                    <li>Rent bikes in Onomichi (Giant Store)</li>
-                    <li>Reserve 2 days for full experience</li>
-                    <li>Follow blue line painted on road</li>
-                    <li>Ship luggage ahead via Yamato</li>
-                    <li>Don't miss: Salt ice cream on Hakatajima</li>
-                    <li>Kirosan Observatory: Kengo Kuma, steep 3km climb</li>
+                    <li>Rent bikes at Giant Store Onomichi (advance booking for multi-day essential)</li>
+                    <li>Reserve two full days for a relaxed experience with time to explore</li>
+                    <li>Ship main luggage ahead via Yamato to your final hotel</li>
+                    <li>Follow the blue painted line — it never lies</li>
+                    <li>Kirosan Observatory (Kengo Kuma design) rewards a steep 3km climb</li>
+                    <li>Salt ice cream on Hakatajima is the perfect mid-route reward</li>
+                    <li>Wind typically blows from Onomichi to Imabari — ride with it if possible</li>
                 </ul>
             </div>
 
             <h3>This Journey's Plan</h3>
-            <p><strong>Day 19 (Oct 6):</strong> Onomichi → Omishima (~50km). Ferry start, Kosanji + Hill of Hope, overnight SANDO</p>
-            <p><strong>Day 20 (Oct 7):</strong> Omishima → Imabari → Matsuyama (~45km). Oyamazumi dawn, Kurushima Bridge finale</p>
+            <p><strong>Oct 6:</strong> Onomichi → Omishima (~50km). Ferry start, Kosanji Temple and Hill of Hope, lunch in Setoda, overnight at SANDO guesthouse.</p>
+            <p><strong>Oct 7:</strong> Omishima → Matsuyama (~45km). Dawn at Oyamazumi Shrine, island exploration, salt ice cream, dramatic Kurushima Bridge finale, train to Matsuyama for Dogo Onsen.</p>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         FEATURE: SAKAMOTO RYOMA
+         ══════════════════════════════════════════ -->
+    <div class="feature-page">
+        <div class="feature-hero">
+            <div class="feature-category">History</div>
+            <h1 class="feature-title">Sakamoto Ryoma</h1>
+            <p class="feature-subtitle">Following the revolutionary who transformed Japan</p>
+        </div>
+
+        <div class="feature-body">
+            <p class="lead">Sakamoto Ryoma (1836-1867) was a visionary samurai who helped overthrow the Tokugawa shogunate and modernize Japan. Assassinated at 31, he never saw the Meiji Restoration he made possible. This journey traces his footsteps from Nagasaki to the Inland Sea.</p>
+
+            <h3>Who Was Ryoma?</h3>
+            <p>Born to a lower-ranking samurai family in Tosa (modern Kochi), Ryoma defied class barriers and domain loyalties. He envisioned a unified Japan with a modern navy and democratic government — radical ideas in feudal times. He founded Japan's first trading company, brokered the alliance between rival domains that toppled the shogunate, and drafted an eight-point plan that became the template for Meiji reforms.</p>
+            <p>Ryoma famously carried both a sword and a revolver, symbolizing his embrace of Western technology while honoring Japanese tradition. He was assassinated in Kyoto just weeks before the Restoration succeeded.</p>
+
+            <div class="feature-quote">
+                "Once you make a decision, the universe conspires to make it happen." — Sakamoto Ryoma
+            </div>
+
+            <h3>Tomonoura: The Irohamaru Incident</h3>
+            <p>This picturesque port town witnessed a pivotal moment. In 1867, Ryoma's ship Irohamaru collided with a Kishu domain vessel and sank. Using international maritime law — unprecedented in Japan — Ryoma successfully demanded compensation. The Irohamaru Exhibition Hall now tells this story, while the Joyato lighthouse that guided ships then still stands.</p>
+            <p>The town also inspired Studio Ghibli's "Ponyo" — Miyazaki based its harbor setting on Tomonoura's timeless atmosphere.</p>
+
+            <h3>Nagasaki: The Trading Post</h3>
+            <p>Ryoma established the Kameyama Shachu here — Japan's first modern company — trading weapons and ships to fund the revolution. The winding streets of the Teramachi temple district preserve the atmosphere of the port city where East met West. Visit Ryoma's bronze boots at Kazagashira Park, his watchpost with harbor views.</p>
+
+            <div class="feature-box">
+                <h4>Ryoma Sites on This Journey</h4>
+                <ul>
+                    <li><strong>Oct 5 Tomonoura:</strong> Irohamaru Exhibition, Joyato lighthouse, Masuya hideout</li>
+                    <li><strong>Oct 19 Nagasaki:</strong> Kameyama Shachu headquarters, Ryoma-dori street</li>
+                    <li><strong>Oct 19 Nagasaki:</strong> Kazagashira Park statue with bronze boots</li>
+                    <li><strong>Oct 19 Nagasaki:</strong> Kofukuji Temple area, Teramachi district</li>
+                </ul>
+            </div>
+
+            <h3>Ryoma's Legacy</h3>
+            <p>Why does Ryoma remain so beloved 150+ years later? Perhaps because he represents possibility — a low-ranking samurai who changed history through vision, diplomacy, and daring. He appears in countless manga, films, and video games. NHK's 2010 Taiga drama "Ryomaden" sparked renewed interest in his story.</p>
+            <p>Walking where he walked, you sense both the beauty that inspired him and the dangers he faced. Every harbor, every temple district holds echoes of Japan's dramatic transformation from feudal isolation to modern nation.</p>
+
+            <div class="culture-box">
+                <h4>The Bakumatsu Period</h4>
+                <p>The final years of the Tokugawa shogunate (1853-1868) saw Japan convulsed by crisis. American "Black Ships" demanded trading rights. Assassinations and street battles became common. Feudal domains competed for influence. From this chaos emerged figures like Ryoma who glimpsed a new Japan — one that would become the industrial power of the early 20th century.</p>
+            </div>
         </div>
     </div>
 
@@ -953,39 +1088,46 @@
          FEATURE: AOGASHIMA
          ══════════════════════════════════════════ -->
     <div class="feature-page">
-        <div class="feature-header">
+        <div class="feature-hero">
             <div class="feature-category">Alternative Adventure</div>
             <h1 class="feature-title">Aogashima</h1>
-            <p class="feature-subtitle">Japan's most remote volcanic caldera - the hardest place to reach</p>
+            <p class="feature-subtitle">Japan's most remote inhabited volcanic caldera</p>
         </div>
 
         <div class="feature-body">
-            <p class="lead">A volcanic island within a volcanic island, inhabited by ~170 people, accessible only by helicopter (when weather permits) or a ferry that cancels more often than it runs.</p>
+            <p class="lead">A volcanic island within a volcanic island, inhabited by approximately 170 people, accessible only by helicopter when weather permits or by a ferry that cancels more often than it runs. Aogashima is Japan's hardest destination to reach — and among its most otherworldly.</p>
+
+            <h3>Double Caldera</h3>
+            <p>Aogashima's defining feature is its nested volcanic structure: a main caldera containing a secondary cone called Maruyama. The 1785 eruption killed nearly half the population; survivors evacuated to Hachijojima and didn't return for 50 years. Today, steam still vents from the inner crater, and residents use geothermal heat to cook and distill shochu.</p>
 
             <h3>Getting There: The Challenge</h3>
-            <p>The 9-seat helicopter books out within minutes. Tickets go on sale exactly one month in advance at 9:00 AM Japan time. The ferry cancels ~40% of attempts in autumn.</p>
-
-            <h3>What Awaits</h3>
-            <p><strong>Oyama Viewpoint:</strong> Views into the double caldera that seem from another planet</p>
-            <p><strong>Maruyama Crater:</strong> 40-minute hike into the inner volcano with steam vents</p>
-            <p><strong>Sauna Jigoku:</strong> Natural geothermal sauna built into rock - free, primitive</p>
-            <p><strong>Stargazing:</strong> Zero light pollution, Milky Way visible to naked eye</p>
+            <p>The 9-seat helicopter from Hachijojima books out within minutes of release. Tickets go on sale exactly one month in advance at 9:00 AM Japan time. The ferry, while cheaper, cancels 40-50% of attempts during autumn due to rough seas and the island's treacherous harbor.</p>
+            <p>This uncertainty is part of Aogashima's allure. You can't simply arrive — you must earn your passage through planning, luck, and patience.</p>
 
             <div class="feature-box">
-                <h4>Contingency Plan</h4>
+                <h4>The Contingency Plan</h4>
                 <ul>
-                    <li><strong>Sep 27, 9:00 JP:</strong> Attempt heli booking Oct 27 (outbound)</li>
-                    <li><strong>Sep 28, 9:00 JP:</strong> Attempt heli booking Oct 28 (return)</li>
-                    <li><strong>If success:</strong> Book ANA flights, minshuku, island adventure</li>
-                    <li><strong>If failure:</strong> Default to Izu Peninsula road trip</li>
-                    <li>Hachijojima hotel already booked (Noboryuso, cancel free by Oct 20)</li>
+                    <li><strong>Sep 27, 9:00 JP:</strong> Attempt helicopter booking Oct 27 outbound</li>
+                    <li><strong>Sep 28, 9:00 JP:</strong> Attempt helicopter booking Oct 28 return</li>
+                    <li><strong>If success:</strong> Book ANA flights HND↔Hachijojima, minshuku, begin adventure</li>
+                    <li><strong>If failure:</strong> Default to Izu Peninsula road trip (already researched)</li>
+                    <li>Hachijojima hotel already booked (Noboryuso, cancel free until Oct 20)</li>
                 </ul>
             </div>
 
+            <h3>What Awaits</h3>
+            <p><strong>Oyama Viewpoint:</strong> The main observation deck offers views down into the double caldera that seem from another planet. Green slopes, steaming vents, the inner cone rising from the crater floor.</p>
+            <p><strong>Maruyama Crater:</strong> A 40-minute hike into the inner volcano, where steam emerges from fissures and the smell of sulfur fills the air. The island's geothermal activity is palpable here.</p>
+            <p><strong>Sauna Jigoku:</strong> A natural geothermal sauna built into the rock face. Free, primitive, unforgettable. Bring your own towel; the experience is DIY.</p>
+            <p><strong>Stargazing:</strong> With zero light pollution — no street lights, few buildings — the Milky Way is visible to the naked eye. The stars here are the stars our ancestors knew.</p>
+
             <h3>Logistics</h3>
-            <p><strong>Accommodation:</strong> Minshuku Kazutomo (04996-9-0033) or Nagomi (04996-9-0066)</p>
-            <p><strong>Budget:</strong> ~720 EUR total (flights, heli, 4 nights)</p>
-            <p><strong>Essential:</strong> Cash only on Aogashima, bring snacks, offline maps</p>
+            <p>The island has no restaurants — meals come from your minshuku. Cash only; no ATMs. Bring supplies, snacks, and offline maps. Cell service is limited but exists. The single shop stocks basics.</p>
+            <p><strong>Budget:</strong> ~720 EUR total (flights, helicopter both ways, 3 nights Hachijojima, 1 night Aogashima minshuku)</p>
+
+            <div class="feature-quote">
+                "Aogashima exists where Japan ends and imagination begins. To get there is to leave the predictable world behind."
+            </div>
         </div>
     </div>
 
@@ -998,254 +1140,179 @@
                 <div class="region-kanji">大阪</div>
                 <div class="region-name">Osaka</div>
             </div>
-            <div class="region-dates">September 19-26 | 8 Days</div>
+            <div class="region-dates">September 19-26</div>
         </div>
 
         <div class="region-content">
-            <!-- Day 2 -->
+            <p class="region-intro">Japan's kitchen and commercial heart. Where merchants built fortunes, comedians honed their craft, and the Danjiri festival sends massive wooden floats careening through narrow streets. Osaka rewards those who eat first and sightsee later.</p>
+
+            <div class="culture-box">
+                <h4>Danjiri Matsuri</h4>
+                <p>Each September, Kishiwada erupts in controlled chaos. Teams of young men haul 4-ton wooden floats at running speed through tight corners in a ritual called yarimawashi. The evening tomoshibi parade transforms floats into glowing lanterns. This is Japan's most dangerous — and exhilarating — festival.</p>
+            </div>
+
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">2</div>
-                        <div class="day-dow">Sat</div>
-                        <div class="day-date">19.9.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">19</div>
+                        <div class="day-date-month">Sep</div>
+                        <div class="day-dow">Saturday</div>
                     </div>
                     <div class="day-title-block">
-                        <h3>TPE → Kishiwada</h3>
-                        <div class="subtitle">CI 152 + Danjiri Yoimiya (evening festival)</div>
+                        <h3>Taipei → Kishiwada</h3>
+                        <div class="subtitle">CI 152 arrival + Danjiri Yoimiya (evening festival)</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Route-Inn Higashikishiwada</div>
                         <div class="price">58 EUR</div>
-                        <div class="provider">Hotel Web | On-site ¥10,700</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">05:30</span><span class="text">Arrival TPE</span></div>
-                        <div class="timeline-item"><span class="time">09:00</span><span class="text">CI 152 TPE → KIX (China Airlines)</span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">05:30</span><span class="text">Arrival Taipei (overnight flight)</span></div>
+                        <div class="timeline-item"><span class="time">09:00</span><span class="text">CI 152 TPE → KIX</span></div>
                         <div class="timeline-item"><span class="time">12:50</span><span class="text">Arrival Kansai Airport</span></div>
-                        <div class="timeline-item"><span class="time">~15:00</span><span class="text">Hotel + festival start</span></div>
-                        <div class="timeline-item"><span class="time">15:30</span><span class="text">Yarimawashi turns</span></div>
-                        <div class="timeline-item"><span class="time">19:00</span><span class="text">Tomoshibi night parade</span></div>
+                        <div class="timeline-item"><span class="time">~15:00</span><span class="text">Hotel check-in, festival begins</span></div>
+                        <div class="timeline-item"><span class="time">15:30</span><span class="text">Yarimawashi corner turns</span></div>
+                        <div class="timeline-item"><span class="time">19:00</span><span class="text">Tomoshibi evening parade</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item">Kankanba = main viewing point for yarimawashi</div>
-                        <div class="note-item">Buy ICOCA at KIX / use mobile Suica</div>
-                        <div class="note-item">Hotel coupon 500 yen - don't forget!</div>
-                        <div class="note-item">Keep phone charged for video!</div>
+                        <div class="note-item">Kankanba is the main viewing spot for yarimawashi</div>
+                        <div class="note-item">Buy ICOCA at KIX or use mobile Suica</div>
+                        <div class="note-item">Hotel gives 500 yen coupon — don't forget to use!</div>
+                        <div class="note-item warning">Keep phone charged for video!</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 3 -->
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">3</div>
-                        <div class="day-dow">Sun</div>
-                        <div class="day-date">20.9.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">20</div>
+                        <div class="day-date-month">Sep</div>
+                        <div class="day-dow">Sunday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Kishiwada → Osaka</h3>
-                        <div class="subtitle">Danjiri Hommya (main day) + transfer</div>
+                        <div class="subtitle">Danjiri Hommya (main day) + transfer to Shinsaibashi</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Shinsaibashi Arty Inn</div>
                         <div class="price">52 EUR</div>
-                        <div class="provider">Agoda | Paid</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">08:00</span><span class="text">Leave hotel</span></div>
-                        <div class="timeline-item"><span class="time">09:00</span><span class="text">Miyairi - danjiri entering shrines</span></div>
-                        <div class="timeline-item"><span class="time">~15:00</span><span class="text">Transfer to Osaka</span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">08:00</span><span class="text">Leave hotel early</span></div>
+                        <div class="timeline-item"><span class="time">09:00</span><span class="text">Miyairi — floats entering shrines</span></div>
+                        <div class="timeline-item"><span class="time">~15:00</span><span class="text">Transfer to Osaka Shinsaibashi</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item">Hommiya = main day, morning is key (shrine entry)</div>
-                        <div class="note-item">Priority: Kishiki Shrine for miyairi</div>
-                        <div class="note-item">Haruki district = less touristy</div>
-                        <div class="note-item">Kuromon market for dinner?</div>
+                        <div class="note-item">Hommya morning is the most important — shrine entry rituals</div>
+                        <div class="note-item">Priority: Kishiki Shrine for miyairi ceremony</div>
+                        <div class="note-item">Haruki district is less crowded, more authentic feel</div>
+                        <div class="note-item tip">Kuromon Market for dinner in Osaka</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 4 -->
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">4</div>
-                        <div class="day-dow">Mon</div>
-                        <div class="day-date">21.9.</div>
-                    </div>
-                    <div class="day-title-block">
-                        <h3>Osaka Architecture</h3>
-                        <div class="subtitle">Nakanoshima → Kitahama → Semba | HOME OFFICE 16:00-24:00</div>
-                    </div>
-                    <div class="day-hotel">
-                        <div class="name">Shinsaibashi Arty Inn</div>
-                        <div class="price">52 EUR</div>
-                        <div class="provider">Agoda | Paid</div>
-                    </div>
-                </div>
-                <div class="day-body">
-                    <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">09:30</span><span class="text">Nakanoshima - Kitahama - Semba</span></div>
-                        <div class="timeline-item"><span class="time">13:30</span><span class="text">Lunch + return</span></div>
-                        <div class="timeline-item"><span class="time">16:00</span><span class="text">HOME OFFICE</span></div>
-                    </div>
-                    <div class="day-notes">
-                        <h4>Notes</h4>
-                        <div class="note-item">First HO day - have work stuff ready</div>
-                        <div class="note-item">Bank of Japan, Public Hall, Library</div>
-                        <div class="note-item">Check hotel WiFi speed</div>
-                        <div class="note-item">Backup: Umeda shopping</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day 5 -->
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">5</div>
-                        <div class="day-dow">Tue</div>
-                        <div class="day-date">22.9.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">22</div>
+                        <div class="day-date-month">Sep</div>
+                        <div class="day-dow">Tuesday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Sakai</h3>
-                        <div class="subtitle">Kofun tombs, Shimano Bicycle Museum | HO 16:00-24:00</div>
+                        <div class="subtitle">Kofun tombs & Shimano Bicycle Museum</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Shinsaibashi Arty Inn</div>
                         <div class="price">52 EUR</div>
-                        <div class="provider">Agoda | Paid</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">Morning</span><span class="text">Sakai - Kofun tombs</span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">Morning</span><span class="text">Sakai City Hall 21F viewpoint</span></div>
                         <div class="timeline-item"><span class="time">10:00</span><span class="text">Shimano Bicycle Museum</span></div>
-                        <div class="timeline-item"><span class="time">16:00</span><span class="text">HOME OFFICE</span></div>
+                        <div class="timeline-item"><span class="time">16:00</span><span class="text">Home office begins</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item">Sakai City Hall 21F = best kofun view (free)</div>
-                        <div class="note-item">Shimano open 10:00-16:30</div>
+                        <div class="note-item">Sakai City Hall 21F offers free kofun views</div>
+                        <div class="note-item">Shimano museum open 10:00-16:30</div>
                         <div class="note-item warning">TODAY: Activate Kumamoto car insurance!</div>
-                    </div>
-                    <div class="day-tasks">
-                        <h4>Tasks</h4>
-                        <span class="task-item">Laundry (first since trip)</span>
-                        <span class="task-item">Activate Kumamoto car insurance</span>
+                        <div class="note-item warning">LAUNDRY — first since trip start (4 days)</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 7 -->
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">7</div>
-                        <div class="day-dow">Thu</div>
-                        <div class="day-date">24.9.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">24</div>
+                        <div class="day-date-month">Sep</div>
+                        <div class="day-dow">Thursday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Takedao</h3>
-                        <div class="subtitle">Abandoned railway tunnels, nature hike</div>
+                        <div class="subtitle">Abandoned railway tunnels hike</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Shinsaibashi Arty Inn</div>
                         <div class="price">52 EUR</div>
-                        <div class="provider">Agoda | Paid</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">All day</span><span class="text">JR Takedao - tunnels / nature (~5km)</span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">All day</span><span class="text">JR Takedao — tunnel hike (~5km)</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item">Full day without HO - make the most!</div>
-                        <div class="note-item">Abandoned railway = tunnels, bridges, river</div>
-                        <div class="note-item">Flashlight for tunnels (or phone)</div>
-                        <div class="note-item">Bring snacks - nothing on trail</div>
-                        <div class="note-item">Start early (9:00) for best light</div>
+                        <div class="note-item">Full day without home office — make the most of it!</div>
+                        <div class="note-item">Abandoned Fukuchiyama line: tunnels, bridges, river views</div>
+                        <div class="note-item">Bring flashlight (or use phone) for dark tunnels</div>
+                        <div class="note-item">Pack snacks and water — nothing available on trail</div>
+                        <div class="note-item tip">Start early (9:00) for best light in tunnels</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 8 -->
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">8</div>
-                        <div class="day-dow">Fri</div>
-                        <div class="day-date">25.9.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">25</div>
+                        <div class="day-date-month">Sep</div>
+                        <div class="day-dow">Friday</div>
                     </div>
                     <div class="day-title-block">
-                        <h3>Osaka + Critical Mass</h3>
-                        <div class="subtitle">Nakanoshima Museum, evening cycling event</div>
+                        <h3>Nakanoshima + Critical Mass</h3>
+                        <div class="subtitle">Art museums by day, group cycling by night</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Shinsaibashi Arty Inn</div>
                         <div class="price">52 EUR</div>
-                        <div class="provider">Agoda | Paid</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
+                        <h4>Schedule</h4>
                         <div class="timeline-item"><span class="time">Morning</span><span class="text">Nakanoshima Museum of Art (Ando Tadao)</span></div>
                         <div class="timeline-item"><span class="time">Afternoon</span><span class="text">National Museum of Art</span></div>
                         <div class="timeline-item"><span class="time">Evening</span><span class="text">Critical Mass Osaka</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item">Critical Mass - verify meeting point!</div>
-                        <div class="note-item">Hello Bike account (app) - set up in advance</div>
-                        <div class="note-item">Charge phone (navigation, bike light)</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day 9 -->
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">9</div>
-                        <div class="day-dow">Sat</div>
-                        <div class="day-date">26.9.</div>
-                    </div>
-                    <div class="day-title-block">
-                        <h3>Osaka + Keigo</h3>
-                        <div class="subtitle">Free day, evening meetup with friend</div>
-                    </div>
-                    <div class="day-hotel">
-                        <div class="name">Shinsaibashi Arty Inn</div>
-                        <div class="price">52 EUR</div>
-                        <div class="provider">Agoda | Paid</div>
-                    </div>
-                </div>
-                <div class="day-body">
-                    <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">Free</span><span class="text">Tennoji / Abeno / modern Osaka</span></div>
-                        <div class="timeline-item"><span class="time">Evening</span><span class="text">Meeting with Keigo</span></div>
-                    </div>
-                    <div class="day-notes">
-                        <h4>Notes</h4>
-                        <div class="note-item warning">KEIGO - contact min. 1 week in advance!</div>
-                        <div class="note-item">Abeno Harukas = tallest building</div>
-                        <div class="note-item">Tomorrow move to Kyoto - pack tonight!</div>
+                        <div class="note-item warning">Critical Mass — verify meeting point in advance!</div>
+                        <div class="note-item">Set up Hello Bike app account before evening</div>
+                        <div class="note-item">Charge phone fully — needed for navigation and bike lights</div>
                     </div>
                 </div>
             </div>
@@ -1261,133 +1328,156 @@
                 <div class="region-kanji">京都</div>
                 <div class="region-name">Kyoto</div>
             </div>
-            <div class="region-dates">September 27 - October 1 | 5 Days</div>
+            <div class="region-dates">September 27 - October 1</div>
         </div>
 
         <div class="region-content">
-            <!-- Day 10 -->
+            <p class="region-intro">The ancient capital, where 2,000 temples and shrines hide among modern streets. Kyoto rewards the patient explorer who wanders beyond the famous sites to discover neighborhood temples, hidden gardens, and the quiet rhythms of a city that shaped Japanese culture.</p>
+
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">10</div>
-                        <div class="day-dow">Sun</div>
-                        <div class="day-date">27.9.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">27</div>
+                        <div class="day-date-month">Sep</div>
+                        <div class="day-dow">Sunday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Osaka → Kyoto</h3>
-                        <div class="subtitle">Transfer, bike rental, Nijo Castle area</div>
+                        <div class="subtitle">Transfer, bicycle rental, West Kyoto exploration</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Hedistar Hotel Kyoto Nijo</div>
                         <div class="price">24 EUR</div>
-                        <div class="provider">Trip | Paid</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
+                        <h4>Schedule</h4>
                         <div class="timeline-item"><span class="time">Morning</span><span class="text">Transfer to Kyoto</span></div>
-                        <div class="timeline-item"><span class="time"></span><span class="text">Hotel + rent bike</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Hotel check-in, rent bicycle</span></div>
                         <div class="timeline-item"><span class="time">Afternoon</span><span class="text">West Kyoto by bike</span></div>
-                        <div class="timeline-item"><span class="time"></span><span class="text">Nijo - Imperial Palace - Kamogawa</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Nijo Castle → Imperial Palace → Kamogawa</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item">Kyoto = slower pace than Osaka</div>
-                        <div class="note-item">Nijo Castle = recommend interior (Ninomaru)</div>
-                        <div class="note-item">Dinner: Pontocho or Gion area</div>
-                    </div>
-                    <div class="day-tasks">
-                        <h4>Tasks</h4>
-                        <span class="task-item">9:00 JP - Buy heli Oct 27 HJJ→AOG</span>
+                        <div class="note-item">Kyoto pace is slower than Osaka — embrace it</div>
+                        <div class="note-item">Nijo Castle Ninomaru Palace interior is worth the entry</div>
+                        <div class="note-item tip">Pontocho or Gion for dinner</div>
+                        <div class="note-item warning">9:00 JP — Helicopter booking attempt #1</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 11 -->
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">11</div>
-                        <div class="day-dow">Mon</div>
-                        <div class="day-date">28.9.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">28</div>
+                        <div class="day-date-month">Sep</div>
+                        <div class="day-dow">Monday</div>
                     </div>
                     <div class="day-title-block">
-                        <h3>Kyoto - Takashi</h3>
+                        <h3>Kyoto with Takashi</h3>
                         <div class="subtitle">Full day reserved for local guide</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Hedistar Hotel Kyoto Nijo</div>
                         <div class="price">24 EUR</div>
-                        <div class="provider">Trip | Paid</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
+                        <h4>Schedule</h4>
                         <div class="timeline-item"><span class="time">All day</span><span class="text">Reserved for Takashi</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item warning">Whole day with Takashi - no own plans!</div>
-                        <div class="note-item">Let him decide the program</div>
-                        <div class="note-item">Have cash for local places</div>
-                    </div>
-                    <div class="day-tasks">
-                        <h4>Tasks</h4>
-                        <span class="task-item">9:00 JP - Buy heli Oct 28 AOG→HJJ</span>
-                        <span class="task-item">If heli success: Book ANA flights</span>
+                        <div class="note-item warning">Whole day with Takashi — no own plans!</div>
+                        <div class="note-item">Let him decide the program — local knowledge invaluable</div>
+                        <div class="note-item">Have cash ready for local spots</div>
+                        <div class="note-item warning">9:00 JP — Helicopter booking attempt #2</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 14 -->
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">14</div>
-                        <div class="day-dow">Thu</div>
-                        <div class="day-date">1.10.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">29</div>
+                        <div class="day-date-month">Sep</div>
+                        <div class="day-dow">Tuesday</div>
                     </div>
                     <div class="day-title-block">
-                        <h3>Toji → teamLab → Lake Biwa</h3>
-                        <div class="subtitle">Morning pagoda, digital art, onsen finale | HO evening</div>
+                        <h3>Uji</h3>
+                        <div class="subtitle">Byodo-in Temple, matcha capital, tea traditions</div>
                     </div>
                     <div class="day-hotel">
-                        <div class="name">Ofurocafe Biwakoza</div>
-                        <div class="price">41 EUR</div>
-                        <div class="provider">JAPANiCAN | On-site</div>
+                        <div class="name">Hedistar Hotel Kyoto Nijo</div>
+                        <div class="price">24 EUR</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">08:30</span><span class="text">Check-out, luggage to locker</span></div>
-                        <div class="timeline-item"><span class="time">08:45</span><span class="text">Toji Temple (pagoda, UNESCO)</span></div>
-                        <div class="timeline-item"><span class="time">10:30</span><span class="text">teamLab Biovortex Kyoto<span class="note">Entry 10:30-11:00</span></span></div>
-                        <div class="timeline-item"><span class="time">13:30</span><span class="text">Kyoto Station architecture</span></div>
-                        <div class="timeline-item"><span class="time">16:00</span><span class="text">Ofurocafe - onsen/relax</span></div>
-                        <div class="timeline-item"><span class="time">20:00</span><span class="text">HOME OFFICE</span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">08:30</span><span class="text">Departure to Uji</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Byodo-in Temple (10-yen coin!)</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Ujigami Shrine (oldest in Japan)</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Matcha lunch, tea shopping</span></div>
+                        <div class="timeline-item"><span class="time">20:00</span><span class="text">Home office</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item" style="color: var(--shimanami); font-weight: 500;">teamLab TICKET PURCHASED! Entry 10:30-11:00</div>
-                        <div class="note-item">Ticket in email (Flights folder)</div>
-                        <div class="note-item">Can change up to 2h before</div>
-                        <div class="note-item">Kyoto Station = Hiroshi Hara, massive atrium</div>
+                        <div class="note-item">Uji is 20-30 min from Kyoto (Keihan or JR)</div>
+                        <div class="note-item">Byodo-in opens 8:30 — go early for fewer crowds</div>
+                        <div class="note-item">Phoenix Hall interior requires timed entry ticket</div>
+                        <div class="note-item tip">Uji = matcha capital: try soba, parfait, tea ceremony</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="hotel-spotlight">
-                    <h5>Ofurocafe Biwakoza</h5>
-                    <p>Unique concept: onsen + coworking + cafe by Lake Biwa. Perfect for evening HO with relaxation. Arrive after 16:00 for best experience.</p>
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-date-block">
+                        <div class="day-date-main">1</div>
+                        <div class="day-date-month">Oct</div>
+                        <div class="day-dow">Thursday</div>
+                    </div>
+                    <div class="day-title-block">
+                        <h3>Toji → teamLab → Lake Biwa</h3>
+                        <div class="subtitle">UNESCO pagoda, digital art, onsen finale</div>
+                    </div>
+                    <div class="day-hotel">
+                        <div class="name">Ofurocafe Biwakoza</div>
+                        <div class="price">41 EUR</div>
+                    </div>
                 </div>
+                <div class="day-body">
+                    <div class="day-timeline">
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">08:30</span><span class="text">Check-out, luggage to locker</span></div>
+                        <div class="timeline-item"><span class="time">08:45</span><span class="text">Toji Temple (five-story pagoda)</span></div>
+                        <div class="timeline-item"><span class="time">10:30</span><span class="text">teamLab Biovortex entry window</span></div>
+                        <div class="timeline-item"><span class="time">13:30</span><span class="text">Kyoto Station architecture</span></div>
+                        <div class="timeline-item"><span class="time">16:00</span><span class="text">Ofurocafe Biwakoza — onsen + relax</span></div>
+                        <div class="timeline-item"><span class="time">20:00</span><span class="text">Home office</span></div>
+                    </div>
+                    <div class="day-notes">
+                        <h4>Notes</h4>
+                        <div class="note-item tip">teamLab TICKET PURCHASED! Entry 10:30-11:00</div>
+                        <div class="note-item">Ticket in email (Flights folder), can change up to 2h before</div>
+                        <div class="note-item">Kyoto Station = Hiroshi Hara architecture, massive atrium</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hotel-spotlight">
+                <h5>Ofurocafe Biwakoza</h5>
+                <p>Unique concept: onsen + coworking + cafe by Lake Biwa. Soak in hot spring pools overlooking the lake, work from comfortable lounges, enjoy the cafe. Arrive after 16:00 for best experience.</p>
             </div>
         </div>
     </div>
 
     <!-- ══════════════════════════════════════════
-         KYUSHU CHAPTER (ABBREVIATED FOR LENGTH)
+         KYUSHU CHAPTER
          ══════════════════════════════════════════ -->
     <div class="region-page">
         <div class="region-header kyushu">
@@ -1395,76 +1485,70 @@
                 <div class="region-kanji">九州</div>
                 <div class="region-name">Kyushu</div>
             </div>
-            <div class="region-dates">October 8-22 | 15 Days</div>
+            <div class="region-dates">October 8-22</div>
         </div>
 
         <div class="region-content">
-            <!-- Day 21 -->
+            <p class="region-intro">The volcanic heartland. Kyushu steams with onsen, rumbles with active calderas, and preserves traditions from ancient Shinto mythology to 19th-century revolutionary ferment. Fifteen days across landscapes that range from moonscape hells to serene hot spring villages.</p>
+
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">21</div>
-                        <div class="day-dow">Thu</div>
-                        <div class="day-date">8.10.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">8</div>
+                        <div class="day-date-month">Oct</div>
+                        <div class="day-dow">Thursday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Matsuyama → Shimonada → Beppu</h3>
-                        <div class="subtitle">Coastal railway, ferry crossing to Kyushu</div>
+                        <div class="subtitle">Seaside railway station, ferry crossing to Kyushu</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Hotel Arthur Beppu</div>
                         <div class="price">34 EUR</div>
-                        <div class="provider">Agoda | Paid</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">07:50</span><span class="text">Train Matsuyama</span></div>
-                        <div class="timeline-item"><span class="time">08:48</span><span class="text">Shimonada - station by the sea<span class="note">Buy ticket in advance!</span></span></div>
-                        <div class="timeline-item"><span class="time">~11:20</span><span class="text">Yawatahama</span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">07:50</span><span class="text">Train from Matsuyama</span></div>
+                        <div class="timeline-item"><span class="time">08:48</span><span class="text">Shimonada — station by the sea</span></div>
+                        <div class="timeline-item"><span class="time">~11:20</span><span class="text">Yawatahama port</span></div>
                         <div class="timeline-item"><span class="time">13:00</span><span class="text">Ferry → Beppu</span></div>
                         <div class="timeline-item"><span class="time">15:50</span><span class="text">Arrival Beppu</span></div>
-                        <div class="timeline-item"><span class="time">Evening</span><span class="text">First onsen</span></div>
+                        <div class="timeline-item"><span class="time">Evening</span><span class="text">First Kyushu onsen</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item warning">TIGHT SCHEDULE - Ferry 13:00 HARD!</div>
-                        <div class="note-item warning">Shimonada has NO ticket machine!</div>
-                        <div class="note-item">Ferry: buy at port (no booking)</div>
-                        <div class="note-item">Buffer: 1h 45min in Yawatahama</div>
-                        <div class="note-item">Alarm 06:30, bag packed night before</div>
-                    </div>
-                    <div class="day-tasks">
-                        <h4>Tasks</h4>
-                        <span class="task-item">Ticket must be ready!</span>
+                        <div class="note-item warning">TIGHT SCHEDULE — Ferry 13:00 is hard deadline!</div>
+                        <div class="note-item warning">Shimonada has NO ticket machine! Buy in advance!</div>
+                        <div class="note-item">Ferry tickets at port, no booking needed</div>
+                        <div class="note-item">Buffer: 1h 45min in Yawatahama for lunch</div>
+                        <div class="note-item warning">Alarm 06:30, bag packed night before</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 26 -->
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">26</div>
-                        <div class="day-dow">Tue</div>
-                        <div class="day-date">13.10.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">13</div>
+                        <div class="day-date-month">Oct</div>
+                        <div class="day-dow">Tuesday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Aso → Kurokawa Onsen</h3>
-                        <div class="subtitle">Yamanami Highway, tegata onsen hopping</div>
+                        <div class="subtitle">Yamanami Highway scenic drive, tegata onsen hopping</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Container House Villa</div>
                         <div class="price">52 EUR</div>
-                        <div class="provider">Booking | Paid</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">Morning</span><span class="text">Kusasenri crater</span></div>
-                        <div class="timeline-item"><span class="time"></span><span class="text">Aso viewpoints</span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">Morning</span><span class="text">Kusasenri crater grasslands</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Aso volcano viewpoints</span></div>
                         <div class="timeline-item"><span class="time"></span><span class="text">Tadewara Wetlands</span></div>
                         <div class="timeline-item"><span class="time"></span><span class="text">Makinoto Pass</span></div>
                         <div class="timeline-item"><span class="time"></span><span class="text">Yamanami Highway drive</span></div>
@@ -1472,103 +1556,134 @@
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item">Skipping Aso crater (restrictions, queues)</div>
-                        <div class="note-item">Yamanami = most scenic road in Japan</div>
-                        <div class="note-item">Kurokawa tegata = 3 onsens for 1,500 yen</div>
-                        <div class="note-item warning">Fill up in Aso town (nothing until Kurokawa)</div>
+                        <div class="note-item">Skipping Aso crater — restrictions and long queues</div>
+                        <div class="note-item">Yamanami Highway = most scenic road in Japan</div>
+                        <div class="note-item tip">Kurokawa tegata = 3 onsens for ¥1,500</div>
+                        <div class="note-item warning">Fill up in Aso town — nothing until Kurokawa</div>
                     </div>
-                </div>
-
-                <div class="hotel-spotlight">
-                    <h5>Kurokawa Onsen Village</h5>
-                    <p>Buy tegata (wooden pass) at tourist info. Lantern-lit paths connect different ryokan baths. Each has unique character: cave baths, riverside rotenburo, forest views. Don't rush - this is the essence of Japanese onsen culture.</p>
                 </div>
             </div>
 
-            <!-- Day 27 -->
+            <div class="hotel-spotlight">
+                <h5>Kurokawa Onsen Village</h5>
+                <p>Buy the wooden tegata pass at tourist info. Lantern-lit paths connect different ryokan baths. Each has unique character: cave baths, riverside rotenburo, forest views. Don't rush — this is the essence of Japanese onsen culture.</p>
+            </div>
+
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">27</div>
-                        <div class="day-dow">Wed</div>
-                        <div class="day-date">14.10.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">14</div>
+                        <div class="day-date-month">Oct</div>
+                        <div class="day-dow">Wednesday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Kurokawa → Takachiho</h3>
-                        <div class="subtitle">Takachiho Gorge, Yokagura performance 20:00</div>
+                        <div class="subtitle">Mythical gorge, evening Yokagura sacred dance</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Hotel Grateful Takachiho</div>
-                        <div class="price">50 EUR</div>
-                        <div class="provider">Klook | Paid | Breakfast</div>
+                        <div class="price">50 EUR (breakfast)</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">Morning</span><span class="text">Slower start - breakfast + last onsen</span></div>
-                        <div class="timeline-item"><span class="time"></span><span class="text">Drive → Takachiho</span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">Morning</span><span class="text">Slower start — breakfast + last onsen</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Drive to Takachiho</span></div>
                         <div class="timeline-item"><span class="time">Afternoon</span><span class="text">Takachiho Gorge</span></div>
                         <div class="timeline-item"><span class="time"></span><span class="text">Takachiho Shrine</span></div>
-                        <div class="timeline-item"><span class="time">20:00</span><span class="text">Takachiho Yokagura<span class="note">Reserve!</span></span></div>
+                        <div class="timeline-item"><span class="time">20:00</span><span class="text">Yokagura performance</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
                         <div class="note-item warning">YOKAGURA RESERVATION required!</div>
-                        <div class="note-item">Gorge boats = long queues, arrive early</div>
-                        <div class="note-item">Alternative: Walk along gorge (beautiful)</div>
-                        <div class="note-item">Tomorrow: Kunimigaoka cloud sea - set alarm</div>
+                        <div class="note-item">Gorge boats have long queues — arrive early or walk instead</div>
+                        <div class="note-item">Walking along the gorge is equally beautiful</div>
+                        <div class="note-item warning">Tomorrow: Kunimigaoka cloud sea — set 5:30 alarm</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 29 -->
+            <div class="culture-box">
+                <h4>Yokagura: Dance of the Gods</h4>
+                <p>This ancient Shinto ritual has been performed in Takachiho for over 800 years. Masked dancers enact mythological episodes: Amaterasu emerging from her cave, deities descending to earth. The nightly tourist performance at Takachiho Shrine shows excerpts; full village ceremonies run all night during winter festivals.</p>
+            </div>
+
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">29</div>
-                        <div class="day-dow">Fri</div>
-                        <div class="day-date">16.10.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">16</div>
+                        <div class="day-date-month">Oct</div>
+                        <div class="day-dow">Friday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Kumamoto → Shimabara → Unzen</h3>
-                        <div class="subtitle">Ocean Arrow ferry, Unzen Jigoku hells</div>
+                        <div class="subtitle">Ferry crossing, volcanic hells, half-board ryokan</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Oedo Onsen Monogatari</div>
-                        <div class="price">63 EUR</div>
-                        <div class="provider">Revolut | Paid | HALF BOARD</div>
+                        <div class="price">63 EUR (half-board)</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
+                        <h4>Schedule</h4>
                         <div class="timeline-item"><span class="time">Morning</span><span class="text">Luggage → Nagasaki (Yamato)</span></div>
                         <div class="timeline-item"><span class="time">08:45</span><span class="text">Kumamoto Port</span></div>
                         <div class="timeline-item"><span class="time">09:25</span><span class="text">Ferry Ocean Arrow → Shimabara</span></div>
                         <div class="timeline-item"><span class="time">10:20</span><span class="text">Shimabara Castle</span></div>
-                        <div class="timeline-item"><span class="time">11:30</span><span class="text">Samurai District</span></div>
                         <div class="timeline-item"><span class="time">~13:00</span><span class="text">Bus → Unzen</span></div>
-                        <div class="timeline-item"><span class="time">15:00</span><span class="text">Unzen Jigoku</span></div>
-                        <div class="timeline-item"><span class="time">17:00+</span><span class="text">Hotel / onsen</span></div>
+                        <div class="timeline-item"><span class="time">15:00</span><span class="text">Unzen Jigoku hell walk</span></div>
+                        <div class="timeline-item"><span class="time">17:00</span><span class="text">Hotel / onsen / dinner</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item warning">TIGHT MORNING - luggage 07:30 + ferry 09:25!</div>
-                        <div class="note-item">Yamato might open only 8:00 - verify!</div>
-                        <div class="note-item">Ferry: buy at port</div>
-                        <div class="note-item warning">HALF BOARD - dinner included, check-in by 19h!</div>
-                    </div>
-                    <div class="day-tasks">
-                        <h4>Tasks</h4>
-                        <span class="task-item">Send luggage Kumamoto→Nagasaki</span>
-                        <span class="task-item">Save tracking number!</span>
+                        <div class="note-item warning">TIGHT MORNING — luggage 07:30 + ferry 09:25!</div>
+                        <div class="note-item">Verify Yamato opening time (may be 8:00)</div>
+                        <div class="note-item">Ferry tickets at port, no booking needed</div>
+                        <div class="note-item warning">HALF BOARD — dinner included, check-in by 19:00!</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="hotel-spotlight">
-                    <h5>Oedo Onsen Monogatari Unzen</h5>
-                    <p>Half-board included! Traditional ryokan experience with multiple onsen baths overlooking the steaming jigoku. Dinner features local Shimabara cuisine. Check-in before 19:00 for dinner.</p>
+            <div class="hotel-spotlight">
+                <h5>Oedo Onsen Monogatari Unzen</h5>
+                <p>Half-board included! Traditional ryokan experience with multiple onsen baths overlooking the steaming jigoku. Dinner features local Shimabara cuisine including fresh seafood and regional specialties. Check-in before 19:00 for dinner service.</p>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-date-block">
+                        <div class="day-date-main">19</div>
+                        <div class="day-date-month">Oct</div>
+                        <div class="day-dow">Monday</div>
+                    </div>
+                    <div class="day-title-block">
+                        <h3>Nagasaki — Ryoma Route</h3>
+                        <div class="subtitle">Kameyama Shachu, temples, revolutionary history</div>
+                    </div>
+                    <div class="day-hotel">
+                        <div class="name">APA Nagasaki Dejima</div>
+                        <div class="price">34 EUR</div>
+                    </div>
+                </div>
+                <div class="day-body">
+                    <div class="day-timeline">
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Kofukuji Temple</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Kameyama Shachu headquarters</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Ryoma's Boots statue</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Kazagashira Park panorama</span></div>
+                        <div class="timeline-item"><span class="time"></span><span class="text">Teramachi temple district</span></div>
+                        <div class="timeline-item"><span class="time">Evening</span><span class="text">Nagasaki nightscape</span></div>
+                    </div>
+                    <div class="day-notes">
+                        <h4>Notes</h4>
+                        <div class="note-item">Kameyama Shachu = Japan's first modern company</div>
+                        <div class="note-item">Ryoma's bronze boots offer harbor views</div>
+                        <div class="note-item">Teramachi temples cluster on hillside</div>
+                        <div class="note-item tip">Optional: Gunkanjima (Battleship Island) tour</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1583,172 +1698,118 @@
                 <div class="region-kanji">東京</div>
                 <div class="region-name">Tokyo</div>
             </div>
-            <div class="region-dates">October 23 - November 1 | 10 Days</div>
+            <div class="region-dates">October 23 - November 1</div>
         </div>
 
         <div class="region-content">
-            <!-- Day 38 -->
+            <p class="region-intro">The capital unfolds in contrasts: neon-drenched Shinjuku towers over quiet temple gardens, cutting-edge architecture rises beside Edo-period alleys. Ten days split between urban exploration and either an Izu Peninsula road trip or — if helicopter tickets were secured — the remote Aogashima adventure.</p>
+
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">38</div>
-                        <div class="day-dow">Sun</div>
-                        <div class="day-date">25.10.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">25</div>
+                        <div class="day-date-month">Oct</div>
+                        <div class="day-dow">Sunday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Tokyo + Wahei</h3>
-                        <div class="subtitle">Lunch with Wahei (CONFIRMED), laundry before road trip</div>
+                        <div class="subtitle">Confirmed lunch meeting, road trip preparation</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Hotel Sunlite Shinjuku</div>
-                        <div class="price">65 EUR</div>
-                        <div class="provider">Hotel Web | On-site | Breakfast</div>
+                        <div class="price">65 EUR (breakfast)</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">Lunch</span><span class="text">Meeting with Wahei<span class="note">CONFIRMED!</span></span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">Lunch</span><span class="text">Meeting with Wahei</span></div>
                         <div class="timeline-item"><span class="time">Afternoon</span><span class="text">Kasai Rinkai Park / free time</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item" style="color: var(--shimanami); font-weight: 500;">WAHEI - CONFIRMED!</div>
-                        <div class="note-item warning">LAUNDRY before road trip - CRITICAL!</div>
-                        <div class="note-item warning">Mishima car NOT BOOKED!</div>
-                        <div class="note-item warning">Accommodation 26-29.10. NOT BOOKED!</div>
-                        <div class="note-item">Download offline maps Izu + Fuji area!</div>
-                    </div>
-                    <div class="day-tasks">
-                        <h4>Tasks</h4>
-                        <span class="task-item">Laundry before road trip</span>
+                        <div class="note-item tip">WAHEI MEETING CONFIRMED!</div>
+                        <div class="note-item warning">LAUNDRY before road trip — critical!</div>
+                        <div class="note-item warning">Oct 26-29 accommodation NOT BOOKED</div>
+                        <div class="note-item">Download offline maps for Izu/Fuji area</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 39-42 Road Trip -->
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">39-42</div>
-                        <div class="day-dow"></div>
-                        <div class="day-date">26-29.10.</div>
+            <div class="day-card" style="background: linear-gradient(135deg, #fef3c7 0%, #fff7ed 100%);">
+                <div class="day-header" style="background: linear-gradient(135deg, #92400e 0%, #b45309 100%);">
+                    <div class="day-date-block">
+                        <div class="day-date-main">26-29</div>
+                        <div class="day-date-month">Oct</div>
+                        <div class="day-dow">Mon-Thu</div>
                     </div>
                     <div class="day-title-block">
-                        <h3>Road Trip: Izu Peninsula OR Aogashima</h3>
+                        <h3>Road Trip: Izu OR Aogashima</h3>
                         <div class="subtitle">Decision depends on helicopter booking (Sep 27-28)</div>
                     </div>
                     <div class="day-hotel">
-                        <div class="name">See alternatives below</div>
+                        <div class="name">See options below</div>
                         <div class="price">TBD</div>
                     </div>
                 </div>
-                <div class="day-body" style="grid-template-columns: 1fr;">
-                    <div style="columns: 2; column-gap: 30px;">
-                        <div class="feature-box" style="break-inside: avoid;">
+                <div class="day-body" style="display: block; padding: 25px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                        <div class="feature-box" style="margin: 0;">
                             <h4>Option A: Izu Peninsula</h4>
                             <ul>
-                                <li>Day 39: Tokyo → Mishima → Mt. Omuro, Jogasaki Coast</li>
-                                <li>Day 40: Kawazu Loop Bridge → Mt. Fuji WH Centre</li>
-                                <li>Day 41: Fuji viewpoints → Hottarakashi Onsen</li>
-                                <li>Day 42: Return car Mishima → Tokyo</li>
-                                <li>Hotels: TBD (NOT BOOKED!)</li>
+                                <li>Oct 26: Tokyo → Mishima → Mt. Omuro, Jogasaki Coast</li>
+                                <li>Oct 27: Kawazu Loop Bridge → Mt. Fuji WH Centre</li>
+                                <li>Oct 28: Fuji viewpoints → Hottarakashi sunrise onsen</li>
+                                <li>Oct 29: Return car Mishima → Tokyo</li>
                             </ul>
                         </div>
-                        <div class="feature-box" style="break-inside: avoid;">
+                        <div class="feature-box" style="margin: 0; background: var(--aka);">
                             <h4>Option B: Aogashima Adventure</h4>
                             <ul>
-                                <li>Day 39: ANA flight → Hachijojima, Hachijo Fuji</li>
-                                <li>Day 40: Helicopter → Aogashima, double caldera</li>
-                                <li>Day 41: Helicopter back, explore Hachijojima</li>
-                                <li>Day 42: ANA flight → Tokyo</li>
-                                <li>Hotel Hachijo: Noboryuso BOOKED (cancel by Oct 20)</li>
+                                <li>Oct 26: ANA → Hachijojima, Hachijo Fuji volcano</li>
+                                <li>Oct 27: Helicopter → Aogashima, double caldera</li>
+                                <li>Oct 28: Helicopter back, Hachijojima exploration</li>
+                                <li>Oct 29: ANA → Tokyo</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="day-notes" style="margin-top: 15px;">
+                    <div class="day-notes" style="margin-top: 20px;">
                         <h4>Notes</h4>
-                        <div class="note-item warning">EU TIME CHANGE Oct 26! Tokyo-Prague: +7h → +8h</div>
-                        <div class="note-item">ALT PLAN: Hachijojima booked (Noboryuso), cancel by 20.10. if Izu</div>
-                        <div class="note-item">Lake Motosu = spot from 1000 yen bill!</div>
-                        <div class="note-item">Hottarakashi Onsen = sunrise views of Mt. Fuji</div>
+                        <div class="note-item warning">EU TIME CHANGE Oct 26! Tokyo-Prague gap: +7h → +8h</div>
+                        <div class="note-item">Hachijojima hotel booked (Noboryuso), cancel free by Oct 20</div>
+                        <div class="note-item">Lake Motosu = spot from 1000-yen bill!</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 43 -->
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">43</div>
-                        <div class="day-dow">Fri</div>
-                        <div class="day-date">30.10.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">31</div>
+                        <div class="day-date-month">Oct</div>
+                        <div class="day-dow">Saturday</div>
                     </div>
                     <div class="day-title-block">
-                        <h3>Tokyo</h3>
-                        <div class="subtitle">Daytime exploration, evening party</div>
+                        <h3>Tokyo Halloween</h3>
+                        <div class="subtitle">Halloween celebrations, possibly Critical Mass</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Hotel Sunlite Shinjuku</div>
-                        <div class="price">65 EUR</div>
-                        <div class="provider">Hotel Web | On-site | Breakfast</div>
+                        <div class="price">65 EUR (breakfast)</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">Daytime</span><span class="text">Takanawa / Tsukishima / Tokyo Station</span></div>
-                        <div class="timeline-item"><span class="time">Evening</span><span class="text">Party (Minoru, Sata-san, Nekorob?)</span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">Daytime</span><span class="text">Critical Mass or other bike event</span></div>
+                        <div class="timeline-item"><span class="time">Evening</span><span class="text">HALLOWEEN in Shinjuku</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
-                        <div class="note-item">Party evening - contact: edobicycleart</div>
-                        <div class="note-item">Bar Nekorob = Mark's bar?</div>
-                        <div class="note-item">Takanawa Gateway City = new district</div>
-                        <div class="note-item">Tsukishima = monjayaki, retro alleys</div>
-                        <div class="note-item">Day before Halloween - maybe prep costumes?</div>
-                    </div>
-                    <div class="day-tasks">
-                        <h4>Tasks</h4>
-                        <span class="task-item">Gorillaz figures pro Edíka (Akihabara)</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day 44 -->
-            <div class="day-card">
-                <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">44</div>
-                        <div class="day-dow">Sat</div>
-                        <div class="day-date">31.10.</div>
-                    </div>
-                    <div class="day-title-block">
-                        <h3>Tokyo - Halloween</h3>
-                        <div class="subtitle">Halloween celebrations, maybe Critical Mass</div>
-                    </div>
-                    <div class="day-hotel">
-                        <div class="name">Hotel Sunlite Shinjuku</div>
-                        <div class="price">65 EUR</div>
-                        <div class="provider">Hotel Web | On-site | Breakfast</div>
-                    </div>
-                </div>
-                <div class="day-body">
-                    <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">Daytime</span><span class="text">Critical Mass? (or other bike event)</span></div>
-                        <div class="timeline-item"><span class="time">Evening</span><span class="text">HALLOWEEN - Shinjuku/Shibuya</span></div>
-                    </div>
-                    <div class="day-notes">
-                        <h4>Notes</h4>
-                        <div class="note-item">HALLOWEEN in Tokyo!</div>
-                        <div class="note-item">Check Critical Mass or successor event</div>
-                        <div class="note-item">Shibuya restricted since 2023 - Shinjuku better</div>
-                        <div class="note-item">Halloween starts late (21:00+)</div>
-                    </div>
-                    <div class="day-tasks">
-                        <h4>Tasks</h4>
-                        <span class="task-item">Laundry (Halloween evening)</span>
+                        <div class="note-item">Halloween in Tokyo! Peak festivities 21:00+</div>
+                        <div class="note-item">Shibuya restricted since 2023 — Shinjuku is better</div>
+                        <div class="note-item">Verify Critical Mass or successor event exists</div>
+                        <div class="note-item warning">LAUNDRY this evening for Okinawa</div>
                     </div>
                 </div>
             </div>
@@ -1764,132 +1825,126 @@
                 <div class="region-kanji">沖縄</div>
                 <div class="region-name">Okinawa</div>
             </div>
-            <div class="region-dates">November 2-8 | 7 Days</div>
+            <div class="region-dates">November 2-8</div>
         </div>
 
         <div class="region-content">
-            <!-- Day 46 -->
+            <p class="region-intro">The subtropical finale. Former Ryukyu Kingdom, now Japan's beach paradise. From Miyakojima's turquoise lagoons to sacred Sefa Utaki, Okinawa offers a different Japan: slower, warmer, shaped by Chinese, Southeast Asian, and American influences.</p>
+
+            <div class="culture-box">
+                <h4>The Ryukyu Kingdom</h4>
+                <p>For 450 years (1429-1879), the Ryukyu Kingdom was an independent nation bridging China and Japan. Its legacy lives in sacred groves called utaki, the distinctive red-tiled architecture, lion-dog shisa guardians, and a cuisine featuring pork, bitter melon, and tropical fruits unknown on the mainland.</p>
+            </div>
+
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">46</div>
-                        <div class="day-dow">Mon</div>
-                        <div class="day-date">2.11.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">2</div>
+                        <div class="day-date-month">Nov</div>
+                        <div class="day-dow">Monday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Tokyo → Miyakojima</h3>
-                        <div class="subtitle">NH467 + NH1725 via Naha | HO 15:00-23:00</div>
+                        <div class="subtitle">Double flight via Naha to island paradise</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Hotel Locus</div>
                         <div class="price">68 EUR</div>
-                        <div class="provider">Trip | Paid</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
+                        <h4>Schedule</h4>
                         <div class="timeline-item"><span class="time">08:20</span><span class="text">NH467 HND → OKA (ANA)</span></div>
                         <div class="timeline-item"><span class="time">11:15</span><span class="text">Arrival Naha</span></div>
                         <div class="timeline-item"><span class="time">11:55</span><span class="text">NH1725 OKA → MMY (ANA)</span></div>
                         <div class="timeline-item"><span class="time">12:50</span><span class="text">Arrival Miyakojima</span></div>
-                        <div class="timeline-item"><span class="time">15:00</span><span class="text">HOME OFFICE</span></div>
+                        <div class="timeline-item"><span class="time">15:00</span><span class="text">Home office</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
                         <div class="note-item warning">Haneda check-in 07:00 latest!</div>
-                        <div class="note-item">Miyakojima = remote island, tropical</div>
-                        <div class="note-item">HO from 15:00 - tight but OK</div>
+                        <div class="note-item">Miyakojima = remote tropical island</div>
+                        <div class="note-item">Tight connection in Naha but same airline, same terminal</div>
                     </div>
-                </div>
-
-                <div class="hotel-spotlight">
-                    <h5>Hotel Locus</h5>
-                    <p>Beachfront design hotel on Miyakojima. Clean, modern, perfect for remote work with sea views. Walking distance to restaurants and beach.</p>
                 </div>
             </div>
 
-            <!-- Day 50 -->
+            <div class="hotel-spotlight">
+                <h5>Hotel Locus</h5>
+                <p>Beachfront design hotel on Miyakojima. Clean Scandinavian-influenced aesthetic, perfect for remote work with sea views. Walking distance to restaurants and the beach.</p>
+            </div>
+
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">50</div>
-                        <div class="day-dow">Fri</div>
-                        <div class="day-date">6.11.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">6</div>
+                        <div class="day-date-month">Nov</div>
+                        <div class="day-dow">Friday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Nanjo → Naha</h3>
-                        <div class="subtitle">Nirai-Kanai Bridge, Sefa Utaki, car return</div>
+                        <div class="subtitle">Sacred sites, serpentine bridge, car return</div>
                     </div>
                     <div class="day-hotel">
                         <div class="name">Hotel The Cube Naha</div>
                         <div class="price">32 EUR</div>
-                        <div class="provider">Trip | Paid</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
+                        <h4>Schedule</h4>
                         <div class="timeline-item"><span class="time">07:30</span><span class="text">Departure from pension</span></div>
                         <div class="timeline-item"><span class="time">07:35</span><span class="text">Hyakuna Beach</span></div>
                         <div class="timeline-item"><span class="time">08:20</span><span class="text">Nirai-Kanai Bridge</span></div>
-                        <div class="timeline-item"><span class="time">08:50</span><span class="text">Sefa Utaki<span class="note">Limited access!</span></span></div>
+                        <div class="timeline-item"><span class="time">08:50</span><span class="text">Sefa Utaki (UNESCO)</span></div>
                         <div class="timeline-item"><span class="time">09:45</span><span class="text">Cape Chinen</span></div>
-                        <div class="timeline-item"><span class="time">~12:00</span><span class="text">Arrival car rental</span></div>
                         <div class="timeline-item"><span class="time">13:00</span><span class="text">DEADLINE: Return car</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
                         <div class="note-item warning">CAR RETURN 13:00 HARD DEADLINE!</div>
                         <div class="note-item warning">Fill up MUST be evening before!</div>
-                        <div class="note-item">Nirai-Kanai Bridge = serpentine, photogenic</div>
-                        <div class="note-item">Sefa Utaki = holiest Ryukyu place, UNESCO</div>
-                        <div class="note-item">Maybe limited access (renovation 2026)</div>
-                        <div class="note-item">Backup: Gyokusendo cave (indoor)</div>
-                    </div>
-                    <div class="day-tasks">
-                        <h4>Tasks</h4>
-                        <span class="task-item">13:00 Return car Okinawa</span>
-                        <span class="task-item">Laundry (last one)</span>
+                        <div class="note-item">Nirai-Kanai Bridge = dramatic serpentine, photogenic</div>
+                        <div class="note-item">Sefa Utaki = holiest Ryukyu site, UNESCO listed</div>
+                        <div class="note-item">Possible limited access (renovation 2026)</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 52 -->
             <div class="day-card">
                 <div class="day-header">
-                    <div class="day-num-block">
-                        <div class="day-num">52</div>
-                        <div class="day-dow">Sun</div>
-                        <div class="day-date">8.11.</div>
+                    <div class="day-date-block">
+                        <div class="day-date-main">8</div>
+                        <div class="day-date-month">Nov</div>
+                        <div class="day-dow">Sunday</div>
                     </div>
                     <div class="day-title-block">
                         <h3>Naha → Taipei → Vienna</h3>
-                        <div class="subtitle">CI 121 + Taipei layover + CI 063 overnight</div>
+                        <div class="subtitle">Taiwan layover, overnight flight home</div>
                     </div>
                     <div class="day-hotel">
-                        <div class="name">Airport / Flight</div>
-                        <div class="price">-</div>
+                        <div class="name">In-flight</div>
+                        <div class="price">—</div>
                     </div>
                 </div>
                 <div class="day-body">
                     <div class="day-timeline">
-                        <h4>Timeline</h4>
-                        <div class="timeline-item"><span class="time">11:55</span><span class="text">CI 121 OKA → TPE (China Airlines)</span></div>
+                        <h4>Schedule</h4>
+                        <div class="timeline-item"><span class="time">11:55</span><span class="text">CI 121 OKA → TPE</span></div>
                         <div class="timeline-item"><span class="time">12:35</span><span class="text">Arrival Taipei</span></div>
-                        <div class="timeline-item"><span class="time">14:00</span><span class="text">Dihua Street - historic, tea houses</span></div>
-                        <div class="timeline-item"><span class="time">16:30</span><span class="text">Dadaocheng Wharf - sunset, coffee</span></div>
+                        <div class="timeline-item"><span class="time">14:00</span><span class="text">Dihua Street exploration</span></div>
+                        <div class="timeline-item"><span class="time">16:30</span><span class="text">Dadaocheng Wharf sunset</span></div>
                         <div class="timeline-item"><span class="time">18:30</span><span class="text">Ningxia Night Market</span></div>
-                        <div class="timeline-item"><span class="time">23:20</span><span class="text">CI 063 TPE → VIE (China Airlines)</span></div>
+                        <div class="timeline-item"><span class="time">23:20</span><span class="text">CI 063 TPE → VIE</span></div>
                     </div>
                     <div class="day-notes">
                         <h4>Notes</h4>
                         <div class="note-item">MRT Airport Express → Taipei Main (35 min, 160 TWD)</div>
-                        <div class="note-item">Store luggage: Taipei Main Station lockers</div>
-                        <div class="note-item">Dihua Street = dried fruit, tea, souvenirs</div>
-                        <div class="note-item">ASW Tea House = recommended on Dihua</div>
-                        <div class="note-item">Have TWD cash (exchange at airport)</div>
-                        <div class="note-item">Taipei ~22-25°C in November</div>
+                        <div class="note-item">Luggage lockers at Taipei Main Station</div>
+                        <div class="note-item">Dihua Street: dried goods, tea, traditional shops</div>
+                        <div class="note-item tip">ASW Tea House on Dihua is excellent</div>
+                        <div class="note-item">Exchange some TWD at airport</div>
                     </div>
                 </div>
             </div>
@@ -1905,111 +1960,47 @@
             <h2>Transport Schedule</h2>
         </div>
 
-        <h3 style="font-family: 'Playfair Display'; margin: 20px 0 10px; display: flex; align-items: center; gap: 10px;"><span style="width: 4px; height: 18px; background: var(--aka);"></span>Flights</h3>
+        <h3 style="font-family: 'Playfair Display'; margin: 30px 0 15px; color: var(--aka);">Flights</h3>
         <table class="ref-table">
             <tr><th>Date</th><th>Route</th><th>Time</th><th>Flight</th><th>Airline</th></tr>
-            <tr><td>18-19 Sep</td><td>Vienna → Taipei</td><td>11:25 - 05:30</td><td>CI 064</td><td>China Airlines</td></tr>
-            <tr><td>19 Sep</td><td>Taipei → Osaka</td><td>09:00 - 12:50</td><td>CI 152</td><td>China Airlines</td></tr>
-            <tr><td>23 Oct</td><td>Fukuoka → Tokyo</td><td>12:25 - 14:10</td><td>NH252</td><td>ANA</td></tr>
-            <tr><td>2 Nov</td><td>Tokyo → Naha</td><td>08:20 - 11:15</td><td>NH467</td><td>ANA</td></tr>
-            <tr><td>2 Nov</td><td>Naha → Miyakojima</td><td>11:55 - 12:50</td><td>NH1725</td><td>ANA</td></tr>
-            <tr><td>5 Nov</td><td>Miyakojima → Naha</td><td>11:00 - 11:55</td><td>NU556</td><td>JTA</td></tr>
-            <tr><td>8 Nov</td><td>Naha → Taipei</td><td>11:55 - 12:35</td><td>CI 121</td><td>China Airlines</td></tr>
-            <tr><td>8-9 Nov</td><td>Taipei → Vienna</td><td>23:20 - 06:50</td><td>CI 063</td><td>China Airlines</td></tr>
+            <tr><td>Sep 18-19</td><td>Vienna → Taipei</td><td>11:25 - 05:30</td><td>CI 064</td><td>China Airlines</td></tr>
+            <tr><td>Sep 19</td><td>Taipei → Osaka</td><td>09:00 - 12:50</td><td>CI 152</td><td>China Airlines</td></tr>
+            <tr><td>Oct 23</td><td>Fukuoka → Tokyo</td><td>12:25 - 14:10</td><td>NH252</td><td>ANA</td></tr>
+            <tr><td>Nov 2</td><td>Tokyo → Naha</td><td>08:20 - 11:15</td><td>NH467</td><td>ANA</td></tr>
+            <tr><td>Nov 2</td><td>Naha → Miyakojima</td><td>11:55 - 12:50</td><td>NH1725</td><td>ANA</td></tr>
+            <tr><td>Nov 5</td><td>Miyakojima → Naha</td><td>11:00 - 11:55</td><td>NU556</td><td>JTA</td></tr>
+            <tr><td>Nov 8</td><td>Naha → Taipei</td><td>11:55 - 12:35</td><td>CI 121</td><td>China Airlines</td></tr>
+            <tr><td>Nov 8-9</td><td>Taipei → Vienna</td><td>23:20 - 06:50</td><td>CI 063</td><td>China Airlines</td></tr>
         </table>
 
-        <h3 style="font-family: 'Playfair Display'; margin: 30px 0 10px; display: flex; align-items: center; gap: 10px;"><span style="width: 4px; height: 18px; background: var(--aka);"></span>Car Rentals</h3>
+        <h3 style="font-family: 'Playfair Display'; margin: 40px 0 15px; color: var(--aka);">Car Rentals</h3>
         <table class="ref-table">
-            <tr><th>Dates</th><th>Location</th><th>Pickup/Return</th><th>Company</th><th>Notes</th></tr>
-            <tr><td>12-15 Oct</td><td>Kumamoto</td><td>09:30 / 18:00</td><td>Budget</td><td>Trip.com, activate insurance!</td></tr>
-            <tr><td>26-29 Oct</td><td>Mishima OR Hachijo</td><td>TBD</td><td>TBD</td><td>NOT BOOKED</td></tr>
-            <tr><td>4 Nov</td><td>Miyakojima</td><td>09:00 / 18:30</td><td>SOU Company</td><td>Cash ¥5,300</td></tr>
-            <tr><td>5-6 Nov</td><td>Okinawa</td><td>13:00 / 13:00</td><td>Gyokoseki</td><td>Pay on-site ¥6,700</td></tr>
+            <tr><th>Dates</th><th>Location</th><th>Pickup / Return</th><th>Company</th><th>Notes</th></tr>
+            <tr><td>Oct 12-15</td><td>Kumamoto</td><td>09:30 / 18:00</td><td>Budget</td><td>Trip.com booking, activate insurance</td></tr>
+            <tr><td>Oct 26-29</td><td>Mishima OR Hachijo</td><td>TBD</td><td>TBD</td><td>NOT BOOKED — depends on heli</td></tr>
+            <tr><td>Nov 4</td><td>Miyakojima</td><td>09:00 / 18:30</td><td>SOU Company</td><td>Cash ¥5,300</td></tr>
+            <tr><td>Nov 5-6</td><td>Okinawa</td><td>13:00 / 13:00</td><td>Gyokoseki</td><td>Pay on-site ¥6,700</td></tr>
         </table>
 
-        <h3 style="font-family: 'Playfair Display'; margin: 30px 0 10px; display: flex; align-items: center; gap: 10px;"><span style="width: 4px; height: 18px; background: var(--aka);"></span>Ferry & Bus</h3>
+        <h3 style="font-family: 'Playfair Display'; margin: 40px 0 15px; color: var(--aka);">Ferry & Bus</h3>
         <table class="ref-table">
             <tr><th>Date</th><th>Route</th><th>Time</th><th>Notes</th></tr>
-            <tr><td>8 Oct</td><td>Yawatahama → Beppu</td><td>13:00 - 15:50</td><td>Buy at port, no booking needed</td></tr>
-            <tr><td>11 Oct</td><td>Yufuin → Kumamoto</td><td>13:50 - 18:03</td><td>KOSOKUBUS #1020648778 (BOOKED!)</td></tr>
-            <tr><td>16 Oct</td><td>Kumamoto → Shimabara</td><td>09:25</td><td>Ocean Arrow - buy at port</td></tr>
+            <tr><td>Oct 8</td><td>Yawatahama → Beppu</td><td>13:00 - 15:50</td><td>Buy at port, no booking needed</td></tr>
+            <tr><td>Oct 11</td><td>Yufuin → Kumamoto</td><td>13:50 - 18:03</td><td>KOSOKUBUS #1020648778 (BOOKED)</td></tr>
+            <tr><td>Oct 16</td><td>Kumamoto → Shimabara</td><td>09:25</td><td>Ocean Arrow — buy at port</td></tr>
         </table>
     </div>
 
     <!-- ══════════════════════════════════════════
-         CONTACTS
-         ══════════════════════════════════════════ -->
-    <div class="reference-page">
-        <div class="section-header">
-            <div class="kanji">連絡</div>
-            <h2>Contacts & Meetings</h2>
-        </div>
-
-        <div class="contacts-grid">
-            <div class="contact-card">
-                <div class="name">Keigo</div>
-                <div class="when">Sep 26 evening</div>
-                <div class="note">Contact min. 1 week before<br>Meeting in Osaka</div>
-            </div>
-            <div class="contact-card">
-                <div class="name">Takashi</div>
-                <div class="when">Sep 28 (full day)</div>
-                <div class="note">Local guide day in Kyoto</div>
-            </div>
-            <div class="contact-card">
-                <div class="name">Riho</div>
-                <div class="when">Oct 17 (maybe)</div>
-                <div class="note">Possible guide Unzen → Obama</div>
-            </div>
-            <div class="contact-card">
-                <div class="name">Wahei</div>
-                <div class="when">Oct 25 lunch</div>
-                <div class="note confirmed">CONFIRMED!<br>Tokyo lunch meeting</div>
-            </div>
-            <div class="contact-card">
-                <div class="name">Ryuki</div>
-                <div class="when">Oct 23 (Tokyo)</div>
-                <div class="note">Contact 1-2 weeks before</div>
-            </div>
-            <div class="contact-card">
-                <div class="name">Ippei</div>
-                <div class="when">Tokyo days</div>
-                <div class="note">Contact min. 1 week before Oct 23</div>
-            </div>
-            <div class="contact-card">
-                <div class="name">Minoru / Shogo</div>
-                <div class="when">Oct 30 evening</div>
-                <div class="note">Party in Tokyo<br>Bar Nekorob? edobicycleart</div>
-            </div>
-        </div>
-
-        <h3 style="font-family: 'Playfair Display'; margin: 40px 0 15px;">Emergency Contacts</h3>
-        <table class="ref-table" style="max-width: 400px;">
-            <tr><th>Service</th><th>Number</th></tr>
-            <tr><td>Police</td><td>110</td></tr>
-            <tr><td>Ambulance / Fire</td><td>119</td></tr>
-            <tr><td>Tourist Helpline (24/7 English)</td><td>050-3816-2787</td></tr>
-        </table>
-
-        <h3 style="font-family: 'Playfair Display'; margin: 40px 0 15px;">Aogashima Contacts</h3>
-        <table class="ref-table" style="max-width: 500px;">
-            <tr><th>What</th><th>Contact</th></tr>
-            <tr><td>Toho Air Service (helicopter)</td><td>tohoair.co.jp - book 1 month ahead 9:00 JP</td></tr>
-            <tr><td>Minshuku Kazutomo</td><td>04996-9-0033</td></tr>
-            <tr><td>Minshuku Nagomi</td><td>04996-9-0066</td></tr>
-        </table>
-    </div>
-
-    <!-- ══════════════════════════════════════════
-         BACK COVER (TONER-FRIENDLY)
+         BACK COVER
          ══════════════════════════════════════════ -->
     <div class="back-cover">
         <p class="quote">"The world is a book, and those who do not travel read only one page."</p>
-        <p class="attribution">- Saint Augustine</p>
+        <p class="attribution">— Saint Augustine</p>
 
         <div class="logo">日本 2026</div>
 
-        <p style="font-size: 8pt; margin-top: 40px; color: #888; letter-spacing: 3px;">53 DAYS | 7 REGIONS | COMPLETE OFFLINE GUIDE</p>
+        <p style="font-size: 8pt; margin-top: 50px; color: #888; letter-spacing: 3px;">53 DAYS | 7 REGIONS | COMPLETE OFFLINE GUIDE</p>
     </div>
 
 </body>
