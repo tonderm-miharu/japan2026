@@ -4049,13 +4049,14 @@
             if (info.payment === 'on-site') badges += `<span class="hotel-badge badge-onsite">¥ On-site${info.jpy ? ' ' + info.jpy : ''}</span> `;
             if (d.cancel) badges += `<span class="hotel-badge badge-cancel">⚠ ${d.cancel}</span> `;
             if (info.meals) badges += `<span class="hotel-badge badge-breakfast">${info.meals === 'breakfast' ? '🍳' : '🍽️'}</span> `;
-            return { date: d.date.replace('.2026', ''), hotel: d.hotel, price: d.price || '', badges };
+            const hotelUrl = POI_URLS[d.hotel];
+            return { date: d.date.replace('.2026', ''), hotel: d.hotel, hotelUrl, price: d.price || '', badges };
         });
         document.getElementById('hotelsContent').innerHTML = `
             ${hotels.map(h => `
                 <div class="hotel-row">
                     <div class="hotel-date">${h.date}</div>
-                    <div class="hotel-name">${h.hotel}</div>
+                    <div class="hotel-name">${h.hotelUrl ? `<a href="${h.hotelUrl}" target="_blank" class="hotel-link">${h.hotel}</a>` : h.hotel}</div>
                     <div class="hotel-badges">${h.badges}</div>
                     <div class="hotel-price">${h.price}</div>
                 </div>
