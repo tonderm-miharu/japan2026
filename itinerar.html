@@ -4317,32 +4317,9 @@
         });
     });
 
-    // Print function - expand all cards and print
+    // Print function - open travel guide magazine
     function printItinerary() {
-        // Expand all day cards
-        document.querySelectorAll('.day-card').forEach(card => {
-            card.classList.add('expanded');
-        });
-        document.querySelectorAll('.day-body').forEach(body => {
-            body.style.display = 'block';
-        });
-        document.body.classList.add('printing');
-
-        // Wait for DOM update, then print
-        setTimeout(() => {
-            window.print();
-
-            // Restore after print dialog closes
-            setTimeout(() => {
-                document.querySelectorAll('.day-card').forEach(card => {
-                    card.classList.remove('expanded');
-                });
-                document.querySelectorAll('.day-body').forEach(body => {
-                    body.style.display = '';
-                });
-                document.body.classList.remove('printing');
-            }, 500);
-        }, 100);
+        window.open('japan-travel-guide.html', '_blank');
     }
 
     document.querySelectorAll('[data-close]').forEach(btn => {
