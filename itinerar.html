@@ -1286,6 +1286,8 @@
         }
 
         .hotel-card .name { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; color: var(--text); }
+        .hotel-link { color: var(--text); text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.4); }
+        .hotel-link:hover { color: #86efac; border-bottom-color: #86efac; }
         .hotel-card .meta { font-size: 0.85rem; color: var(--text-dim); }
         .hotel-card .price { font-size: 1.1rem; font-weight: 700; color: var(--green); }
 
@@ -3774,7 +3776,7 @@
                                 <div class="detail-title"><svg class="section-icon" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/></svg>Accommodation</div>
                                 <div class="hotel-card">
                                     <div>
-                                        <div class="name">${d.hotel}</div>
+                                        <div class="name">${POI_URLS[d.hotel] ? `<a href="${POI_URLS[d.hotel]}" target="_blank" class="hotel-link">${d.hotel}</a>` : d.hotel}</div>
                                         ${d.note ? `<div class="meta hotel-note">${formatHotelNote(d.note)}</div>` : ''}
                                         <div class="hotel-badges">
                                             ${getProviderBadge(HOTEL_INFO[d.day]?.provider)}
