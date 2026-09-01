@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japan 2026 - Travel Guide</title>
+    <title>Japan 2026 - Travel Magazine</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+JP:wght@400;500;600;700&family=Zen+Antique&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+JP:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
 
         :root {
             --aka: #c41e3a;
@@ -13,8 +13,6 @@
             --shiro: #fafaf8;
             --kin: #c9a227;
             --ai: #264653;
-            --matcha: #4a7c59;
-            --sakura: #ffb7c5;
             --sumi: #363636;
 
             --osaka: #ea580c;
@@ -28,39 +26,27 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        @page { margin: 0; size: A4; }
+
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            font-size: 9pt;
-            line-height: 1.5;
+            font-family: 'Source Sans 3', 'Inter', sans-serif;
+            font-size: 10pt;
+            line-height: 1.6;
             color: var(--kuro);
             background: var(--shiro);
         }
 
         /* ══════════════════════════════════════════
-           JAPANESE PATTERNS
-           ══════════════════════════════════════════ */
-        .pattern-seigaiha {
-            background-image: url("data:image/svg+xml,%3Csvg width='80' height='40' viewBox='0 0 80 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40 C20 40 20 20 40 20 C60 20 60 40 80 40 L80 0 L0 0 Z' fill='none' stroke='%23c41e3a' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M-40 40 C-20 40 -20 20 0 20 C20 20 20 40 40 40' fill='none' stroke='%23c41e3a' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M40 40 C60 40 60 20 80 20 C100 20 100 40 120 40' fill='none' stroke='%23c41e3a' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E");
-        }
-
-        .pattern-asanoha {
-            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 0L12 24M0 12L24 12M0 0L24 24M24 0L0 24M12 0L0 12M12 0L24 12M12 24L0 12M12 24L24 12' stroke='%23c41e3a' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E");
-        }
-
-        /* ══════════════════════════════════════════
-           COVER PAGE - Wabi-sabi elegance
+           COVER PAGE
            ══════════════════════════════════════════ */
         .cover {
             page-break-after: always;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+            justify-content: space-between;
+            background: linear-gradient(165deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
             color: var(--shiro);
-            padding: 60px;
             position: relative;
             overflow: hidden;
         }
@@ -68,111 +54,299 @@
         .cover::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23ffffff' stroke-width='0.3' opacity='0.03'/%3E%3C/svg%3E");
+            top: -20%;
+            right: -10%;
+            width: 70%;
+            height: 140%;
+            background: radial-gradient(ellipse at center, rgba(196,30,58,0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
-        /* Brush stroke accent */
-        .cover::after {
-            content: '';
+        .cover-brush {
             position: absolute;
-            top: 15%;
-            right: 8%;
-            width: 120px;
-            height: 400px;
-            background: linear-gradient(180deg, transparent 0%, var(--aka) 20%, var(--aka) 80%, transparent 100%);
-            opacity: 0.15;
-            transform: rotate(-15deg);
-            filter: blur(1px);
+            top: 8%;
+            right: 6%;
+            width: 100px;
+            height: 350px;
+            background: linear-gradient(180deg, transparent 0%, var(--aka) 15%, var(--aka) 85%, transparent 100%);
+            opacity: 0.2;
+            transform: rotate(-12deg);
+            filter: blur(2px);
+        }
+
+        .cover-header {
+            padding: 50px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cover-issue {
+            font-size: 8pt;
+            letter-spacing: 4px;
+            color: #666;
+            text-transform: uppercase;
         }
 
         .cover-mon {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 50px;
-            position: relative;
+            width: 50px;
+            height: 50px;
+            opacity: 0.6;
         }
 
-        .cover-mon svg {
-            width: 100%;
-            height: 100%;
+        .cover-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 60px;
         }
 
-        .cover-title {
-            position: relative;
-        }
-
-        .cover-kanji-large {
+        .cover-kanji {
             font-family: 'Noto Serif JP', serif;
-            font-size: 80pt;
+            font-size: 100pt;
             font-weight: 700;
-            color: var(--shiro);
-            letter-spacing: 20px;
+            letter-spacing: 30px;
             line-height: 1;
-            margin-bottom: 10px;
-            text-shadow: 0 0 60px rgba(196,30,58,0.3);
+            margin-bottom: 20px;
+            text-shadow: 0 0 80px rgba(196,30,58,0.3);
         }
 
         .cover-subtitle {
             font-family: 'Playfair Display', serif;
-            font-size: 14pt;
+            font-size: 11pt;
             font-weight: 400;
-            letter-spacing: 8px;
+            letter-spacing: 12px;
             color: #888;
-            margin-bottom: 60px;
-        }
-
-        .cover-period {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 12px;
-        }
-
-        .cover-period .brush-line {
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent 0%, var(--aka) 50%, transparent 100%);
+            margin-bottom: 50px;
+            text-transform: uppercase;
         }
 
         .cover-dates {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 15px;
+        }
+
+        .cover-dates .line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--aka), transparent);
+        }
+
+        .cover-dates span {
             font-size: 10pt;
             font-weight: 300;
             color: #999;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
         }
 
         .cover-days {
             font-family: 'Noto Serif JP', serif;
-            font-size: 13pt;
+            font-size: 14pt;
             color: var(--kin);
-            letter-spacing: 6px;
-            margin-top: 8px;
-        }
-
-        /* Hanko seal */
-        .cover-hanko {
-            position: absolute;
-            bottom: 80px;
-            right: 80px;
-            width: 70px;
-            height: 70px;
-        }
-
-        .cover-hanko svg {
-            width: 100%;
-            height: 100%;
+            letter-spacing: 8px;
         }
 
         .cover-footer {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 8pt;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .cover-features {
+            display: flex;
+            gap: 40px;
+        }
+
+        .cover-feature {
+            font-size: 7pt;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: #555;
+            border-left: 2px solid var(--aka);
+            padding-left: 12px;
+        }
+
+        .cover-hanko {
+            width: 60px;
+            height: 60px;
+            opacity: 0.7;
+        }
+
+        /* ══════════════════════════════════════════
+           TABLE OF CONTENTS
+           ══════════════════════════════════════════ */
+        .toc {
+            page-break-after: always;
+            padding: 60px;
+            background: var(--shiro);
+            min-height: 100vh;
+        }
+
+        .toc-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .toc-header .kanji {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 12pt;
+            color: var(--aka);
+            letter-spacing: 8px;
+        }
+
+        .toc-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28pt;
+            color: var(--kuro);
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .toc-section {
+            margin-bottom: 30px;
+        }
+
+        .toc-section-title {
+            font-size: 8pt;
+            text-transform: uppercase;
             letter-spacing: 3px;
+            color: var(--aka);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: baseline;
+            padding: 8px 0;
+        }
+
+        .toc-item .title {
+            font-size: 10pt;
+            font-weight: 500;
+        }
+
+        .toc-item .dots {
+            flex: 1;
+            border-bottom: 1px dotted #ccc;
+            margin: 0 12px 4px;
+        }
+
+        .toc-item .page {
+            font-size: 10pt;
+            color: #888;
+        }
+
+        /* ══════════════════════════════════════════
+           OVERVIEW / SUMMARY PAGE
+           ══════════════════════════════════════════ */
+        .overview {
+            page-break-after: always;
+            padding: 50px;
+            background: linear-gradient(180deg, #1a0a0a 0%, #2a1515 100%);
+            min-height: 100vh;
+            color: var(--shiro);
+        }
+
+        .overview-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .overview-header .kanji {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 14pt;
+            color: var(--aka);
+            letter-spacing: 8px;
+        }
+
+        .overview-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32pt;
+            color: var(--shiro);
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .overview-header .underline {
+            width: 80px;
+            height: 3px;
+            background: var(--aka);
+            margin: 20px auto 0;
+        }
+
+        .overview-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+        }
+
+        .overview-stat {
+            text-align: center;
+        }
+
+        .overview-stat .value {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 36pt;
+            font-weight: 700;
+            color: var(--kin);
+        }
+
+        .overview-stat .label {
+            font-size: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .overview-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .overview-phase {
+            display: grid;
+            grid-template-columns: 12px 120px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .phase-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-top: 4px;
+        }
+
+        .phase-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14pt;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .phase-info .dates {
+            font-size: 9pt;
+            color: #888;
+        }
+
+        .phase-places {
+            font-size: 9pt;
+            color: #aaa;
+            line-height: 1.5;
         }
 
         /* ══════════════════════════════════════════
@@ -182,36 +356,27 @@
             page-break-after: always;
             padding: 50px;
             background: var(--shiro);
-            position: relative;
-        }
-
-        .stats-page::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30' stroke='%23c41e3a' stroke-width='0.3' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none;
+            min-height: 100vh;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 40px;
-            position: relative;
         }
 
         .section-header .kanji {
             font-family: 'Noto Serif JP', serif;
-            font-size: 14pt;
+            font-size: 12pt;
             color: var(--aka);
             letter-spacing: 8px;
-            margin-bottom: 8px;
         }
 
         .section-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 28pt;
+            font-size: 26pt;
             color: var(--kuro);
-            font-weight: 600;
+            font-weight: 500;
+            margin-top: 8px;
         }
 
         .section-header .underline {
@@ -225,59 +390,52 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            margin-bottom: 50px;
-            position: relative;
+            margin-bottom: 40px;
         }
 
         .stat-card {
             background: white;
             border-radius: 4px;
-            padding: 28px 20px;
+            padding: 25px 15px;
             text-align: center;
-            border: 1px solid #e5e5e5;
+            border: 1px solid #e8e8e8;
             position: relative;
-            overflow: hidden;
         }
 
         .stat-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: var(--aka);
         }
 
         .stat-card .value {
             font-family: 'Noto Serif JP', serif;
-            font-size: 32pt;
+            font-size: 28pt;
             font-weight: 700;
             color: var(--kuro);
-            line-height: 1;
         }
 
         .stat-card .label {
             font-size: 7pt;
-            color: #666;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-top: 10px;
+            color: #666;
+            margin-top: 8px;
         }
 
         .region-chart {
             background: white;
             border-radius: 4px;
-            padding: 32px;
-            border: 1px solid #e5e5e5;
-            position: relative;
+            padding: 30px;
+            border: 1px solid #e8e8e8;
         }
 
         .region-chart h3 {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 12pt;
+            font-family: 'Playfair Display', serif;
+            font-size: 14pt;
             margin-bottom: 24px;
-            color: var(--kuro);
             display: flex;
             align-items: center;
             gap: 12px;
@@ -292,19 +450,18 @@
 
         .region-row {
             display: grid;
-            grid-template-columns: 90px 1fr 50px;
+            grid-template-columns: 100px 1fr 50px;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .region-row .name {
             font-size: 9pt;
             font-weight: 500;
-            color: var(--kuro);
         }
 
         .region-row .bar-track {
-            height: 24px;
+            height: 22px;
             background: #f5f5f5;
             border-radius: 2px;
             overflow: hidden;
@@ -315,9 +472,9 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding-right: 10px;
+            padding-right: 8px;
             font-size: 8pt;
-            font-weight: 700;
+            font-weight: 600;
             color: white;
         }
 
@@ -328,1414 +485,1694 @@
         }
 
         /* ══════════════════════════════════════════
-           POI GALLERY - Visual showcase
+           FEATURE ARTICLES
            ══════════════════════════════════════════ */
-        .poi-gallery {
-            page-break-before: always;
-            padding: 50px;
-            background: var(--kuro);
+        .feature-article {
+            page-break-after: always;
+            min-height: 100vh;
             position: relative;
         }
 
-        .poi-gallery .section-header .kanji,
-        .poi-gallery .section-header h2 {
-            color: var(--shiro);
-        }
-
-        .poi-gallery .section-header .underline {
-            background: var(--kin);
-        }
-
-        .poi-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-            margin-top: 40px;
-        }
-
-        .poi-card {
-            background: #252525;
-            border-radius: 8px;
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-
-        .poi-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .poi-illustration {
-            height: 100px;
+        .feature-hero {
+            height: 45vh;
+            position: relative;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(180deg, #2a2a2a 0%, #1f1f1f 100%);
+            align-items: flex-end;
+            padding: 40px;
+        }
+
+        .feature-hero.onsen {
+            background: linear-gradient(180deg, #1a2a3a 0%, #2a3a4a 50%, #3a4a5a 100%);
+        }
+
+        .feature-hero.shimanami {
+            background: linear-gradient(180deg, #0a2a2a 0%, #1a4a4a 50%, #2a5a5a 100%);
+        }
+
+        .feature-hero.ryoma {
+            background: linear-gradient(180deg, #2a1a1a 0%, #4a2a2a 50%, #5a3a3a 100%);
+        }
+
+        .feature-hero.aogashima {
+            background: linear-gradient(180deg, #1a1a2a 0%, #2a2a4a 50%, #3a3a5a 100%);
+        }
+
+        .feature-hero-content {
             position: relative;
+            z-index: 2;
+            color: white;
         }
 
-        .poi-illustration svg {
-            width: 70px;
-            height: 70px;
-        }
-
-        .poi-info {
-            padding: 14px 12px;
-        }
-
-        .poi-name {
-            font-size: 9pt;
-            font-weight: 600;
-            color: var(--shiro);
-            margin-bottom: 2px;
-        }
-
-        .poi-region {
-            font-size: 7pt;
-            color: #888;
+        .feature-category {
+            font-size: 8pt;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ══════════════════════════════════════════
-           PHASE HEADER
-           ══════════════════════════════════════════ */
-        .phase-header {
-            page-break-before: always;
-            height: 160px;
-            padding: 0 50px;
-            display: flex;
-            align-items: center;
-            background: var(--phase-color);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .phase-header::before {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 40%;
-            background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.2) 100%);
-        }
-
-        .phase-header::after {
-            content: '';
-            position: absolute;
-            right: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 80px;
-            height: 80px;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 50%;
-        }
-
-        .phase-kanji {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 48pt;
-            font-weight: 700;
-            opacity: 0.15;
-            position: absolute;
-            right: 120px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .phase-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .phase-header .phase-num {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 11pt;
-            opacity: 0.7;
-            margin-bottom: 4px;
-        }
-
-        .phase-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 26pt;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .phase-header .subtitle {
-            font-size: 10pt;
-            opacity: 0.8;
-        }
-
-        .phase-header .meta {
-            display: flex;
-            gap: 20px;
-            margin-top: 12px;
-            font-size: 8pt;
-            opacity: 0.7;
-        }
-
-        /* ══════════════════════════════════════════
-           PHASE HIGHLIGHTS
-           ══════════════════════════════════════════ */
-        .phase-highlights {
-            background: #fafafa;
-            padding: 30px 50px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .highlight-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #e5e5e5;
-        }
-
-        .highlight-illustration {
-            height: 110px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
-            border-bottom: 1px solid #eee;
-        }
-
-        .highlight-illustration svg {
-            width: 80px;
-            height: 80px;
-        }
-
-        .highlight-info {
-            padding: 16px;
-            text-align: center;
-        }
-
-        .highlight-title {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 11pt;
-            font-weight: 600;
-            color: var(--kuro);
-            margin-bottom: 4px;
-        }
-
-        .highlight-subtitle {
-            font-size: 8pt;
-            color: #666;
-        }
-
-        .highlight-day {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 3px 12px;
-            background: var(--phase-color);
-            color: white;
-            font-size: 7pt;
-            font-weight: 600;
-            border-radius: 2px;
-            letter-spacing: 0.5px;
-        }
-
-        /* ══════════════════════════════════════════
-           DAY CARD
-           ══════════════════════════════════════════ */
-        .day-card {
-            page-break-inside: avoid;
-            margin: 14px 40px;
-            background: white;
-            border-radius: 4px;
-            overflow: hidden;
-            border: 1px solid #e5e5e5;
-        }
-
-        .day-header {
-            display: flex;
-            align-items: stretch;
-        }
-
-        .day-date-box {
-            width: 75px;
-            padding: 14px 10px;
-            background: var(--phase-color);
-            color: white;
-            text-align: center;
-        }
-
-        .day-date-box .date {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 20pt;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .day-date-box .month {
-            font-size: 8pt;
-            opacity: 0.8;
-            margin-top: 2px;
-        }
-
-        .day-date-box .dow {
-            font-size: 7pt;
-            opacity: 0.6;
-            margin-top: 4px;
-            letter-spacing: 1px;
-        }
-
-        .day-title-area {
-            flex: 1;
-            padding: 14px 18px;
-            background: #fafafa;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .day-title-area h3 {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 13pt;
-            font-weight: 600;
-            color: var(--kuro);
-            margin-bottom: 2px;
-        }
-
-        .day-title-area .subtitle {
-            font-size: 8pt;
-            color: #666;
-        }
-
-        .day-number-badge {
-            padding: 14px 18px;
-            background: #fafafa;
-            border-bottom: 1px solid #e5e5e5;
-            text-align: right;
-        }
-
-        .day-number-badge .num {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 18pt;
-            font-weight: 700;
-            color: #ddd;
-        }
-
-        .day-number-badge .temp {
-            font-size: 9pt;
+            letter-spacing: 4px;
             color: var(--kin);
-            font-weight: 600;
+            margin-bottom: 12px;
         }
 
-        .day-body {
-            display: grid;
-            grid-template-columns: 1fr 170px;
-            gap: 20px;
-            padding: 18px;
-        }
-
-        .day-content {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 4px;
-            top: 6px;
-            bottom: 6px;
-            width: 2px;
-            background: linear-gradient(180deg, var(--phase-color), #e5e5e5);
-        }
-
-        .tl-item {
-            position: relative;
-            padding-bottom: 10px;
-            padding-left: 14px;
-        }
-
-        .tl-item::before {
-            content: '';
-            position: absolute;
-            left: -16px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: white;
-            border: 2px solid var(--phase-color);
-        }
-
-        .tl-item.transport::before { background: #666; border-color: #666; }
-        .tl-item.work::before { background: var(--aka); border-color: var(--aka); }
-
-        .tl-time {
-            font-size: 7pt;
-            font-weight: 700;
-            color: #999;
-        }
-
-        .tl-text {
-            font-size: 9pt;
-            color: var(--kuro);
-        }
-
-        .tl-note {
-            font-size: 7pt;
-            color: #999;
-            font-style: italic;
-        }
-
-        .notes-box {
-            background: #fffbeb;
-            border-left: 3px solid var(--kin);
-            padding: 12px 14px;
-            font-size: 8pt;
-        }
-
-        .notes-box ul {
-            margin: 0;
-            padding-left: 14px;
-        }
-
-        .notes-box li { margin-bottom: 3px; }
-        .notes-box .warning { color: var(--aka); font-weight: 600; }
-        .notes-box .task { color: var(--ai); }
-        .notes-box .tip { color: var(--matcha); }
-
-        .day-sidebar {
-            padding-left: 18px;
-            border-left: 1px solid #e5e5e5;
-            font-size: 8pt;
-        }
-
-        .sidebar-block { margin-bottom: 14px; }
-
-        .sidebar-block h4 {
-            font-size: 7pt;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #999;
-            margin-bottom: 5px;
-        }
-
-        .hotel-name {
-            font-weight: 600;
-            color: var(--kuro);
-        }
-
-        .hotel-price {
-            color: var(--matcha);
-            font-weight: 600;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 2px 6px;
-            font-size: 6pt;
-            font-weight: 600;
-            border-radius: 2px;
-            margin-top: 4px;
-            margin-right: 3px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badge-paid { background: #dcfce7; color: #166534; }
-        .badge-onsite { background: #fef3c7; color: #92400e; }
-
-        .tags { display: flex; flex-wrap: wrap; gap: 4px; }
-
-        .tag {
-            padding: 2px 8px;
-            font-size: 7pt;
+        .feature-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36pt;
             font-weight: 500;
-            border-radius: 2px;
-            background: #f3f4f6;
-            color: #4b5563;
+            line-height: 1.2;
+            margin-bottom: 15px;
         }
 
-        .tag-ho { background: #fef3c7; color: #92400e; }
-        .tag-bike { background: #dcfce7; color: #166534; }
-        .tag-meet { background: #fce7f3; color: #be185d; }
-        .tag-flight { background: #ffedd5; color: #c2410c; }
-        .tag-fest { background: #fdf2f8; color: #db2777; }
+        .feature-subtitle {
+            font-size: 11pt;
+            color: #ccc;
+            max-width: 500px;
+        }
 
-        /* ══════════════════════════════════════════
-           SUMMARY TABLES
-           ══════════════════════════════════════════ */
-        .summary-page {
-            page-break-before: always;
+        .feature-body {
             padding: 40px 50px;
-            background: var(--shiro);
+            columns: 2;
+            column-gap: 40px;
         }
 
-        .summary-page h2 {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 16pt;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--kuro);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .summary-page h2::before {
-            content: '';
-            width: 4px;
-            height: 20px;
-            background: var(--aka);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 8pt;
-            margin-bottom: 30px;
-        }
-
-        th {
-            background: #f8f8f8;
-            padding: 10px 12px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 7pt;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #666;
-            border-bottom: 2px solid #e5e5e5;
-        }
-
-        td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .row-highlight td { background: #fffbeb !important; }
-        .text-warning { color: var(--aka); font-weight: 600; }
-        .text-success { color: var(--matcha); }
-
-        /* ══════════════════════════════════════════
-           CHECKLIST PAGE
-           ══════════════════════════════════════════ */
-        .checklist-page {
-            page-break-before: always;
-            padding: 40px 50px;
-            background: var(--shiro);
-        }
-
-        .checklist-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .checklist-section {
-            background: white;
-            border-radius: 8px;
-            padding: 20px 24px;
-            border: 1px solid #e5e5e5;
-        }
-
-        .checklist-section h3 {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 12pt;
-            font-weight: 600;
-            color: var(--kuro);
+        .feature-body p {
             margin-bottom: 16px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--aka);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            text-align: justify;
+            hyphens: auto;
         }
 
-        .checklist-section h3 svg {
+        .feature-body .lead {
+            font-size: 12pt;
+            font-weight: 500;
+            color: var(--sumi);
+            margin-bottom: 20px;
+        }
+
+        .feature-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14pt;
             color: var(--aka);
+            margin: 24px 0 12px;
+            break-after: avoid;
         }
 
-        .check-columns {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px 30px;
+        .feature-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 14pt;
+            color: var(--sumi);
+            padding: 20px 30px;
+            border-left: 3px solid var(--aka);
+            margin: 20px 0;
+            break-inside: avoid;
         }
 
-        .checklist-small .check-columns {
-            grid-template-columns: repeat(3, auto);
-            justify-content: start;
-            gap: 10px 40px;
+        .feature-box {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+            break-inside: avoid;
         }
 
-        .check-col {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .checklist-section label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 9pt;
-            color: var(--kuro);
-            cursor: pointer;
-        }
-
-        .checklist-section label:hover {
-            color: var(--aka);
-        }
-
-        .checklist-section input[type="checkbox"] {
-            width: 14px;
-            height: 14px;
-            accent-color: var(--aka);
-            cursor: pointer;
-        }
-
-        .priority-high {
-            font-weight: 600;
-            color: var(--aka) !important;
-        }
-
-        .priority-contact {
-            color: var(--kyoto) !important;
-        }
-
-        @media print {
-            .checklist-section input[type="checkbox"] {
-                -webkit-appearance: none;
-                appearance: none;
-                width: 12px;
-                height: 12px;
-                border: 1.5px solid #666;
-                border-radius: 2px;
-                background: white;
-            }
-        }
-
-        /* ══════════════════════════════════════════
-           FOOTER
-           ══════════════════════════════════════════ */
-        .guide-footer {
-            text-align: center;
-            padding: 50px;
-            background: var(--kuro);
-            color: var(--shiro);
-        }
-
-        .guide-footer .kanji {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 24pt;
+        .feature-box h4 {
+            font-size: 10pt;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: var(--aka);
             margin-bottom: 10px;
         }
 
-        .guide-footer p {
+        .feature-box ul {
+            list-style: none;
             font-size: 9pt;
-            color: #888;
+        }
+
+        .feature-box li {
+            padding: 4px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .feature-box li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--aka);
         }
 
         /* ══════════════════════════════════════════
-           PRINT
+           REGION CHAPTERS
            ══════════════════════════════════════════ */
-        @media print {
-            body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-            .cover { height: 100vh; }
-            .day-card { break-inside: avoid; }
-            .phase-header { break-before: page; }
-            .summary-page { break-before: page; }
-            .poi-gallery { break-before: page; }
+        .region-chapter {
+            page-break-after: always;
+            min-height: 100vh;
         }
 
-        @page { margin: 0.4in; }
+        .region-header {
+            height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+        }
+
+        .region-header.osaka { background: linear-gradient(135deg, #ea580c, #f97316); }
+        .region-header.kyoto { background: linear-gradient(135deg, #7c3aed, #9333ea); }
+        .region-header.biwa { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+        .region-header.shimanami { background: linear-gradient(135deg, #059669, #10b981); }
+        .region-header.kyushu { background: linear-gradient(135deg, #dc2626, #ef4444); }
+        .region-header.tokyo { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+        .region-header.okinawa { background: linear-gradient(135deg, #0d9488, #14b8a6); }
+
+        .region-header-content {
+            text-align: center;
+        }
+
+        .region-kanji {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 48pt;
+            font-weight: 700;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .region-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 24pt;
+            font-weight: 500;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .region-dates {
+            font-size: 10pt;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        .region-content {
+            padding: 40px 50px;
+        }
+
+        .region-intro {
+            font-size: 11pt;
+            color: var(--sumi);
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .day-card {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .day-card:last-child {
+            border-bottom: none;
+        }
+
+        .day-date {
+            text-align: center;
+        }
+
+        .day-date .num {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 24pt;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .day-date .dow {
+            font-size: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        .day-date .month {
+            font-size: 9pt;
+            color: #666;
+        }
+
+        .day-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 13pt;
+            margin-bottom: 4px;
+        }
+
+        .day-content .subtitle {
+            font-size: 9pt;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .day-content .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .day-content .highlight {
+            font-size: 8pt;
+            padding: 4px 10px;
+            background: #f5f5f5;
+            border-radius: 12px;
+            color: #555;
+        }
+
+        .day-content .hotel {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .day-content .hotel strong {
+            color: var(--kuro);
+        }
+
+        /* ══════════════════════════════════════════
+           REFERENCE PAGES
+           ══════════════════════════════════════════ */
+        .reference-page {
+            page-break-after: always;
+            padding: 50px;
+            min-height: 100vh;
+        }
+
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9pt;
+            margin-top: 20px;
+        }
+
+        .ref-table th {
+            text-align: left;
+            padding: 10px 12px;
+            background: var(--kuro);
+            color: white;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 8pt;
+        }
+
+        .ref-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ref-table tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .transport-section {
+            margin-bottom: 30px;
+        }
+
+        .transport-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14pt;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .transport-section h3::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: var(--aka);
+        }
+
+        .contact-card {
+            display: inline-block;
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            padding: 15px 20px;
+            margin: 8px;
+            min-width: 200px;
+        }
+
+        .contact-card .name {
+            font-weight: 600;
+            font-size: 11pt;
+            margin-bottom: 4px;
+        }
+
+        .contact-card .when {
+            font-size: 9pt;
+            color: #666;
+        }
+
+        .contact-card .note {
+            font-size: 8pt;
+            color: #888;
+            margin-top: 6px;
+        }
+
+        /* ══════════════════════════════════════════
+           BACK COVER
+           ══════════════════════════════════════════ */
+        .back-cover {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--kuro);
+            color: var(--shiro);
+            text-align: center;
+        }
+
+        .back-cover .quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18pt;
+            max-width: 500px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .back-cover .attribution {
+            font-size: 10pt;
+            color: #888;
+            letter-spacing: 4px;
+        }
+
+        /* ══════════════════════════════════════════
+           PRINT STYLES
+           ══════════════════════════════════════════ */
+        @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .cover, .overview, .feature-hero, .region-header, .back-cover {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
     </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════════════════
-     COVER PAGE
-     ══════════════════════════════════════════════════════════════════ -->
-<div class="cover">
-    <!-- Mon (family crest) -->
-    <div class="cover-mon">
-        <svg viewBox="0 0 100 100" fill="none">
-            <circle cx="50" cy="50" r="48" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-            <circle cx="50" cy="50" r="38" fill="rgba(255,255,255,0.95)"/>
-            <circle cx="50" cy="50" r="18" fill="#c41e3a"/>
-        </svg>
-    </div>
+    <!-- ══════════════════════════════════════════
+         COVER
+         ══════════════════════════════════════════ -->
+    <div class="cover">
+        <div class="cover-brush"></div>
 
-    <div class="cover-title">
-        <div class="cover-kanji-large">日本</div>
-        <div class="cover-subtitle">TRAVEL GUIDE 2026</div>
-    </div>
-
-    <div class="cover-period">
-        <div class="brush-line"></div>
-        <div class="cover-dates">SEPTEMBER 18 — NOVEMBER 9</div>
-        <div class="brush-line"></div>
-    </div>
-    <div class="cover-days">五十三日 · 53 DAYS</div>
-
-    <!-- Hanko seal -->
-    <div class="cover-hanko">
-        <svg viewBox="0 0 70 70" fill="none">
-            <rect x="5" y="5" width="60" height="60" rx="4" stroke="#c41e3a" stroke-width="2" fill="none"/>
-            <text x="35" y="42" text-anchor="middle" font-family="Noto Serif JP" font-size="24" fill="#c41e3a" font-weight="700">旅</text>
-        </svg>
-    </div>
-
-    <div class="cover-footer">PERSONAL ITINERARY</div>
-</div>
-
-<!-- ══════════════════════════════════════════════════════════════════
-     STATISTICS PAGE
-     ══════════════════════════════════════════════════════════════════ -->
-<div class="stats-page">
-    <div class="section-header">
-        <div class="kanji">概要</div>
-        <h2>Trip Overview</h2>
-        <div class="underline"></div>
-    </div>
-
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="value">53</div>
-            <div class="label">Total Days</div>
-        </div>
-        <div class="stat-card">
-            <div class="value">7</div>
-            <div class="label">Regions</div>
-        </div>
-        <div class="stat-card">
-            <div class="value">188</div>
-            <div class="label">Points of Interest</div>
-        </div>
-        <div class="stat-card">
-            <div class="value">~44€</div>
-            <div class="label">Avg / Night</div>
-        </div>
-    </div>
-
-    <div class="region-chart">
-        <h3>Days by Region</h3>
-        <div class="region-row">
-            <div class="name">Osaka</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 17%; background: var(--osaka);">9</div></div>
-            <div class="days">9 days</div>
-        </div>
-        <div class="region-row">
-            <div class="name">Kyoto</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 9.4%; background: var(--kyoto);">5</div></div>
-            <div class="days">5 days</div>
-        </div>
-        <div class="region-row">
-            <div class="name">Biwa</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 3.8%; background: var(--biwa);">2</div></div>
-            <div class="days">2 days</div>
-        </div>
-        <div class="region-row">
-            <div class="name">Shimanami</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 7.5%; background: var(--shimanami);">4</div></div>
-            <div class="days">4 days</div>
-        </div>
-        <div class="region-row">
-            <div class="name">Kyushu</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 28.3%; background: var(--kyushu);">15</div></div>
-            <div class="days">15 days</div>
-        </div>
-        <div class="region-row">
-            <div class="name">Tokyo + Izu</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 18.9%; background: var(--tokyo);">10</div></div>
-            <div class="days">10 days</div>
-        </div>
-        <div class="region-row">
-            <div class="name">Okinawa</div>
-            <div class="bar-track"><div class="bar-fill" style="width: 13.2%; background: var(--okinawa);">7</div></div>
-            <div class="days">7 days</div>
-        </div>
-    </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════════════════════
-     POI GALLERY - 15 illustrated highlights
-     ══════════════════════════════════════════════════════════════════ -->
-<div class="poi-gallery">
-    <div class="section-header">
-        <div class="kanji" style="color: var(--kin);">名所</div>
-        <h2>Highlights</h2>
-        <div class="underline"></div>
-    </div>
-
-    <div class="poi-grid">
-        <!-- 1. Danjiri Festival -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#ea580c" stroke-width="1.5">
-                    <rect x="15" y="30" width="40" height="22" rx="2" fill="#1f1f1f"/>
-                    <path d="M15 30 L35 15 L55 30" fill="#1f1f1f"/>
-                    <ellipse cx="22" cy="24" rx="4" ry="5" fill="#fbbf24"/>
-                    <ellipse cx="48" cy="24" rx="4" ry="5" fill="#fbbf24"/>
-                    <circle cx="22" cy="55" r="4" fill="#ea580c"/>
-                    <circle cx="48" cy="55" r="4" fill="#ea580c"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Danjiri</div>
-                <div class="poi-region">Osaka</div>
-            </div>
-        </div>
-
-        <!-- 2. Nakanoshima -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#ea580c" stroke-width="1.5">
-                    <rect x="10" y="25" width="20" height="30" fill="#1f1f1f"/>
-                    <ellipse cx="20" cy="25" rx="8" ry="5" fill="none"/>
-                    <rect x="38" y="18" width="22" height="37" fill="#1f1f1f"/>
-                    <line x1="42" y1="22" x2="42" y2="52" stroke="#ea580c" stroke-width="0.5"/>
-                    <line x1="50" y1="22" x2="50" y2="52" stroke="#ea580c" stroke-width="0.5"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Nakanoshima</div>
-                <div class="poi-region">Osaka</div>
-            </div>
-        </div>
-
-        <!-- 3. Takedao -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#ea580c" stroke-width="1.5">
-                    <path d="M20 55 L20 30 Q20 18 35 18 Q50 18 50 30 L50 55" fill="#1f1f1f"/>
-                    <ellipse cx="35" cy="32" rx="12" ry="10" fill="#0f0f0f"/>
-                    <line x1="28" y1="55" x2="30" y2="40" stroke="#ea580c" stroke-width="2"/>
-                    <line x1="42" y1="55" x2="40" y2="40" stroke="#ea580c" stroke-width="2"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Takedao</div>
-                <div class="poi-region">Osaka</div>
-            </div>
-        </div>
-
-        <!-- 4. Byodo-in -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#9333ea" stroke-width="1.5">
-                    <rect x="22" y="35" width="26" height="16" fill="#1f1f1f"/>
-                    <path d="M22 35 L35 22 L48 35" fill="#1f1f1f"/>
-                    <path d="M22 40 L10 36 L8 45 L22 44" fill="#1f1f1f"/>
-                    <path d="M48 40 L60 36 L62 45 L48 44" fill="#1f1f1f"/>
-                    <ellipse cx="35" cy="22" rx="3" ry="2" fill="#9333ea"/>
-                    <path d="M15 55 Q35 58 55 55" stroke="#9333ea" stroke-dasharray="2,2" opacity="0.5"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Byodo-in</div>
-                <div class="poi-region">Kyoto</div>
-            </div>
-        </div>
-
-        <!-- 5. teamLab -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#9333ea" stroke-width="1.5">
-                    <path d="M10 40 Q20 30 30 40 Q40 50 50 40 Q60 30 70 40" stroke-width="2"/>
-                    <path d="M10 32 Q20 22 30 32 Q40 42 50 32 Q60 22 70 32" stroke="#c084fc"/>
-                    <path d="M10 24 Q20 14 30 24 Q40 34 50 24 Q60 14 70 24" stroke="#e879f9"/>
-                    <circle cx="15" cy="18" r="2" fill="#9333ea"/>
-                    <circle cx="35" cy="15" r="2" fill="#c084fc"/>
-                    <circle cx="55" cy="18" r="2" fill="#e879f9"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">teamLab</div>
-                <div class="poi-region">Kyoto</div>
-            </div>
-        </div>
-
-        <!-- 6. La Collina -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#0891b2" stroke-width="1.5">
-                    <path d="M10 50 Q25 30 35 35 Q45 40 55 30 Q60 25 65 28 L65 50 Z" fill="#1f1f1f"/>
-                    <rect x="25" y="38" width="20" height="12" fill="#0f0f0f"/>
-                    <rect x="30" y="42" width="4" height="6" fill="none"/>
-                    <rect x="36" y="42" width="4" height="6" fill="none"/>
-                    <circle cx="20" cy="42" r="6" fill="#22c55e" stroke="#22c55e"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">La Collina</div>
-                <div class="poi-region">Biwa</div>
-            </div>
-        </div>
-
-        <!-- 7. Shimanami Bridge -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#059669" stroke-width="1.5">
-                    <path d="M5 45 L15 25 L25 45 M25 45 L35 25 L45 45 M45 45 L55 25 L65 45" fill="none" stroke-width="2"/>
-                    <line x1="5" y1="45" x2="65" y2="45" stroke-width="3"/>
-                    <path d="M0 55 Q35 48 70 55" fill="#1f1f1f" stroke="none"/>
-                    <ellipse cx="35" cy="52" rx="30" ry="5" fill="none" stroke="#0891b2" stroke-width="0.5" stroke-dasharray="3,2"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Shimanami</div>
-                <div class="poi-region">Cycling</div>
-            </div>
-        </div>
-
-        <!-- 8. Kosanji -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#059669" stroke-width="1.5">
-                    <rect x="20" y="40" width="30" height="15" fill="#1f1f1f"/>
-                    <path d="M15 40 L35 25 L55 40" fill="#1f1f1f"/>
-                    <path d="M20 25 L35 12 L50 25" fill="none"/>
-                    <circle cx="35" cy="32" r="4" fill="#fbbf24"/>
-                    <rect x="32" y="45" width="6" height="10" fill="none"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Kosanji</div>
-                <div class="poi-region">Shimanami</div>
-            </div>
-        </div>
-
-        <!-- 9. Beppu Onsen -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#dc2626" stroke-width="1.5">
-                    <ellipse cx="35" cy="48" rx="20" ry="8" fill="#1f1f1f"/>
-                    <path d="M15 48 Q15 55 35 55 Q55 55 55 48" fill="#1f1f1f"/>
-                    <ellipse cx="35" cy="42" rx="16" ry="5" fill="#60a5fa" stroke="#60a5fa"/>
-                    <path d="M25 35 Q23 25 27 18" stroke-dasharray="2,2" opacity="0.6"/>
-                    <path d="M35 33 Q33 23 37 14" stroke-dasharray="2,2" opacity="0.6"/>
-                    <path d="M45 35 Q43 25 47 18" stroke-dasharray="2,2" opacity="0.6"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Beppu</div>
-                <div class="poi-region">Kyushu</div>
-            </div>
-        </div>
-
-        <!-- 10. Yufuin -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#dc2626" stroke-width="1.5">
-                    <path d="M10 55 L25 30 L40 55" fill="#1f1f1f"/>
-                    <path d="M30 55 L50 25 L70 55" fill="#1f1f1f"/>
-                    <ellipse cx="35" cy="52" rx="18" ry="5" fill="#60a5fa" stroke="#60a5fa" stroke-width="0.5"/>
-                    <path d="M25 48 Q22 42 26 38" stroke-dasharray="2,2" opacity="0.5"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Yufuin</div>
-                <div class="poi-region">Kyushu</div>
-            </div>
-        </div>
-
-        <!-- 11. Aso -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#dc2626" stroke-width="1.5">
-                    <path d="M5 55 L20 25 L35 40 L50 20 L65 55 Z" fill="#1f1f1f"/>
-                    <ellipse cx="50" cy="25" rx="6" ry="4" fill="#0f0f0f" stroke="none"/>
-                    <path d="M47 22 Q50 15 53 22" stroke-dasharray="2,2" opacity="0.6"/>
-                    <path d="M44 20 Q50 10 56 20" stroke-dasharray="2,2" opacity="0.4"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Mt. Aso</div>
-                <div class="poi-region">Kyushu</div>
-            </div>
-        </div>
-
-        <!-- 12. Takachiho -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#dc2626" stroke-width="1.5">
-                    <path d="M15 15 L15 55 M55 15 L55 55" stroke-width="2"/>
-                    <path d="M20 25 L50 25 M20 35 L50 35 M20 45 L50 45" stroke-width="1"/>
-                    <ellipse cx="35" cy="42" rx="10" ry="6" fill="#60a5fa" stroke="#60a5fa"/>
-                    <path d="M30 55 Q35 48 40 55" fill="#60a5fa" stroke="none"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Takachiho</div>
-                <div class="poi-region">Kyushu</div>
-            </div>
-        </div>
-
-        <!-- 13. Mt. Fuji -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#2563eb" stroke-width="1.5">
-                    <path d="M10 55 L35 15 L60 55 Z" fill="#1f1f1f"/>
-                    <path d="M22 35 L35 18 L48 35" fill="white" stroke="none" opacity="0.8"/>
-                    <ellipse cx="35" cy="55" rx="25" ry="4" fill="none" stroke-dasharray="3,2" opacity="0.5"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Mt. Fuji</div>
-                <div class="poi-region">Tokyo</div>
-            </div>
-        </div>
-
-        <!-- 14. Tokyo -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#2563eb" stroke-width="1.5">
-                    <rect x="10" y="30" width="12" height="25" fill="#1f1f1f"/>
-                    <rect x="25" y="20" width="10" height="35" fill="#1f1f1f"/>
-                    <rect x="38" y="25" width="8" height="30" fill="#1f1f1f"/>
-                    <rect x="50" y="15" width="12" height="40" fill="#1f1f1f"/>
-                    <circle cx="56" cy="22" r="3" fill="#dc2626"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Tokyo</div>
-                <div class="poi-region">Skyline</div>
-            </div>
-        </div>
-
-        <!-- 15. Okinawa -->
-        <div class="poi-card">
-            <div class="poi-illustration">
-                <svg viewBox="0 0 70 70" fill="none" stroke="#0d9488" stroke-width="1.5">
-                    <path d="M5 45 Q20 40 35 45 Q50 50 65 45 L65 55 Q50 50 35 55 Q20 60 5 55 Z" fill="#0d9488" opacity="0.3"/>
-                    <ellipse cx="25" cy="30" rx="8" ry="5" fill="#fbbf24" stroke="#fbbf24"/>
-                    <ellipse cx="45" cy="28" rx="10" ry="6" fill="#22c55e" stroke="#22c55e"/>
-                    <line x1="45" y1="34" x2="45" y2="45" stroke="#92400e" stroke-width="2"/>
-                </svg>
-            </div>
-            <div class="poi-info">
-                <div class="poi-name">Okinawa</div>
-                <div class="poi-region">Beach</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════════════════════
-     PHASE 1: OSAKA
-     ══════════════════════════════════════════════════════════════════ -->
-<div class="phase-header" style="--phase-color: var(--osaka)">
-    <div class="phase-kanji">大阪</div>
-    <div class="phase-content">
-        <div class="phase-num">Phase 01</div>
-        <h2>Osaka + Kishiwada</h2>
-        <div class="subtitle">Festival Energy · Architecture · Critical Mass</div>
-        <div class="meta">
-            <span>Sep 18–26</span>
-            <span>9 days</span>
-            <span>Shinsaibashi base</span>
-        </div>
-    </div>
-</div>
-
-<div class="phase-highlights" style="--phase-color: var(--osaka)">
-    <div class="highlight-card">
-        <div class="highlight-illustration">
-            <svg viewBox="0 0 80 80" fill="none" stroke="#ea580c" stroke-width="1.5">
-                <rect x="18" y="38" width="44" height="24" rx="2" fill="#fff7ed"/>
-                <path d="M18 38 L40 18 L62 38" fill="#fef3c7"/>
-                <rect x="36" y="20" width="8" height="18" fill="#ea580c"/>
-                <ellipse cx="26" cy="28" rx="5" ry="6" fill="#fbbf24" stroke="#ea580c"/>
-                <ellipse cx="54" cy="28" rx="5" ry="6" fill="#fbbf24" stroke="#ea580c"/>
-                <circle cx="26" cy="66" r="5" fill="#ea580c"/>
-                <circle cx="54" cy="66" r="5" fill="#ea580c"/>
+        <div class="cover-header">
+            <div class="cover-issue">Autumn 2026 Edition</div>
+            <svg class="cover-mon" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#c41e3a" stroke-width="2" opacity="0.5"/>
+                <circle cx="50" cy="50" r="30" fill="#c41e3a" opacity="0.3"/>
             </svg>
         </div>
-        <div class="highlight-info">
-            <div class="highlight-title">Danjiri Festival</div>
-            <div class="highlight-subtitle">Wild cart racing through streets</div>
-            <div class="highlight-day">Days 2–3</div>
+
+        <div class="cover-main">
+            <div class="cover-kanji">日本</div>
+            <div class="cover-subtitle">A Journey Through Seven Regions</div>
+
+            <div class="cover-dates">
+                <div class="line"></div>
+                <span>September 18 - November 9</span>
+                <div class="line"></div>
+            </div>
+            <div class="cover-days">53 Days</div>
         </div>
-    </div>
-    <div class="highlight-card">
-        <div class="highlight-illustration">
-            <svg viewBox="0 0 80 80" fill="none" stroke="#ea580c" stroke-width="1.5">
-                <rect x="12" y="32" width="24" height="35" fill="#fff7ed"/>
-                <ellipse cx="24" cy="32" rx="10" ry="6" fill="#fef3c7"/>
-                <rect x="44" y="22" width="24" height="45" fill="#fff7ed"/>
-                <g stroke="#ea580c" stroke-width="0.5" opacity="0.5">
-                    <line x1="48" y1="26" x2="48" y2="64"/>
-                    <line x1="56" y1="26" x2="56" y2="64"/>
-                    <line x1="64" y1="26" x2="64" y2="64"/>
-                </g>
+
+        <div class="cover-footer">
+            <div class="cover-features">
+                <div class="cover-feature">Onsen Culture</div>
+                <div class="cover-feature">Shimanami Kaido</div>
+                <div class="cover-feature">Aogashima Adventure</div>
+                <div class="cover-feature">Sakamoto Ryoma Trail</div>
+            </div>
+            <svg class="cover-hanko" viewBox="0 0 100 100">
+                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#c41e3a" stroke-width="3" rx="4"/>
+                <text x="50" y="58" text-anchor="middle" font-family="Noto Serif JP" font-size="32" fill="#c41e3a">旅</text>
             </svg>
         </div>
-        <div class="highlight-info">
-            <div class="highlight-title">Nakanoshima</div>
-            <div class="highlight-subtitle">Historic banking architecture</div>
-            <div class="highlight-day">Day 4</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         TABLE OF CONTENTS
+         ══════════════════════════════════════════ -->
+    <div class="toc">
+        <div class="toc-header">
+            <div class="kanji">目次</div>
+            <h2>Contents</h2>
+        </div>
+
+        <div class="toc-section">
+            <div class="toc-section-title">The Journey</div>
+            <div class="toc-item">
+                <span class="title">Trip Overview - Seven Regions</span>
+                <span class="dots"></span>
+                <span class="page">3</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Statistics & Route Map</span>
+                <span class="dots"></span>
+                <span class="page">4</span>
+            </div>
+        </div>
+
+        <div class="toc-section">
+            <div class="toc-section-title">Feature Stories</div>
+            <div class="toc-item">
+                <span class="title">The Art of Onsen - Japan's Bathing Culture</span>
+                <span class="dots"></span>
+                <span class="page">5</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Shimanami Kaido - Cycling Across the Seto Inland Sea</span>
+                <span class="dots"></span>
+                <span class="page">6</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Sakamoto Ryoma - Revolutionary Samurai</span>
+                <span class="dots"></span>
+                <span class="page">7</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Aogashima - Japan's Most Remote Island</span>
+                <span class="dots"></span>
+                <span class="page">8</span>
+            </div>
+        </div>
+
+        <div class="toc-section">
+            <div class="toc-section-title">Regional Itineraries</div>
+            <div class="toc-item">
+                <span class="title">Osaka - Festivals & Architecture</span>
+                <span class="dots"></span>
+                <span class="page">9</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Kyoto - Imperial Heritage</span>
+                <span class="dots"></span>
+                <span class="page">10</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Lake Biwa - Cycling Paradise</span>
+                <span class="dots"></span>
+                <span class="page">11</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Shimanami & Shikoku</span>
+                <span class="dots"></span>
+                <span class="page">12</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Kyushu - Volcanoes & Hot Springs</span>
+                <span class="dots"></span>
+                <span class="page">13</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Tokyo & Izu Peninsula</span>
+                <span class="dots"></span>
+                <span class="page">15</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Okinawa - Tropical Finale</span>
+                <span class="dots"></span>
+                <span class="page">16</span>
+            </div>
+        </div>
+
+        <div class="toc-section">
+            <div class="toc-section-title">Reference</div>
+            <div class="toc-item">
+                <span class="title">Accommodation Guide</span>
+                <span class="dots"></span>
+                <span class="page">17</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Transport Schedule</span>
+                <span class="dots"></span>
+                <span class="page">18</span>
+            </div>
+            <div class="toc-item">
+                <span class="title">Contacts & Meetings</span>
+                <span class="dots"></span>
+                <span class="page">19</span>
+            </div>
         </div>
     </div>
-    <div class="highlight-card">
-        <div class="highlight-illustration">
-            <svg viewBox="0 0 80 80" fill="none" stroke="#ea580c" stroke-width="1.5">
-                <path d="M22 67 L22 38 Q22 24 40 24 Q58 24 58 38 L58 67" fill="#f5f5f4"/>
-                <ellipse cx="40" cy="38" rx="14" ry="10" fill="#292524"/>
-                <line x1="32" y1="67" x2="34" y2="48" stroke="#ea580c" stroke-width="2"/>
-                <line x1="48" y1="67" x2="46" y2="48" stroke="#ea580c" stroke-width="2"/>
-                <circle cx="14" cy="50" r="10" fill="#dcfce7" stroke="#22c55e"/>
-                <circle cx="66" cy="45" r="12" fill="#dcfce7" stroke="#22c55e"/>
+
+    <!-- ══════════════════════════════════════════
+         TRIP OVERVIEW
+         ══════════════════════════════════════════ -->
+    <div class="overview">
+        <div class="overview-header">
+            <div class="kanji">概要</div>
+            <h2>53-Day Journey</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="overview-stats">
+            <div class="overview-stat">
+                <div class="value">53</div>
+                <div class="label">Days</div>
+            </div>
+            <div class="overview-stat">
+                <div class="value">7</div>
+                <div class="label">Regions</div>
+            </div>
+            <div class="overview-stat">
+                <div class="value">29</div>
+                <div class="label">Hotels</div>
+            </div>
+            <div class="overview-stat">
+                <div class="value">189</div>
+                <div class="label">Places</div>
+            </div>
+        </div>
+
+        <div class="overview-timeline">
+            <div class="overview-phase">
+                <div class="phase-dot" style="background: var(--osaka)"></div>
+                <div class="phase-info">
+                    <h3>Osaka</h3>
+                    <div class="dates">Sep 19-26 (8 days)</div>
+                </div>
+                <div class="phase-places">Kishiwada Danjiri Festival, Nakanoshima architecture, Sakai (Kofun tombs, Shimano Museum), Maishima, Takedao Tunnels</div>
+            </div>
+
+            <div class="overview-phase">
+                <div class="phase-dot" style="background: var(--kyoto)"></div>
+                <div class="phase-info">
+                    <h3>Kyoto</h3>
+                    <div class="dates">Sep 27 - Oct 1 (5 days)</div>
+                </div>
+                <div class="phase-places">Nijo Castle, Imperial Palace, Uji (Byodo-in), KYOCERA Museum, teamLab Biovortex</div>
+            </div>
+
+            <div class="overview-phase">
+                <div class="phase-dot" style="background: var(--biwa)"></div>
+                <div class="phase-info">
+                    <h3>Lake Biwa</h3>
+                    <div class="dates">Oct 2-3 (2 days)</div>
+                </div>
+                <div class="phase-places">Omi-Hachiman, La Collina architecture, Azuchi Castle ruins, Hikone Castle, Nagahama</div>
+            </div>
+
+            <div class="overview-phase">
+                <div class="phase-dot" style="background: var(--shimanami)"></div>
+                <div class="phase-info">
+                    <h3>Shimanami</h3>
+                    <div class="dates">Oct 4-7 (4 days)</div>
+                </div>
+                <div class="phase-places">Tomonoura, Onomichi, Kosanji Temple, Shimanami Kaido cycling, Matsuyama</div>
+            </div>
+
+            <div class="overview-phase">
+                <div class="phase-dot" style="background: var(--kyushu)"></div>
+                <div class="phase-info">
+                    <h3>Kyushu</h3>
+                    <div class="dates">Oct 8-22 (15 days)</div>
+                </div>
+                <div class="phase-places">Beppu, Yufuin, Aso volcano, Kurokawa Onsen, Takachiho Gorge, Unzen, Nagasaki, Ureshino, Fukuoka</div>
+            </div>
+
+            <div class="overview-phase">
+                <div class="phase-dot" style="background: var(--tokyo)"></div>
+                <div class="phase-info">
+                    <h3>Tokyo + Izu</h3>
+                    <div class="dates">Oct 23 - Nov 1 (10 days)</div>
+                </div>
+                <div class="phase-places">Shinjuku, Mt. Omuro, Jogasaki Coast, Kawazu, Hottarakashi Onsen, Halloween</div>
+            </div>
+
+            <div class="overview-phase">
+                <div class="phase-dot" style="background: var(--okinawa)"></div>
+                <div class="phase-info">
+                    <h3>Okinawa</h3>
+                    <div class="dates">Nov 2-8 (7 days)</div>
+                </div>
+                <div class="phase-places">Miyakojima, Irabu Bridge, Sefa Utaki, Nirai-Kanai Bridge, Nanjo, Naha</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         STATISTICS PAGE
+         ══════════════════════════════════════════ -->
+    <div class="stats-page">
+        <div class="section-header">
+            <div class="kanji">統計</div>
+            <h2>Trip Statistics</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="value">53</div>
+                <div class="label">Total Days</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">7</div>
+                <div class="label">Regions</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">8</div>
+                <div class="label">Flights</div>
+            </div>
+            <div class="stat-card">
+                <div class="value">~300km</div>
+                <div class="label">By Bicycle</div>
+            </div>
+        </div>
+
+        <div class="region-chart">
+            <h3>Days by Region</h3>
+
+            <div class="region-row">
+                <div class="name">Osaka</div>
+                <div class="bar-track">
+                    <div class="bar-fill" style="width: 32%; background: var(--osaka)">8</div>
+                </div>
+                <div class="days">8 days</div>
+            </div>
+
+            <div class="region-row">
+                <div class="name">Kyoto</div>
+                <div class="bar-track">
+                    <div class="bar-fill" style="width: 20%; background: var(--kyoto)">5</div>
+                </div>
+                <div class="days">5 days</div>
+            </div>
+
+            <div class="region-row">
+                <div class="name">Lake Biwa</div>
+                <div class="bar-track">
+                    <div class="bar-fill" style="width: 8%; background: var(--biwa)">2</div>
+                </div>
+                <div class="days">2 days</div>
+            </div>
+
+            <div class="region-row">
+                <div class="name">Shimanami</div>
+                <div class="bar-track">
+                    <div class="bar-fill" style="width: 16%; background: var(--shimanami)">4</div>
+                </div>
+                <div class="days">4 days</div>
+            </div>
+
+            <div class="region-row">
+                <div class="name">Kyushu</div>
+                <div class="bar-track">
+                    <div class="bar-fill" style="width: 60%; background: var(--kyushu)">15</div>
+                </div>
+                <div class="days">15 days</div>
+            </div>
+
+            <div class="region-row">
+                <div class="name">Tokyo + Izu</div>
+                <div class="bar-track">
+                    <div class="bar-fill" style="width: 40%; background: var(--tokyo)">10</div>
+                </div>
+                <div class="days">10 days</div>
+            </div>
+
+            <div class="region-row">
+                <div class="name">Okinawa</div>
+                <div class="bar-track">
+                    <div class="bar-fill" style="width: 28%; background: var(--okinawa)">7</div>
+                </div>
+                <div class="days">7 days</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         FEATURE: ONSEN
+         ══════════════════════════════════════════ -->
+    <div class="feature-article">
+        <div class="feature-hero onsen">
+            <div class="feature-hero-content">
+                <div class="feature-category">Culture & Tradition</div>
+                <h1 class="feature-title">The Art of Onsen</h1>
+                <p class="feature-subtitle">Discovering Japan's sacred bathing culture across volcanic landscapes</p>
+            </div>
+        </div>
+
+        <div class="feature-body">
+            <p class="lead">Japan sits atop the Pacific Ring of Fire, blessed with over 27,000 natural hot springs. For centuries, the Japanese have transformed these geothermal gifts into sanctuaries of relaxation, healing, and spiritual renewal.</p>
+
+            <p>The onsen tradition dates back to the 8th century, when Buddhist monks first recognized the therapeutic properties of mineral-rich waters. What began as medicinal practice evolved into an essential part of Japanese culture - a ritual that strips away social barriers along with one's clothes, creating spaces of pure equality and tranquility.</p>
+
+            <h3>Beppu - Hell on Earth</h3>
+            <p>With eight distinct "hells" (jigoku) and more hot spring sources than anywhere else in Japan, Beppu is the country's onsen capital. Steam rises from streets, cooking pits bubble with geothermal heat, and locals relax in sand baths along the beach. The city produces enough hot water to fill 100 Olympic pools daily.</p>
+
+            <h3>Kurokawa Onsen</h3>
+            <p>Hidden in the mountains of Kumamoto, this intimate onsen village offers the tegata system - a wooden pass granting access to three different ryokan baths. Lantern-lit paths connect traditional inns, each with its own character: cave baths, riverside rotenburo, and forest-view pools.</p>
+
+            <div class="feature-quote">
+                "In an onsen, rank and status dissolve in the steam. A CEO soaks beside a student, a tourist beside a monk. The water makes us equal."
+            </div>
+
+            <h3>Unzen Jigoku</h3>
+            <p>The "hells" of Unzen are more than tourist attractions - they're reminders of nature's power. Christian martyrs were boiled in these sulfurous pools during the 17th century persecutions. Today, the landscape of bubbling mud and hissing steam offers both spectacle and excellent hot spring hotels.</p>
+
+            <div class="feature-box">
+                <h4>Onsen Etiquette</h4>
+                <ul>
+                    <li>Wash thoroughly before entering the bath</li>
+                    <li>Never wear swimwear (unless specified)</li>
+                    <li>Keep your small towel out of the water</li>
+                    <li>Don't swim or splash</li>
+                    <li>Tattoos may restrict access at traditional onsen</li>
+                    <li>Stay hydrated - limit soaking to 15-20 minutes</li>
+                </ul>
+            </div>
+
+            <h3>This Journey's Onsen Highlights</h3>
+            <p><strong>Beppu (Oct 8-9):</strong> Kannawa steaming streets, Myoban mud baths, jigoku-mushi cooking.</p>
+            <p><strong>Yufuin (Oct 10):</strong> Elegant ryokan town at the foot of Mount Yufu.</p>
+            <p><strong>Kurokawa (Oct 13):</strong> Tegata onsen hopping through lantern-lit streets.</p>
+            <p><strong>Unzen (Oct 16):</strong> Half-board at Oedo Onsen with views of the jigoku.</p>
+            <p><strong>Obama (Oct 17):</strong> Hot Foot 105 - Japan's longest foot bath at 105 meters.</p>
+            <p><strong>Ureshino (Oct 20):</strong> "Beautiful skin" waters famous for their silky mineral content.</p>
+            <p><strong>Hottarakashi (Oct 28):</strong> Mountain-top pools with sunrise views of Mount Fuji.</p>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         FEATURE: SHIMANAMI KAIDO
+         ══════════════════════════════════════════ -->
+    <div class="feature-article">
+        <div class="feature-hero shimanami">
+            <div class="feature-hero-content">
+                <div class="feature-category">Adventure</div>
+                <h1 class="feature-title">Shimanami Kaido</h1>
+                <p class="feature-subtitle">70 kilometers across the Seto Inland Sea - Japan's most spectacular cycling route</p>
+            </div>
+        </div>
+
+        <div class="feature-body">
+            <p class="lead">Connecting Honshu to Shikoku across six islands, the Shimanami Kaido is more than a bridge - it's a journey through maritime history, artistic villages, and some of Japan's most breathtaking coastal scenery.</p>
+
+            <p>Completed in 1999, this expressway is unique in Japan for having dedicated cycling and pedestrian paths that spiral up to each bridge. Cyclists glide alongside massive suspension cables, hundreds of meters above shipping lanes where container ships pass silently below.</p>
+
+            <h3>The Route</h3>
+            <p>Starting from Onomichi - a hillside town of temples, cats, and nostalgic alleys - the route crosses Mukaishima, Innoshima, Ikuchijima, Omishima, Hakatajima, and Oshima before reaching Imabari on Shikoku. Each island has its own character: citrus groves, ancient shrines, contemporary art, and fishing villages where time moves slowly.</p>
+
+            <div class="feature-quote">
+                "Below me, the Seto Inland Sea spread like hammered silver. Above, clouds drifted through suspension cables. I was cycling through the sky."
+            </div>
+
+            <h3>Ikuchijima: Art & History</h3>
+            <p>Home to Kosanji Temple - a millionaire's tribute to his mother featuring replicas of famous Japanese buildings - and the stunning Hill of Hope, where marble sculptures overlook the sea. The nearby Shiomachi shopping street preserves Edo-period charm with local treats and cycling cafes.</p>
+
+            <h3>Omishima: Sacred Island</h3>
+            <p>Oyamazumi Shrine has stood here for over 2,600 years, housing Japan's largest collection of samurai armor and weapons. The ancient camphor trees create an atmosphere of profound peace. Stay overnight at SANDO, a modern guesthouse that perfectly bridges tradition and contemporary design.</p>
+
+            <h3>The Bridges</h3>
+            <p>Each of the six bridges offers a different perspective. The Kurushima Kaikyo Bridge - the world's longest suspension bridge span over a navigable strait - provides the journey's climax. At 4 kilometers long, it feels like cycling across an ocean.</p>
+
+            <div class="feature-box">
+                <h4>Practical Tips</h4>
+                <ul>
+                    <li>Rent bikes in Onomichi (Giant Store or Shimanami Rental)</li>
+                    <li>Reserve 2 days for the full experience</li>
+                    <li>Follow the blue line painted on the road</li>
+                    <li>Ship luggage ahead via Yamato (TA-Q-BIN)</li>
+                    <li>Best seasons: Spring (March-May) or Autumn (Oct-Nov)</li>
+                    <li>Don't miss: Salt ice cream on Hakatajima</li>
+                </ul>
+            </div>
+
+            <h3>This Journey's Shimanami Plan</h3>
+            <p><strong>Day 19 (Oct 6):</strong> Onomichi → Omishima (~50km). Onomichi's temple walk, ferry to Mukaishima, Kosanji Temple, Hill of Hope, overnight at SANDO.</p>
+            <p><strong>Day 20 (Oct 7):</strong> Omishima → Imabari → Matsuyama (~45km). Oyamazumi Shrine at dawn, Hakatajima beach, Kirosan Observatory (Kengo Kuma architecture), Kurushima Bridge finale, train to Matsuyama.</p>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         FEATURE: SAKAMOTO RYOMA
+         ══════════════════════════════════════════ -->
+    <div class="feature-article">
+        <div class="feature-hero ryoma">
+            <div class="feature-hero-content">
+                <div class="feature-category">History</div>
+                <h1 class="feature-title">Sakamoto Ryoma</h1>
+                <p class="feature-subtitle">Following the footsteps of Japan's most beloved revolutionary samurai</p>
+            </div>
+        </div>
+
+        <div class="feature-body">
+            <p class="lead">He was assassinated at 31, but Sakamoto Ryoma accomplished more in his short life than most historical figures manage in a lifetime. His vision helped end 250 years of samurai rule and launched Japan into the modern era.</p>
+
+            <p>Born in 1836 in Tosa (now Kochi Prefecture), Ryoma was a low-ranking samurai who became a ronin, a rebel, a fugitive, and ultimately a visionary who brokered the alliance that toppled the Tokugawa shogunate. He negotiated Japan's first modern trading company, drafted an early version of the constitution, and somehow found time to practice swordsmanship and write poetry.</p>
+
+            <h3>The Irohamaru Incident</h3>
+            <p>In 1867, Ryoma's ship Irohamaru collided with a vessel from the powerful Kishu domain near Tomonoura. Rather than accept blame, Ryoma demanded compensation - and won. Using international maritime law (radical for Japan at the time), he secured payment that funded his revolutionary activities. The Irohamaru Exhibition in Tomonoura tells this remarkable story.</p>
+
+            <div class="feature-quote">
+                "I will accomplish what I set out to do, or die trying. There is no other path for a man."
+                <br><small>- Sakamoto Ryoma</small>
+            </div>
+
+            <h3>Nagasaki: The Revolutionary Base</h3>
+            <p>Nagasaki was Japan's window to the world, and Ryoma made it his base. He founded the Kameyama Shachu here - often called Japan's first modern company - trading goods and weapons while secretly working to unite rival domains against the shogunate. His statue gazes over the city from Kazagashira Park, and his famous boots monument celebrates his embrace of Western ways.</p>
+
+            <h3>A Modern Hero</h3>
+            <p>Japanese people consistently rank Ryoma among history's most admired figures. He represents the possibility of change - a low-ranking outsider who transformed a nation through intelligence, charisma, and sheer determination. His image appears on products, in manga, and in countless historical dramas.</p>
+
+            <div class="feature-box">
+                <h4>Ryoma Sites on This Journey</h4>
+                <ul>
+                    <li><strong>Tomonoura (Oct 5):</strong> Irohamaru Exhibition, Masuya Seiemon hideout</li>
+                    <li><strong>Nagasaki (Oct 19):</strong> Kameyama Shachu, Ryoma's Boots, Kazagashira statue</li>
+                    <li><strong>Kochi (not on route):</strong> Birthplace and museum</li>
+                </ul>
+            </div>
+
+            <p>What makes Ryoma compelling is his humanity. He wasn't just a warrior - he was a dreamer who imagined a Japan connected to the world, where talent mattered more than birth, where old enemies could become allies. That vision cost him his life in 1867, but it shaped the nation that emerged.</p>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         FEATURE: AOGASHIMA
+         ══════════════════════════════════════════ -->
+    <div class="feature-article">
+        <div class="feature-hero aogashima">
+            <div class="feature-hero-content">
+                <div class="feature-category">Alternative Adventure</div>
+                <h1 class="feature-title">Aogashima</h1>
+                <p class="feature-subtitle">The world's most remote volcanic caldera - and the hardest place in Japan to reach</p>
+            </div>
+        </div>
+
+        <div class="feature-body">
+            <p class="lead">Imagine a volcanic island within a volcanic island, inhabited by fewer than 170 people, accessible only by helicopter (when weather permits) or a ferry that cancels more often than it runs. This is Aogashima - Japan's most challenging destination.</p>
+
+            <p>Rising from the Philippine Sea some 360 kilometers south of Tokyo, Aogashima is a double caldera: an outer rim surrounding an inner cone called Maruyama. The 1785 eruption killed nearly half the population and rendered the island uninhabitable for 50 years. Today, residents live on the caldera's inner slopes, cooking food in geothermal vents and enjoying some of Japan's clearest night skies.</p>
+
+            <h3>Getting There: The Challenge</h3>
+            <p>There are exactly two ways to reach Aogashima: a ferry from Hachijojima that cancels in rough seas (about 40% of attempts fail in autumn), or a 9-seat helicopter that books out within minutes. The helicopter operates just once daily, and tickets go on sale exactly one month in advance at 9:00 AM Japan time. Refreshing the booking page becomes an obsession.</p>
+
+            <div class="feature-quote">
+                "As the helicopter crested the outer rim, the inner caldera revealed itself - a green bowl with a perfect cone rising from its center. I understood then why people call this place prehistoric."
+            </div>
+
+            <h3>What Awaits</h3>
+            <p><strong>Oyama Viewpoint:</strong> The main attraction - views down into the double caldera that seem pulled from another planet.</p>
+            <p><strong>Maruyama Crater:</strong> A 40-minute hike into the inner volcano, where steam vents and the smell of sulfur remind you this place is very much alive.</p>
+            <p><strong>Sauna Jigoku:</strong> A natural geothermal sauna built into the rock - free, primitive, unforgettable.</p>
+            <p><strong>Stargazing:</strong> Zero light pollution means the Milky Way blazes overhead. Some visitors come just for this.</p>
+
+            <h3>The Backup Reality</h3>
+            <p>The honest truth: there's about a 30% chance the helicopter tickets won't be available. Autumn weather adds another 20% cancellation risk. This is not a journey for the inflexible. But for those willing to gamble, the reward is standing on one of Earth's most extraordinary landscapes.</p>
+
+            <div class="feature-box">
+                <h4>Aogashima Contingency Plan</h4>
+                <ul>
+                    <li><strong>Sep 27, 9:00 JP:</strong> Attempt heli booking Oct 27 (outbound)</li>
+                    <li><strong>Sep 28, 9:00 JP:</strong> Attempt heli booking Oct 28 (return)</li>
+                    <li><strong>If success:</strong> Book ANA flights, minshuku, proceed with island adventure</li>
+                    <li><strong>If failure:</strong> Default to Izu Peninsula road trip (Mt. Omuro, Kawazu, Hottarakashi)</li>
+                    <li>Hotel on Hachijojima already booked as backup (Noboryuso, cancel free until Oct 20)</li>
+                </ul>
+            </div>
+
+            <h3>Logistics</h3>
+            <p><strong>Accommodation:</strong> Minshuku Kazutomo (04996-9-0033) or Nagomi (04996-9-0066). Call in Japanese. Expect simple rooms, included dinner of local fish and shochu.</p>
+            <p><strong>Budget:</strong> ~720 EUR total including flights, helicopter, 3 nights on Hachijojima, 1 night on Aogashima.</p>
+            <p><strong>Essential:</strong> Cash only on Aogashima. Bring snacks. Download offline maps.</p>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         REGIONAL CHAPTERS
+         ══════════════════════════════════════════ -->
+
+    <!-- OSAKA -->
+    <div class="region-chapter">
+        <div class="region-header osaka">
+            <div class="region-header-content">
+                <div class="region-kanji">大阪</div>
+                <div class="region-name">Osaka</div>
+                <div class="region-dates">September 19-26 | 8 Days</div>
+            </div>
+        </div>
+        <div class="region-content">
+            <p class="region-intro">Beginning with the raw energy of the Kishiwada Danjiri Festival, the journey opens in Japan's commercial heart - a city of bold architecture, culinary obsession, and unfiltered character.</p>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">19</div>
+                    <div class="dow">Sat</div>
+                    <div class="month">Sep</div>
+                </div>
+                <div class="day-content">
+                    <h4>Arrival & Kishiwada Danjiri (Yoimiya)</h4>
+                    <div class="subtitle">CI 064 → Kishiwada Festival</div>
+                    <div class="highlights">
+                        <span class="highlight">Yarimawashi turns</span>
+                        <span class="highlight">Tomoshibi night parade</span>
+                        <span class="highlight">Festival atmosphere</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Route-Inn Higashikishiwada</strong> (58 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">20</div>
+                    <div class="dow">Sun</div>
+                    <div class="month">Sep</div>
+                </div>
+                <div class="day-content">
+                    <h4>Kishiwada Danjiri (Hommiya)</h4>
+                    <div class="subtitle">Main festival day → Osaka transfer</div>
+                    <div class="highlights">
+                        <span class="highlight">Miyairi shrine entry</span>
+                        <span class="highlight">Kishiki Shrine</span>
+                        <span class="highlight">Shinsaibashi</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Shinsaibashi Arty Inn</strong> (52 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">21</div>
+                    <div class="dow">Mon</div>
+                    <div class="month">Sep</div>
+                </div>
+                <div class="day-content">
+                    <h4>Osaka Architecture</h4>
+                    <div class="subtitle">Nakanoshima → Kitahama → Semba | HO</div>
+                    <div class="highlights">
+                        <span class="highlight">Bank of Japan</span>
+                        <span class="highlight">Central Public Hall</span>
+                        <span class="highlight">Nakanoshima Library</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Shinsaibashi Arty Inn</strong> (52 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">22</div>
+                    <div class="dow">Tue</div>
+                    <div class="month">Sep</div>
+                </div>
+                <div class="day-content">
+                    <h4>Sakai</h4>
+                    <div class="subtitle">Kofun tombs & Shimano Museum | HO</div>
+                    <div class="highlights">
+                        <span class="highlight">Daisen Kofun</span>
+                        <span class="highlight">Shimano Bicycle Museum</span>
+                        <span class="highlight">Nintoku tomb</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Shinsaibashi Arty Inn</strong> (52 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">24</div>
+                    <div class="dow">Thu</div>
+                    <div class="month">Sep</div>
+                </div>
+                <div class="day-content">
+                    <h4>Takedao</h4>
+                    <div class="subtitle">Abandoned railway tunnels</div>
+                    <div class="highlights">
+                        <span class="highlight">Railway trail</span>
+                        <span class="highlight">Tunnels</span>
+                        <span class="highlight">River hiking</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Shinsaibashi Arty Inn</strong> (52 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">26</div>
+                    <div class="dow">Sat</div>
+                    <div class="month">Sep</div>
+                </div>
+                <div class="day-content">
+                    <h4>Free Day + Keigo</h4>
+                    <div class="subtitle">Tennoji / Abeno, evening meetup</div>
+                    <div class="highlights">
+                        <span class="highlight">Abeno Harukas</span>
+                        <span class="highlight">Tennoji</span>
+                        <span class="highlight">Meeting: Keigo</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Shinsaibashi Arty Inn</strong> (52 EUR)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KYOTO -->
+    <div class="region-chapter">
+        <div class="region-header kyoto">
+            <div class="region-header-content">
+                <div class="region-kanji">京都</div>
+                <div class="region-name">Kyoto</div>
+                <div class="region-dates">September 27 - October 1 | 5 Days</div>
+            </div>
+        </div>
+        <div class="region-content">
+            <p class="region-intro">The ancient capital requires no introduction. Five days to cycle its back streets, explore imperial heritage, and experience the digital art revolution at teamLab Biovortex.</p>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">27</div>
+                    <div class="dow">Sun</div>
+                    <div class="month">Sep</div>
+                </div>
+                <div class="day-content">
+                    <h4>Osaka → Kyoto</h4>
+                    <div class="subtitle">Transfer, bike exploration, Nijo</div>
+                    <div class="highlights">
+                        <span class="highlight">Nijo Castle</span>
+                        <span class="highlight">Imperial Palace</span>
+                        <span class="highlight">Kamogawa River</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Hedistar Hotel Kyoto Nijo</strong> (24 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">28</div>
+                    <div class="dow">Mon</div>
+                    <div class="month">Sep</div>
+                </div>
+                <div class="day-content">
+                    <h4>Full Day with Takashi</h4>
+                    <div class="subtitle">Local guide day</div>
+                    <div class="highlights">
+                        <span class="highlight">Meeting: Takashi</span>
+                        <span class="highlight">Local spots</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Hedistar Hotel Kyoto Nijo</strong> (24 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">29</div>
+                    <div class="dow">Tue</div>
+                    <div class="month">Sep</div>
+                </div>
+                <div class="day-content">
+                    <h4>Uji</h4>
+                    <div class="subtitle">Byodo-in, Ujigami Shrine, tea | HO</div>
+                    <div class="highlights">
+                        <span class="highlight">Byodo-in Temple</span>
+                        <span class="highlight">Ujigami Shrine</span>
+                        <span class="highlight">Uji tea</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Hedistar Hotel Kyoto Nijo</strong> (24 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">1</div>
+                    <div class="dow">Thu</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Toji → teamLab → Lake Biwa</h4>
+                    <div class="subtitle">Morning pagoda, digital art, onsen finale</div>
+                    <div class="highlights">
+                        <span class="highlight">Toji Pagoda</span>
+                        <span class="highlight">teamLab Biovortex</span>
+                        <span class="highlight">Ofurocafe Biwakoza</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Ofurocafe Biwakoza</strong> (41 EUR)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KYUSHU -->
+    <div class="region-chapter">
+        <div class="region-header kyushu">
+            <div class="region-header-content">
+                <div class="region-kanji">九州</div>
+                <div class="region-name">Kyushu</div>
+                <div class="region-dates">October 8-22 | 15 Days</div>
+            </div>
+        </div>
+        <div class="region-content">
+            <p class="region-intro">The volcanic heart of Japan: bubbling hot springs, active calderas, dramatic gorges, and centuries of history from Christian martyrs to revolutionary samurai. The longest chapter of the journey.</p>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">8</div>
+                    <div class="dow">Thu</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Matsuyama → Beppu</h4>
+                    <div class="subtitle">Shimonada Station, ferry crossing</div>
+                    <div class="highlights">
+                        <span class="highlight">Shimonada Station</span>
+                        <span class="highlight">Ferry to Beppu</span>
+                        <span class="highlight">First onsen</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Hotel Arthur Beppu</strong> (34 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">9</div>
+                    <div class="dow">Fri</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Beppu Relaxation</h4>
+                    <div class="subtitle">Kannawa, Myoban, jigoku-mushi</div>
+                    <div class="highlights">
+                        <span class="highlight">Kannawa streets</span>
+                        <span class="highlight">Jigoku-mushi cooking</span>
+                        <span class="highlight">Onsen hopping</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Hotel Arthur Beppu</strong> (34 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">13</div>
+                    <div class="dow">Tue</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Aso → Kurokawa Onsen</h4>
+                    <div class="subtitle">Yamanami Highway, tegata onsen</div>
+                    <div class="highlights">
+                        <span class="highlight">Kusasenri</span>
+                        <span class="highlight">Yamanami Highway</span>
+                        <span class="highlight">Kurokawa tegata</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Container House Villa</strong> (52 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">14</div>
+                    <div class="dow">Wed</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Takachiho</h4>
+                    <div class="subtitle">Gorge, shrine, Yokagura performance</div>
+                    <div class="highlights">
+                        <span class="highlight">Takachiho Gorge</span>
+                        <span class="highlight">Shrine</span>
+                        <span class="highlight">Yokagura 20:00</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Hotel Grateful Takachiho</strong> (50 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">16</div>
+                    <div class="dow">Fri</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Unzen</h4>
+                    <div class="subtitle">Ferry, Shimabara, jigoku hells</div>
+                    <div class="highlights">
+                        <span class="highlight">Ocean Arrow ferry</span>
+                        <span class="highlight">Shimabara Castle</span>
+                        <span class="highlight">Unzen Jigoku</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Oedo Onsen Monogatari</strong> (63 EUR) - Half board</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">19</div>
+                    <div class="dow">Mon</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Nagasaki - Ryoma Route</h4>
+                    <div class="subtitle">Revolutionary samurai trail</div>
+                    <div class="highlights">
+                        <span class="highlight">Kameyama Shachu</span>
+                        <span class="highlight">Ryoma's Boots</span>
+                        <span class="highlight">Kazagashira statue</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>APA Nagasaki Dejima</strong> (34 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">20</div>
+                    <div class="dow">Tue</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Ureshino Onsen</h4>
+                    <div class="subtitle">Via Yutoku Inari Shrine</div>
+                    <div class="highlights">
+                        <span class="highlight">Yutoku Inari</span>
+                        <span class="highlight">"Beautiful skin" waters</span>
+                        <span class="highlight">Ureshino tea</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Kotobukiya</strong> (37 EUR)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOKYO -->
+    <div class="region-chapter">
+        <div class="region-header tokyo">
+            <div class="region-header-content">
+                <div class="region-kanji">東京</div>
+                <div class="region-name">Tokyo</div>
+                <div class="region-dates">October 23 - November 1 | 10 Days</div>
+            </div>
+        </div>
+        <div class="region-content">
+            <p class="region-intro">Ten days to explore the capital and its surroundings: Izu Peninsula road trip (or Aogashima adventure), Halloween in Shibuya, and reunions with old friends.</p>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">23</div>
+                    <div class="dow">Fri</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Fukuoka → Tokyo</h4>
+                    <div class="subtitle">NH252 flight, hotel check-in</div>
+                    <div class="highlights">
+                        <span class="highlight">ANA NH252</span>
+                        <span class="highlight">Shinjuku</span>
+                        <span class="highlight">Connect: Ryuki</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Hotel Sunlite Shinjuku</strong> (65 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">25</div>
+                    <div class="dow">Sun</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Tokyo + Wahei</h4>
+                    <div class="subtitle">Lunch meeting, laundry prep</div>
+                    <div class="highlights">
+                        <span class="highlight">Meeting: Wahei</span>
+                        <span class="highlight">Kasai Rinkai</span>
+                        <span class="highlight">Laundry day</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Hotel Sunlite Shinjuku</strong> (65 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">26-29</div>
+                    <div class="dow"></div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Road Trip: Izu OR Aogashima</h4>
+                    <div class="subtitle">Decision depends on helicopter booking</div>
+                    <div class="highlights">
+                        <span class="highlight">Option A: Izu Peninsula</span>
+                        <span class="highlight">Option B: Hachijojima + Aogashima</span>
+                        <span class="highlight">See Aogashima feature</span>
+                    </div>
+                    <div class="hotel">Accommodation varies by option</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">31</div>
+                    <div class="dow">Sat</div>
+                    <div class="month">Oct</div>
+                </div>
+                <div class="day-content">
+                    <h4>Halloween</h4>
+                    <div class="subtitle">Shibuya / Shinjuku celebrations</div>
+                    <div class="highlights">
+                        <span class="highlight">Critical Mass?</span>
+                        <span class="highlight">Shibuya Halloween</span>
+                        <span class="highlight">Night photography</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Hotel Sunlite Shinjuku</strong> (65 EUR)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OKINAWA -->
+    <div class="region-chapter">
+        <div class="region-header okinawa">
+            <div class="region-header-content">
+                <div class="region-kanji">沖縄</div>
+                <div class="region-name">Okinawa</div>
+                <div class="region-dates">November 2-8 | 7 Days</div>
+            </div>
+        </div>
+        <div class="region-content">
+            <p class="region-intro">The tropical finale: pristine beaches, sacred sites, and the laid-back Ryukyu culture that feels like another country entirely. A week to decompress before the long flight home.</p>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">2</div>
+                    <div class="dow">Mon</div>
+                    <div class="month">Nov</div>
+                </div>
+                <div class="day-content">
+                    <h4>Tokyo → Miyakojima</h4>
+                    <div class="subtitle">NH467 + NH1725 via Naha</div>
+                    <div class="highlights">
+                        <span class="highlight">Double flight</span>
+                        <span class="highlight">Hotel Locus</span>
+                        <span class="highlight">Remote office</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Hotel Locus</strong> (68 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">4</div>
+                    <div class="dow">Wed</div>
+                    <div class="month">Nov</div>
+                </div>
+                <div class="day-content">
+                    <h4>Miyakojima by Car</h4>
+                    <div class="subtitle">Full island exploration</div>
+                    <div class="highlights">
+                        <span class="highlight">Irabu Bridge</span>
+                        <span class="highlight">Yonaha Maehama</span>
+                        <span class="highlight">Coastal drive</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Smile Hotel Miyakojima</strong> (36 EUR)</div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">5-6</div>
+                    <div class="dow"></div>
+                    <div class="month">Nov</div>
+                </div>
+                <div class="day-content">
+                    <h4>Okinawa Main Island</h4>
+                    <div class="subtitle">Nanjo sacred sites, Naha</div>
+                    <div class="highlights">
+                        <span class="highlight">Sefa Utaki</span>
+                        <span class="highlight">Nirai-Kanai Bridge</span>
+                        <span class="highlight">Cape Chinen</span>
+                    </div>
+                    <div class="hotel">Stay: <strong>Beachside Pension Mibal</strong> → <strong>Hotel The Cube Naha</strong></div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-date">
+                    <div class="num">8</div>
+                    <div class="dow">Sun</div>
+                    <div class="month">Nov</div>
+                </div>
+                <div class="day-content">
+                    <h4>Departure via Taipei</h4>
+                    <div class="subtitle">CI 121 → TPE layover → CI 063</div>
+                    <div class="highlights">
+                        <span class="highlight">Dihua Street</span>
+                        <span class="highlight">Dadaocheng Wharf</span>
+                        <span class="highlight">Ningxia Night Market</span>
+                    </div>
+                    <div class="hotel">Overnight flight home</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         REFERENCE: TRANSPORT
+         ══════════════════════════════════════════ -->
+    <div class="reference-page">
+        <div class="section-header">
+            <div class="kanji">交通</div>
+            <h2>Transport Schedule</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="transport-section">
+            <h3>Flights</h3>
+            <table class="ref-table">
+                <tr>
+                    <th>Date</th>
+                    <th>Route</th>
+                    <th>Time</th>
+                    <th>Flight</th>
+                    <th>Airline</th>
+                </tr>
+                <tr>
+                    <td>18-19 Sep</td>
+                    <td>Vienna → Taipei</td>
+                    <td>11:25 - 05:30</td>
+                    <td>CI 064</td>
+                    <td>China Airlines</td>
+                </tr>
+                <tr>
+                    <td>19 Sep</td>
+                    <td>Taipei → Osaka</td>
+                    <td>09:00 - 12:50</td>
+                    <td>CI 152</td>
+                    <td>China Airlines</td>
+                </tr>
+                <tr>
+                    <td>23 Oct</td>
+                    <td>Fukuoka → Tokyo</td>
+                    <td>12:25 - 14:10</td>
+                    <td>NH252</td>
+                    <td>ANA</td>
+                </tr>
+                <tr>
+                    <td>2 Nov</td>
+                    <td>Tokyo → Naha</td>
+                    <td>08:20 - 11:15</td>
+                    <td>NH467</td>
+                    <td>ANA</td>
+                </tr>
+                <tr>
+                    <td>2 Nov</td>
+                    <td>Naha → Miyakojima</td>
+                    <td>11:55 - 12:50</td>
+                    <td>NH1725</td>
+                    <td>ANA</td>
+                </tr>
+                <tr>
+                    <td>5 Nov</td>
+                    <td>Miyakojima → Naha</td>
+                    <td>11:00 - 11:55</td>
+                    <td>NU556</td>
+                    <td>JTA</td>
+                </tr>
+                <tr>
+                    <td>8 Nov</td>
+                    <td>Naha → Taipei</td>
+                    <td>11:55 - 12:35</td>
+                    <td>CI 121</td>
+                    <td>China Airlines</td>
+                </tr>
+                <tr>
+                    <td>8-9 Nov</td>
+                    <td>Taipei → Vienna</td>
+                    <td>23:20 - 06:50</td>
+                    <td>CI 063</td>
+                    <td>China Airlines</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="transport-section">
+            <h3>Car Rentals</h3>
+            <table class="ref-table">
+                <tr>
+                    <th>Dates</th>
+                    <th>Location</th>
+                    <th>Pickup/Return</th>
+                    <th>Company</th>
+                </tr>
+                <tr>
+                    <td>12-15 Oct</td>
+                    <td>Kumamoto</td>
+                    <td>09:30 / 18:00</td>
+                    <td>Budget</td>
+                </tr>
+                <tr>
+                    <td>26-29 Oct</td>
+                    <td>Mishima (or Hachijo)</td>
+                    <td>TBD</td>
+                    <td>TBD</td>
+                </tr>
+                <tr>
+                    <td>4 Nov</td>
+                    <td>Miyakojima</td>
+                    <td>09:00 / 18:30</td>
+                    <td>SOU Company</td>
+                </tr>
+                <tr>
+                    <td>5-6 Nov</td>
+                    <td>Okinawa</td>
+                    <td>13:00 / 13:00</td>
+                    <td>Gyokoseki</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="transport-section">
+            <h3>Ferry & Bus</h3>
+            <table class="ref-table">
+                <tr>
+                    <th>Date</th>
+                    <th>Route</th>
+                    <th>Time</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>8 Oct</td>
+                    <td>Yawatahama → Beppu</td>
+                    <td>13:00 - 15:50</td>
+                    <td>Buy at port</td>
+                </tr>
+                <tr>
+                    <td>11 Oct</td>
+                    <td>Yufuin → Kumamoto</td>
+                    <td>13:50 - 18:03</td>
+                    <td>KOSOKUBUS (Booked)</td>
+                </tr>
+                <tr>
+                    <td>16 Oct</td>
+                    <td>Kumamoto → Shimabara</td>
+                    <td>09:25</td>
+                    <td>Ocean Arrow - buy at port</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         REFERENCE: CONTACTS
+         ══════════════════════════════════════════ -->
+    <div class="reference-page">
+        <div class="section-header">
+            <div class="kanji">連絡</div>
+            <h2>Contacts & Meetings</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px;">
+            <div class="contact-card">
+                <div class="name">Keigo</div>
+                <div class="when">Sep 26 evening</div>
+                <div class="note">Contact min. 1 week before. Meeting in Osaka.</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="name">Takashi</div>
+                <div class="when">Sep 28 (full day)</div>
+                <div class="note">Local guide day in Kyoto.</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="name">Riho</div>
+                <div class="when">Oct 17 (maybe)</div>
+                <div class="note">Possible guide Unzen → Obama.</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="name">Wahei</div>
+                <div class="when">Oct 25 lunch</div>
+                <div class="note" style="color: #059669; font-weight: 500;">CONFIRMED - Tokyo lunch</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="name">Ryuki</div>
+                <div class="when">Oct 23 (Tokyo)</div>
+                <div class="note">Contact 1-2 weeks before.</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="name">Ippei</div>
+                <div class="when">Tokyo days</div>
+                <div class="note">Contact min. 1 week before Oct 23.</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="name">Minoru / Shogo</div>
+                <div class="when">Oct 30 evening</div>
+                <div class="note">Party in Tokyo, possibly Bar Nekorob.</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px;">
+            <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Emergency Contacts</h3>
+            <table class="ref-table">
+                <tr>
+                    <th>Service</th>
+                    <th>Number</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>Police</td>
+                    <td>110</td>
+                    <td>Emergency</td>
+                </tr>
+                <tr>
+                    <td>Ambulance / Fire</td>
+                    <td>119</td>
+                    <td>Emergency</td>
+                </tr>
+                <tr>
+                    <td>Tourist Helpline</td>
+                    <td>050-3816-2787</td>
+                    <td>English available 24/7</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         BACK COVER
+         ══════════════════════════════════════════ -->
+    <div class="back-cover">
+        <p class="quote">"The world is a book, and those who do not travel read only one page."</p>
+        <p class="attribution">- Saint Augustine</p>
+
+        <div style="margin-top: 80px; opacity: 0.3;">
+            <svg width="60" height="60" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#c41e3a" stroke-width="2"/>
+                <circle cx="50" cy="50" r="30" fill="#c41e3a"/>
             </svg>
         </div>
-        <div class="highlight-info">
-            <div class="highlight-title">Takedao Trail</div>
-            <div class="highlight-subtitle">Abandoned railway tunnels</div>
-            <div class="highlight-day">Day 7</div>
-        </div>
+
+        <p style="font-size: 8pt; margin-top: 60px; color: #555; letter-spacing: 4px;">JAPAN 2026</p>
     </div>
-</div>
-
-<!-- Sample Day Cards -->
-<div style="padding: 10px 0; background: #fafafa;">
-    <div class="day-card" style="--phase-color: var(--osaka)">
-        <div class="day-header">
-            <div class="day-date-box">
-                <div class="date">19</div>
-                <div class="month">SEP</div>
-                <div class="dow">Saturday</div>
-            </div>
-            <div class="day-title-area">
-                <h3>岸和田 Kishiwada</h3>
-                <div class="subtitle">Danjiri Festival — Yoimiya evening</div>
-            </div>
-            <div class="day-number-badge">
-                <div class="num">D2</div>
-                <div class="temp">31°C</div>
-            </div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="timeline">
-                    <div class="tl-item transport">
-                        <div class="tl-time">05:30</div>
-                        <div class="tl-text">Arrival TPE</div>
-                    </div>
-                    <div class="tl-item transport">
-                        <div class="tl-time">09:00</div>
-                        <div class="tl-text">Departure TPE</div>
-                    </div>
-                    <div class="tl-item transport">
-                        <div class="tl-time">12:50</div>
-                        <div class="tl-text">Arrival Osaka Kansai</div>
-                    </div>
-                    <div class="tl-item">
-                        <div class="tl-time">15:00–17:00</div>
-                        <div class="tl-text">Yarimawashi at Kankanba</div>
-                        <div class="tl-note">Main viewing for cart turning</div>
-                    </div>
-                    <div class="tl-item">
-                        <div class="tl-time">19:00–21:30</div>
-                        <div class="tl-text">Tomoshibi — illuminated danjiri</div>
-                    </div>
-                </div>
-                <div class="notes-box">
-                    <ul>
-                        <li>Jet lag will hit — don't overdo evening</li>
-                        <li class="task">Buy ICOCA at KIX or use Suica</li>
-                        <li class="tip">Hotel coupon 500 yen!</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-block">
-                    <h4>Accommodation</h4>
-                    <div class="hotel-name">Route-Inn Higashikishiwada</div>
-                    <div class="hotel-price">58 EUR</div>
-                    <div><span class="badge badge-onsite">On-site</span></div>
-                </div>
-                <div class="sidebar-block">
-                    <h4>Tags</h4>
-                    <div class="tags">
-                        <span class="tag tag-fest">Festival</span>
-                        <span class="tag tag-flight">Flight</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="day-card" style="--phase-color: var(--osaka)">
-        <div class="day-header">
-            <div class="day-date-box">
-                <div class="date">20</div>
-                <div class="month">SEP</div>
-                <div class="dow">Sunday</div>
-            </div>
-            <div class="day-title-area">
-                <h3>大阪 Osaka</h3>
-                <div class="subtitle">Danjiri Hommya + Transfer</div>
-            </div>
-            <div class="day-number-badge">
-                <div class="num">D3</div>
-                <div class="temp">31°C</div>
-            </div>
-        </div>
-        <div class="day-body">
-            <div class="day-content">
-                <div class="timeline">
-                    <div class="tl-item">
-                        <div class="tl-time">09:00–11:30</div>
-                        <div class="tl-text">Miyairi at Kishiki Shrine</div>
-                        <div class="tl-note">Main day — shrine entry</div>
-                    </div>
-                    <div class="tl-item">
-                        <div class="tl-time">13:00–15:00</div>
-                        <div class="tl-text">Haruki district (less touristy)</div>
-                    </div>
-                    <div class="tl-item transport">
-                        <div class="tl-time">Afternoon</div>
-                        <div class="tl-text">Transfer to Osaka</div>
-                    </div>
-                </div>
-                <div class="notes-box">
-                    <ul>
-                        <li>Priority: Kishiki Shrine for miyairi</li>
-                        <li class="tip">Kuromon market for dinner?</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="day-sidebar">
-                <div class="sidebar-block">
-                    <h4>Accommodation</h4>
-                    <div class="hotel-name">Shinsaibashi Arty Inn</div>
-                    <div class="hotel-price">52 EUR</div>
-                    <div><span class="badge badge-paid">Paid (Agoda)</span></div>
-                </div>
-                <div class="sidebar-block">
-                    <h4>Tags</h4>
-                    <div class="tags"><span class="tag tag-fest">Festival</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════════════════════
-     SUMMARY TABLES
-     ══════════════════════════════════════════════════════════════════ -->
-<div class="summary-page">
-    <h2>Hard Deadlines 締切</h2>
-    <table>
-        <thead>
-            <tr><th>Date</th><th>Time</th><th>What</th><th>If Missed</th><th>Mitigation</th></tr>
-        </thead>
-        <tbody>
-            <tr class="row-highlight"><td>8.10.</td><td>13:00</td><td>Ferry Yawatahama → Beppu</td><td>Next ferry evening</td><td>Buy ticket in Matsuyama day before</td></tr>
-            <tr class="row-highlight"><td>15.10.</td><td>18:00</td><td>Car return Kumamoto</td><td>Late fee</td><td>Skip Goroga Falls if behind</td></tr>
-            <tr><td>16.10.</td><td>09:25</td><td>Ferry Kumamoto → Shimabara</td><td>Next +1h</td><td>Pack luggage night before</td></tr>
-            <tr class="row-highlight"><td>6.11.</td><td>13:00</td><td>Car return Naha</td><td>Late fee</td><td>Tank evening before</td></tr>
-        </tbody>
-    </table>
-
-    <h2>Luggage Shipping 荷物</h2>
-    <table>
-        <thead>
-            <tr><th>Date</th><th>Action</th><th>From</th><th>To</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>5.10. evening</td><td>Pack</td><td>—</td><td>—</td><td>Separate suitcase from bag</td></tr>
-            <tr class="row-highlight"><td>6.10. 07:30</td><td>Ship</td><td>Fukuyama</td><td>Matsuyama</td><td class="text-warning">Save tracking!</td></tr>
-            <tr><td>7.10.</td><td>Pickup</td><td>—</td><td>Matsuyama</td><td class="text-success">At hotel</td></tr>
-            <tr><td>15.10. evening</td><td>Pack</td><td>—</td><td>—</td><td>Separate suitcase from bag</td></tr>
-            <tr class="row-highlight"><td>16.10. 07:30</td><td>Ship</td><td>Kumamoto</td><td>Nagasaki</td><td class="text-warning">Yamato may open 8:00!</td></tr>
-            <tr><td>18.10.</td><td>Pickup</td><td>—</td><td>Nagasaki</td><td class="text-success">At hotel</td></tr>
-        </tbody>
-    </table>
-
-    <h2>Trip Phases 旅程</h2>
-    <table>
-        <thead>
-            <tr><th style="width: 40px;"></th><th>Region</th><th>Days</th><th>Dates</th><th>Key Highlights</th></tr>
-        </thead>
-        <tbody>
-            <tr><td style="background: var(--osaka); width: 6px;"></td><td><strong>Osaka</strong></td><td>9</td><td>Sep 18–26</td><td>Kishiwada Festival, Nakanoshima, Takedao, Critical Mass</td></tr>
-            <tr><td style="background: var(--kyoto); width: 6px;"></td><td><strong>Kyoto</strong></td><td>5</td><td>Sep 27 – Oct 1</td><td>Takashi, Uji/Byodo-in, KYOCERA, teamLab</td></tr>
-            <tr><td style="background: var(--biwa); width: 6px;"></td><td><strong>Biwa</strong></td><td>2</td><td>Oct 2–3</td><td>La Collina (Fujimori!), Hikone Castle</td></tr>
-            <tr><td style="background: var(--shimanami); width: 6px;"></td><td><strong>Shimanami</strong></td><td>4</td><td>Oct 4–7</td><td>Tomonoura, Kosanji, Oyamazumi</td></tr>
-            <tr><td style="background: var(--kyushu); width: 6px;"></td><td><strong>Kyushu</strong></td><td>15</td><td>Oct 8–22</td><td>Beppu, Aso, Kurokawa, Yokagura, Nagasaki</td></tr>
-            <tr><td style="background: var(--tokyo); width: 6px;"></td><td><strong>Tokyo + Izu</strong></td><td>10</td><td>Oct 23 – Nov 1</td><td>Friends, Fuji road trip, Hottarakashi, Halloween</td></tr>
-            <tr><td style="background: var(--okinawa); width: 6px;"></td><td><strong>Okinawa</strong></td><td>7</td><td>Nov 2–9</td><td>Miyakojima, Sefa Utaki, Taipei layover</td></tr>
-        </tbody>
-    </table>
-</div>
-
-<!-- ══════════════════════════════════════════════════════════════════
-     PRE-DEPARTURE CHECKLIST
-     ══════════════════════════════════════════════════════════════════ -->
-<div class="checklist-page">
-    <div class="section-header">
-        <div class="kanji">準備</div>
-        <h2>Pre-Departure Checklist</h2>
-        <div class="underline"></div>
-    </div>
-
-    <div class="checklist-grid">
-        <!-- TAKE - Pack items -->
-        <div class="checklist-section">
-            <h3>
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="7" width="18" height="14" rx="2"/>
-                    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                </svg>
-                TAKE 持ち物
-            </h3>
-            <div class="check-columns">
-                <div class="check-col">
-                    <label><input type="checkbox"> Passport NEW!</label>
-                    <label><input type="checkbox"> Driver's license (both)</label>
-                    <label><input type="checkbox"> ID Bahenhoffer</label>
-                    <label><input type="checkbox"> 2× phone</label>
-                    <label><input type="checkbox"> Notebook</label>
-                    <label><input type="checkbox"> Cables + iPhone cables</label>
-                    <label><input type="checkbox"> Mouse</label>
-                    <label><input type="checkbox"> Power bank</label>
-                    <label><input type="checkbox"> Phone charger</label>
-                    <label><input type="checkbox"> Laptop charger</label>
-                    <label><input type="checkbox"> Plug adapter</label>
-                    <label><input type="checkbox"> 220V large adapter</label>
-                    <label><input type="checkbox"> SIM eject pin</label>
-                </div>
-                <div class="check-col">
-                    <label><input type="checkbox"> Headphones 2×</label>
-                    <label><input type="checkbox"> Earplugs</label>
-                    <label><input type="checkbox"> Prescription glasses 2×!</label>
-                    <label><input type="checkbox"> Sunglasses</label>
-                    <label><input type="checkbox"> Eye cover</label>
-                    <label><input type="checkbox"> Travel pillow</label>
-                    <label><input type="checkbox"> Umbrella</label>
-                    <label><input type="checkbox"> Backpack rain cover</label>
-                    <label><input type="checkbox"> Winter hat</label>
-                    <label><input type="checkbox"> Tripods</label>
-                    <label><input type="checkbox"> Lock</label>
-                    <label><input type="checkbox"> Manicure set</label>
-                </div>
-                <div class="check-col">
-                    <label><input type="checkbox"> Creams</label>
-                    <label><input type="checkbox"> Meds, antibiotics, vitamins</label>
-                    <label><input type="checkbox"> Shaving kit</label>
-                    <label><input type="checkbox"> Toothbrush</label>
-                    <label><input type="checkbox"> Wet tissue</label>
-                    <label><input type="checkbox"> Face masks</label>
-                    <label><input type="checkbox"> Swimwear</label>
-                    <label><input type="checkbox"> Shorts</label>
-                    <label><input type="checkbox"> Jeans</label>
-                    <label><input type="checkbox"> Belt</label>
-                    <label><input type="checkbox"> Flight pants</label>
-                    <label><input type="checkbox"> Shoes 2× + hiking</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- BUY - Shopping items -->
-        <div class="checklist-section checklist-small">
-            <h3>
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                </svg>
-                BUY 買い物
-            </h3>
-            <div class="check-columns">
-                <div class="check-col">
-                    <label><input type="checkbox"> Bus food</label>
-                    <label><input type="checkbox"> Protein bar</label>
-                    <label><input type="checkbox"> Phone case</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- DO - Tasks before departure -->
-        <div class="checklist-section">
-            <h3>
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 11l3 3L22 4"/>
-                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                </svg>
-                DO やること
-            </h3>
-            <div class="check-columns">
-                <div class="check-col">
-                    <label class="priority-high"><input type="checkbox"> Visit Japan Web</label>
-                    <label class="priority-high"><input type="checkbox"> Activate roaming package</label>
-                    <label class="priority-high"><input type="checkbox"> Activate & charge Suica</label>
-                    <label class="priority-high"><input type="checkbox"> Boarding pass</label>
-                    <label><input type="checkbox"> Photo of NEW PASSPORT!</label>
-                    <label><input type="checkbox"> SIM CZ (deactivate?)</label>
-                </div>
-                <div class="check-col">
-                    <label><input type="checkbox"> Eyebrows</label>
-                    <label><input type="checkbox"> Nails</label>
-                    <label><input type="checkbox"> Haircut</label>
-                    <label><input type="checkbox"> Shave</label>
-                    <label><input type="checkbox"> Dollars/Euros cash</label>
-                    <label><input type="checkbox"> Print PDF guide</label>
-                </div>
-                <div class="check-col">
-                    <label class="priority-contact"><input type="checkbox"> Contact Keigo</label>
-                    <label class="priority-contact"><input type="checkbox"> Contact Wahei</label>
-                    <label class="priority-contact"><input type="checkbox"> Contact Takashi</label>
-                    <label class="priority-contact"><input type="checkbox"> Contact Shogo</label>
-                    <label class="priority-contact"><input type="checkbox"> Contact Minami</label>
-                    <label class="priority-contact"><input type="checkbox"> Contact Minoru</label>
-                    <label class="priority-contact"><input type="checkbox"> Contact Riho/Zdenka</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- RESERVATIONS - Pre-booked items -->
-        <div class="checklist-section">
-            <h3>
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                RESERVATIONS 予約
-            </h3>
-            <div class="check-columns">
-                <div class="check-col">
-                    <label class="priority-high"><input type="checkbox"> Ferry Yawatahama–Beppu 13:00 (8.10.)</label>
-                    <label class="priority-high"><input type="checkbox"> Ferry Kumamoto–Shimabara 09:25 (16.10.)</label>
-                    <label class="priority-high"><input type="checkbox"> teamLab Biovortex tickets</label>
-                </div>
-                <div class="check-col">
-                    <label class="priority-high"><input type="checkbox"> Shimanami multi-day bike rental</label>
-                    <label class="priority-high"><input type="checkbox"> Takachiho Yokagura reservation</label>
-                    <label style="text-decoration:line-through;color:#059669"><input type="checkbox" checked> Express bus ✓ BOOKED</label>
-                </div>
-                <div class="check-col">
-                    <label class="priority-high"><input type="checkbox"> Accommodation 26–29.10 Izu</label>
-                    <label class="priority-high"><input type="checkbox"> Car Mishima 26–29.10</label>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════════════════════
-     FOOTER
-     ══════════════════════════════════════════════════════════════════ -->
-<div class="guide-footer">
-    <div class="kanji">旅</div>
-    <p>Japan 2026 · 53 days · 7 regions</p>
-    <p style="margin-top: 8px; font-size: 8pt;">September 18 – November 9</p>
-</div>
 
 </body>
 </html>
