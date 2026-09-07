@@ -579,31 +579,12 @@
 - Večeře: Pontocho nebo Gion area
 
 **Příprava na zítřek:**
-- Zítra = celý den s Takashi
+- Zítra = Uji (Takashi až pozítří)
 - Žádný vlastní program, být flexibilní
 
 ---
 
 ### DEN 11 | Pondělí 28.9.2026
-## KYOTO - Den s TAKASHI
-
-**Program:**
-- **Celý den rezervován pro Takashiho**
-- Žádný další program - nechat na něm
-
-**Noc:** Hedistar Hotel Kyoto Nijo
-
-**Poznámky pro tento den:**
-- Takashi = kontaktovat předem (už mělo být)
-- Mít hotovost pro případné lokální podniky
-
-**Praktické:**
-- Nabitý telefon
-- Kamera/fotoaparát pokud chceš dokumentovat
-
----
-
-### DEN 12 | Úterý 29.9.2026
 ## KYOTO → UJI
 
 **Časový plán:**
@@ -612,7 +593,6 @@
 - Ujigami Shrine
 - Uji tea / oběd / procházka u řeky
 - 17:00-18:00 Zpět v Kyotu
-- 20:00-24:00 **HOME OFFICE**
 
 **Noc:** Hedistar Hotel Kyoto Nijo
 
@@ -628,9 +608,25 @@
 - Oběd: Matcha soba, matcha parfait, čajové speciality
 - Procházka po břehu řeky Uji
 
-**Jízdenky:**
-- Koupit den předem v Osakakou mimo rush hour
-- Nebo koupit v Kyotu ráno (není problém)
+---
+
+### DEN 12 | Úterý 29.9.2026
+## KYOTO - Den s TAKASHI ✅ CONFIRMED
+
+**Program:**
+- **Celý den rezervován pro Takashiho**
+- Žádný další program - nechat na něm
+- 20:00-24:00 **HOME OFFICE**
+
+**Noc:** Hedistar Hotel Kyoto Nijo
+
+**Poznámky pro tento den:**
+- ✅ TAKASHI CONFIRMED!
+- Mít hotovost pro případné lokální podniky
+
+**Praktické:**
+- Nabitý telefon
+- Kamera/fotoaparát pokud chceš dokumentovat
 
 ---
 
@@ -2006,7 +2002,7 @@
 | Osoba | Kdy kontaktovat | Pro datum | Status |
 |-------|-----------------|-----------|--------|
 | Keigo | do 19.9. | 26.9. | - |
-| Takashi | ASAP | 28.9. | - |
+| Takashi | ✅ | 29.9. | CONFIRMED |
 | Riho | před cestou | 17.10.? | - |
 | Wahei | do 24.9. | 24.10. | - |
 | Ryuki | 9-16.10. | 23.10. | - |
@@ -2102,7 +2098,7 @@ Vstup do cesty přes spektakulární danjiri festival - raw energie, nebezpečn�
 ## Fáze 2: KYOTO (Den 10-14)
 Přechod do pomalejšího Kyota. Den s Takashi = nechat na něm. Uji pro Byodo-in a matcha. Moderní architektura (KYOCERA). Finále = teamLab Biovortex + přesun na Biwako. HO jen částečně.
 
-**Key moments:** Takashi (28.9.), teamLab (1.10.)
+**Key moments:** Takashi (29.9. ✅), teamLab (1.10.)
 
 ## Fáze 3: BIWA CYCLING (Den 15-16)
 Dva dny cycling kolem Lake Biwa. Den 1: Omi-Hachiman loop s La Collina (Fujimori!). Den 2: Hikone loop + Nagahama. Klidné, rovinaté, scenické. Přesun zpět do Osaky.

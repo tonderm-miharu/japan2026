@@ -201,17 +201,6 @@
 ---
 
 ## DEN 11 | Pondeli 28.9.2026
-### KYOTO - TAKASHI
-
-**Program:**
-- **Cely den rezervovan pro Takashiho**
-- Zadny dalsi program
-
-**Hotel:** Hedistar Hotel Kyoto Nijo (24 EUR)
-
----
-
-## DEN 12 | Utery 29.9.2026
 ### KYOTO - UJI
 
 **Program:**
@@ -220,6 +209,17 @@
 - Ujigami Shrine
 - Uji tea / obed / prochazka u reky
 - 17:00-18:00 Zpet v Kyotu
+
+**Hotel:** Hedistar Hotel Kyoto Nijo (24 EUR)
+
+---
+
+## DEN 12 | Utery 29.9.2026
+### KYOTO - TAKASHI ✅ CONFIRMED
+
+**Program:**
+- **Cely den rezervovan pro Takashiho**
+- Zadny dalsi program
 - 20:00-24:00 **HOME OFFICE**
 
 **Hotel:** Hedistar Hotel Kyoto Nijo (24 EUR)
@@ -1054,7 +1054,7 @@
 
 ### Kontakty
 - [ ] Napsat Keigo (min. 1 tyden pred 26.9.)
-- [ ] Napsat Takashi (pro 28.9.)
+- [x] Takashi ✅ CONFIRMED (29.9.)
 - [ ] Napsat Wahei (min. mesic pred 24.10.)
 - [ ] Napsat Minoru-san
 - [ ] Napsat Ryuki (1-2 tydny pred 23.10.)
@@ -1183,7 +1183,7 @@
 | Datum | Osoba | Poznamka |
 |-------|-------|----------|
 | 26.9. | Keigo | Vecer, napsat min. 1 tyden predem |
-| 28.9. | Takashi | Cely den |
+| 29.9. | Takashi | Cely den | ✅ CONFIRMED |
 | 24.10. | Wahei | Mozna dopoledne, napsat min. mesic predem |
 | 24.-25.10. | Shogo, Minoru | Vecer |
 | 23.10. | Ryuki | Tokyo, 1-2 tydny predem |

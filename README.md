@@ -121,7 +121,7 @@
 
 ### Medium
 - [ ] Keigo - min. 1 week before Sep 26
-- [ ] Takashi - for Sep 28
+- [x] Takashi - ✅ CONFIRMED Sep 29
 - [x] Wahei - ✅ CONFIRMED Oct 25 lunch
 - [ ] Ryuki - 1-2 weeks before Oct 23
 - [ ] Ippei - min. 1 week before Oct 23
