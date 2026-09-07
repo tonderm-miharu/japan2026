@@ -120,7 +120,8 @@
 - [ ] Send luggage Kumamoto→Nagasaki (Oct 16)
 
 ### Medium
-- [ ] Keigo - min. 1 week before Sep 26
+- [x] Keigo - ✅ CONFIRMED Sep 26
+- [x] Riho - ✅ CONFIRMED Oct 17 guide
 - [x] Takashi - ✅ CONFIRMED Sep 29
 - [x] Wahei - ✅ CONFIRMED Oct 25 lunch
 - [ ] Ryuki - 1-2 weeks before Oct 23
