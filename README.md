@@ -112,7 +112,7 @@
 - [ ] **Sep 27 9:00 JP** - Buy HELI Oct 27 HJJ→AOG (tohoair.co.jp)
 - [ ] **Sep 28 9:00 JP** - Buy HELI Oct 28 AOG→HJJ (tohoair.co.jp)
 - [ ] After heli: ANA flights HND↔Hachijo Oct 26+29 (ana.co.jp)
-- [ ] Accommodation Oct 26-29 (Izu OR Hachijo - after heli decision)
+- [x] Accommodation Oct 26-29 ✅ Hachijojima hotel BOOKED (cancel free until 20.10.)
 - [ ] Car rental Oct 26-29 (Mishima OR Hachijo - after heli decision)
 - [ ] Hotel Tokyo Oct 29 (if Hachijo plan)
 - [x] Express bus Yufuin-Kumamoto ✅ BOOKED (KOSOKUBUS #1020648778, 13:50→18:03)
@@ -190,7 +190,7 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 ### Hotel Badges
 - Enlarged for readability (0.85rem in cards, 0.7rem in modal)
 - Color-coded: Paid (green), On-site (orange), Breakfast (blue), Half-board (purple)
-- Provider badges: Trip, Agoda, Booking, JAPANiCAN, IKYU, Revolut, Hotel Web
+- Provider badges: Trip, Agoda, Booking, JAPANiCAN, IKYU, Tripla.ai, Revolut, Hotel Web
 - On-site badges include JPY amount: "On-site ¥10,700"
 - Cancel deadline badges with warning icon
 

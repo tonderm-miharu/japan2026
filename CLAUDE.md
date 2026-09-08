@@ -72,7 +72,7 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 2. Add POI_URLS for: Hachijojima, Hachijo Fuji, Aogashima, Nanbara Senjojiki, etc.
 3. Update DAY_TASKS[39]: flight check-in instead of car pickup
 4. Update DAY_NOTES for days 39-42
-5. Update HOTEL_INFO for new hotels (Hachijojima hotel, Minshuku Aogashima)
+5. Update HOTEL_INFO for new hotels (Hachijojima ✅ BOOKED, Minshuku Aogashima pending)
 6. Update Transport modal with ANA HND↔Hachijo flights
 7. Mark tasks t17, t18, t19, t20 as done
 
