@@ -35,7 +35,7 @@
 - **Header** - Japan'26 | Timezone | Countdown | Search field
 - **Filters** - gray default, blue glow when active (icon + border light up)
 - **Calendar** - red glowing icon
-- **Hamburger** - News, Tasks, Hotels, Contacts, Transport, Weather, PDF, Summary (red highlight)
+- **Hamburger** - News, Tasks, Hotels, Contacts, Transport, Weather, PDF, Links, Summary (red highlight)
 
 ### PDF Export
 - Click PDF button (desktop view-row or mobile hamburger menu)
@@ -84,6 +84,7 @@
 - **Contacts** - list of people to meet with dates
 - **Transport** - sections: Flights, Bus, Car Rentals, Ferry (each with SVG icon)
 - **Summary** - red-themed modal with 53-day trip timeline showing 7 regions and key places (Osaka, Kyoto, Lake Biwa, Shimanami, Kyushu, Tokyo+Izu, Okinawa)
+- **Links** - quick access to useful external sites (Toho Air Heli, Kyushu Coupons, Shinkansen QR, Smart-EX App, JMA Weather)
 
 ### Weather
 - Static averages by region and month
