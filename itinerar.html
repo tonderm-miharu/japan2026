@@ -498,6 +498,10 @@
         .view-btn:hover { border-color: #6b7280; color: var(--text); }
         .view-btn:hover .view-icon { stroke: #e5e7eb; }
 
+        /* Links icon slightly smaller */
+        .view-btn[data-modal="links"] .view-icon,
+        .filter-btn[data-modal="links"] .filter-icon { transform: scale(0.85); }
+
         .view-btn.view-btn-highlight {
             background: linear-gradient(135deg, #ef4444, #f97316);
             color: #fff;
@@ -2034,7 +2038,7 @@
         }
 
         /* Links modal */
-        .links-modal { max-width: 340px; }
+        .links-modal { max-width: 420px; }
         .links-content { display: flex; flex-direction: column; gap: 8px; }
         .link-item {
             display: flex;
