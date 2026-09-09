@@ -22,6 +22,11 @@ Deploy by pushing to `master` - GitHub Pages auto-deploys from root.
 - Data objects (lines 2000-2900): `DAYS`, `TASKS`, `POI_URLS`, `HOTEL_INFO`, `DAY_NOTES`, `CONTACTS`
 - Functions (lines 2900-4000): rendering, filters, search, modals, weather, countdown, timezone
 
+**Reading `itinerar.html`:** the file is ~248 KB (~72k tokens) - reading it whole burns more
+context than the entire session baseline. Never `Read` it without `offset`/`limit`. Use `Grep`
+to locate a symbol first, then `Read` that range, using the line ranges above as a starting map.
+Same applies to `japan-travel-guide.html` (~122 KB) and `ADJUSTED_MASTER_PLAN.md` (~61 KB).
+
 **Data structure for each day**:
 ```javascript
 { day: 1, dow: 'Fri', date: '18.9.2026', title: '...', subtitle: '...', 
