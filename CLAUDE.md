@@ -37,10 +37,14 @@ Deploy by pushing to `master` - GitHub Pages auto-deploys from root.
 - `renderTransport()` - transport modal with flights, cars, ferries
 
 **Modals**:
-- Tasks, Hotels, Contacts, Transport - standard dark modals with SVG icons
+- Tasks, Hotels, Contacts, Transport, Links - standard dark modals with SVG icons
 - Summary - red-themed modal with 7-region trip timeline (highlighted button)
 - Calendar - compact day picker
 - News - Japan Times RSS feed
+
+**Navigation**:
+- Desktop: filters with icons + tooltips, view buttons in row
+- Mobile: Tasks/Hotels/Links quick buttons, hamburger for rest
 
 **PWA setup**:
 - `sw.js` - Service Worker with network-first caching strategy
@@ -55,7 +59,7 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 
 ## Other Files
 
-- `japan-travel-guide.html` - magazine-style travel guide (PDF button opens it, then Print → Save as PDF)
+- `japan-travel-guide.html` - complete magazine-style travel guide with all 7 regions, contacts, links (PDF button opens it)
 - `mockups/` - UI design iterations
 - `ADJUSTED_MASTER_PLAN.md`, `KONSOLIDOVANY_ITINERAR.md` - detailed trip planning docs
 - `HACHIJOJIMA_AOGASHIMA_PLAN.md` - alternative Oct 26-29 plan (pending heli booking)

@@ -27,24 +27,28 @@
 
 ### Navigation - Desktop
 - **Sidebar** - Timezone display + Calendar (sticky)
-- **Filters** - HO / Car / Bike / Onsen / People (gray default, blue glow when active)
-- **Views** - Tasks, Hotels, Contacts, Transport, Weather, PDF, Summary (SVG icons)
+- **Filters** - HO / Car / Bike / Onsen / Meet (icons with tooltips, blue glow when active)
+- **Views** - Tasks, Hotels, Contacts, Transport, Weather, PDF, Links, Summary (SVG icons)
 - **Search** - real-time filtering, works with filters
 
 ### Navigation - Mobile
 - **Header** - Japan'26 | Timezone | Countdown | Search field
-- **Filters** - gray default, blue glow when active (icon + border light up)
+- **Quick Actions** - Tasks, Hotels, Links buttons (styled like filters)
 - **Calendar** - red glowing icon
-- **Hamburger** - News, Tasks, Hotels, Contacts, Transport, Weather, PDF, Links, Summary (red highlight)
+- **Hamburger** - News, Contacts, Transport, Weather, PDF, Summary (red highlight)
 
 ### PDF Export
 - Click PDF button (desktop view-row or mobile hamburger menu)
 - Opens `japan-travel-guide.html` in new tab
-- Professional magazine-style travel guide:
+- Professional magazine-style travel guide (complete offline backup):
   - Toner-friendly cover (white background, outline frames)
   - Feature articles: Onsen, Shimanami Kaido, Sakamoto Ryoma, Aogashima
-  - Regional chapters with day cards (dates only, no day numbers)
-  - Culture boxes, hotel spotlights, transport reference
+  - All 7 regional chapters: Osaka, Kyoto, Lake Biwa, Shimanami, Kyushu, Tokyo, Okinawa
+  - Day cards with dates, hotels, timelines, notes
+  - Culture boxes, hotel spotlights
+  - Transport reference: flights, car rentals, ferries
+  - Contacts table with confirmation status
+  - Useful links table (Toho Air, Kyushu Coupons, Shinkansen QR, Smart-EX, JMA Weather)
 - Print → Save as PDF from the travel guide page
 
 ### Countdown
@@ -184,6 +188,7 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
   - Timeline dots - category indicators
 
 ### Filter Buttons
+- Desktop: icons with tooltips (HO = Home Office, Car = Rental Car, etc.)
 - Inactive: gray border, gray icons
 - Active: light blue glow effect (#60a5fa)
 - Calendar: red icon permanent, gray border
