@@ -2504,9 +2504,8 @@
 
     const TASKS = [
         // Before departure
-        { id: 't22', text: '🏨 ZRUŠIT rezervaci Hachijojima (Noboryuso) do 20.10.!', priority: 'high' },
-        { id: 't20', text: '🏨 Rezervovat hotel Tokyo 29.10. (Sunlite nebo nový)', priority: 'high' },
-        { id: 't16b', text: '🚗 J-net Mishima: pre check-in (heslo v mailu, folder letenky)', priority: 'high' },
+        { id: 't20', text: '🏨 Book Tokyo hotel 29.10. (Sunlite or new)', priority: 'high' },
+        { id: 't16b', text: '🚗 J-net Mishima: online pre check-in (password in mail, flight ticket folder)', priority: 'high' },
         { id: 't10', text: '✅ Keigo confirmed - 26.9. evening', priority: 'done' },
         { id: 't11', text: '✅ Wahei confirmed - 25.10. lunch', priority: 'done' },
         { id: 't12', text: '✅ Riho confirmed - 17.10. guide', priority: 'done' },
@@ -2521,8 +2520,8 @@
         { id: 't8', text: 'Send luggage Fukuyama→Matsuyama (6.10.)', priority: 'high' },
         { id: 't5', text: 'Takachiho Yokagura reservation (14.10.)', priority: 'high' },
         { id: 't9', text: 'Send luggage Kumamoto→Nagasaki (16.10.)', priority: 'high' },
-        { id: 't6', text: '✅ Izu ubytování 26–28.10. booked (Cetus/Kuretake/Isawa)', priority: 'done' },
-        { id: 't16', text: '✅ Auto J-net Mishima 26–29.10. 12:00↔12:00 (vč. ETC karty)', priority: 'done' },
+        { id: 't6', text: '✅ Izu accommodation 26–28.10. booked (Cetus/Kuretake/Isawa)', priority: 'done' },
+        { id: 't16', text: '✅ Car J-net Mishima 26–29.10. 12:00↔12:00 (incl. ETC card)', priority: 'done' },
         // Ferry - buy at port
         { id: 't1', text: 'Ferry Yawatahama–Beppu 13:00 (8.10.) – buy at port', priority: 'high', done: true },
         { id: 't2', text: 'Ferry Kumamoto–Shimabara 09:25 (16.10.) – buy at port', priority: 'high', done: true },
@@ -2783,10 +2782,10 @@
         { day: 36, dow: 'Fri', date: '23.10.2026', title: 'Fukuoka → Tokyo', subtitle: 'NH252', region: 'tokyo', tags: ['flight'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', cancel: '20.10.', pois: [{name:'Fukuoka Airport', coords:[33.5858,130.4508]}, {name:'Haneda Airport', coords:[35.5494,139.7798]}, {name:'Hotel Sunlite Shinjuku', coords:[35.6895,139.6917]}], timeline: [{time:'08:00–09:00', text:'Snídaně', type:'food'}, {time:'09:00–09:30', text:'Checkout', type:''}, {time:'~09:30', text:'→ airport (subway)', type:'transport'}, {time:'12:25–14:10', text:'NH252 FUK → HND (ANA)', type:'transport'}, {time:'Afternoon', text:'Check-in Tokyo', type:''}], note: '✈️ NH252 | BREAKFAST | Connect with Ryuki' },
         { day: 37, dow: 'Sat', date: '24.10.2026', title: 'Tokyo', subtitle: 'Shogo? Minoru? Free day', region: 'tokyo', tags: [], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Shinjuku', coords:[35.6895,139.6917]}, {name:'Takanawa Gateway City', coords:[35.6300,139.7400]}, {name:'Azabudai Hills Gallery', coords:[35.6600,139.7400]}, {name:'Tsukishima', coords:[35.6644,139.7836]}, {name:'Tokyo Station', coords:[35.6812,139.7671]}], timeline: [{time:'Daytime', text:'Takanawa / Azabudai Hills / Tsukishima', type:'sight'}, {time:'Evening', text:'Shogo? Minoru?', type:'sight'}], note: '🗾 Náměty: Takanawa Gateway, Azabudai Hills Gallery, Tsukishima (monjayaki)' },
         { day: 38, dow: 'Sun', date: '25.10.2026', title: 'Tokyo + Wahei', subtitle: 'Lunch with Wahei', region: 'tokyo', tags: ['meet'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Kasai Rinkai Park', coords:[35.6367,139.8617]}, {name:'Shinjuku', coords:[35.6895,139.6917]}, {name:'Takanawa Gateway City', coords:[35.6300,139.7400]}, {name:'Tsukishima', coords:[35.6644,139.7836]}, {name:'Tokyo Station', coords:[35.6812,139.7671]}], timeline: [{time:'Lunch', text:'Meeting with Wahei', type:'sight'}, {time:'Afternoon', text:'Kasai Rinkai Park / free time', type:'sight'}], note: '🧺 PRANÍ před road trip! | ✅ Wahei confirmed' },
-        { day: 39, dow: 'Mon', date: '26.10.2026', title: 'Tokyo → Mishima → Higashi-Izu', subtitle: 'AUTO START | Mt. Omuro, Jogasaki', region: 'tokyo', tags: ['car','onsen'], hotel: 'Hotel Cetus Royal', price: '66 EUR', cancel: '22.10.', pois: [{name:'Shinjuku Station', coords:[35.6900,139.7004]}, {name:'Mishima Station', coords:[35.1264,138.9117]}, {name:'J-net Rentacar Mishima', coords:[35.1258,138.9105]}, {name:'Mt. Omuro', coords:[34.9069,139.0958]}, {name:'Jogasaki Coast', coords:[34.8917,139.1300]}, {name:'Kadowaki Bridge', coords:[34.8933,139.1325]}, {name:'Hokkawa Onsen', coords:[34.7739,139.0322]}, {name:'Hotel Cetus Royal', coords:[34.7739,139.0322]}], timeline: [{time:'10:00', text:'Odjezd Shinjuku Station', type:'transport'}, {time:'', text:'Shinkansen Shinjuku → Mishima', type:'transport'}, {time:'12:00', text:'Vyzvednutí auta J-net Mishima', type:''}, {time:'', text:'Mt. Omuro (chairlift, crater)', type:'sight'}, {time:'', text:'Jogasaki Coast + Kadowaki Bridge', type:'sight'}, {time:'Late afternoon', text:'Higashi-Izu', type:'transport'}, {time:'Evening', text:'Hokkawa Onsen', type:'sight'}], note: 'ZMĚNA ČASU EU! | 🚗 Auto J-net 12:00 | ✅ Cetus Royal' },
-        { day: 40, dow: 'Tue', date: '27.10.2026', title: 'Jižní & západní Izu → Fujinomiya', subtitle: 'Shimoda, Irozaki, Dogashima', region: 'tokyo', tags: ['car'], hotel: 'Kuretake Inn Premium Fujinomiya', price: '41 EUR', cancel: '26.10.', pois: [{name:'Shimoda', coords:[34.6795,138.9450]}, {name:'Perry Road', coords:[34.6720,138.9470]}, {name:'Irozaki', coords:[34.6033,138.8447]}, {name:'Matsuzaki', coords:[34.7558,138.7789]}, {name:'Koganezaki', coords:[34.8267,138.7758]}, {name:'Dogashima', coords:[34.7708,138.7717]}, {name:'Fujinomiya', coords:[35.2222,138.6203]}, {name:'Kuretake Inn Premium Fujinomiya', coords:[35.2242,138.6208]}], timeline: [{time:'Morning', text:'Odjezd z Higashi-Izu', type:'transport'}, {time:'', text:'Shimoda – Perry Road, oběd', type:'sight'}, {time:'', text:'Irozaki (nejjižnější Izu)', type:'sight'}, {time:'', text:'Matsuzaki / Koganezaki', type:'sight'}, {time:'', text:'Dogashima (západní pobřeží)', type:'sight'}, {time:'Evening', text:'Přejezd + večeře Fujinomiya', type:'food'}], note: '⚠️ Nejdelší den roadtripu | Vybrat 2–3 zastávky | ✅ Kuretake Inn' },
-        { day: 41, dow: 'Wed', date: '28.10.2026', title: 'Fujinomiya → Motosuko → Hottarakashi → Isawa', subtitle: 'Fuji viewpoint (1000¥), Hottarakashi Onsen', region: 'tokyo', tags: ['car','onsen'], hotel: 'Isawa View Hotel', price: '41 EUR', cancel: '24.10.', pois: [{name:'Lake Motosu', coords:[35.4617,138.5867]}, {name:'Fuji Motosuko Resort', coords:[35.4650,138.5942]}, {name:'Hottarakashi Onsen', coords:[35.7256,138.7239]}, {name:'Kofu', coords:[35.6639,138.5683]}, {name:'Isawa View Hotel', coords:[35.6483,138.6467]}], timeline: [{time:'Morning', text:'Odjezd z Fujinomiya', type:'transport'}, {time:'', text:'Lake Motosu – Fuji viewpoint (1000¥)', type:'sight'}, {time:'', text:'Fuji viewpoints (dle počasí)', type:'sight'}, {time:'Afternoon', text:'Přesun přes Yamanashi → Kofu', type:'transport'}, {time:'Před západem slunce', text:'Hottarakashi Onsen (výhled na Kofu Basin)', type:'sight'}, {time:'Evening', text:'Přesun do Isawa', type:'transport'}], note: 'Motosu = 1000¥ bankovka | Var. B: víno/gastro | ✅ Isawa View Hotel' },
-        { day: 42, dow: 'Thu', date: '29.10.2026', title: 'Isawa → Mishima → Takanawa → Tokyo', subtitle: 'AUTO KONEC | Takanawa City, MoN muzeum', region: 'tokyo', tags: ['car'], hotel: 'TBD (NEBOOKOVÁNO)', price: '–', pois: [{name:'Isawa View Hotel', coords:[35.6483,138.6467]}, {name:'Mishima Station', coords:[35.1264,138.9117]}, {name:'J-net Rentacar Mishima', coords:[35.1258,138.9105]}, {name:'Takanawa Gateway City', coords:[35.6357,139.7404]}, {name:'MoN Takanawa', coords:[35.6357,139.7404]}, {name:'Tokyo', coords:[35.6895,139.6917]}], timeline: [{time:'', text:'Klidná snídaně', type:'food'}, {time:'', text:'Yamanashi → Mishima', type:'transport'}, {time:'12:00', text:'Vrácení auta J-net Mishima', type:''}, {time:'', text:'Shinkansen → Tokyo (Shinagawa)', type:'transport'}, {time:'', text:'Takanawa Gateway City + MoN muzeum', type:'sight'}, {time:'', text:'Check-in Tokyo', type:''}], note: '🚗 Vrácení auta 12:00 | 🏙️ Takanawa City + MoN muzeum | ⚠️ Hotel 29.10. NEBOOKOVÁNO' },
+        { day: 39, dow: 'Mon', date: '26.10.2026', title: 'Tokyo → Mishima → Higashi-Izu', subtitle: 'AUTO START | Mt. Omuro, Jogasaki', region: 'tokyo', tags: ['car','onsen'], hotel: 'Hotel Cetus Royal', price: '66 EUR', cancel: '22.10.', pois: [{name:'Shinjuku Station', coords:[35.6900,139.7004]}, {name:'Mishima Station', coords:[35.1264,138.9117]}, {name:'J-net Rentacar Mishima', coords:[35.1258,138.9105]}, {name:'Mt. Omuro', coords:[34.9069,139.0958]}, {name:'Jogasaki Coast', coords:[34.8917,139.1300]}, {name:'Kadowaki Bridge', coords:[34.8933,139.1325]}, {name:'Hokkawa Onsen', coords:[34.7739,139.0322]}, {name:'Hotel Cetus Royal', coords:[34.7739,139.0322]}], timeline: [{time:'10:00', text:'Depart Shinjuku Station', type:'transport'}, {time:'', text:'Shinkansen Shinjuku → Mishima', type:'transport'}, {time:'12:00', text:'Car pickup J-net Mishima', type:''}, {time:'', text:'Mt. Omuro (chairlift, crater)', type:'sight'}, {time:'', text:'Jogasaki Coast + Kadowaki Bridge', type:'sight'}, {time:'Late afternoon', text:'Higashi-Izu', type:'transport'}, {time:'Evening', text:'Hokkawa Onsen', type:'sight'}], note: 'EU TIME CHANGE! | 🚗 Car J-net 12:00 | ✅ Cetus Royal' },
+        { day: 40, dow: 'Tue', date: '27.10.2026', title: 'South & West Izu → Fujinomiya', subtitle: 'Shimoda, Irozaki, Dogashima', region: 'tokyo', tags: ['car'], hotel: 'Kuretake Inn Premium Fujinomiya', price: '41 EUR', cancel: '26.10.', pois: [{name:'Shimoda', coords:[34.6795,138.9450]}, {name:'Perry Road', coords:[34.6720,138.9470]}, {name:'Irozaki', coords:[34.6033,138.8447]}, {name:'Matsuzaki', coords:[34.7558,138.7789]}, {name:'Koganezaki', coords:[34.8267,138.7758]}, {name:'Dogashima', coords:[34.7708,138.7717]}, {name:'Fujinomiya', coords:[35.2222,138.6203]}, {name:'Kuretake Inn Premium Fujinomiya', coords:[35.2242,138.6208]}], timeline: [{time:'Morning', text:'Depart Higashi-Izu', type:'transport'}, {time:'', text:'Shimoda – Perry Road, lunch', type:'sight'}, {time:'', text:'Irozaki (southernmost Izu)', type:'sight'}, {time:'', text:'Matsuzaki / Koganezaki', type:'sight'}, {time:'', text:'Dogashima (west coast)', type:'sight'}, {time:'Evening', text:'Drive + dinner Fujinomiya', type:'food'}], note: '⚠️ Longest day of the road trip | Pick 2–3 stops | ✅ Kuretake Inn' },
+        { day: 41, dow: 'Wed', date: '28.10.2026', title: 'Fujinomiya → Motosuko → Hottarakashi → Isawa', subtitle: 'Fuji viewpoint (1000¥), Hottarakashi Onsen', region: 'tokyo', tags: ['car','onsen'], hotel: 'Isawa View Hotel', price: '41 EUR', cancel: '24.10.', pois: [{name:'Lake Motosu', coords:[35.4617,138.5867]}, {name:'Fuji Motosuko Resort', coords:[35.4650,138.5942]}, {name:'Hottarakashi Onsen', coords:[35.7256,138.7239]}, {name:'Kofu', coords:[35.6639,138.5683]}, {name:'Isawa View Hotel', coords:[35.6483,138.6467]}], timeline: [{time:'Morning', text:'Depart Fujinomiya', type:'transport'}, {time:'', text:'Lake Motosu – Fuji viewpoint (1000¥)', type:'sight'}, {time:'', text:'Fuji viewpoints (weather-dependent)', type:'sight'}, {time:'Afternoon', text:'Drive via Yamanashi → Kofu', type:'transport'}, {time:'Before sunset', text:'Hottarakashi Onsen (view over Kofu Basin)', type:'sight'}, {time:'Evening', text:'Drive to Isawa', type:'transport'}], note: 'Motosu = 1000¥ banknote | Opt. B: wine/food | ✅ Isawa View Hotel' },
+        { day: 42, dow: 'Thu', date: '29.10.2026', title: 'Isawa → Mishima → Takanawa → Tokyo', subtitle: 'CAR END | Takanawa City, MoN museum', region: 'tokyo', tags: ['car'], hotel: 'TBD (NOT BOOKED)', price: '–', pois: [{name:'Isawa View Hotel', coords:[35.6483,138.6467]}, {name:'Mishima Station', coords:[35.1264,138.9117]}, {name:'J-net Rentacar Mishima', coords:[35.1258,138.9105]}, {name:'Takanawa Gateway City', coords:[35.6357,139.7404]}, {name:'MoN Takanawa', coords:[35.6357,139.7404]}, {name:'Tokyo', coords:[35.6895,139.6917]}], timeline: [{time:'', text:'Relaxed breakfast', type:'food'}, {time:'', text:'Yamanashi → Mishima', type:'transport'}, {time:'12:00', text:'Return car J-net Mishima', type:''}, {time:'', text:'Shinkansen → Tokyo (Shinagawa)', type:'transport'}, {time:'', text:'Takanawa Gateway City + MoN museum', type:'sight'}, {time:'', text:'Check-in Tokyo', type:''}], note: '🚗 Return car 12:00 | 🏙️ Takanawa City + MoN museum | ⚠️ Tokyo hotel 29.10. NOT BOOKED' },
         { day: 43, dow: 'Fri', date: '30.10.2026', title: 'Tokyo', subtitle: 'Party – Minoru, Sata-san, Nekorob?', region: 'tokyo', tags: ['meet'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', cancel: '27.10.', pois: [{name:'Shinjuku', coords:[35.6895,139.6917]}, {name:'Bar Nekorob', coords:[35.7050,139.6600]}, {name:'Takanawa Gateway City', coords:[35.6300,139.7400]}, {name:'Tsukishima', coords:[35.6644,139.7836]}, {name:'Tokyo Station', coords:[35.6812,139.7671]}], timeline: [{time:'Daytime', text:'Takanawa / Tsukishima / Tokyo Station area', type:'sight'}, {time:'Evening', text:'Party (Minoru, Sata-san, Nekorob)', type:'sight', note:'Contact: edobicycleart'}], note: 'Denní program: Takanawa Gateway, Tsukishima monjayaki, Tokyo Station area' },
         { day: 44, dow: 'Sat', date: '31.10.2026', title: 'Tokyo – Halloween', subtitle: 'Halloween + Critical Mass?', region: 'tokyo', tags: ['bike','fest'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Shinjuku Halloween', coords:[35.6895,139.6917]}, {name:'Shibuya', coords:[35.6580,139.7016]}], timeline: [{time:'', text:'Critical Mass? (or other bike event)', type:''}, {time:'Evening', text:'HALLOWEEN – Shinjuku', type:'sight'}] },
         { day: 45, dow: 'Sun', date: '1.11.2026', title: 'Tokyo', subtitle: 'Togoshi Ginza, Nomikai Nakano', region: 'tokyo', tags: ['meet'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Togoshi Ginza', coords:[35.6117,139.7150]}, {name:'Nakano', coords:[35.7050,139.6650]}], timeline: [{time:'', text:'Outskirts of Tokyo', type:'sight'}, {time:'', text:'Togoshi Ginza street', type:'sight'}, {time:'Evening', text:'Nomikai v Nakano', type:'sight'}, {time:'', text:'Ryuki?', type:''}] },
@@ -2970,8 +2969,8 @@
         29: ['📦 Morning send luggage Kumamoto→Nagasaki', '📝 Save tracking number!'],
         31: ['🧺 Laundry in Nagasaki'],
         35: ['🧺 Laundry before Tokyo', '✈️ Check-in NH252 FUK→HND (24h before)'],
-        38: ['🧺 Laundry before road trip - IMPORTANT!', '🚗 J-net Mishima pre check-in (heslo v mailu, folder letenky)', '📱 Download offline maps Izu + Fuji area'],
-        39: ['🚗 12:00 Pick up car J-net Mishima (vč. ETC karty)'],
+        38: ['🧺 Laundry before road trip - IMPORTANT!', '🚗 J-net Mishima online pre check-in (password in mail, flight ticket folder)', '📱 Download offline maps Izu + Fuji area'],
+        39: ['🚗 12:00 Pick up car J-net Mishima (incl. ETC card)'],
         42: ['🚗 12:00 Return car J-net Mishima', '⛽ Fill up beforehand!'],
         43: ['🛍️ Gorillaz figures pro Edíka (Akihabara)'],
         44: ['🧺 Laundry (Halloween evening)'],
@@ -3280,7 +3279,7 @@
         38: [
             '✅ 👤 LUNCH with Wahei - CONFIRMED!',
             '⚠️ 🧺 Laundry before road trip - CRITICAL!',
-            '🚗 J-net Mishima pre check-in (heslo v mailu, folder letenky)',
+            '🚗 J-net Mishima online pre check-in (password in mail, flight ticket folder)',
             'Kasai Rinkai = water park, aquarium, chill',
             'Or: Yanaka, Shimokitazawa, Koenji (retro/hipster)',
             '📱 Download offline maps Izu + Fuji area!'
@@ -3288,44 +3287,44 @@
         // DAY 39 - Tokyo→Mishima→Higashi-Izu
         39: [
             '🕐 EU TIME CHANGE! Tokyo-Prague: from +7h to +8h',
-            '🚗 Auto J-net Mishima přesně ve 12:00 (vč. ETC karty)',
-            '10:00 odjezd Shinjuku → Shinkansen → Mishima',
-            'První den autem – nepřehánět počet zastávek',
+            '🚗 J-net Mishima car pickup exactly at 12:00 (incl. ETC card)',
+            '10:00 depart Shinjuku → Shinkansen → Mishima',
+            'First day driving – don\'t overdo the number of stops',
             'Mt. Omuro = volcanic crater, 360° view',
             'Jogasaki = dramatic coastline, lava formations',
-            '♨️ Večer už žádný přesun – onsen v Cetus Royal / Hokkawa'
+            '♨️ No more driving in the evening – onsen at Cetus Royal / Hokkawa'
         ],
         // DAY 40 - jižní & západní Izu → Fujinomiya
         40: [
-            '⚠️ Nejdelší a logisticky nejnáročnější den roadtripu',
-            'Hlavní zážitek = jižní a západní pobřeží Izu',
+            '⚠️ Longest and logistically most demanding day of the road trip',
+            'Main experience = south & west coast of Izu',
             'Shimoda (Perry Road) → Irozaki → Matsuzaki/Koganezaki → Dogashima',
-            'Vybrat 2–3 hlavní zastávky, nehonit všechny body',
-            'Dogashima = jedna z hlavních scenérií; loďka jen za dobrých podmínek',
-            'Kawazu Loop Bridge / Seven Waterfalls NENÍ nutné zařazovat',
-            '⏳ Rezerva na pomalejší jízdu po pobřežních silnicích',
-            'Fujinomiya = nocleh kvůli snadnému rannímu přístupu k Motosuko'
+            'Pick 2–3 main stops, don\'t chase every point',
+            'Dogashima = one of the main sceneries; boat trip only in good conditions',
+            'Kawazu Loop Bridge / Seven Waterfalls NOT necessary to include',
+            '⏳ Allow extra time for slower driving on coastal roads',
+            'Fujinomiya = overnight for easy morning access to Motosuko'
         ],
         // DAY 41 - Fujinomiya→Motosuko→Hottarakashi→Isawa
         41: [
-            'Lake Motosu = místo z 1000¥ bankovky!',
-            'Fuji viewpoints jsou silně závislé na počasí',
-            'Var. B (špatné počasí): víno / gastronomie / lokální zajímavosti',
-            'Fuji Motosuko Resort jen pokud budou dobré podmínky',
-            '♨️ Hottarakashi = hlavní závěr dne, outdoor onsen s výhledem na Kofu Basin',
-            'Dvě lázně: „Acchi no Yu" a „Kocchi no Yu"',
-            '🌅 Ideálně přijet k Hottarakashi včas před západem slunce',
-            'Nezajíždět zbytečně do Kawaguchiko',
+            'Lake Motosu = the spot from the 1000¥ banknote!',
+            'Fuji viewpoints are highly weather-dependent',
+            'Opt. B (bad weather): wine / food / local sights',
+            'Fuji Motosuko Resort only if conditions are good',
+            '♨️ Hottarakashi = main finale of the day, outdoor onsen overlooking Kofu Basin',
+            'Two baths: "Acchi no Yu" and "Kocchi no Yu"',
+            '🌅 Ideally arrive at Hottarakashi in time before sunset',
+            'Don\'t make an unnecessary detour to Kawaguchiko',
             '🍜 Kofu: Hoto noodles = local specialty'
         ],
         // DAY 42 - Isawa→Mishima→Takanawa→Tokyo
         42: [
-            '🚗 Vrácení auta J-net Mishima ve 12:00 - dost časové rezervy',
+            '🚗 Return car J-net Mishima at 12:00 - plenty of time buffer',
             '⛽ Fill up beforehand!',
-            '🏙️ Cestou z Mishimy do Tokia: Takanawa Gateway City',
-            '🖼️ MoN Takanawa (Museum of Narratives) - Kengo Kuma, otevřeno 2026',
-            '⚠️ Hotel 29.10. Tokyo zatím NEBOOKOVÁNO (dořeší se)',
-            'Po 4 dnech řízení = relax večer OK'
+            '🏙️ On the way from Mishima to Tokyo: Takanawa Gateway City',
+            '🖼️ MoN Takanawa (Museum of Narratives) - Kengo Kuma, opened 2026',
+            '⚠️ Tokyo hotel 29.10. still NOT BOOKED (to be resolved)',
+            'After 4 days of driving = relaxed evening OK'
         ],
         // DAY 43 - Tokyo (party)
         43: [
