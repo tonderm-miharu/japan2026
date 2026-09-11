@@ -14,7 +14,7 @@
 | `japan-travel-guide.html` | Magazine-style travel guide (opens via PDF button, then Print → Save as PDF) |
 | `KONSOLIDOVANY_ITINERAR.md` | Detailed itinerary in Markdown format |
 | `ADJUSTED_MASTER_PLAN.md` | Enhanced "second brain" document with logistics, prep steps, laundry schedule, risks |
-| `HACHIJOJIMA_AOGASHIMA_PLAN.md` | Alternative Oct 26-29 plan: Hachijojima + Aogashima (pending heli booking) |
+| `HACHIJOJIMA_AOGASHIMA_PLAN.md` | Abandoned Oct 26-29 alternative (Hachijojima + Aogashima) – Izu plan chosen instead; kept for reference |
 | `ROZVRH.xlsx` | Schedule and hotels spreadsheet |
 
 ## Dashboard Features
@@ -88,7 +88,7 @@
 - **Contacts** - list of people to meet with dates
 - **Transport** - sections: Flights, Bus, Car Rentals, Ferry (each with SVG icon)
 - **Summary** - red-themed modal with 53-day trip timeline showing 7 regions and key places (Osaka, Kyoto, Lake Biwa, Shimanami, Kyushu, Tokyo+Izu, Okinawa)
-- **Links** - quick access to useful external sites (Toho Air Heli, Kyushu Coupons, Shinkansen QR, Smart-EX App, JMA Weather)
+- **Links** - quick access to useful external sites (J-net Rentacar, Kyushu Coupons, Shinkansen QR, Smart-EX App, JMA Weather)
 
 ### Weather
 - Static averages by region and month
@@ -114,12 +114,11 @@
 - [x] teamLab Biovortex ✅ BOOKED (Oct 1, 10:30-11:00 entry)
 - [ ] Shimanami multi-day bike rental (Oct 6-7)
 - [ ] Takachiho Yokagura reservation (Oct 14)
-- [ ] **Sep 27 9:00 JP** - Buy HELI Oct 27 HJJ→AOG (tohoair.co.jp)
-- [ ] **Sep 28 9:00 JP** - Buy HELI Oct 28 AOG→HJJ (tohoair.co.jp)
-- [ ] After heli: ANA flights HND↔Hachijo Oct 26+29 (ana.co.jp)
-- [x] Accommodation Oct 26-29 ✅ Hachijojima hotel BOOKED (cancel free until 20.10.)
-- [ ] Car rental Oct 26-29 (Mishima OR Hachijo - after heli decision)
-- [ ] Hotel Tokyo Oct 29 (if Hachijo plan)
+- [x] Car rental Oct 26-29 ✅ BOOKED J-net Mishima 12:00↔12:00 (incl. ETC card)
+- [x] Accommodation Oct 26-28 ✅ BOOKED (Cetus Royal / Kuretake Inn Premium / Isawa View)
+- [ ] **Cancel Hachijojima booking (Noboryuso) by Oct 20** – Izu plan chosen
+- [ ] J-net Mishima online pre check-in (password in mail, flight ticket folder)
+- [ ] Hotel Tokyo Oct 29 (after Izu road trip)
 - [x] Express bus Yufuin-Kumamoto ✅ BOOKED (KOSOKUBUS #1020648778, 13:50→18:03)
 - [ ] Send luggage Fukuyama→Matsuyama (Oct 6)
 - [ ] Send luggage Kumamoto→Nagasaki (Oct 16)

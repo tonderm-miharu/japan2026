@@ -67,26 +67,17 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 - `japan-travel-guide.html` - complete magazine-style travel guide with all 7 regions, contacts, links (PDF button opens it)
 - `mockups/` - UI design iterations
 - `ADJUSTED_MASTER_PLAN.md`, `KONSOLIDOVANY_ITINERAR.md` - detailed trip planning docs
-- `HACHIJOJIMA_AOGASHIMA_PLAN.md` - alternative Oct 26-29 plan (pending heli booking)
+- `HACHIJOJIMA_AOGASHIMA_PLAN.md` - abandoned Oct 26-29 alternative (kept for reference only)
 - `ROZVRH.xlsx` - source spreadsheet for schedule/hotels
 
-## Pending: Hachijojima/Aogashima Implementation
+## Oct 26-29: Izu Road Trip (FINAL)
 
-**Status:** Current itinerary has Izu/Yamanashi plan for Oct 26-29. If helicopter booking succeeds (Sep 27-28), update to Hachijojima/Aogashima.
+**Status:** Izu Peninsula road trip is confirmed. The Hachijojima/Aogashima alternative was abandoned (no heli booking). Only remaining to-do: cancel the Hachijojima hotel (Noboryuso) by Oct 20, and book the Oct 29 Tokyo hotel.
 
-**Days to update:** 39, 40, 41, 42 (Oct 26-29)
+**Day structure (days 39-42):**
+- Day 39 (26.10.): Tokyo → Mishima → Higashi-Izu. Shinkansen, J-net car pickup 12:00, Mt. Omuro, Jogasaki. Hotel Cetus Royal.
+- Day 40 (27.10.): South & West Izu → Fujinomiya. Shimoda, Irozaki, Dogashima. Kuretake Inn Premium. Longest driving day.
+- Day 41 (28.10.): Fujinomiya → Motosuko → Hottarakashi → Isawa. Lake Motosu (1000¥ view), sunset onsen. Isawa View Hotel.
+- Day 42 (29.10.): Isawa → Mishima (return car 12:00) → Takanawa Gateway City + MoN museum → Tokyo. Hotel TBD.
 
-**Quick implementation checklist:**
-1. Update DAYS array entries for days 39-42 with new content from `HACHIJOJIMA_AOGASHIMA_PLAN.md`
-2. Add POI_URLS for: Hachijojima, Hachijo Fuji, Aogashima, Nanbara Senjojiki, etc.
-3. Update DAY_TASKS[39]: flight check-in instead of car pickup
-4. Update DAY_NOTES for days 39-42
-5. Update HOTEL_INFO for new hotels (Hachijojima ✅ BOOKED, Minshuku Aogashima pending)
-6. Update Transport modal with ANA HND↔Hachijo flights
-7. Mark tasks t17, t18, t19, t20 as done
-
-**New day structure:**
-- Day 39: Tokyo → Hachijojima (ANA flight, Hachijo Fuji, onsen)
-- Day 40: Hachijojima → Aogashima (heli, caldera, stargazing)
-- Day 41: Aogashima → Hachijojima (heli, exploration)
-- Day 42: Hachijojima → Tokyo (ANA flight, hotel check-in)
+**Car:** J-net Rentacar Mishima Station South Exit, 26-29.10. 12:00↔12:00, incl. ETC card, online pre check-in. MyPage: j-netrentacar.co.jp/jnet/mypage

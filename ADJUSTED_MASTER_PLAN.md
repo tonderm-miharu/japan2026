@@ -207,8 +207,8 @@
 - Buffer OK, subway na letiště ~30 min
 
 **Den 39 (26.10.) - Tokyo → Mishima → Izu road trip**
-- Shinkansen ráno, auto pickup, pak program
-- Závisí na auto rezervaci (NEBOOKOVÁNO!)
+- Shinkansen ráno, auto pickup 12:00, pak program
+- Auto ✅ J-net Mishima 12:00↔12:00 (vč. ETC karty)
 
 **Den 46 (2.11.) - Tokyo → Miyakojima + HO od 15:00**
 - Let 08:20-12:50
@@ -1517,135 +1517,136 @@
 - Nebo: Takanawa Gateway City, Tsukishima, Tokyo Station area (viz náměty den 37)
 
 **Příprava na road trip (zítra):**
-- [ ] Auto rezervace v Mishima - NEBOOKOVÁNO! Zařídit ASAP!
+- [ ] J-net Mishima - online pre check-in (heslo v mailu, folder letenky)
 - [ ] Offline mapy Izu + Fuji area
-- [ ] Ubytování 26-29.10. - NEBOOKOVÁNO!
+- [x] Auto rezervace ✅ J-net Mishima 12:00↔12:00 (vč. ETC karty)
+- [x] Ubytování 26-28.10. ✅ (Cetus Royal / Kuretake Inn / Isawa View)
 
 ---
 
 ### DEN 39 | Pondělí 26.10.2026
-## TOKYO → IZU (AUTO START)
+## TOKYO → MISHIMA → HIGASHI-IZU (AUTO START)
 
 **🕐 ZMĚNA ČASU EU!** (Japonsko nemá)
 - Časový posun Tokyo-Praha: z +7h na +8h
 
 **Časový plán:**
-- Ráno: Shinkansen Tokyo → Mishima (~1h)
-- Vyzvednutí auta v Mishima
+- **10:00** odjezd ze Shinjuku Station
+- Shinkansen Shinjuku → Mishima
+- **12:00** vyzvednutí auta J-net Mishima (vč. ETC karty)
 - **Mt. Omuro** (chairlift, kráter) ~1-1.5h
 - **Jogasaki Coast**
   - Kadowaki Suspension Bridge
   - Pobřežní cesta, útesy
-- Pozdní odpoledne: Hokkawa / Higashi-Izu
+- Pozdní odpoledne: Higashi-Izu
 - Večer: **Hokkawa Onsen**
 
-**Noc:** Higashi-Izu / Hokkawa / Izukogen (⚠️ NEBOOKOVÁNO!)
+**Noc:** Hotel Cetus Royal - Higashi-Izu (✅ Agoda, snídaně, cancel do 22.10.)
 
 **Poznámky pro tento den:**
+- První den autem - nepřehánět počet zastávek
 - Mt. Omuro = sopečný kráter, 360° výhled
 - Jogasaki = dramatické pobřeží, lávové formace
 
-**⚠️ NUTNO ZAŘÍDIT:**
-- [ ] Auto rental Mishima
-- [ ] Ubytování 26.10. (Higashi-Izu area)
-- [ ] Ubytování 27.10. (Fujinomiya area)
-- [ ] Ubytování 28.10. (Kofu/Yamanashi area)
-
 **Praktické:**
-- Izu Peninsula = onsen paradise
+- Auto vyzvednout přesně ve 12:00
+- Tankování průběžně podle trasy
+- Večer už žádný přesun - onsen v Cetus Royal / Higashi-Izu
 - Hokkawa = klidné onsen městečko
 
 ---
 
 ### DEN 40 | Úterý 27.10.2026
-## HIGASHI-IZU → KAWAZU → FUJINOMIYA
+## HIGASHI-IZU → JIŽNÍ A ZÁPADNÍ IZU → FUJINOMIYA
 
-**⚠️ Logisticky nejnáročnější den!**
+**⚠️ Nejdelší a logisticky nejnáročnější den roadtripu!**
 
 **Program:**
-- Ráno odjezd
-- Higashi-Izu → Kawazu (~30-45 min)
-- **Kawazu Nanadaru Loop Bridge** (technická infrastruktura, spirála)
-- Krátká část Kawazu Seven Waterfalls (optional)
-- Oběd
-- Přejezd na západ (přes hory nebo pobřežím ~2-3h)
-- **Mt. Fuji World Heritage Centre** (Shigeru Ban!) ~1.5-2h
-- Večeře ve Fujinomiya
+- Ráno odjezd z Higashi-Izu
+- **Shimoda** - Perry Road / historické centrum, procházka + oběd
+- **Irozaki** - nejjižnější část Izu, dramatické pobřeží
+- Podél západního pobřeží:
+  - **Matsuzaki**
+  - **Koganezaki**
+  - **Dogashima**
+- Podle času a počasí vybrat 2-3 hlavní zastávky
+- Přejezd do Fujinomiya, večeře
 
-**Noc:** Fujinomiya (⚠️ NEBOOKOVÁNO!)
+**Noc:** Kuretake Inn Premium Fujinomiya (✅ Trip, snídaně, cancel do 26.10.)
 
 **Poznámky pro tento den:**
-- Loop Bridge = 2 plné otočky, neobvyklá infrastruktura
-- Kawazu Waterfalls = série 7 vodopádů, pěší trasa
-- WHC = Shigeru Ban architektura, inverzní Fuji kužel
+- Hlavní zážitek = jižní a západní pobřeží Izu
+- Kawazu Loop Bridge / Seven Waterfalls NENÍ nutné zařazovat
+- Dogashima = jedna z hlavních scenérií západního pobřeží
+- Lodní výlet v Dogashimě jen za dobrých podmínek a času
 
 **Praktické:**
-- Dlouhý přejezd přes polostrov = 2-3 hodiny
-- Alternativa: Izu Skyline toll road (rychlejší, hezčí)
-- Fujinomiya = base pro Fuji, yakisoba specialita
+- Rezerva na pomalejší jízdu po pobřežních silnicích
+- Priorita = pohodové tempo a kvalitní sightseeing, ne počet míst
+- Fujinomiya záměrně = snadný ranní přístup k Motosuko
 
 ---
 
 ### DEN 41 | Středa 28.10.2026
-## FUJINOMIYA → YAMANASHI → HOTTARAKASHI
+## FUJINOMIYA → MOTOSUKO → YAMANASHI → HOTTARAKASHI → ISAWA
 
 **Varianta A (dobré počasí):**
-- Ráno: Fuji morning views
-- Lake Motosu nebo Fuji Five Lakes area
-- Fotografické viewpointy (1000 yen bill view!)
-- Přejezd Yamanashi
+- Ráno odjezd z Fujinomiya
+- **Lake Motosu (Motosuko)** - Fuji viewpoint (ikonický pohled z 1000¥ bankovky)
+- **Fuji Motosuko Resort** - jen pokud budou dobré podmínky
+- Další fotografické viewpointy dle počasí
+- Postupný přejezd do Yamanashi
 
 **Varianta B (špatné počasí):**
-- Pomalejší přesun Yamanashi
+- Méně času viewpointům, pomalejší přesun
 - Víno / gastronomie (Yamanashi = wine country)
 
 **Odpoledne:**
-- Přesun do oblasti Kofu/Yamanashi
-- 16:00-17:00 Příjezd
+- Přesun směrem k **Hottarakashi Onsen**
 - **Hottarakashi Onsen**
-  - Výhled na Kofu Basin
-  - Případně Fuji
-  - Západ slunce
-  - Noční panorama
+  - Výhled na Kofu Basin, případně Fuji
+  - Západ slunce, noční panorama
+- Po onsen přesun do Isawa
 
-**Noc:** Kofu / Yamanashi (⚠️ NEBOOKOVÁNO!)
+**Noc:** Isawa View Hotel - Isawa Onsen (✅ Trip, cancel do 24.10.)
 
 **Poznámky pro tento den:**
-- Lake Motosu = místo z 1000 yen bankovky
-- Hottarakashi = outdoor onsen s výhledem, populární
-- Západ slunce z Hottarakashi = magic
+- Lake Motosu = místo z 1000¥ bankovky
+- Fuji viewpoints jsou silně závislé na počasí
+- Hottarakashi = hlavní závěr dne
+- Ideálně přijet k Hottarakashi včas před západem slunce
 
 **Praktické:**
-- Hottarakashi: Otevírá už od sunrise (před úsvitem!)
-- Dvě lázně: "Acchi no Yu" a "Kocchi no Yu"
+- Nepřidávat zbytečné zajížďky do Kawaguchiko
+- Hottarakashi = outdoor onsen s výhledem, dvě lázně: "Acchi no Yu" a "Kocchi no Yu"
+- Večeři řešit před Hottarakashi nebo po příjezdu do Isawa
 - Kofu: Hoto noodles = lokální specialita
 
 ---
 
 ### DEN 42 | Čtvrtek 29.10.2026
-## YAMANASHI → MISHIMA → TOKYO (AUTO KONEC)
+## ISAWA → MISHIMA → TAKANAWA → TOKYO (AUTO KONEC)
 
 **Program:**
 - Klidná snídaně
-- Případně ještě krátký bod v Yamanashi
-- Yamanashi → Mishima (přes Fuji area nebo highway)
-- Vrácení auta (velká časová rezerva!)
-- Mishima → Tokyo Shinkansenem
+- Yamanashi → Mishima
+- **12:00** vrácení auta J-net Mishima (velká časová rezerva!)
+- Mishima → Tokyo Shinkansenem (Shinagawa)
+- **Takanawa Gateway City** + **MoN muzeum** (Museum of Narratives)
 - Check-in v Tokiu
-- teamLab Borderless? (optional)
 
-**Noc:** Tokyo (⚠️ NEBOOKOVÁNO na tuto noc!)
+**Noc:** Tokyo (⚠️ NEBOOKOVÁNO na tuto noc - dořeší se!)
 
 **Poznámky pro tento den:**
 - Vrácení auta = mít buffer, tankovat předem
-- teamLab Borderless = přestěhován do Azabudai Hills (2024)
+- Takanawa City ideálně při návratu z Mishima do Tokia
+- MoN Takanawa = Kengo Kuma, otevřeno 2026, přímo v Takanawa Gateway City
 
 **⚠️ NUTNO ZAŘÍDIT:**
 - [ ] Ubytování 29.10. Tokyo
 
 **Praktické:**
-- Po 4 dnech auta = relax večer
-- teamLab = pokud energie, jinak jen Tokyo chill
+- Po 4 dnech auta = relax večer OK
 
 ---
 
@@ -1984,7 +1985,7 @@
 | # | Datum | Místo | Dny | Status | Poznámka |
 |---|-------|-------|-----|--------|----------|
 | 1 | 12-15.10. | Kumamoto | 4 | Bookováno | Budget/TRIP |
-| 2 | 26-29.10. | Mishima | 4 | **NEBOOKOVÁNO!** | Zařídit! |
+| 2 | 26-29.10. | Mishima | 4 | ✅ Bookováno | J-net 12:00↔12:00, vč. ETC karty |
 | 3 | 4.11. | Miyakojima | 1 | Bookováno? | SOU Company |
 | 4 | 5-6.11. | Okinawa | 2 | Bookováno | Gyokoseki |
 
@@ -2018,8 +2019,10 @@
 - [x] teamLab Biovortex Kyoto (1.10.) ✅ vstup 10:30-11:00
 - [ ] Takachiho Yokagura (14.10., 20:00)
 - [ ] Multi-day bike Onomichi → Imabari (6-7.10.)
-- [ ] Auto Mishima (26-29.10.) **NEBOOKOVÁNO!**
-- [ ] Ubytování 26-29.10. **NEBOOKOVÁNO!**
+- [x] Auto Mishima (26-29.10.) ✅ J-net 12:00↔12:00, vč. ETC karty
+- [x] Ubytování 26-28.10. ✅ Cetus Royal / Kuretake Inn Premium / Isawa View
+- [ ] J-net Mishima online pre check-in (heslo v mailu, folder letenky)
+- [ ] **ZRUŠIT rezervaci Hachijojima (Noboryuso) do 20.10.!**
 - [ ] Ubytování 29.10. Tokyo **NEBOOKOVÁNO!**
 - [ ] Kontaktovat Riho (pro 17.10.?)
 
@@ -2077,14 +2080,16 @@
 
 ## 4.3 Booking rizika
 
-**⚠️ KRITICKÉ - NEBOOKOVÁNO:**
-1. Auto Mishima 26-29.10.
-2. Ubytování 26.10. (Higashi-Izu)
-3. Ubytování 27.10. (Fujinomiya)
-4. Ubytování 28.10. (Kofu/Yamanashi)
-5. Ubytování 29.10. (Tokyo)
+**✅ VYŘEŠENO (Izu road trip booknut):**
+1. Auto Mishima 26-29.10. ✅ J-net 12:00↔12:00 (vč. ETC karty)
+2. Ubytování 26.10. ✅ Hotel Cetus Royal (Higashi-Izu, Agoda, snídaně)
+3. Ubytování 27.10. ✅ Kuretake Inn Premium Fujinomiya (Trip, snídaně)
+4. Ubytování 28.10. ✅ Isawa View Hotel (Isawa Onsen, Trip)
 
-**AKCE:** Zařídit ASAP, říjen = high season pro Fuji area.
+**⚠️ ZBÝVÁ:**
+- Ubytování 29.10. (Tokyo) - **NEBOOKOVÁNO**, dořeší se
+- **Zrušit rezervaci Hachijojima (Noboryuso) do 20.10.** (Izu varianta zvolena)
+- J-net Mishima online pre check-in (heslo v mailu, folder letenky)
 
 ---
 
@@ -2116,9 +2121,9 @@ Největší blok - 15 dní. Trajekt do Beppu, relaxační onsen den, Yufuin, pak
 **Key moments:** Ferry Beppu (8.10.), Auto start (12.10.), Yokagura (14.10.), Auto deadline (15.10.), Kufr odeslat (16.10.), Nagasaki (18-19.10.)
 
 ## Fáze 6: TOKYO + IZU (Den 36-45)
-Let do Tokya, setkání s přáteli (Wahei, Ryuki, Minoru, Shogo). Pak 4denní IZU/FUJI road trip - Omuro, Jogasaki, World Heritage Centre (Ban!), Hottarakashi onsen. Zpět do Tokya pro Halloween party.
+Let do Tokya, setkání s přáteli (Wahei, Ryuki, Minoru, Shogo). Pak 4denní IZU/FUJI road trip (J-net auto) - Mt. Omuro, Jogasaki, jižní/západní Izu (Shimoda, Irozaki, Dogashima), Motosuko Fuji viewpoint, Hottarakashi onsen. Zpět přes Takanawa Gateway City + MoN muzeum do Tokya pro Halloween party.
 
-**Key moments:** Auto NEBOOKOVÁNO!, Hottarakashi (28.10.), Halloween (31.10.)
+**Key moments:** Auto ✅ J-net (26-29.10.), Hottarakashi (28.10.), Takanawa/MoN (29.10.), Halloween (31.10.)
 
 ## Fáze 7: OKINAWA (Den 46-52)
 Tropický závěr. Miyakojima (3 dny, z toho 2 HO), pak hlavní Okinawa. Jižní tip, peace memorials, Sefa Utaki. Naha pro závěr. Odlet přes Taipei.

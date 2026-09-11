@@ -783,80 +783,77 @@
 ---
 
 ## DEN 39 | Pondeli 26.10.2026
-### TOKYO - IZU (AUTO START)
+### TOKYO - MISHIMA - HIGASHI-IZU (AUTO START)
 
 **ZMENA CASU EU!**
 
 **Program:**
-- Rano: Shinkansen Tokyo - Mishima
-- Vyzvednuti auta v Mishima
+- 10:00 odjezd ze Shinjuku Station
+- Shinkansen Shinjuku - Mishima
+- 12:00 vyzvednuti auta J-net Mishima (vc. ETC karty)
 - **Mt. Omuro** (chairlift, krater) ~1-1.5h
 - **Jogasaki Coast**
   - Kadowaki Suspension Bridge
   - Pobrezni cesta, utesy
-- Pozdni odpoledne: Hokkawa / Higashi-Izu
+- Pozdni odpoledne: Higashi-Izu
 - Vecer: **Hokkawa Onsen**
 
-**Ubytovani:** Higashi-Izu / Hokkawa / Izukogen (NEBOOKOVÁNO)
+**Ubytovani:** Hotel Cetus Royal - Higashi-Izu (Agoda, snidane, cancel do 22.10.)
 
 ---
 
 ## DEN 40 | Utery 27.10.2026
-### HIGASHI-IZU - KAWAZU - FUJINOMIYA
+### HIGASHI-IZU - JIZNI A ZAPADNI IZU - FUJINOMIYA
 
 **Program:**
-- Rano odjezd
-- Higashi-Izu - Kawazu (~30-45 min)
-- **Kawazu Nanadaru Loop Bridge** (technicka infrastruktura)
-- Kratka cast Kawazu Seven Waterfalls (optional)
-- Obed
-- **Mt. Fuji World Heritage Centre** (Shigeru Ban!) ~1.5-2h
-- Vecere ve Fujinomiya
+- Rano odjezd z Higashi-Izu
+- **Shimoda** - Perry Road / historicke centrum, obed
+- **Irozaki** - nejjiznejsi cast Izu
+- Zapadni pobrezi: **Matsuzaki**, **Koganezaki**, **Dogashima**
+- Podle casu a pocasi vybrat 2-3 hlavni zastavky
+- Presun do Fujinomiya, vecere
 
-**Ubytovani:** Fujinomiya (NEBOOKOVÁNO)
+**Ubytovani:** Kuretake Inn Premium Fujinomiya (Trip, snidane, cancel do 26.10.)
 
-**Poznamka:** 27.10. je logisticky nejnarocnejsi den
+**Poznamka:** 27.10. je nejdelsi a logisticky nejnarocnejsi den roadtripu
 
 ---
 
 ## DEN 41 | Streda 28.10.2026
-### FUJINOMIYA - YAMANASHI - HOTTARAKASHI
+### FUJINOMIYA - MOTOSUKO - YAMANASHI - HOTTARAKASHI - ISAWA
 
 **Varianta A (dobre pocasi):**
-- Rano: Fuji morning
-- Lake Motosu nebo Fuji Five Lakes area
-- Fotograficke viewpointy
+- Rano odjezd z Fujinomiya
+- **Lake Motosu (Motosuko)** - Fuji viewpoint (1000 yen bankovka)
+- Dalsi fotograficke viewpointy
 
 **Varianta B (spatne pocasi):**
 - Pomalejsi presun Yamanashi
 - Vino / gastronomie
 
 **Odpoledne:**
-- Presun do oblasti Kofu/Yamanashi
-- 16:00-17:00 Prijezd
+- Presun k **Hottarakashi Onsen**
 - **Hottarakashi Onsen**
-  - Vyhled na Kofu Basin
-  - Pripadne Fuji
-  - Zapad slunce
-  - Nocni panorama
+  - Vyhled na Kofu Basin, pripadne Fuji
+  - Zapad slunce, nocni panorama
+- Po onsen presun do Isawa
 
-**Ubytovani:** Kofu / Yamanashi (NEBOOKOVÁNO)
+**Ubytovani:** Isawa View Hotel - Isawa Onsen (Trip, cancel do 24.10.)
 
 ---
 
 ## DEN 42 | Ctvrtek 29.10.2026
-### YAMANASHI - MISHIMA - TOKYO (AUTO KONEC)
+### ISAWA - MISHIMA - TAKANAWA - TOKYO (AUTO KONEC)
 
 **Program:**
 - Klidna snidane
-- Pripadne jeste kratky bod v Yamanashi
 - Yamanashi - Mishima
-- Vraceni auta (velka casova rezerva!)
-- Mishima - Tokyo Shinkansenem
+- 12:00 vraceni auta J-net Mishima (velka casova rezerva!)
+- Mishima - Tokyo Shinkansenem (Shinagawa)
+- **Takanawa Gateway City** + **MoN muzeum** (Museum of Narratives, Kengo Kuma)
 - Check-in v Tokiu
-- teamLab Borderless? (optional)
 
-**Ubytovani:** Tokyo (NEBOOKOVÁNO na tuto noc)
+**Ubytovani:** Tokyo (NEBOOKOVÁNO na tuto noc - doresi se)
 
 ---
 
@@ -1037,8 +1034,9 @@
 - [ ] Overit bus Shimabara - Unzen a Unzen - Obama
 
 ### Ubytovani
-- [ ] Zarezervovat ubytovani 26.-29.10. (Izu/Fuji road trip)
+- [x] Ubytovani 26.-28.10. ✅ Cetus Royal / Kuretake Inn Premium / Isawa View
 - [ ] Zarezervovat ubytovani 29.10. (Tokyo po road tripu)
+- [ ] Zrusit rezervaci Hachijojima (Noboryuso) do 20.10.
 
 ### Aktivity
 - [ ] Koupit vstupenky teamLab Biovortex Kyoto (1.10.)
@@ -1076,7 +1074,7 @@
 
 ### Auto/Rental
 - [ ] Auto Budget Kumamoto (12.-15.10.)
-- [ ] Auto Mishima (26.-29.10.)
+- [x] Auto Mishima (26.-29.10.) ✅ J-net 12:00↔12:00, vc. ETC karty (+ online pre check-in)
 - [ ] Auto Miyakojima (4.11.)
 - [ ] Auto Okinawa (5.-6.11.)
 
@@ -1118,7 +1116,9 @@
 | 20.10. | Ureshino | Kotobukiya | Agoda | 37 EUR | Paid |
 | 21.-22.10. | Fukuoka | Hotel CASVI Tenjin | Revolut | 57 EUR/noc | Paid |
 | 23.-25.10. | Tokyo | Hotel Sunlite Shinjuku | Hotel Web | 65 EUR/noc | Platba na miste |
-| 26.-28.10. | Izu/Fuji | TBD | - | - | NEBOOKOVANO |
+| 26.10. | Higashi-Izu | Hotel Cetus Royal | Agoda | 66 EUR | Paid, snidane, zrusit do 22.10. |
+| 27.10. | Fujinomiya | Kuretake Inn Premium Fujinomiya | Trip. | 41 EUR | Snidane, zrusit do 26.10. |
+| 28.10. | Isawa | Isawa View Hotel | Trip. | 41 EUR | Paid, zrusit do 24.10. |
 | 29.10. | Tokyo | TBD | - | - | NEBOOKOVANO |
 | 30.10.-1.11. | Tokyo | Hotel Sunlite Shinjuku | Hotel Web | 65 EUR/noc | Platba na miste |
 | 2.-3.11. | Miyakojima | Hotel Locus | Trip. | 68 EUR/noc | Zrusit do 22.10. |
@@ -1148,7 +1148,7 @@
 | Datum | Misto | Provider | Poznamka |
 |-------|-------|----------|----------|
 | 12.-15.10. | Kumamoto | Budget (TRIP.com) | 09:30 vyzvednu, 18:00 vraceni |
-| 26.-29.10. | Mishima | TBD | NEBOOKOVANO |
+| 26.-29.10. | Mishima | J-net Rentacar | ✅ Booked, 12:00↔12:00, vc. ETC karty |
 | 4.11. | Miyakojima | SOU Company | 9:00-18:30 |
 | 5.-6.11. | Okinawa | Gyokoseki | 13:00-13:00 |
 
@@ -1215,7 +1215,7 @@
 | teamLab Biovortex Kyoto | Umeni | A |
 | KYOCERA Museum of Art Kyoto | Architektura | A |
 | Kosanji + Hill of Hope | Umeni/Architektura | A |
-| Mt. Fuji World Heritage Centre | Shigeru Ban | A |
+| MoN Takanawa (Museum of Narratives) | Kengo Kuma | A |
 | ACROS Fukuoka | Architektura | A |
 | Kirosan Observatory | Kengo Kuma | A+ (optional) |
 | Takeo City Library | Moderni architektura | B |
