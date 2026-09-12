@@ -288,9 +288,10 @@
 - [ ] Offline mapy stažené
 - [ ] Hotel konfirmace v mobilu
 - [ ] Emergency kontakty
-- [ ] **Online immigration příprava (Visit Japan Web)** - několik dní předem!
+- [x] **Online immigration příprava (Visit Japan Web)** ✅ hotovo
 - [ ] **Aktivovat roaming balíček**
-- [ ] **Aktivovat a nabít mobilní Suica**
+- [x] **Aktivovat a nabít mobilní Suica** ✅ hotovo
+- [ ] **Koupit Shinkansen jízdenky** Tokyo→Mishima (26.10.) a Mishima 11:58→Shinagawa (29.10.)
 - [ ] **Kontaktovat Riho** (pro 17.10.?)
 
 ---
@@ -1459,7 +1460,7 @@
 - ✈️ **Dopravce: ANA**
 - Fukuoka Airport = super blízko centru (subway)
 - Haneda → Shinjuku: Keikyu + transfer nebo Limousine bus
-- Po příletu: Kontakt s Ryuki (napsat 1-2 týdny předem = teď!)
+- Ryuki = kontaktovat kolem 10.10. (mělo by být hotové)
 
 **Praktické:**
 - Hotel: QR code check-in
@@ -1514,7 +1515,7 @@
 - Kasai Rinkai = vodní park, aquarium, chill
 - Nebo: Yanaka, Shimokitazawa, Koenji - retro/hipster Tokyo
 - Nebo: Day trip? Kamakura, Nikko, Kawagoe?
-- Nebo: Takanawa Gateway City, Tsukishima, Tokyo Station area (viz náměty den 37)
+- Takanawa/Tsukishima jsou nově pevně na dnech 42-43 - sem volit něco jiného
 
 **Příprava na road trip (zítra):**
 - [ ] J-net Mishima - online pre check-in (heslo v mailu, folder letenky)
@@ -1625,52 +1626,59 @@
 ---
 
 ### DEN 42 | Čtvrtek 29.10.2026
-## ISAWA → MISHIMA → TAKANAWA → TOKYO (AUTO KONEC)
+## ISAWA → MISHIMA → SHIMBASHI → TSUKISHIMA (AUTO KONEC)
 
 **Program:**
 - Klidná snídaně
-- Yamanashi → Mishima
-- **12:00** vrácení auta J-net Mishima (velká časová rezerva!)
-- Mishima → Tokyo Shinkansenem (Shinagawa)
-- **Takanawa Gateway City** + **MoN muzeum** (Museum of Narratives)
-- Check-in v Tokiu
+- Yamanashi → Mishima (tankovat předem!)
+- **~11:30** vrácení auta J-net Mishima (o půl hodiny dříve kvůli vlaku)
+- **11:58** Shinkansen Mishima → Shinagawa → Shimbashi
+- ~13:00-14:00 check-in / odložení zavazadel
+- **14:30 setkání s Kousuke** na Shimbashi Station
+- **Togoshi Ginza** - klidná procházka shotengai, lokální obchody, street food
+- OPTIONAL: Caretta Shiodome Sky View / Ebisu-Daikanyama
+- **~17:30 MONJAYAKI** - Tsukishima Monja Street
+- OPTIONAL: Shimbashi Gado-shita - pivo pod železničním viaduktem
 
-**Noc:** Tokyo (⚠️ NEBOOKOVÁNO na tuto noc - dořeší se!)
+**Noc:** Anshin Oyado Men Ginza (46 EUR, ✅ zaplaceno, Booking, storno do 27.10.)
 
 **Poznámky pro tento den:**
-- Vrácení auta = mít buffer, tankovat předem
-- Takanawa City ideálně při návratu z Mishima do Tokia
-- MoN Takanawa = Kengo Kuma, otevřeno 2026, přímo v Takanawa Gateway City
-
-**⚠️ NUTNO ZAŘÍDIT:**
-- [ ] Ubytování 29.10. Tokyo
+- Vrácení auta o 30 min dříve = stíhá se 11:58 vlak (early return bez postihu)
+- Togoshi Ginza = malé lokální snacky, ne plné jídlo - šetřit chuť na monjayaki
+- Gado-shita záměrně flexibilní - izakaya/bar vybrat spontánně
 
 **Praktické:**
 - Po 4 dnech auta = relax večer OK
+- Hotel ~200 m od Shimbashi Station
 
 ---
 
 ### DEN 43 | Pátek 30.10.2026
-## TOKYO
+## MINATO CYKLO → TAKANAWA → SHINJUKU
 
 **Program:**
-- Večer: Party (Minoru, Sata-san, případně u Marka v baru Nekorob)
-- Contact: edobicycleart
+- Checkout z Anshin Oyado, vyzvednout sdílené kolo
+- **Minato cyklo:** Shimbashi → Hamarikyu Gardens → Takeshiba → Shibaura → Shiba Park / Zojo-ji → Takanawa
+- Odstavit kolo u Takanawa Gateway
+- **Takanawa Gateway City** - nová čtvrť, architektura, Gateway Park
+- NEWoMan Takanawa + oběd
+- **MoN Takanawa** (Museum of Narratives)
+- OPTIONAL: Sengaku-ji
+- ~14:30-15:00 odjezd z Takanawa → Shinjuku
+- ~16:00 check-in Hotel Sunlite Shinjuku
+- Večer: nomikai (Minoru, Sata-san) / případně bar Nekorob
 
 **Noc:** Hotel Sunlite Shinjuku
 
 **Poznámky pro tento den:**
+- **Hlavní priorita: Takanawa Gateway City + MoN**
+- MoN Takanawa = Kengo Kuma, otevřeno 2026, přímo v Takanawa Gateway City
+- Cyklo záměrně kompaktní - žádný časový tlak před 16:00 v Shinjuku
 - Den před Halloween
 - Minoru/Sata-san = kontaktovat předem
-- Bar Nekorob = Markův bar?
-
-**Denní program - náměty:**
-- Takanawa Gateway City (nová čtvrť)
-- Tsukishima monjayaki (večer před party?)
-- Tokyo Station area - uložená místa z Google Maps
+- Bar Nekorob = Markův bar? Contact: edobicycleart
 
 **Praktické:**
-- Denní program flexibilní
 - Možná příprava na Halloween?
 - Costumes v Tokyo = Donki nebo Village Vanguard
 
@@ -1705,16 +1713,21 @@
 ## TOKYO
 
 **Program:**
-- Deeper dive, klidně okrajové části Tokya
-- Togoshi Ginza street
+- Pozdní start (Halloween skončil nad ránem)
+- **~12:00 Koenji** - vintage / second-hand obchody, kavárny, Koenji Hikawa Shrine
+- ~15:00 jedna zastávka Chuo linkou → **Nakano**
+- **Nakano Broadway** - Mandarake, Gorillaz figurky pro Edíka
+- OPTIONAL místo Koenji: Shimokitazawa (vintage) nebo Kichijoji + Inokashira Park (rozhodnout ráno)
 - **Nomikai v Nakano** (večer)
 - Ryuki?
 
 **Noc:** Hotel Sunlite Shinjuku
 
 **Poznámky pro tento den:**
-- Togoshi Ginza = nejdelší shotengai v Tokyo
-- Nakano = Broadway (otaku), lokální vibe
+- Lehký den záměrně - po Halloweenu a před brzkým letem
+- Koenji = lokální vibe, vše pár minut od hotelu na Chuo lince
+- Nakano Broadway = sídlo Mandarake, na figurky lepší než Akihabara
+- Podzimní barvy v Tokiu přicházejí až v polovině listopadu - 1.11. ještě ne
 - Nomikai = pití s přáteli
 
 **Příprava na zítřek:**
@@ -2005,8 +2018,9 @@
 | Keigo | do 19.9. | 26.9. | - |
 | Takashi | ✅ | 29.9. | CONFIRMED |
 | Riho | před cestou | 17.10.? | - |
-| Wahei | do 24.9. | 24.10. | - |
-| Ryuki | 9-16.10. | 23.10. | - |
+| Wahei | do 24.9. | 25.10. | ✅ CONFIRMED |
+| Kousuke | před cestou | 29.10. 14:30 | ✅ CONFIRMED |
+| Ryuki | kolem 10.10. | 23.10. | - |
 | Minoru | do 23.10. | 30.10. | - |
 | Shogo | do 17.10. | 24.10. | - |
 
@@ -2023,13 +2037,14 @@
 - [x] Ubytování 26-28.10. ✅ Cetus Royal / Kuretake Inn Premium / Isawa View
 - [ ] J-net Mishima online pre check-in (heslo v mailu, folder letenky)
 - [ ] **ZRUŠIT rezervaci Hachijojima (Noboryuso) do 20.10.!**
-- [ ] Ubytování 29.10. Tokyo **NEBOOKOVÁNO!**
+- [x] Ubytování 29.10. ✅ Anshin Oyado Men Ginza (46 EUR, Booking, zaplaceno, storno do 27.10.)
 - [ ] Kontaktovat Riho (pro 17.10.?)
 
 ### PŘED ODLETEM (do 17.9.):
-- [ ] Online immigration příprava (Visit Japan Web) - několik dní předem
+- [x] Online immigration příprava (Visit Japan Web) ✅ hotovo
 - [ ] Aktivovat roaming balíček
-- [ ] Aktivovat a nabít mobilní Suica
+- [x] Aktivovat a nabít mobilní Suica ✅ hotovo
+- [ ] Koupit Shinkansen jízdenky Tokyo→Mishima (26.10.) + Mishima 11:58→Shinagawa (29.10.)
 - [ ] 22.9.: Aktivovat pojištění auta Kumamoto (Budget/TRIP)
 
 ### DOPORUČENO PŘEDEM:
@@ -2087,7 +2102,6 @@
 4. Ubytování 28.10. ✅ Isawa View Hotel (Isawa Onsen, Trip)
 
 **⚠️ ZBÝVÁ:**
-- Ubytování 29.10. (Tokyo) - **NEBOOKOVÁNO**, dořeší se
 - **Zrušit rezervaci Hachijojima (Noboryuso) do 20.10.** (Izu varianta zvolena)
 - J-net Mishima online pre check-in (heslo v mailu, folder letenky)
 
@@ -2121,9 +2135,9 @@ Největší blok - 15 dní. Trajekt do Beppu, relaxační onsen den, Yufuin, pak
 **Key moments:** Ferry Beppu (8.10.), Auto start (12.10.), Yokagura (14.10.), Auto deadline (15.10.), Kufr odeslat (16.10.), Nagasaki (18-19.10.)
 
 ## Fáze 6: TOKYO + IZU (Den 36-45)
-Let do Tokya, setkání s přáteli (Wahei, Ryuki, Minoru, Shogo). Pak 4denní IZU/FUJI road trip (J-net auto) - Mt. Omuro, Jogasaki, jižní/západní Izu (Shimoda, Irozaki, Dogashima), Motosuko Fuji viewpoint, Hottarakashi onsen. Zpět přes Takanawa Gateway City + MoN muzeum do Tokya pro Halloween party.
+Let do Tokya, setkání s přáteli (Wahei, Ryuki, Minoru, Shogo). Pak 4denní IZU/FUJI road trip (J-net auto) - Mt. Omuro, Jogasaki, jižní/západní Izu (Shimoda, Irozaki, Dogashima), Motosuko Fuji viewpoint, Hottarakashi onsen. Zpět do Tokya (Togoshi Ginza, Tsukishima monjayaki), Minato cyklo + Takanawa Gateway City / MoN muzeum, Halloween party.
 
-**Key moments:** Auto ✅ J-net (26-29.10.), Hottarakashi (28.10.), Takanawa/MoN (29.10.), Halloween (31.10.)
+**Key moments:** Auto ✅ J-net (26-29.10.), Hottarakashi (28.10.), Kousuke + monjayaki (29.10.), Takanawa/MoN (30.10.), Halloween (31.10.)
 
 ## Fáze 7: OKINAWA (Den 46-52)
 Tropický závěr. Miyakojima (3 dny, z toho 2 HO), pak hlavní Okinawa. Jižní tip, peace memorials, Sefa Utaki. Naha pro závěr. Odlet přes Taipei.

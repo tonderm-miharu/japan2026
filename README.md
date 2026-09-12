@@ -77,7 +77,7 @@
 - Color-coded: green (weekday), gray (weekend), with HO indicator
 - Weather icon with temperature
 - Expandable details with timeline and POI
-- Google Maps links for 189 POI (opens app directly on mobile)
+- Google Maps links for 231 POI (opens app directly on mobile)
 - Tag icons (HO, car, bike, onsen, meet, flight, fest) - enlarged 22px, bright gray (#d1d5db)
 - Automatic daily tasks (luggage, car, check-in)
 - Mobile: compact header with date box aligned to title top edge
@@ -118,7 +118,8 @@
 - [x] Accommodation Oct 26-28 ✅ BOOKED (Cetus Royal / Kuretake Inn Premium / Isawa View)
 - [ ] **Cancel Hachijojima booking (Noboryuso) by Oct 20** – Izu plan chosen
 - [ ] J-net Mishima online pre check-in (password in mail, flight ticket folder)
-- [ ] Hotel Tokyo Oct 29 (after Izu road trip)
+- [ ] Buy shinkansen tickets Tokyo→Mishima (Oct 26) + Mishima 11:58→Shinagawa (Oct 29)
+- [x] Hotel Tokyo Oct 29 ✅ BOOKED Anshin Oyado Men Ginza (46 EUR, Booking, paid, cancel by Oct 27)
 - [x] Express bus Yufuin-Kumamoto ✅ BOOKED (KOSOKUBUS #1020648778, 13:50→18:03)
 - [ ] Send luggage Fukuyama→Matsuyama (Oct 6)
 - [ ] Send luggage Kumamoto→Nagasaki (Oct 16)
@@ -128,7 +129,8 @@
 - [x] Riho - ✅ CONFIRMED Oct 17 guide
 - [x] Takashi - ✅ CONFIRMED Sep 29
 - [x] Wahei - ✅ CONFIRMED Oct 25 lunch
-- [ ] Ryuki - 1-2 weeks before Oct 23
+- [x] Kousuke - ✅ CONFIRMED Oct 29, 14:30 Shimbashi Station
+- [ ] Ryuki - contact around Oct 10
 - [ ] Ippei - min. 1 week before Oct 23
 
 ## Adjusted Master Plan
@@ -140,7 +142,7 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 - **Light travel essentials** - what to pack when luggage is shipped ahead
 - **Ticket buying strategy** - when to buy to avoid rush hour queues
 - **Tight schedule analysis** - risk assessment and mitigation for critical days
-- **Pre-departure tasks** - Visit Japan Web, roaming, Suica, contacts
+- **Pre-departure tasks** - roaming, shinkansen tickets, contacts
 - **Day-by-day notes** - practical tips, alternatives, weather backups
 - **Carrier info** - ANA/JAL for domestic flights, hotel check-in codes
 
@@ -149,7 +151,7 @@ Enhanced planning document (`ADJUSTED_MASTER_PLAN.md`) includes:
 - Single-page HTML with inline CSS and JS
 - Fonts: Inter, DSEG7, Electrolize, Oxanium, Orbitron
 - Data stored directly in JS (DAYS, TASKS, HOTEL_INFO, POI_URLS, DAY_NOTES, etc.)
-- POI_URLS: 189 verified Google Maps search links
+- POI_URLS: 231 verified Google Maps links
 - DAY_NOTES: Complete notes for all 53 days
 - Task state in localStorage
 - Responsive design (mobile / desktop)

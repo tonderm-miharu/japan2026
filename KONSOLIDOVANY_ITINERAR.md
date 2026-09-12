@@ -747,7 +747,7 @@
 - **12:25-14:10 Let FUK - HND**
 
 **Tokyo:**
-- Spojit se s Ryuki (1-2 tydny predem)
+- Spojit se s Ryuki (kolem 10.10.)
 
 **Hotel:** Hotel Sunlite Shinjuku
 - Provider: Hotel Web
@@ -843,25 +843,39 @@
 ---
 
 ## DEN 42 | Ctvrtek 29.10.2026
-### ISAWA - MISHIMA - TAKANAWA - TOKYO (AUTO KONEC)
+### ISAWA - MISHIMA - SHIMBASHI - TSUKISHIMA (AUTO KONEC)
 
 **Program:**
 - Klidna snidane
-- Yamanashi - Mishima
-- 12:00 vraceni auta J-net Mishima (velka casova rezerva!)
-- Mishima - Tokyo Shinkansenem (Shinagawa)
-- **Takanawa Gateway City** + **MoN muzeum** (Museum of Narratives, Kengo Kuma)
-- Check-in v Tokiu
+- Yamanashi - Mishima (tankovat predem)
+- ~11:30 vraceni auta J-net Mishima (o pul hodiny driv kvuli vlaku)
+- 11:58 Shinkansen Mishima - Shinagawa - Shimbashi
+- ~13:00-14:00 check-in / odlozeni zavazadel
+- **14:30 setkani s Kousuke** na Shimbashi Station
+- **Togoshi Ginza** - shotengai, lokalni obchody, street food
+- OPTIONAL: Caretta Shiodome Sky View / Ebisu-Daikanyama
+- **~17:30 MONJAYAKI** - Tsukishima Monja Street
+- OPTIONAL: Shimbashi Gado-shita - bary pod zeleznicnim viaduktem
 
-**Ubytovani:** Tokyo (NEBOOKOVÁNO na tuto noc - doresi se)
+**Hotel:** Anshin Oyado Men Ginza
+- Provider: Booking
+- Zaplaceno
+- Zrusit do: 27.10.
+- Cena: 46 EUR
 
 ---
 
 ## DEN 43 | Patek 30.10.2026
-### TOKYO
+### MINATO CYKLO - TAKANAWA - SHINJUKU
 
 **Program:**
-- Vecer: Party (Minoru, Sata-san, pripadne u Marka v baru Nekorob)
+- Checkout, vyzvednout sdilene kolo
+- Minato cyklo: Shimbashi - Hamarikyu - Takeshiba - Shibaura - Zojo-ji - Takanawa
+- **Takanawa Gateway City** + Gateway Park + NEWoMan Takanawa (obed)
+- **MoN muzeum** (Museum of Narratives, Kengo Kuma)
+- OPTIONAL: Sengaku-ji
+- ~14:30-15:00 odjezd na Shinjuku, ~16:00 check-in
+- Vecer: nomikai (Minoru, Sata-san, pripadne u Marka v baru Nekorob)
 - Contact: edobicycleart
 
 **Hotel:** Hotel Sunlite Shinjuku
@@ -884,13 +898,17 @@
 ---
 
 ## DEN 45 | Nedele 1.11.2026
-### TOKYO
+### KOENJI - NAKANO
 
 **Program:**
-- Deeper dive, klidne okrajove casti Tokya
-- Togoshi Ginza street
+- Pozdni start (po Halloweenu)
+- ~12:00 **Koenji** - vintage obchody, kavarny, Koenji Hikawa Shrine
+- ~15:00 jedna zastavka Chuo linkou - **Nakano**
+- **Nakano Broadway** - Mandarake, Gorillaz figurky pro Edika
+- OPTIONAL misto Koenji: Shimokitazawa nebo Kichijoji + Inokashira Park
 - **Nomikai v Nakano** (vecer)
 - Ryuki?
+- Vecer sbalit - zitra let 08:20, budik 05:30
 
 **Hotel:** Hotel Sunlite Shinjuku (65 EUR)
 
@@ -1035,7 +1053,7 @@
 
 ### Ubytovani
 - [x] Ubytovani 26.-28.10. ✅ Cetus Royal / Kuretake Inn Premium / Isawa View
-- [ ] Zarezervovat ubytovani 29.10. (Tokyo po road tripu)
+- [x] Ubytovani 29.10. ✅ Anshin Oyado Men Ginza (46 EUR, Booking, zaplaceno)
 - [ ] Zrusit rezervaci Hachijojima (Noboryuso) do 20.10.
 
 ### Aktivity
@@ -1055,7 +1073,7 @@
 - [x] Takashi ✅ CONFIRMED (29.9.)
 - [ ] Napsat Wahei (min. mesic pred 24.10.)
 - [ ] Napsat Minoru-san
-- [ ] Napsat Ryuki (1-2 tydny pred 23.10.)
+- [ ] Napsat Ryuki (kolem 10.10.)
 
 ## STREDNI PRIORITA
 
@@ -1119,7 +1137,7 @@
 | 26.10. | Higashi-Izu | Hotel Cetus Royal | Agoda | 66 EUR | Paid, snidane, zrusit do 22.10. |
 | 27.10. | Fujinomiya | Kuretake Inn Premium Fujinomiya | Trip. | 41 EUR | Snidane, zrusit do 26.10. |
 | 28.10. | Isawa | Isawa View Hotel | Trip. | 41 EUR | Paid, zrusit do 24.10. |
-| 29.10. | Tokyo | TBD | - | - | NEBOOKOVANO |
+| 29.10. | Tokyo | Anshin Oyado Men Ginza | Booking | 46 EUR | Zaplaceno, zrusit do 27.10. |
 | 30.10.-1.11. | Tokyo | Hotel Sunlite Shinjuku | Hotel Web | 65 EUR/noc | Platba na miste |
 | 2.-3.11. | Miyakojima | Hotel Locus | Trip. | 68 EUR/noc | Zrusit do 22.10. |
 | 4.11. | Miyakojima | Smile Hotel Miyakojima | Agoda | 36 EUR | Zrusit do 3.11. |
@@ -1186,8 +1204,9 @@
 | 29.9. | Takashi | Cely den | ✅ CONFIRMED |
 | 24.10. | Wahei | Mozna dopoledne, napsat min. mesic predem |
 | 24.-25.10. | Shogo, Minoru | Vecer |
-| 23.10. | Ryuki | Tokyo, 1-2 tydny predem |
-| 30.10. | Minoru, Sata-san | Party, pripadne bar Nekorob |
+| 23.10. | Ryuki | Tokyo, kontaktovat kolem 10.10. |
+| 29.10. | Kousuke | 14:30 Shimbashi Station, Togoshi Ginza + monjayaki (CONFIRMED) |
+| 30.10. | Minoru, Sata-san | Nomikai, pripadne bar Nekorob |
 | 1.11. | Nomikai Nakano | Vecer |
 
 ---
