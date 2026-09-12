@@ -1640,7 +1640,7 @@
 - **~17:30 MONJAYAKI** - Tsukishima Monja Street
 - OPTIONAL: Shimbashi Gado-shita - pivo pod železničním viaduktem
 
-**Noc:** Anshin Oyado Men Ginza (46 EUR, ✅ zaplaceno, Booking, storno do 27.10.)
+**Noc:** Anshin Oyado Tokyo Man Shimbashi (46 EUR, ✅ zaplaceno, Booking, storno do 27.10.)
 
 **Poznámky pro tento den:**
 - Vrácení auta o 30 min dříve = stíhá se 11:58 vlak (early return bez postihu)
@@ -2036,8 +2036,8 @@
 - [x] Auto Mishima (26-29.10.) ✅ J-net 12:00↔12:00, vč. ETC karty
 - [x] Ubytování 26-28.10. ✅ Cetus Royal / Kuretake Inn Premium / Isawa View
 - [ ] J-net Mishima online pre check-in (heslo v mailu, folder letenky)
-- [ ] **ZRUŠIT rezervaci Hachijojima (Noboryuso) do 20.10.!**
-- [x] Ubytování 29.10. ✅ Anshin Oyado Men Ginza (46 EUR, Booking, zaplaceno, storno do 27.10.)
+- [x] Zrušena rezervace Hachijojima (Noboryuso) ✅ hotovo
+- [x] Ubytování 29.10. ✅ Anshin Oyado Tokyo Man Shimbashi (46 EUR, Booking, zaplaceno, storno do 27.10.)
 - [ ] Kontaktovat Riho (pro 17.10.?)
 
 ### PŘED ODLETEM (do 17.9.):
@@ -2102,8 +2102,8 @@
 4. Ubytování 28.10. ✅ Isawa View Hotel (Isawa Onsen, Trip)
 
 **⚠️ ZBÝVÁ:**
-- **Zrušit rezervaci Hachijojima (Noboryuso) do 20.10.** (Izu varianta zvolena)
 - J-net Mishima online pre check-in (heslo v mailu, folder letenky)
+- Koupit Shinkansen jízdenky Tokyo→Mishima (26.10.) + Mishima 11:58→Shinagawa (29.10.)
 
 ---
 

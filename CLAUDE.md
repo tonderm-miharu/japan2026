@@ -72,13 +72,13 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 
 ## Oct 26-29: Izu Road Trip (FINAL)
 
-**Status:** Izu Peninsula road trip is confirmed. The Hachijojima/Aogashima alternative was abandoned (no heli booking). Only remaining to-do: cancel the Hachijojima hotel (Noboryuso) by Oct 20.
+**Status:** Izu Peninsula road trip is confirmed and fully booked. The Hachijojima/Aogashima alternative was abandoned (no heli booking) and its hotel has been cancelled.
 
 **Day structure (days 39-43):**
 - Day 39 (26.10.): Tokyo → Mishima → Higashi-Izu. Shinkansen, J-net car pickup 12:00, Mt. Omuro, Jogasaki. Hotel Cetus Royal.
 - Day 40 (27.10.): South & West Izu → Fujinomiya. Shimoda, Irozaki, Dogashima. Kuretake Inn Premium. Longest driving day.
 - Day 41 (28.10.): Fujinomiya → Motosuko → Hottarakashi → Isawa. Lake Motosu (1000¥ view), sunset onsen. Isawa View Hotel.
-- Day 42 (29.10.): Isawa → Mishima (return car ~11:30, early, for the 11:58 shinkansen) → Shimbashi. Kousuke 14:30, Togoshi Ginza, Tsukishima monjayaki. Anshin Oyado Men Ginza.
+- Day 42 (29.10.): Isawa → Mishima (return car ~11:30, early, for the 11:58 shinkansen) → Shimbashi. Kousuke 14:30, Togoshi Ginza, Tsukishima monjayaki. Anshin Oyado Tokyo Man Shimbashi.
 - Day 43 (30.10.): Minato cycling (Hamarikyu → Takeshiba → Shibaura → Zojo-ji) → Takanawa Gateway City + MoN museum → Shinjuku. Hotel Sunlite Shinjuku.
 
 **Car:** J-net Rentacar Mishima Station South Exit, 26-29.10. 12:00↔12:00, incl. ETC card, online pre check-in. MyPage: j-netrentacar.co.jp/jnet/mypage

@@ -116,10 +116,10 @@
 - [ ] Takachiho Yokagura reservation (Oct 14)
 - [x] Car rental Oct 26-29 ✅ BOOKED J-net Mishima 12:00↔12:00 (incl. ETC card)
 - [x] Accommodation Oct 26-28 ✅ BOOKED (Cetus Royal / Kuretake Inn Premium / Isawa View)
-- [ ] **Cancel Hachijojima booking (Noboryuso) by Oct 20** – Izu plan chosen
+- [x] Cancel Hachijojima booking (Noboryuso) ✅ DONE – Izu plan chosen
 - [ ] J-net Mishima online pre check-in (password in mail, flight ticket folder)
 - [ ] Buy shinkansen tickets Tokyo→Mishima (Oct 26) + Mishima 11:58→Shinagawa (Oct 29)
-- [x] Hotel Tokyo Oct 29 ✅ BOOKED Anshin Oyado Men Ginza (46 EUR, Booking, paid, cancel by Oct 27)
+- [x] Hotel Tokyo Oct 29 ✅ BOOKED Anshin Oyado Tokyo Man Shimbashi (46 EUR, Booking, paid, cancel by Oct 27)
 - [x] Express bus Yufuin-Kumamoto ✅ BOOKED (KOSOKUBUS #1020648778, 13:50→18:03)
 - [ ] Send luggage Fukuyama→Matsuyama (Oct 6)
 - [ ] Send luggage Kumamoto→Nagasaki (Oct 16)

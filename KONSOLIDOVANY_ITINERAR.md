@@ -857,7 +857,7 @@
 - **~17:30 MONJAYAKI** - Tsukishima Monja Street
 - OPTIONAL: Shimbashi Gado-shita - bary pod zeleznicnim viaduktem
 
-**Hotel:** Anshin Oyado Men Ginza
+**Hotel:** Anshin Oyado Tokyo Man Shimbashi
 - Provider: Booking
 - Zaplaceno
 - Zrusit do: 27.10.
@@ -1053,8 +1053,8 @@
 
 ### Ubytovani
 - [x] Ubytovani 26.-28.10. ✅ Cetus Royal / Kuretake Inn Premium / Isawa View
-- [x] Ubytovani 29.10. ✅ Anshin Oyado Men Ginza (46 EUR, Booking, zaplaceno)
-- [ ] Zrusit rezervaci Hachijojima (Noboryuso) do 20.10.
+- [x] Ubytovani 29.10. ✅ Anshin Oyado Tokyo Man Shimbashi (46 EUR, Booking, zaplaceno)
+- [x] Zrusena rezervace Hachijojima (Noboryuso) ✅ hotovo
 
 ### Aktivity
 - [ ] Koupit vstupenky teamLab Biovortex Kyoto (1.10.)
@@ -1137,7 +1137,7 @@
 | 26.10. | Higashi-Izu | Hotel Cetus Royal | Agoda | 66 EUR | Paid, snidane, zrusit do 22.10. |
 | 27.10. | Fujinomiya | Kuretake Inn Premium Fujinomiya | Trip. | 41 EUR | Snidane, zrusit do 26.10. |
 | 28.10. | Isawa | Isawa View Hotel | Trip. | 41 EUR | Paid, zrusit do 24.10. |
-| 29.10. | Tokyo | Anshin Oyado Men Ginza | Booking | 46 EUR | Zaplaceno, zrusit do 27.10. |
+| 29.10. | Tokyo | Anshin Oyado Tokyo Man Shimbashi | Booking | 46 EUR | Zaplaceno, zrusit do 27.10. |
 | 30.10.-1.11. | Tokyo | Hotel Sunlite Shinjuku | Hotel Web | 65 EUR/noc | Platba na miste |
 | 2.-3.11. | Miyakojima | Hotel Locus | Trip. | 68 EUR/noc | Zrusit do 22.10. |
 | 4.11. | Miyakojima | Smile Hotel Miyakojima | Agoda | 36 EUR | Zrusit do 3.11. |
