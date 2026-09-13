@@ -3006,7 +3006,8 @@
             + `&timezone=Asia%2FTokyo&forecast_days=${FORECAST_MAX_DAYS}`;
 
         try {
-            const res = await fetch(url);
+            // no-store: never let a cached response pass as a fresh forecast
+            const res = await fetch(url, { cache: 'no-store' });
             if (!res.ok) throw new Error('HTTP ' + res.status);
             const json = await res.json();
             // A single location returns an object, several return an array

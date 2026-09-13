@@ -17,15 +17,16 @@ Deploy by pushing to `master` - GitHub Pages auto-deploys from root.
 
 ## Architecture
 
-**Single-file dashboard** (`itinerar.html`, ~4000 lines):
-- Inline CSS (lines 18-2000): CSS variables in `:root`, responsive breakpoint at 900px, print styles
-- Data objects (lines 2000-2900): `DAYS`, `TASKS`, `POI_URLS`, `HOTEL_INFO`, `DAY_NOTES`, `CONTACTS`
-- Functions (lines 2900-4000): rendering, filters, search, modals, weather, countdown, timezone
+**Single-file dashboard** (`itinerar.html`, ~4800 lines):
+- Inline CSS (lines 18-2247): CSS variables in `:root`, responsive breakpoint at 900px, print styles
+- Data objects (lines 2516-2900): `TASKS`, `DAYS`, `POI_URLS`, `HOTEL_INFO`, `DAY_NOTES`, `CONTACTS`
+- Weather config (lines 2900-2960): `WEATHER_DEFAULTS` (seasonal averages), `WMO_CODES`
+- Functions (lines 2960-4810): rendering, filters, search, modals, weather, countdown, timezone
 
-**Reading `itinerar.html`:** the file is ~248 KB (~72k tokens) - reading it whole burns more
+**Reading `itinerar.html`:** the file is ~259 KB (~75k tokens) - reading it whole burns more
 context than the entire session baseline. Never `Read` it without `offset`/`limit`. Use `Grep`
 to locate a symbol first, then `Read` that range, using the line ranges above as a starting map.
-Same applies to `japan-travel-guide.html` (~122 KB) and `ADJUSTED_MASTER_PLAN.md` (~61 KB).
+Same applies to `japan-travel-guide.html` (~134 KB) and `ADJUSTED_MASTER_PLAN.md` (~64 KB).
 
 **Data structure for each day**:
 ```javascript
@@ -51,10 +52,33 @@ Same applies to `japan-travel-guide.html` (~122 KB) and `ADJUSTED_MASTER_PLAN.md
 - Desktop: filters with icons + tooltips, view buttons in row
 - Mobile: Tasks/Hotels/Links quick buttons, hamburger for rest
 
-**PWA setup**:
-- `sw.js` - Service Worker with network-first caching strategy
-- `manifest.json` - app manifest for installability
-- Icons: `icon.svg`, `icon-180.png`, `icon-192.png`, `icon-512.png`
+**PWA setup** (must keep working offline - the itinerary is used on a plane):
+- `sw.js` - Service Worker, network-first with cache fallback. Cache name `japan2026-v3`;
+  **bump the version when `ASSETS` changes**, otherwise clients keep the old cache.
+- Precached: `itinerar.html`, `japan-travel-guide.html`, `manifest.json`, all icons, fonts.
+- `LIVE_APIS` (Open-Meteo, rss2json) are **never cached** - a cached API response makes an
+  offline fetch succeed, and the page then mistakes stale data for fresh. The weather fetch
+  also passes `cache: 'no-store'` as a second line of defence.
+- Assets are cached one by one, not via `addAll()` - a single failure must not leave the
+  cache empty.
+- Verified offline by killing the local server and reloading, not by emulation alone
+  (DevTools offline emulation resets on reload and silently produces false passes).
+
+## Weather
+
+Open-Meteo (`api.open-meteo.com`), no API key, **16-day forecast** - that is the provider's hard
+cap, `forecast_days=30` returns HTTP 400, so the trip will never be covered live end to end.
+
+- `updateAllWeather()` groups the days that fall inside the window by location and fetches them
+  in **one batched request** (Open-Meteo accepts comma-separated lat/lon lists). Do not go back
+  to per-day requests.
+- `getWeatherForDay()` returns a live forecast only while the cached entry is **under 24h old**;
+  otherwise it falls back to `WEATHER_DEFAULTS` (seasonal averages per region/month). Entries
+  without a `fetched` timestamp are ignored - that is how pre-Open-Meteo cache is discarded.
+- `WMO_CODES` maps WMO 4677 codes to the existing SVG icons. Wind already arrives in km/h.
+- Badge reads `forecast` for live data, `average` for the fallback.
+- CC-BY 4.0 requires the attribution in the page footer - keep it.
+- Free tier is non-commercial only.
 
 ## Trip Regions (phases)
 
@@ -78,7 +102,7 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 - Day 39 (26.10.): Tokyo → Mishima → Higashi-Izu. Shinkansen, J-net car pickup 12:00, Mt. Omuro, Jogasaki. Hotel Cetus Royal.
 - Day 40 (27.10.): South & West Izu → Fujinomiya. Shimoda, Irozaki, Dogashima. Kuretake Inn Premium. Longest driving day.
 - Day 41 (28.10.): Fujinomiya → Motosuko → Hottarakashi → Isawa. Lake Motosu (1000¥ view), sunset onsen. Isawa View Hotel.
-- Day 42 (29.10.): Isawa → Mishima (return car ~11:30, early, for the 11:58 shinkansen) → Shimbashi. Kousuke 14:30, Togoshi Ginza, Tsukishima monjayaki. Anshin Oyado Tokyo Man Shimbashi.
+- Day 42 (29.10.): Isawa → Mishima (return car ~11:30, early, for the 11:58 shinkansen) → Shimbashi. Kousuke 14:30, Togoshi Ginza, Tsukishima monjayaki. Anshin Oyado Tokyo Man Shimbashi (check-in from 12:00).
 - Day 43 (30.10.): Minato cycling (Hamarikyu → Takeshiba → Shibaura → Zojo-ji) → Takanawa Gateway City + MoN museum → Shinjuku. Hotel Sunlite Shinjuku.
 
 **Car:** J-net Rentacar Mishima Station South Exit, 26-29.10. 12:00↔12:00, incl. ETC card, online pre check-in. MyPage: j-netrentacar.co.jp/jnet/mypage
