@@ -1387,6 +1387,16 @@
         .badge-hotelweb { background: rgba(150,150,150,0.2); color: #BBB; }
         .badge-klook { background: rgba(255,111,48,0.25); color: #FF8F5F; }
 
+        .app-footer {
+            margin-top: 28px;
+            padding: 14px 0 6px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .app-footer a { color: var(--text-dim); text-decoration: none; }
+        .app-footer a:hover { text-decoration: underline; }
+
         /* Weather styles */
         .weather-icon {
             stroke: #fbbf24;
@@ -2324,6 +2334,7 @@
         </aside>
 
         <section class="days" id="days"></section>
+        <footer class="app-footer">Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> (CC BY 4.0)</footer>
     </main>
 
     <div class="news-modal-overlay" id="newsModal">
@@ -2902,81 +2913,142 @@
         transit: { 9: { icon: WEATHER_ICONS.flight, temp: '–', desc: '' }, 11: { icon: WEATHER_ICONS.flight, temp: '–', desc: '' } }
     };
 
-    // OpenWeatherMap config
-    const OWM_API_KEY = '0268b53b9fcd6716c80e490a707a6b95';
+    // Open-Meteo config - no API key needed, 16-day forecast (CC-BY 4.0, non-commercial)
     const WEATHER_CACHE_KEY = 'japan2026_weather';
+    const FORECAST_MAX_DAYS = 16;
+
+    // WMO weather codes -> icon + description
+    // https://open-meteo.com/en/docs (WMO 4677)
+    const WMO_CODES = {
+        0:  [WEATHER_ICONS.sun, 'Clear sky'],
+        1:  [WEATHER_ICONS.sun, 'Mainly clear'],
+        2:  [WEATHER_ICONS.partlyCloudy, 'Partly cloudy'],
+        3:  [WEATHER_ICONS.cloudy, 'Overcast'],
+        45: [WEATHER_ICONS.fog, 'Fog'],
+        48: [WEATHER_ICONS.fog, 'Depositing rime fog'],
+        51: [WEATHER_ICONS.rain, 'Light drizzle'],
+        53: [WEATHER_ICONS.rain, 'Moderate drizzle'],
+        55: [WEATHER_ICONS.rain, 'Dense drizzle'],
+        56: [WEATHER_ICONS.rain, 'Light freezing drizzle'],
+        57: [WEATHER_ICONS.rain, 'Dense freezing drizzle'],
+        61: [WEATHER_ICONS.rain, 'Slight rain'],
+        63: [WEATHER_ICONS.rain, 'Moderate rain'],
+        65: [WEATHER_ICONS.rain, 'Heavy rain'],
+        66: [WEATHER_ICONS.rain, 'Light freezing rain'],
+        67: [WEATHER_ICONS.rain, 'Heavy freezing rain'],
+        71: [WEATHER_ICONS.rain, 'Slight snow'],
+        73: [WEATHER_ICONS.rain, 'Moderate snow'],
+        75: [WEATHER_ICONS.rain, 'Heavy snow'],
+        77: [WEATHER_ICONS.rain, 'Snow grains'],
+        80: [WEATHER_ICONS.rain, 'Slight rain showers'],
+        81: [WEATHER_ICONS.rain, 'Moderate rain showers'],
+        82: [WEATHER_ICONS.rain, 'Violent rain showers'],
+        85: [WEATHER_ICONS.rain, 'Slight snow showers'],
+        86: [WEATHER_ICONS.rain, 'Heavy snow showers'],
+        95: [WEATHER_ICONS.storm, 'Thunderstorm'],
+        96: [WEATHER_ICONS.storm, 'Thunderstorm with slight hail'],
+        99: [WEATHER_ICONS.storm, 'Thunderstorm with heavy hail']
+    };
+
+    function dayToDate(d) {
+        const [dd, mm, yyyy] = d.date.split('.');
+        return `${yyyy}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`;
+    }
 
     function getWeatherForDay(day) {
-        const cached = JSON.parse(localStorage.getItem(WEATHER_CACHE_KEY) || '{}');
-        if (cached[day] && cached[day].live) {
-            return { ...cached[day], isLive: true };
-        }
         const d = DAYS.find(x => x.day === day);
         if (!d) return null;
+
+        // Live forecast wins, but only while it is still fresh (24h)
+        const cached = JSON.parse(localStorage.getItem(WEATHER_CACHE_KEY) || '{}');
+        const hit = cached[day];
+        if (hit && hit.live && hit.fetched && (Date.now() - hit.fetched) < 86400000) {
+            return { ...hit, isLive: true };
+        }
+
+        // Fallback: seasonal averages for the region
         const month = parseInt(d.date.split('.')[1]);
         const region = d.region || 'transit';
         const def = WEATHER_DEFAULTS[region]?.[month] || WEATHER_DEFAULTS.tokyo[10];
         return { ...def, isLive: false };
     }
 
-    async function fetchWeatherForDay(day) {
-        if (!OWM_API_KEY) return null;
-        const d = DAYS.find(x => x.day === day);
-        if (!d || !d.pois || !d.pois[0]) return null;
+    // One batched call covers every distinct location in the forecast window.
+    async function updateAllWeather(silent) {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
 
-        const [lat, lon] = d.pois[0].coords;
-        const dateStr = d.date.split('.').reverse().join('-').replace('-2026', '-2026');
-        const targetDate = new Date(`2026-${d.date.split('.')[1].padStart(2,'0')}-${d.date.split('.')[0].padStart(2,'0')}`);
-        const now = new Date();
-        const daysAhead = Math.ceil((targetDate - now) / (1000 * 60 * 60 * 24));
+        // Collect the days that fall inside the forecast horizon, grouped by location
+        const byCoord = new Map();
+        for (const d of DAYS) {
+            if (!d.pois || !d.pois[0]) continue;
+            const target = new Date(dayToDate(d) + 'T00:00:00');
+            const daysAhead = Math.round((target - today) / 86400000);
+            if (daysAhead < 0 || daysAhead >= FORECAST_MAX_DAYS) continue;
 
-        if (daysAhead > 5) return null; // OpenWeatherMap free tier = 5 days
+            const [lat, lon] = d.pois[0].coords;
+            const key = `${lat.toFixed(4)},${lon.toFixed(4)}`;
+            if (!byCoord.has(key)) byCoord.set(key, { lat, lon, days: [] });
+            byCoord.get(key).days.push(d);
+        }
+
+        if (!byCoord.size) {
+            if (!silent) alert('No days fall within the 16-day forecast window yet.');
+            return;
+        }
+
+        const groups = [...byCoord.values()];
+        const lats = groups.map(g => g.lat).join(',');
+        const lons = groups.map(g => g.lon).join(',');
+        const url = 'https://api.open-meteo.com/v1/forecast'
+            + `?latitude=${lats}&longitude=${lons}`
+            + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max,relative_humidity_2m_mean'
+            + `&timezone=Asia%2FTokyo&forecast_days=${FORECAST_MAX_DAYS}`;
 
         try {
-            const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${OWM_API_KEY}`);
-            const data = await res.json();
-            if (!data.list) return null;
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const json = await res.json();
+            // A single location returns an object, several return an array
+            const results = Array.isArray(json) ? json : [json];
 
-            const dayData = data.list.find(item => {
-                const itemDate = new Date(item.dt * 1000);
-                return itemDate.toDateString() === targetDate.toDateString() && itemDate.getHours() >= 12;
+            const cached = JSON.parse(localStorage.getItem(WEATHER_CACHE_KEY) || '{}');
+            let updated = 0;
+
+            results.forEach((loc, i) => {
+                const group = groups[i];
+                if (!group || !loc.daily || !loc.daily.time) return;
+
+                for (const d of group.days) {
+                    const idx = loc.daily.time.indexOf(dayToDate(d));
+                    if (idx === -1) continue;
+
+                    const code = loc.daily.weather_code[idx];
+                    const [icon, desc] = WMO_CODES[code] || [WEATHER_ICONS.partlyCloudy, 'Unknown'];
+                    const tMin = Math.round(loc.daily.temperature_2m_min[idx]);
+                    const tMax = Math.round(loc.daily.temperature_2m_max[idx]);
+
+                    cached[d.day] = {
+                        icon,
+                        desc,
+                        temp: `${tMin}-${tMax}°C`,
+                        pop: loc.daily.precipitation_probability_max[idx],
+                        wind: Math.round(loc.daily.wind_speed_10m_max[idx]),
+                        humidity: Math.round(loc.daily.relative_humidity_2m_mean[idx]),
+                        live: true,
+                        fetched: Date.now()
+                    };
+                    updated++;
+                }
             });
 
-            if (!dayData) return null;
-
-            const iconMap = { '01': WEATHER_ICONS.sun, '02': WEATHER_ICONS.partlyCloudy, '03': WEATHER_ICONS.cloudy, '04': WEATHER_ICONS.cloudy, '09': WEATHER_ICONS.rain, '10': WEATHER_ICONS.rain, '11': WEATHER_ICONS.storm, '13': WEATHER_ICONS.rain, '50': WEATHER_ICONS.fog };
-            const owmIcon = dayData.weather[0].icon.slice(0, 2);
-
-            return {
-                icon: iconMap[owmIcon] || WEATHER_ICONS.partlyCloudy,
-                temp: `${Math.round(dayData.main.temp)}°C`,
-                tempMax: `${Math.round(dayData.main.temp_max)}°C`,
-                desc: dayData.weather[0].description,
-                humidity: dayData.main.humidity,
-                wind: Math.round(dayData.wind.speed * 3.6),
-                live: true
-            };
+            localStorage.setItem(WEATHER_CACHE_KEY, JSON.stringify(cached));
+            if (!silent) alert(`Updated ${updated} days with forecast (16-day horizon).`);
+            renderDays();
         } catch (e) {
             console.error('Weather fetch error:', e);
-            return null;
+            if (!silent) alert('Could not load the forecast. Check your connection and try again.');
         }
-    }
-
-    async function updateAllWeather() {
-        const cached = JSON.parse(localStorage.getItem(WEATHER_CACHE_KEY) || '{}');
-        let updated = 0;
-
-        for (const d of DAYS) {
-            const weather = await fetchWeatherForDay(d.day);
-            if (weather) {
-                cached[d.day] = weather;
-                updated++;
-            }
-        }
-
-        localStorage.setItem(WEATHER_CACHE_KEY, JSON.stringify(cached));
-        alert(`Updated ${updated} days with forecast`);
-        renderDays();
     }
 
     // Automatic daily tasks
@@ -3899,7 +3971,7 @@
                     <div class="weather-detail-info">
                         <div class="weather-detail-temp">${weather.temp} <span class="weather-badge ${weather.isLive ? 'weather-live' : 'weather-avg'}">${weather.isLive ? 'forecast' : 'average'}</span></div>
                         <div class="weather-detail-desc">${weather.desc}</div>
-                        ${weather.isLive && weather.wind ? `<div class="weather-detail-extra">💨 ${weather.wind} km/h | 💧 ${weather.humidity}%</div>` : ''}
+                        ${weather.isLive ? `<div class="weather-detail-extra">${weather.pop != null ? `🌧️ ${weather.pop}% | ` : ''}💨 ${weather.wind} km/h | 💧 ${weather.humidity}%</div>` : ''}
                     </div>
                 </div>
             ` : '';
