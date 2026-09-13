@@ -1399,10 +1399,20 @@
 
         /* Weather styles */
         .weather-icon {
-            stroke: #fbbf24;
+            stroke: var(--wi-color, #fbbf24);
             stroke-width: 2;
             fill: none;
         }
+        /* One colour per condition, drawn from the existing palette, so the
+           icon reads at a glance instead of every state being amber. */
+        .wi-sun    { --wi-color: var(--orange); }
+        .wi-partly { --wi-color: #d8c08a; }
+        .wi-cloudy { --wi-color: var(--text-muted); }
+        .wi-rain   { --wi-color: var(--accent); }
+        .wi-snow   { --wi-color: var(--accent-bright); }
+        .wi-storm  { --wi-color: var(--purple); }
+        .wi-fog    { --wi-color: #9aa3ad; }
+        .wi-flight { --wi-color: var(--text-dim); }
         .weather-inline {
             display: inline-flex;
             align-items: center;
@@ -2892,13 +2902,14 @@
 
     // Weather SVG icons
     const WEATHER_ICONS = {
-        sun: '<svg class="weather-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>',
-        partlyCloudy: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M12 2v2M4.93 4.93l1.41 1.41M2 12h2"/><circle cx="12" cy="10" r="4"/><path d="M18 18H6a4 4 0 010-8h.29a6 6 0 0111.42 0H18a4 4 0 010 8z"/></svg>',
-        cloudy: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M18 18H6a4 4 0 010-8h.29a6 6 0 0111.42 0H18a4 4 0 010 8z"/></svg>',
-        rain: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M16 13v8M8 13v8M12 15v8"/><path d="M20 16.58A5 5 0 0018 7h-1.26A8 8 0 104 15.25"/></svg>',
-        storm: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M19 16.9A5 5 0 0018 7h-1.26a8 8 0 10-11.62 9"/><path d="M13 11l-4 6h5l-1 5"/></svg>',
-        fog: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M4 14h16M4 10h16M4 18h16"/></svg>',
-        flight: '<svg class="weather-icon" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5v5.5l-2 1.5v1.5l3.5-1 3.5 1v-1.5l-2-1.5v-5.5l8 2.5z"/></svg>'
+        sun: '<svg class="weather-icon wi-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>',
+        partlyCloudy: '<svg class="weather-icon wi-partly" viewBox="0 0 24 24"><path d="M12 2v2M4.93 4.93l1.41 1.41M2 12h2"/><circle cx="12" cy="10" r="4"/><path d="M18 18H6a4 4 0 010-8h.29a6 6 0 0111.42 0H18a4 4 0 010 8z"/></svg>',
+        cloudy: '<svg class="weather-icon wi-cloudy" viewBox="0 0 24 24"><path d="M18 18H6a4 4 0 010-8h.29a6 6 0 0111.42 0H18a4 4 0 010 8z"/></svg>',
+        rain: '<svg class="weather-icon wi-rain" viewBox="0 0 24 24"><path d="M16 13v8M8 13v8M12 15v8"/><path d="M20 16.58A5 5 0 0018 7h-1.26A8 8 0 104 15.25"/></svg>',
+        snow: '<svg class="weather-icon wi-snow" viewBox="0 0 24 24"><path d="M20 17.58A5 5 0 0018 8h-1.26A8 8 0 104 16.25"/><path d="M8 20h.01M12 21h.01M16 20h.01M12 17h.01"/></svg>',
+        storm: '<svg class="weather-icon wi-storm" viewBox="0 0 24 24"><path d="M19 16.9A5 5 0 0018 7h-1.26a8 8 0 10-11.62 9"/><path d="M13 11l-4 6h5l-1 5"/></svg>',
+        fog: '<svg class="weather-icon wi-fog" viewBox="0 0 24 24"><path d="M4 14h16M4 10h16M4 18h16"/></svg>',
+        flight: '<svg class="weather-icon wi-flight" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5v5.5l-2 1.5v1.5l3.5-1 3.5 1v-1.5l-2-1.5v-5.5l8 2.5z"/></svg>'
     };
 
     // Average weather by region and month
@@ -2936,15 +2947,15 @@
         65: [WEATHER_ICONS.rain, 'Heavy rain'],
         66: [WEATHER_ICONS.rain, 'Light freezing rain'],
         67: [WEATHER_ICONS.rain, 'Heavy freezing rain'],
-        71: [WEATHER_ICONS.rain, 'Slight snow'],
-        73: [WEATHER_ICONS.rain, 'Moderate snow'],
-        75: [WEATHER_ICONS.rain, 'Heavy snow'],
-        77: [WEATHER_ICONS.rain, 'Snow grains'],
+        71: [WEATHER_ICONS.snow, 'Slight snow'],
+        73: [WEATHER_ICONS.snow, 'Moderate snow'],
+        75: [WEATHER_ICONS.snow, 'Heavy snow'],
+        77: [WEATHER_ICONS.snow, 'Snow grains'],
         80: [WEATHER_ICONS.rain, 'Slight rain showers'],
         81: [WEATHER_ICONS.rain, 'Moderate rain showers'],
         82: [WEATHER_ICONS.rain, 'Violent rain showers'],
-        85: [WEATHER_ICONS.rain, 'Slight snow showers'],
-        86: [WEATHER_ICONS.rain, 'Heavy snow showers'],
+        85: [WEATHER_ICONS.snow, 'Slight snow showers'],
+        86: [WEATHER_ICONS.snow, 'Heavy snow showers'],
         95: [WEATHER_ICONS.storm, 'Thunderstorm'],
         96: [WEATHER_ICONS.storm, 'Thunderstorm with slight hail'],
         99: [WEATHER_ICONS.storm, 'Thunderstorm with heavy hail']
@@ -2955,12 +2966,23 @@
         return `${yyyy}-${mm.padStart(2, '0')}-${dd.padStart(2, '0')}`;
     }
 
+    // Corrupt or unreadable storage must never take the itinerary down with it
+    function readWeatherCache() {
+        try {
+            const raw = localStorage.getItem(WEATHER_CACHE_KEY);
+            const parsed = raw ? JSON.parse(raw) : {};
+            return (parsed && typeof parsed === 'object') ? parsed : {};
+        } catch (e) {
+            return {};
+        }
+    }
+
     function getWeatherForDay(day) {
         const d = DAYS.find(x => x.day === day);
         if (!d) return null;
 
         // Live forecast wins, but only while it is still fresh (24h)
-        const cached = JSON.parse(localStorage.getItem(WEATHER_CACHE_KEY) || '{}');
+        const cached = readWeatherCache();
         const hit = cached[day];
         if (hit && hit.live && hit.fetched && (Date.now() - hit.fetched) < 86400000) {
             return { ...hit, isLive: true };
@@ -3013,7 +3035,7 @@
             // A single location returns an object, several return an array
             const results = Array.isArray(json) ? json : [json];
 
-            const cached = JSON.parse(localStorage.getItem(WEATHER_CACHE_KEY) || '{}');
+            const cached = readWeatherCache();
             let updated = 0;
 
             results.forEach((loc, i) => {
@@ -3049,6 +3071,27 @@
         } catch (e) {
             console.error('Weather fetch error:', e);
             if (!silent) alert('Could not load the forecast. Check your connection and try again.');
+        }
+    }
+
+    // Auto-refresh on load when the cached forecast is older than 3h.
+    // Always silent: it must never alert, never throw, and never block
+    // rendering - offline the page simply keeps showing the averages.
+    function refreshWeatherIfStale() {
+        try {
+            if (navigator.onLine === false) return;
+
+            const cached = readWeatherCache();
+            const newest = Object.values(cached)
+                .map(v => v && v.fetched ? v.fetched : 0)
+                .reduce((a, b) => Math.max(a, b), 0);
+
+            if (Date.now() - newest < 3 * 3600000) return;   // still fresh enough
+
+            updateAllWeather(true).catch(() => {});          // silent mode
+        } catch (e) {
+            // Never let weather break page startup
+            console.warn('Weather auto-refresh skipped:', e);
         }
     }
 
@@ -4722,6 +4765,7 @@
     renderDays();
     initNews(); // Load news from NHK World
     updateCountdown(true); // Animate on page load
+    refreshWeatherIfStale();  // silent: offline or a failed call just keeps the averages
 
     // Scroll to current day on page load
     function scrollToToday() {
