@@ -748,6 +748,7 @@
 
 **Tokyo:**
 - Spojit se s Ryuki (kolem 10.10.)
+- Vecer: nomikai - NAVRH (Ippei? Naosan? Aogashima style izakaya?)
 
 **Hotel:** Hotel Sunlite Shinjuku
 - Provider: Hotel Web
@@ -761,10 +762,13 @@
 ### TOKYO
 
 **Program:**
-- Mozna dopoledne/poledne setkani s Wahei
-  - Kontaktovat minimalne mesic predem!
-- Vecer: Shogo? Minoru?
-  - Taktez kontaktovat predem
+- Zamerne volny, odpocinkovy den - za dva dny startuje Izu road trip
+- Dopoledne/odpoledne: Azabudai Hills / volny program
+- Odpoledne: **Thermae-Yu Shinjuku - head spa + onsen**
+  - Head spa je samostatne placena procedura - REZERVOVAT PREDEM! (thermae-yu.jp)
+- Vecer: Ryuki? (potencial, nepotvrzeno)
+- Namety: Azabudai Hills Gallery, Yanaka, Shimokitazawa, Koenji
+- Projit ulozena mista z Google Maps!
 
 **Hotel:** Hotel Sunlite Shinjuku (65 EUR)
 
@@ -875,7 +879,8 @@
 - **MoN muzeum** (Museum of Narratives, Kengo Kuma)
 - OPTIONAL: Sengaku-ji
 - ~14:30-15:00 odjezd na Shinjuku, ~16:00 check-in
-- Vecer: nomikai (Minoru, Sata-san, pripadne u Marka v baru Nekorob)
+- Vecer: **nomikai s Minoru - POTVRZENO**
+- Kolem 22.10. doladit s Minoru misto a cas
 - Contact: edobicycleart
 
 **Hotel:** Hotel Sunlite Shinjuku
@@ -906,8 +911,7 @@
 - ~15:00 jedna zastavka Chuo linkou - **Nakano**
 - **Nakano Broadway** - Mandarake, Gorillaz figurky pro Edika
 - OPTIONAL misto Koenji: Shimokitazawa nebo Kichijoji + Inokashira Park
-- **Nomikai v Nakano** (vecer)
-- Ryuki?
+- **Nomikai v Nakano** (vecer) - posledni tokijska noc
 - Vecer sbalit - zitra let 08:20, budik 05:30
 
 **Hotel:** Hotel Sunlite Shinjuku (65 EUR)
@@ -1072,8 +1076,10 @@
 - [ ] Napsat Keigo (min. 1 tyden pred 26.9.)
 - [x] Takashi ✅ CONFIRMED (29.9.)
 - [ ] Napsat Wahei (min. mesic pred 24.10.)
-- [ ] Napsat Minoru-san
-- [ ] Napsat Ryuki (kolem 10.10.)
+- [x] Minoru ✅ CONFIRMED (30.10. vecer) - kolem 22.10. doladit misto a cas
+- [ ] Napsat Ryuki (kolem 10.10.) - nabidnout 24. nebo 25.10. vecer
+- [ ] Napsat Ippei (min. tyden pred 23.10.) - nomikai navrh
+- [ ] Rezervovat head spa Thermae-Yu Shinjuku (24.10. odpoledne)
 
 ## STREDNI PRIORITA
 
@@ -1203,10 +1209,10 @@
 | 26.9. | Keigo | Vecer, napsat min. 1 tyden predem |
 | 29.9. | Takashi | Cely den | ✅ CONFIRMED |
 | 24.10. | Wahei | Mozna dopoledne, napsat min. mesic predem |
-| 24.-25.10. | Shogo, Minoru | Vecer |
-| 23.10. | Ryuki | Tokyo, kontaktovat kolem 10.10. |
+| 23.10. | Ippei | Nomikai - navrh, kontaktovat min. tyden predem |
+| 24. nebo 25.10. | Ryuki | Vecer - potencial, kontaktovat kolem 10.10. |
 | 29.10. | Kousuke | 14:30 Shimbashi Station, Togoshi Ginza + monjayaki (CONFIRMED) |
-| 30.10. | Minoru, Sata-san | Nomikai, pripadne bar Nekorob |
+| 30.10. | Minoru | Nomikai vecer (CONFIRMED) |
 | 1.11. | Nomikai Nakano | Vecer |
 
 ---

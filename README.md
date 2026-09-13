@@ -44,7 +44,7 @@
   - Toner-friendly cover (white background, outline frames)
   - Feature articles: Onsen, Shimanami Kaido, Sakamoto Ryoma, Aogashima
   - All 7 regional chapters: Osaka, Kyoto, Lake Biwa, Shimanami, Kyushu, Tokyo, Okinawa
-  - Day cards with dates, hotels, timelines, notes
+  - Day cards for all 53 days — dates, hotels, timelines, notes
   - Culture boxes, hotel spotlights
   - Transport reference: flights, car rentals, ferries
   - Contacts table with confirmation status
@@ -88,7 +88,7 @@
 - **Contacts** - list of people to meet with dates
 - **Transport** - sections: Flights, Bus, Car Rentals, Ferry (each with SVG icon)
 - **Summary** - red-themed modal with 53-day trip timeline showing 7 regions and key places (Osaka, Kyoto, Lake Biwa, Shimanami, Kyushu, Tokyo+Izu, Okinawa)
-- **Links** - quick access to useful external sites (J-net Rentacar, Kyushu Coupons, Shinkansen QR, Smart-EX App, JMA Weather)
+- **Links** - quick access to useful external sites (J-net Rentacar, Kyushu Coupons, Shinkansen QR, Smart-EX App, Thermae-Yu, JMA Weather)
 
 ### Weather
 - Static averages by region and month
@@ -130,8 +130,11 @@
 - [x] Takashi - ✅ CONFIRMED Sep 29
 - [x] Wahei - ✅ CONFIRMED Oct 25 lunch
 - [x] Kousuke - ✅ CONFIRMED Oct 29, 14:30 Shimbashi Station
-- [ ] Ryuki - contact around Oct 10
-- [ ] Ippei - min. 1 week before Oct 23
+- [x] Minoru - ✅ CONFIRMED Oct 30 evening (nomikai)
+- [ ] Minoru - contact around Oct 22 to confirm place/time
+- [ ] Ryuki - contact around Oct 10 (potential Oct 24 or 25 evening)
+- [ ] Ippei - min. 1 week before Oct 23 (nomikai proposal)
+- [ ] Book head spa at Thermae-Yu Shinjuku (Oct 24 afternoon)
 
 ## Adjusted Master Plan
 

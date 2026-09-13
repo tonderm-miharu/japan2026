@@ -1461,11 +1461,12 @@
 - Fukuoka Airport = super blízko centru (subway)
 - Haneda → Shinjuku: Keikyu + transfer nebo Limousine bus
 - Ryuki = kontaktovat kolem 10.10. (mělo by být hotové)
+- 🍻 Večer je ideální na nomikai - NÁVRH (Ippei? Naosan? Aogashima style izakaya?)
 
 **Praktické:**
 - Hotel: QR code check-in
 - Shinjuku = známé území
-- Večer: Reconnect s Tokyo, možná Ryuki?
+- Večer: nomikai jako návrh, zatím nepotvrzeno
 
 ---
 
@@ -1473,21 +1474,23 @@
 ## TOKYO
 
 **Program:**
-- Možná dopoledne/poledne setkání s Wahei
-  - ⚠️ Kontaktovat minimálně měsíc předem!
-- Večer: Shogo? Minoru?
-  - Taktéž kontaktovat předem
+- 😌 Záměrně volný, odpočinkový den - za dva dny startuje Izu road trip
+- Dopoledne/odpoledne: Azabudai Hills / volný program
+- Odpoledne: ♨️ **Thermae-Yu Shinjuku - head spa + onsen**
+  - ⚠️ Head spa je samostatně placená procedura - rezervovat předem!
+- Večer: Ryuki? (potenciál, nepotvrzeno)
 
 **Noc:** Hotel Sunlite Shinjuku
 
 **Poznámky pro tento den:**
-- Wahei = důležitý kontakt, min. měsíc předem (tedy do 24.9.)
-- Flexibilní den, závisí na odpovědích
-- Backup plan potřeba
+- Thermae-Yu = onsen komplex pěšky od hotelu, web: thermae-yu.jp
+- Sobota - sloty na head spa se plní, rezervace předem se vyplatí
+- Takanawa + Tsukishima jsou pevně na dnech 42-43, tento den nechat na jiné věci
+- Flexibilní den, závisí i na odpovědích
 
 **Praktické:**
-- Pokud nikdo → vlastní program Tokyo
-- Možná něco co jsi neviděl, nebo revisit oblíbená místa
+- Náměty: Azabudai Hills Gallery, Yanaka, Shimokitazawa, Koenji
+- 📍 Projít uložená místa z Google Maps!
 
 **🗾 TOKYO NÁMĚTY (pro volné dny 37/38/43):**
 - **Takanawa Gateway City** - nová čtvrť u Takanawa Gateway station, moderní urbanismus 2024+
@@ -1666,7 +1669,7 @@
 - OPTIONAL: Sengaku-ji
 - ~14:30-15:00 odjezd z Takanawa → Shinjuku
 - ~16:00 check-in Hotel Sunlite Shinjuku
-- Večer: nomikai (Minoru, Sata-san) / případně bar Nekorob
+- Večer: ✅ **nomikai s Minoru - POTVRZENO**
 
 **Noc:** Hotel Sunlite Shinjuku
 
@@ -1675,7 +1678,7 @@
 - MoN Takanawa = Kengo Kuma, otevřeno 2026, přímo v Takanawa Gateway City
 - Cyklo záměrně kompaktní - žádný časový tlak před 16:00 v Shinjuku
 - Den před Halloween
-- Minoru/Sata-san = kontaktovat předem
+- ✅ Minoru POTVRZENO na večer 30.10. - kolem 22.10. doladit místo a čas
 - Bar Nekorob = Markův bar? Contact: edobicycleart
 
 **Praktické:**
@@ -2020,9 +2023,9 @@
 | Riho | před cestou | 17.10.? | - |
 | Wahei | do 24.9. | 25.10. | ✅ CONFIRMED |
 | Kousuke | před cestou | 29.10. 14:30 | ✅ CONFIRMED |
-| Ryuki | kolem 10.10. | 23.10. | - |
-| Minoru | do 23.10. | 30.10. | - |
-| Shogo | do 17.10. | 24.10. | - |
+| Ryuki | kolem 10.10. | 24. nebo 25.10.? | potenciál |
+| Minoru | kolem 22.10. (doladit) | 30.10. večer | ✅ CONFIRMED |
+| Ippei | min. týden předem | 23.10. večer? | nomikai - návrh |
 
 ## 3.6 REZERVACE - Checklist
 
@@ -2135,7 +2138,7 @@ Největší blok - 15 dní. Trajekt do Beppu, relaxační onsen den, Yufuin, pak
 **Key moments:** Ferry Beppu (8.10.), Auto start (12.10.), Yokagura (14.10.), Auto deadline (15.10.), Kufr odeslat (16.10.), Nagasaki (18-19.10.)
 
 ## Fáze 6: TOKYO + IZU (Den 36-45)
-Let do Tokya, setkání s přáteli (Wahei, Ryuki, Minoru, Shogo). Pak 4denní IZU/FUJI road trip (J-net auto) - Mt. Omuro, Jogasaki, jižní/západní Izu (Shimoda, Irozaki, Dogashima), Motosuko Fuji viewpoint, Hottarakashi onsen. Zpět do Tokya (Togoshi Ginza, Tsukishima monjayaki), Minato cyklo + Takanawa Gateway City / MoN muzeum, Halloween party.
+Let do Tokya, setkání s přáteli (Wahei, Minoru, případně Ryuki a Ippei). Pak 4denní IZU/FUJI road trip (J-net auto) - Mt. Omuro, Jogasaki, jižní/západní Izu (Shimoda, Irozaki, Dogashima), Motosuko Fuji viewpoint, Hottarakashi onsen. Zpět do Tokya (Togoshi Ginza, Tsukishima monjayaki), Minato cyklo + Takanawa Gateway City / MoN muzeum, Halloween party.
 
 **Key moments:** Auto ✅ J-net (26-29.10.), Hottarakashi (28.10.), Kousuke + monjayaki (29.10.), Takanawa/MoN (30.10.), Halloween (31.10.)
 

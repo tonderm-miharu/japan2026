@@ -18,15 +18,19 @@ Deploy by pushing to `master` - GitHub Pages auto-deploys from root.
 ## Architecture
 
 **Single-file dashboard** (`itinerar.html`, ~4800 lines):
-- Inline CSS (lines 18-2247): CSS variables in `:root`, responsive breakpoint at 900px, print styles
-- Data objects (lines 2516-2900): `TASKS`, `DAYS`, `POI_URLS`, `HOTEL_INFO`, `DAY_NOTES`, `CONTACTS`
-- Weather config (lines 2900-2960): `WEATHER_DEFAULTS` (seasonal averages), `WMO_CODES`
-- Functions (lines 2960-4810): rendering, filters, search, modals, weather, countdown, timezone
+- Inline CSS (lines 18-2257): CSS variables in `:root`, responsive breakpoint at 900px, print styles
+- Data objects (lines 2540-3601): `TASKS` (2540), `POI_URLS` (2567), `DAYS` (2802), `HOTEL_INFO` (2870),
+  `DAY_NOTES` (3137), `CONTACTS` (3592)
+- Weather config: `WEATHER_DEFAULTS` (2925, seasonal averages), `WMO_CODES` (2942)
+- Functions (2536-4807): rendering, filters, search, modals, weather, countdown, timezone
 
-**Reading `itinerar.html`:** the file is ~259 KB (~75k tokens) - reading it whole burns more
+These line numbers drift with every edit - treat them as a starting map, not gospel, and
+`Grep` for the symbol name to get the current position.
+
+**Reading `itinerar.html`:** the file is ~274 KB (~80k tokens) - reading it whole burns more
 context than the entire session baseline. Never `Read` it without `offset`/`limit`. Use `Grep`
 to locate a symbol first, then `Read` that range, using the line ranges above as a starting map.
-Same applies to `japan-travel-guide.html` (~134 KB) and `ADJUSTED_MASTER_PLAN.md` (~64 KB).
+Same applies to `japan-travel-guide.html` (~184 KB) and `ADJUSTED_MASTER_PLAN.md` (~64 KB).
 
 **Data structure for each day**:
 ```javascript
@@ -88,7 +92,8 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 
 ## Other Files
 
-- `japan-travel-guide.html` - complete magazine-style travel guide with all 7 regions, contacts, links (PDF button opens it)
+- `japan-travel-guide.html` - complete magazine-style travel guide with all 7 regions, contacts, links (PDF button opens it).
+  Day cards cover **all 53 days**; each chapter's card range must match its `region-dates` header.
 - `mockups/` - UI design iterations
 - `ADJUSTED_MASTER_PLAN.md`, `KONSOLIDOVANY_ITINERAR.md` - detailed trip planning docs
 - `HACHIJOJIMA_AOGASHIMA_PLAN.md` - abandoned Oct 26-29 alternative (kept for reference only)
@@ -108,3 +113,14 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 **Car:** J-net Rentacar Mishima Station South Exit, 26-29.10. 12:00↔12:00, incl. ETC card, online pre check-in. MyPage: j-netrentacar.co.jp/jnet/mypage
 
 **Day 45 (1.11.) daytime program is open** - Togoshi Ginza moved to day 42, nothing has replaced it yet.
+
+## Tokyo meetups
+
+- **Minoru - confirmed 30.10. evening** (day 43), nomikai. Contact him around 22.10. to settle place/time.
+- **Ippei** - nomikai *proposal* for 23.10. evening (day 36), arrival day. Contact min. 1 week ahead.
+- **Ryuki** - potential 24. or 25.10. evening (days 37-38), contact around 10.10. Not fixed to one date on purpose.
+- **Wahei** (25.10. lunch) and **Kousuke** (29.10. 14:30) are confirmed.
+- Shogo is *not* coming to Tokyo - do not re-add him.
+
+Day 37 (24.10.) is a deliberately easy day before the Izu road trip: head spa + onsen at
+Thermae-Yu Shinjuku, which needs booking ahead (task `t30`, link in the Links modal).
