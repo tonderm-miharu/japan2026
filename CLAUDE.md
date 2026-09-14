@@ -139,10 +139,17 @@ Two shipments, both to travel light over a leg where the suitcase would be in th
   advance notice. The same morning is tight: ferry at 09:25 and a depot may not open until 08:00.
 
 Both parcels arrive **before** check-in, so the waybill needs the hotel as recipient followed by
-`気付` (c/o) + your name + check-in date. The sheet carries two ready-to-send Japanese e-mails
-asking the destination hotels to hold the bag - send them ~3-7 days ahead (Sambancho around 1-3.10.,
-APA around 11-14.10.). The APA one differs deliberately: that parcel can arrive a day early, so it
-asks them to confirm they can hold it overnight.
+`気付` (c/o) + your name + check-in date.
+
+The sheet carries two ready-to-send Japanese e-mails asking the destination hotels to hold the bag.
+They are scheduled as day tasks at the start of their send window, not at the end:
+
+- **Day 14 (1.10.)** -> Hotel Sambancho (task `t34`)
+- **Day 24 (11.10.)** -> APA Nagasaki (task `t35`)
+
+The APA one differs deliberately: that parcel can arrive on 17.10., a day before check-in, so it asks
+them to confirm they can hold it overnight and to say so if they cannot - an answer worth having
+before the Shimabara ferry, not after.
 
 **The sheet is complete** - all four hotel addresses, phone numbers and the guest name
 (MICHAL TONDER) are filled in, so it can be handed over as printed:
