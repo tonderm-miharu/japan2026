@@ -1,8 +1,9 @@
-const CACHE_NAME = 'japan2026-v4';
+const CACHE_NAME = 'japan2026-v5';
 const ASSETS = [
     './',
     './itinerar.html',
     './japan-travel-guide.html',
+    './luggage-forwarding.html',
     './manifest.json',
     './icon.svg',
     './icon-180.png',

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan 2026 - Luggage Forwarding / 宅急便</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --aka:#c41e3a; --kuro:#1a1a1a; --shiro:#fff; --hai:#f5f5f5; --border:#e0e0e0;
+  --shimanami:#059669; --kyushu:#dc2626; --muted:#666;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@page{margin:10mm;size:A4}
+body{font-family:'Inter',sans-serif;font-size:9.5pt;line-height:1.5;color:var(--kuro);background:var(--shiro)}
+.jp{font-family:'Noto Sans JP','Noto Serif JP',sans-serif}
+.wrap{max-width:200mm;margin:0 auto;padding:8mm}
+
+/* ---------- cover ---------- */
+.cover{border:2.5px solid var(--kuro);padding:10mm;margin-bottom:8mm}
+.cover .kicker{font-size:7.5pt;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:4mm}
+.cover h1{font-family:'Playfair Display',serif;font-size:26pt;line-height:1.1;font-weight:600;margin-bottom:2mm}
+.cover .h1jp{font-size:15pt;font-weight:500;margin-bottom:5mm;color:var(--aka)}
+.cover p{font-size:9.5pt;color:#333;max-width:150mm}
+.cover .meta{display:flex;flex-wrap:wrap;gap:10mm;margin-top:6mm;padding-top:4mm;border-top:1px solid var(--border);font-size:8pt;color:var(--muted)}
+.cover .meta b{display:block;color:var(--kuro);font-size:9.5pt;font-weight:600}
+
+/* ---------- sections ---------- */
+h2{font-family:'Playfair Display',serif;font-size:15pt;font-weight:600;margin:8mm 0 1mm;padding-bottom:1.5mm;border-bottom:2px solid var(--kuro)}
+h2 .jpsub{font-family:'Noto Sans JP',sans-serif;font-size:9.5pt;font-weight:500;color:var(--aka);margin-left:3mm}
+h3{font-size:10.5pt;font-weight:700;margin:5mm 0 2mm}
+p{margin-bottom:2mm}
+.lead{color:#333;margin-bottom:4mm}
+
+/* ---------- shipment card ---------- */
+.ship{border:1.5px solid var(--border);border-left:5px solid var(--c);margin:5mm 0 7mm;break-inside:avoid}
+.ship.s1{--c:var(--shimanami)}
+.ship.s2{--c:var(--kyushu)}
+.ship-head{background:var(--hai);padding:4mm 5mm;border-bottom:1px solid var(--border)}
+.ship-head .no{font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:var(--c);font-weight:700}
+.ship-head h3{margin:1mm 0 0;font-size:13pt;font-family:'Playfair Display',serif;font-weight:600}
+.ship-head .when{font-size:8.5pt;color:var(--muted);margin-top:1mm}
+.ship-body{padding:5mm}
+
+/* ---------- the handover form ---------- */
+.form{border:2px solid var(--kuro);margin:3mm 0}
+.form-title{background:var(--kuro);color:#fff;padding:2.5mm 4mm;font-size:9pt;font-weight:600;letter-spacing:.04em}
+.form-title .en{font-weight:400;opacity:.75;margin-left:2mm;font-size:8pt}
+.row{display:flex;border-bottom:1px solid var(--border)}
+.row:last-child{border-bottom:none}
+.row .lbl{width:42mm;flex-shrink:0;background:var(--hai);padding:2.5mm 3mm;border-right:1px solid var(--border);font-size:8.5pt;font-weight:600}
+.row .lbl .en{display:block;font-weight:400;font-size:7pt;color:var(--muted);margin-top:.5mm}
+.row .val{padding:2.5mm 3mm;flex:1;font-size:9.5pt;min-width:0}
+.row .val .big{font-size:11pt;font-weight:600}
+.row .val .note{display:block;font-size:7.5pt;color:var(--muted);margin-top:1mm}
+.blank{display:inline-block;min-width:55mm;max-width:100%;border-bottom:1.5px dotted var(--aka);color:var(--aka);font-size:8pt;font-style:italic}
+
+/* ---------- callouts ---------- */
+.warn{border:1.5px solid var(--aka);background:#fdf2f4;padding:4mm 5mm;margin:4mm 0;break-inside:avoid}
+.warn .t{font-weight:700;color:var(--aka);font-size:9.5pt;margin-bottom:1.5mm}
+.info{border-left:3px solid var(--border);background:var(--hai);padding:3mm 4mm;margin:3mm 0;font-size:9pt}
+.info .t{font-weight:700;margin-bottom:1mm}
+
+/* ---------- phrases ---------- */
+.phrase{border:1px solid var(--border);padding:3.5mm 4mm;margin:2.5mm 0;break-inside:avoid}
+.phrase .sit{font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:1.5mm}
+.phrase .ja{font-size:11pt;font-weight:500;line-height:1.6;margin-bottom:1mm}
+.phrase .ro{font-size:8pt;color:var(--muted);font-style:italic;margin-bottom:.5mm}
+.phrase .tr{font-size:8.5pt;color:#333}
+
+/* ---------- steps ---------- */
+.steps{counter-reset:s;margin:3mm 0}
+.step{counter-increment:s;position:relative;padding-left:9mm;margin-bottom:3mm;break-inside:avoid}
+.step::before{content:counter(s);position:absolute;left:0;top:0;width:6mm;height:6mm;background:var(--kuro);color:#fff;border-radius:50%;font-size:8pt;font-weight:700;display:flex;align-items:center;justify-content:center}
+.step .st{font-weight:700;font-size:9.5pt}
+.step .sd{font-size:9pt;color:#333}
+
+/* ---------- table ---------- */
+table{width:100%;border-collapse:collapse;margin:3mm 0;font-size:8.5pt}
+th,td{border:1px solid var(--border);padding:2mm 3mm;text-align:left;vertical-align:top}
+th{background:var(--hai);font-weight:600;font-size:8pt}
+
+/* ---------- checklist ---------- */
+.check{margin:3mm 0}
+.check div{padding:1.8mm 0 1.8mm 7mm;position:relative;border-bottom:1px dotted var(--border);font-size:9pt}
+.check div::before{content:'';position:absolute;left:0;top:2.2mm;width:3.5mm;height:3.5mm;border:1.2px solid var(--kuro)}
+
+.fill{background:#fffbea;border:1px dashed #d4a017;padding:3mm 4mm;margin:3mm 0;font-size:8.5pt}
+.fill .t{font-weight:700;color:#8a6d1f;margin-bottom:1mm}
+
+footer{margin-top:10mm;padding-top:3mm;border-top:1px solid var(--border);font-size:7.5pt;color:var(--muted);text-align:center}
+.pb{page-break-before:always}
+@media print{
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .ship,.warn,.phrase,.form,.step{break-inside:avoid}
+}
+@media screen and (max-width:700px){
+  .wrap{padding:4mm}
+  .row{flex-direction:column}
+  .row .lbl{width:100%;border-right:none;border-bottom:1px solid var(--border)}
+  .cover .meta{flex-direction:column;gap:3mm}
+  .blank{min-width:0;width:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cover">
+  <div class="kicker">Japan 2026 &middot; Practical Documents</div>
+  <h1>Luggage Forwarding</h1>
+  <div class="h1jp jp">宅急便 &mdash; 荷物の転送について</div>
+  <p>Two suitcase shipments are planned during the trip, both to avoid carrying the main
+     luggage across a cycling route and a ferry crossing. This sheet holds every detail the
+     hotel reception or the courier needs, in Japanese, plus the procedure and the phrases
+     to use at the counter.</p>
+  <div class="meta">
+    <div><b>2</b>shipments</div>
+    <div><b>6.10.</b>Fukuyama &rarr; Matsuyama</div>
+    <div><b>16.10.</b>Kumamoto &rarr; Nagasaki</div>
+    <div><b>Yamato</b>宅急便 / TA-Q-BIN</div>
+  </div>
+</div>
+
+<div class="warn">
+  <div class="t">Before you travel &mdash; three addresses are still missing</div>
+  <p>Only Candeo Fukuyama is verified below. The two <em>destination</em> hotels and the Kumamoto
+  sender address must be filled in before departure &mdash; the destination address is the one field
+  the waybill cannot be written without. Take them from your booking confirmation
+  (Booking.com and Agoda both show the address in Japanese), or ask the hotel by e-mail.
+  Every unverified field on this sheet is marked in <span style="color:var(--aka)">red dotted</span>.</p>
+</div>
+
+<h2>How it works<span class="jpsub jp">宅急便とは</span></h2>
+<p class="lead">Yamato Transport's <span class="jp">宅急便</span> (takkyubin) is the standard door-to-door
+courier. Practically every business hotel in Japan accepts outgoing parcels at reception and holds
+incoming ones for arriving guests &mdash; you rarely need to find a depot yourself.</p>
+
+<table>
+  <tr><th style="width:38mm">Item</th><th>Detail</th></tr>
+  <tr><td><b>Transit time</b></td><td>Next day for most domestic routes. Both of our routes are short-haul and should be next-day &mdash; <b>but confirm at the counter</b>, it is not guaranteed.</td></tr>
+  <tr><td><b>Size limit</b></td><td>Sum of width + length + height. Size 140 = 140&nbsp;cm total / 20&nbsp;kg. A normal large suitcase is usually size 140&ndash;160. Absolute max 200&nbsp;cm and 30&nbsp;kg.</td></tr>
+  <tr><td><b>Cost</b></td><td>Roughly &yen;2,000&ndash;2,800 per suitcase on these distances (size 140&ndash;160). Paid in cash by the sender at handover.</td></tr>
+  <tr><td><b>Insurance</b></td><td>Up to &yen;300,000 per parcel, included.</td></tr>
+  <tr><td><b>Contents field</b></td><td><span class="jp">品名</span> &mdash; mandatory and must be specific. Write <span class="jp"><b>衣類</b></span> (clothing). Vague entries can delay or block delivery.</td></tr>
+  <tr><td><b>Delivery date</b></td><td><span class="jp">配達希望日</span> &mdash; you may specify the date and a time slot. <b>Use this.</b> See the risk note below.</td></tr>
+</table>
+
+<div class="info">
+  <div class="t">Sending a parcel to a hotel where you are not yet staying</div>
+  <p>This is normal in Japan and hotels expect it, but the waybill must make clear who it belongs to.
+  The convention is to write the hotel as recipient, followed by <span class="jp"><b>気付</b></span>
+  (<i>kizuke</i>, "c/o"), then your own name and your check-in date. Both of our shipments arrive
+  <b>before</b> check-in, so both need this. Notify the hotel in advance &mdash; see the e-mail template.</p>
+</div>
+
+<h2>Shipment 1<span class="jpsub jp">福山 &rarr; 松山</span></h2>
+
+<div class="ship s1">
+  <div class="ship-head">
+    <div class="no">Shipment 1 &middot; Day 19 &rarr; Day 20</div>
+    <h3>Fukuyama &rarr; Matsuyama</h3>
+    <div class="when">Hand over <b>Tue 6.10.2026, 07:30&ndash;08:00</b> &middot; needed at destination <b>Wed 7.10. evening</b>
+      &middot; reason: Shimanami Kaido cycling, days 19&ndash;20</div>
+  </div>
+  <div class="ship-body">
+
+  <div class="form">
+    <div class="form-title"><span class="jp">お届け先</span> <span class="en">Recipient / destination</span></div>
+    <div class="row"><div class="lbl"><span class="jp">郵便番号</span><span class="en">Postal code</span></div>
+      <div class="val"><span class="blank">〒 &mdash; fill in from booking</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">ご住所</span><span class="en">Address</span></div>
+      <div class="val"><span class="blank jp">愛媛県松山市&hellip; &mdash; fill in from booking</span>
+        <span class="note">Hotel Sambancho, Matsuyama (三番町 district, central Matsuyama)</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">会社名・ホテル名</span><span class="en">Hotel name</span></div>
+      <div class="val"><span class="big jp">ホテル三番町</span> &nbsp;<span style="font-size:8.5pt;color:#666">Hotel Sambancho</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">気付 &middot; お名前</span><span class="en">c/o + guest name</span></div>
+      <div class="val"><span class="big jp">気付　</span><span class="blank">your name 様</span>
+        <span class="note"><span class="jp">10月7日チェックイン予定</span> &mdash; checking in 7 Oct</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">電話番号</span><span class="en">Phone</span></div>
+      <div class="val"><span class="blank">089- &mdash; hotel phone</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">配達希望日</span><span class="en">Requested delivery date</span></div>
+      <div class="val"><span class="big jp">2026年10月7日（水）</span>
+        <span class="note">Time slot: choose <span class="jp">午前中</span> (morning) so it is there well before you arrive</span></div></div>
+  </div>
+
+  <div class="form">
+    <div class="form-title"><span class="jp">ご依頼主</span> <span class="en">Sender &mdash; this is you, at Candeo</span></div>
+    <div class="row"><div class="lbl"><span class="jp">郵便番号</span><span class="en">Postal code</span></div>
+      <div class="val" style="font-family:'JetBrains Mono',monospace">〒720-0042</div></div>
+    <div class="row"><div class="lbl"><span class="jp">ご住所</span><span class="en">Address</span></div>
+      <div class="val"><span class="big jp">広島県福山市御船町2-8-20</span>
+        <span class="note">2-8-20 Mifune-cho, Fukuyama-shi, Hiroshima</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">ホテル名</span><span class="en">Hotel name</span></div>
+      <div class="val"><span class="big jp">カンデオホテルズ福山</span> &nbsp;<span style="font-size:8.5pt;color:#666">Candeo Hotels Fukuyama</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">電話番号</span><span class="en">Phone</span></div>
+      <div class="val" style="font-family:'JetBrains Mono',monospace">084-932-7500</div></div>
+    <div class="row"><div class="lbl"><span class="jp">お名前</span><span class="en">Your name</span></div>
+      <div class="val"><span class="blank">your name</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">品名</span><span class="en">Contents &mdash; mandatory</span></div>
+      <div class="val"><span class="big jp">衣類</span> <span style="font-size:8.5pt;color:#666">(clothing)</span></div></div>
+  </div>
+
+  <div class="warn">
+    <div class="t">Tight window &mdash; the one real risk on this trip</div>
+    <p>You reach Hotel Sambancho on the <b>evening of 7.10.</b> and leave Matsuyama on the
+    <b>morning of 8.10.</b> (day 21, train to Shimonada then the Beppu ferry). The suitcase
+    therefore has a window of roughly <b>one night</b>. If delivery slips by a single day, the bag
+    is in Matsuyama and you are in Kyushu.</p>
+    <p style="margin-bottom:0"><b>Mitigation:</b> specify <span class="jp">配達希望日 = 10月7日</span>
+    with a morning slot; ask at the counter to <em>confirm</em> next-day is realistic before you pay;
+    save the tracking number and check it on the evening of 6.10. If the counter will not commit to
+    the 7th, do not send &mdash; carry the bag or use a coin locker instead.</p>
+  </div>
+
+  </div>
+</div>
+
+<h2 class="pb">Shipment 2<span class="jpsub jp">熊本 &rarr; 長崎</span></h2>
+
+<div class="ship s2">
+  <div class="ship-head">
+    <div class="no">Shipment 2 &middot; Day 29 &rarr; Day 31</div>
+    <h3>Kumamoto &rarr; Nagasaki</h3>
+    <div class="when">Hand over <b>Fri 16.10.2026, 07:30</b> &middot; needed at destination <b>Sun 18.10.</b>
+      &middot; reason: Shimabara ferry, Unzen and Obama with light luggage</div>
+  </div>
+  <div class="ship-body">
+
+  <div class="form">
+    <div class="form-title"><span class="jp">お届け先</span> <span class="en">Recipient / destination</span></div>
+    <div class="row"><div class="lbl"><span class="jp">郵便番号</span><span class="en">Postal code</span></div>
+      <div class="val"><span class="blank">〒 &mdash; fill in from booking</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">ご住所</span><span class="en">Address</span></div>
+      <div class="val"><span class="blank jp">長崎県長崎市&hellip; &mdash; fill in from booking</span>
+        <span class="note">APA Hotel Nagasaki Dejima, near Dejima</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">会社名・ホテル名</span><span class="en">Hotel name</span></div>
+      <div class="val"><span class="big jp">アパホテル〈長崎出島〉</span>
+        <span class="note">Verify the exact branch name on your booking &mdash; APA has several
+        properties in Nagasaki and the branch suffix decides which one it reaches</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">気付 &middot; お名前</span><span class="en">c/o + guest name</span></div>
+      <div class="val"><span class="big jp">気付　</span><span class="blank">your name 様</span>
+        <span class="note"><span class="jp">10月18日チェックイン予定</span> &mdash; checking in 18 Oct</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">電話番号</span><span class="en">Phone</span></div>
+      <div class="val"><span class="blank">095- &mdash; hotel phone</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">配達希望日</span><span class="en">Requested delivery date</span></div>
+      <div class="val"><span class="big jp">2026年10月18日（日）</span>
+        <span class="note">Ask for the 18th rather than the 17th &mdash; see the note below</span></div></div>
+  </div>
+
+  <div class="form">
+    <div class="form-title"><span class="jp">ご依頼主</span> <span class="en">Sender &mdash; this is you, at The Gate</span></div>
+    <div class="row"><div class="lbl"><span class="jp">郵便番号</span><span class="en">Postal code</span></div>
+      <div class="val"><span class="blank">〒 &mdash; fill in from booking</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">ご住所</span><span class="en">Address</span></div>
+      <div class="val"><span class="blank jp">熊本県熊本市&hellip; &mdash; fill in from booking</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">ホテル名</span><span class="en">Hotel name</span></div>
+      <div class="val"><span class="big jp">ホテル ザ・ゲート熊本</span> &nbsp;<span style="font-size:8.5pt;color:#666">Hotel The Gate Kumamoto</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">電話番号</span><span class="en">Phone</span></div>
+      <div class="val"><span class="blank">096- &mdash; hotel phone</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">お名前</span><span class="en">Your name</span></div>
+      <div class="val"><span class="blank">your name</span></div></div>
+    <div class="row"><div class="lbl"><span class="jp">品名</span><span class="en">Contents &mdash; mandatory</span></div>
+      <div class="val"><span class="big jp">衣類</span> <span style="font-size:8.5pt;color:#666">(clothing)</span></div></div>
+  </div>
+
+  <div class="info">
+    <div class="t">This one is comfortable, but it arrives two days early</div>
+    <p>Sent on the 16th, next-day delivery would put the bag at the APA on the <b>17th</b> &mdash; a day
+    before you check in on the <b>18th</b>. That is fine and hotels routinely hold luggage, but it makes
+    advance notice more important than on shipment 1. Requesting delivery on the 18th is cleaner if the
+    counter allows it.</p>
+    <p style="margin-bottom:0"><b>Also note the tight morning:</b> handover at 07:30 and the Ocean Arrow
+    ferry at 09:25 the same morning. The hotel desk is staffed, but a Yamato depot may not open until
+    08:00 &mdash; settle the evening before which of the two you are using.</p>
+  </div>
+
+  </div>
+</div>
+
+<h2>At the counter<span class="jpsub jp">フロントでの手順</span></h2>
+
+<div class="steps">
+  <div class="step"><span class="st">Ask the evening before.</span>
+    <span class="sd">Confirm the hotel accepts <span class="jp">宅急便</span>, from what time, and whether
+    they hand it to Yamato the same morning. If they do not, ask for the nearest depot
+    (<span class="jp">ヤマト運輸の営業所</span>) and its opening time.</span></div>
+  <div class="step"><span class="st">Hand over the suitcase and ask for the form.</span>
+    <span class="sd">Reception keeps blank waybills (<span class="jp">送り状</span>). Use the phrase below.</span></div>
+  <div class="step"><span class="st">Fill in the waybill from this sheet.</span>
+    <span class="sd">Recipient block first, then sender block, then
+    <span class="jp">品名</span> and <span class="jp">配達希望日</span>. Staff will help &mdash; show them this page.</span></div>
+  <div class="step"><span class="st">Pay in cash.</span>
+    <span class="sd">Around &yen;2,000&ndash;2,800. Some hotels add it to the room bill instead.</span></div>
+  <div class="step"><span class="st">Keep the tracking slip.</span>
+    <span class="sd">You get a tear-off copy with the tracking number
+    (<span class="jp">お問い合わせ番号</span>, 12 digits). <b>Photograph it immediately.</b>
+    Track at kuronekoyamato.co.jp.</span></div>
+  <div class="step"><span class="st">Check the same evening.</span>
+    <span class="sd">Confirm the parcel is moving and the ETA still matches your arrival.</span></div>
+</div>
+
+<h2>Phrases<span class="jpsub jp">使えるフレーズ</span></h2>
+
+<div class="phrase">
+  <div class="sit">Sending &mdash; at your hotel reception</div>
+  <div class="ja jp">宅急便でこの荷物を送りたいのですが、お願いできますか。</div>
+  <div class="ro">Takkyubin de kono nimotsu o okuritai no desu ga, onegai dekimasu ka.</div>
+  <div class="tr">I would like to send this luggage by takkyubin &mdash; could you help me?</div>
+</div>
+
+<div class="phrase">
+  <div class="sit">Asking whether next-day delivery is realistic &mdash; the important one</div>
+  <div class="ja jp">明日の午前中に届きますか。確実でしょうか。</div>
+  <div class="ro">Ashita no gozen-chu ni todokimasu ka. Kakujitsu deshou ka.</div>
+  <div class="tr">Will it arrive tomorrow morning? Is that reliable?</div>
+</div>
+
+<div class="phrase">
+  <div class="sit">Explaining it goes to a hotel you have not checked into yet</div>
+  <div class="ja jp">宿泊予定のホテルに送ります。チェックインは10月7日です。</div>
+  <div class="ro">Shukuhaku yotei no hoteru ni okurimasu. Chekku-in wa juu-gatsu nanoka desu.</div>
+  <div class="tr">It is going to a hotel where I have a booking. My check-in is on 7 October.
+    <span style="color:var(--muted)">(For shipment 2 say <span class="jp">10月18日</span>, juu-gatsu juu-hachi-nichi.)</span></div>
+</div>
+
+<div class="phrase">
+  <div class="sit">Receiving &mdash; on arrival at the destination hotel</div>
+  <div class="ja jp">宅急便で荷物が届いているはずですが、確認していただけますか。</div>
+  <div class="ro">Takkyubin de nimotsu ga todoite iru hazu desu ga, kakunin shite itadakemasu ka.</div>
+  <div class="tr">A parcel should have arrived for me by takkyubin &mdash; could you check?</div>
+</div>
+
+<div class="phrase">
+  <div class="sit">If something has gone wrong</div>
+  <div class="ja jp">荷物がまだ届いていません。お問い合わせ番号はこちらです。</div>
+  <div class="ro">Nimotsu ga mada todoite imasen. O-toiawase bangou wa kochira desu.</div>
+  <div class="tr">My parcel has not arrived yet. Here is the tracking number.</div>
+</div>
+
+<h2>Advance notice to the destination hotel<span class="jpsub jp">事前連絡</span></h2>
+<p class="lead">Send this a few days before each shipment &mdash; both parcels arrive before you check in,
+so the hotel should know to expect and hold them. Replace the bracketed parts.</p>
+
+<div class="info jp" style="line-height:1.9">
+<p>件名：宅急便のお荷物の事前受け取りのお願い</p>
+<p>&nbsp;</p>
+<p>ご担当者様</p>
+<p>&nbsp;</p>
+<p>［10月7日］から宿泊を予約しております［お名前］と申します。</p>
+<p>宿泊に先立ち、宅急便でスーツケースを1個お送りしたいと考えております。</p>
+<p>［10月7日］に到着予定です。お預かりいただけますでしょうか。</p>
+<p>&nbsp;</p>
+<p>お手数をおかけしますが、よろしくお願いいたします。</p>
+</div>
+<p style="font-size:8.5pt;color:var(--muted)">English equivalent: "I have a reservation from [date] under
+the name [name]. Ahead of my stay I would like to send one suitcase by takkyubin, arriving on [date]
+&mdash; would you be able to hold it for me? Thank you for your help."</p>
+
+<h2>Checklist<span class="jpsub jp">チェックリスト</span></h2>
+
+<h3>Before leaving home</h3>
+<div class="check">
+  <div>Get the Japanese address + postal code + phone of <b>Hotel Sambancho, Matsuyama</b></div>
+  <div>Get the Japanese address + postal code + phone of <b>APA Nagasaki Dejima</b>, and confirm the exact branch name</div>
+  <div>Get the Japanese address + postal code + phone of <b>Hotel The Gate Kumamoto</b></div>
+  <div>Write them into this sheet and reprint, or save a photo of the filled-in version</div>
+  <div>Note your own Japanese contact number (roaming or eSIM) for the sender field</div>
+</div>
+
+<h3>Shipment 1 &mdash; evening of 5.10. (day 18, Candeo Fukuyama)</h3>
+<div class="check">
+  <div>Pack the main suitcase for shipping; separate the Shimanami bag (2 days of cycling kit)</div>
+  <div>Ask reception: takkyubin accepted? from what time tomorrow?</div>
+  <div>Confirm next-day delivery to Matsuyama is realistic</div>
+</div>
+
+<h3>Shipment 1 &mdash; morning of 6.10. (day 19)</h3>
+<div class="check">
+  <div>07:30&ndash;08:00 hand over the suitcase, fill in the waybill</div>
+  <div>Request delivery <b>7.10., morning slot</b></div>
+  <div>Pay, take the tracking slip, <b>photograph it</b></div>
+  <div>Evening: check tracking</div>
+</div>
+
+<h3>Shipment 2 &mdash; evening of 15.10. (day 28, The Gate Kumamoto)</h3>
+<div class="check">
+  <div>Pack the suitcase for shipping after the car is returned (18:00 deadline)</div>
+  <div>Confirm tomorrow's handover time &mdash; the ferry is at 09:25 and the margin is thin</div>
+</div>
+
+<h3>Shipment 2 &mdash; morning of 16.10. (day 29)</h3>
+<div class="check">
+  <div>07:30 hand over the suitcase, fill in the waybill</div>
+  <div>Request delivery <b>18.10.</b> (or accept the 17th, with the hotel notified)</div>
+  <div>Pay, take the tracking slip, <b>photograph it</b></div>
+  <div>Leave for Kumamoto Port &mdash; Ocean Arrow 09:25</div>
+</div>
+
+<h3>On arrival</h3>
+<div class="check">
+  <div>7.10. Matsuyama &mdash; confirm the suitcase is at Hotel Sambancho</div>
+  <div>18.10. Nagasaki &mdash; confirm the suitcase is at the APA</div>
+</div>
+
+<div class="fill">
+  <div class="t">Tracking numbers &mdash; write them here</div>
+  <p>Shipment 1 (6.10.): ____________________________________</p>
+  <p style="margin-bottom:0">Shipment 2 (16.10.): ___________________________________</p>
+</div>
+
+<footer>
+  Japan 2026 &middot; Luggage forwarding sheet &middot; Yamato Transport <span class="jp">宅急便</span>
+  &middot; tracking: kuronekoyamato.co.jp
+</footer>
+
+</div>
+</body>
+</html>

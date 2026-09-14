@@ -95,6 +95,10 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 
 - `japan-travel-guide.html` - complete magazine-style travel guide with all 7 regions, contacts, links (PDF button opens it).
   Day cards cover **all 53 days**; each chapter's card range must match its `region-dates` header.
+- `luggage-forwarding.html` - print-ready takkyubin sheet for the two suitcase shipments
+  (6.10. Fukuyama->Matsuyama, 16.10. Kumamoto->Nagasaki). Bilingual; the waybill fields are in
+  Japanese so the sheet can be handed straight to a hotel reception. Linked from the Links modal
+  and precached by `sw.js`.
 - `mockups/` - UI design iterations
 - `ADJUSTED_MASTER_PLAN.md`, `KONSOLIDOVANY_ITINERAR.md` - detailed trip planning docs
 - `HACHIJOJIMA_AOGASHIMA_PLAN.md` - abandoned Oct 26-29 alternative (kept for reference only)
@@ -120,6 +124,27 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 A **Rev card** is waiting at the reception of Shinsaibashi Arty Inn in Osaka - pick it up on
 25.9. Recorded in four places so it cannot be missed: task `t32`, `DAY_TASKS[8]`, `DAY_NOTES[8]`
 and the day 8 timeline.
+
+## Luggage forwarding (takkyubin)
+
+Two shipments, both to travel light over a leg where the suitcase would be in the way:
+
+- **6.10. (day 19) Fukuyama -> Matsuyama** - handed over 07:30-08:00 at Candeo, needed at Hotel
+  Sambancho by the evening of 7.10. **This is the risky one:** you arrive in Matsuyama on the
+  evening of the 7th and leave on the morning of the 8th, so the bag has a one-night window. Always
+  request `配達希望日` 7.10. morning and confirm at the counter that next-day is realistic *before*
+  paying. If they will not commit, do not send.
+- **16.10. (day 29) Kumamoto -> Nagasaki** - handed over 07:30 at The Gate, needed at APA Nagasaki
+  by 18.10. Comfortable timing, but it lands on the 17th, a day before check-in, so the hotel needs
+  advance notice. The same morning is tight: ferry at 09:25 and a depot may not open until 08:00.
+
+Both parcels arrive **before** check-in, so the waybill needs the hotel as recipient followed by
+`気付` (c/o) + your name + check-in date.
+
+**Still open:** the Japanese addresses of Hotel Sambancho, APA Nagasaki Dejima and Hotel The Gate
+Kumamoto were not obtainable online (booking sites block automated access) - they must come from the
+booking confirmations (task `t33`). Only Candeo Fukuyama is verified: 〒720-0042 広島県福山市御船町2-8-20,
+084-932-7500. Unverified fields in the sheet are marked in red dotted.
 
 ## Tokyo meetups
 
