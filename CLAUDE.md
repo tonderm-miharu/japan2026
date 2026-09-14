@@ -141,10 +141,19 @@ Two shipments, both to travel light over a leg where the suitcase would be in th
 Both parcels arrive **before** check-in, so the waybill needs the hotel as recipient followed by
 `気付` (c/o) + your name + check-in date.
 
-**Still open:** the Japanese addresses of Hotel Sambancho, APA Nagasaki Dejima and Hotel The Gate
-Kumamoto were not obtainable online (booking sites block automated access) - they must come from the
-booking confirmations (task `t33`). Only Candeo Fukuyama is verified: 〒720-0042 広島県福山市御船町2-8-20,
-084-932-7500. Unverified fields in the sheet are marked in red dotted.
+**The sheet is complete** - all four hotel addresses, phone numbers and the guest name
+(MICHAL TONDER) are filled in, so it can be handed over as printed:
+
+| Hotel | Address | Tel |
+|---|---|---|
+| Candeo Fukuyama (sender 1) | 〒720-0042 広島県福山市御船町2-8-20 | 084-932-7500 |
+| Hotel Sambancho (dest. 1) | 〒790-0003 愛媛県松山市三番町2丁目7-7 | 0570-04-7000 |
+| The Gate Kumamoto (sender 2) | 〒860-0047 熊本県熊本市西区春日1-14-1 熊本森都心プラザ1階 | 096-288-0170 |
+| APA 〈長崎出島〉 (dest. 2) | 〒850-0034 長崎県長崎市樺島町8-17 | 0570-022-211 |
+
+The Kumamoto postal code came from the Japan Post register (春日, 西区); the user supplied that
+address without one. The APA branch suffix 〈長崎出島〉 is part of the name - APA has several
+Nagasaki properties.
 
 ## Tokyo meetups
 

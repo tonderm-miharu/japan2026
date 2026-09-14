@@ -136,7 +136,6 @@
 - [ ] Ippei - min. 1 week before Oct 23 (nomikai proposal)
 - [ ] Book head spa at Thermae-Yu Shinjuku (Oct 24 afternoon) - kodawary.com, LINE login
 - [ ] Check the final Roppongi Art Night program (Oct 31, many times still TBD)
-- [ ] Get Japanese addresses for takkyubin (Hotel Sambancho, APA Nagasaki, The Gate Kumamoto)
 
 ## Adjusted Master Plan
 
