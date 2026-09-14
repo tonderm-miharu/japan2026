@@ -17,12 +17,13 @@ Deploy by pushing to `master` - GitHub Pages auto-deploys from root.
 
 ## Architecture
 
-**Single-file dashboard** (`itinerar.html`, ~4800 lines):
+**Single-file dashboard** (`itinerar.html`, ~4890 lines):
 - Inline CSS (lines 18-2257): CSS variables in `:root`, responsive breakpoint at 900px, print styles
-- Data objects (lines 2540-3601): `TASKS` (2540), `POI_URLS` (2567), `DAYS` (2802), `HOTEL_INFO` (2870),
-  `DAY_NOTES` (3137), `CONTACTS` (3592)
-- Weather config: `WEATHER_DEFAULTS` (2925, seasonal averages), `WMO_CODES` (2942)
-- Functions (2536-4807): rendering, filters, search, modals, weather, countdown, timezone
+- Data objects (lines 2550-3615): `TASKS` (2550), `POI_URLS` (2579), `DAYS` (2814), `HOTEL_INFO` (2882),
+  `DAY_NOTES` (3150), `CONTACTS` (3615)
+- Weather config: `WEATHER_DEFAULTS` (2937, seasonal averages), `WMO_CODES` (2954)
+- Per-day automatic tasks: `DAY_TASKS` (3120), keyed by day number - separate from the `TASKS` checklist
+- Functions (from ~3640): rendering, filters, search, modals, weather, countdown, timezone
 
 These line numbers drift with every edit - treat them as a starting map, not gospel, and
 `Grep` for the symbol name to get the current position.
@@ -114,6 +115,12 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 
 **Day 45 (1.11.) daytime program is open** - Togoshi Ginza moved to day 42, nothing has replaced it yet.
 
+## Day 8 (25.9.): Rev card
+
+A **Rev card** is waiting at the reception of Shinsaibashi Arty Inn in Osaka - pick it up on
+25.9. Recorded in four places so it cannot be missed: task `t32`, `DAY_TASKS[8]`, `DAY_NOTES[8]`
+and the day 8 timeline.
+
 ## Tokyo meetups
 
 - **Minoru - confirmed 30.10. evening** (day 43), nomikai. Contact him around 22.10. to settle place/time.
@@ -123,4 +130,18 @@ Each phase has its own color in the progress strip and calendar. Region is set i
 - Shogo is *not* coming to Tokyo - do not re-add him.
 
 Day 37 (24.10.) is a deliberately easy day before the Izu road trip: head spa + onsen at
-Thermae-Yu Shinjuku, which needs booking ahead (task `t30`, link in the Links modal).
+Thermae-Yu Shinjuku. The head spa is a separate paid treatment and must be booked ahead
+through **kodawary.com** (LINE login required) - not on thermae-yu.jp. Both links are in the
+Links modal; task `t30`.
+
+## Roppongi Art Night 2026 (day 44)
+
+Confirmed on the official site: **31.10. 17:00 -> 1.11. 06:00**, free admission (museum special
+exhibitions are paid separately). The all-night format is back after a 3-year break; RAN Focus
+2026 is France, co-produced with CENTQUATRE-PARIS. Venues are walkable from each other: Roppongi
+Hills / Mori Art Museum (open to 06:00), Tokyo Midtown / Suntory / 21_21, National Art Center,
+plus the street program. Installations stay viewable until 22:00 on 1.11., so day 45 can catch up
+on what was missed.
+
+It lands on the same night as Halloween (day 44) - both are in Roppongi's orbit, so they combine
+rather than compete. Many program times were still TBD as of Sept 2026 (task `t31`).

@@ -2445,7 +2445,17 @@
                 <a href="https://thermae-yu.jp/" target="_blank" class="link-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6c0 2-2 2-2 4s2 2 2 4"/><path d="M15 6c0 2-2 2-2 4s2 2 2 4"/><path d="M4 18h16"/><path d="M4 21h16"/></svg>
                     <span class="link-name">Thermae-Yu Shinjuku</span>
-                    <span class="link-desc">Onsen + head spa – book ahead (24.10.)</span>
+                    <span class="link-desc">Onsen complex – general info (24.10.)</span>
+                </a>
+                <a href="https://kodawary.com/user/line/login" target="_blank" class="link-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M9 16l2 2 4-4"/></svg>
+                    <span class="link-name">Head Spa reservation</span>
+                    <span class="link-desc">Kodawary booking – LINE login needed</span>
+                </a>
+                <a href="https://www.roppongiartnight.com/2026/" target="_blank" class="link-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2a10 10 0 000 20 2 2 0 002-2 2 2 0 00-.5-1.3 2 2 0 01-.5-1.2 2 2 0 012-2h2.4A4.6 4.6 0 0022 12 10 10 0 0012 2z"/></svg>
+                    <span class="link-name">Roppongi Art Night 2026</span>
+                    <span class="link-desc">31.10. 17:00 → 1.11. 06:00 – free, all night</span>
                 </a>
                 <a href="https://www.jma.go.jp/bosai/en_risk/" target="_blank" class="link-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
@@ -2547,12 +2557,14 @@
         { id: 't28', text: '✅ Minoru confirmed - 30.10. evening', priority: 'done' },
         { id: 't27', text: '📱 Contact Ryuki (around 10.10.) – possible 24. or 25.10.', priority: 'med' },
         { id: 't29', text: '📱 Contact Minoru (around 22.10.) – confirm place/time for 30.10.', priority: 'med' },
-        { id: 't30', text: '♨️ Book head spa at Thermae-Yu Shinjuku (24.10. afternoon)', priority: 'med' },
+        { id: 't30', text: '♨️ Book head spa at Thermae-Yu Shinjuku (24.10. afternoon) – kodawary.com, LINE login', priority: 'med' },
         { id: 't21', text: 'Contact Ippei (min. 1 week before 23.10.)', priority: 'med' },
+        { id: 't31', text: '🎨 Roppongi Art Night (31.10.) – check final program, many times still TBD', priority: 'med' },
         { id: 't24', text: '🛍️ Gorillaz figures for Edík (Mandarake, Nakano Broadway – 1.11.)', priority: 'med' },
         { id: 't25', text: '🛍️ Buy stickers for colleague (GoPro)', priority: 'med' },
         { id: 't14', text: 'Activate roaming package', priority: 'high' },
         // During trip - chronological
+        { id: 't32', text: '💳 Pick up Rev card at the hotel reception (25.9., Shinsaibashi Arty Inn)', priority: 'high' },
         { id: 't4', text: 'Shimanami multi-day bike rental (6–7.10.)', priority: 'high' },
         { id: 't8', text: 'Send luggage Fukuyama→Matsuyama (6.10.)', priority: 'high' },
         { id: 't5', text: 'Takachiho Yokagura reservation (14.10.)', priority: 'high' },
@@ -2807,7 +2819,7 @@
         { day: 5, dow: 'Tue', date: '22.9.2026', title: 'Sakai', subtitle: 'Kofun, Shimano Museum', region: 'osaka', tags: ['ho'], hotel: 'Shinsaibashi Arty Inn', price: '52 EUR', pois: [{name:'Daisen Kofun (Nintoku tomb)', coords:[34.5642,135.4879]}, {name:'Shimano Bicycle Museum', coords:[34.5733,135.4830]}], timeline: [{time:'Morning', text:'Sakai – Kofun tombs', type:'sight'}, {time:'10:00–16:30', text:'Shimano Bicycle Museum', type:'sight'}, {time:'16:00–24:00', text:'HOME OFFICE', type:'work'}] },
         { day: 6, dow: 'Wed', date: '23.9.2026', title: 'Osaka Bay', subtitle: 'Maishima, ATC/Sakishima', region: 'osaka', tags: ['ho'], hotel: 'Shinsaibashi Arty Inn', price: '52 EUR', pois: [{name:'Maishima Sports Island', coords:[34.6657,135.4017]}, {name:'ATC (Asia & Pacific Trade Center)', coords:[34.6375,135.4178]}, {name:'Sakishima', coords:[34.6410,135.4295]}], timeline: [{time:'09:30', text:'Maishima Sports Island', type:'sight'}, {time:'Morning', text:'ATC / Sakishima urbanism', type:'sight'}, {time:'13:00–15:00', text:'Lunch + return', type:'food'}, {time:'16:00–24:00', text:'HOME OFFICE', type:'work'}] },
         { day: 7, dow: 'Thu', date: '24.9.2026', title: 'Takedao', subtitle: 'Railway trail, tunnels, nature', region: 'osaka', tags: [], hotel: 'Shinsaibashi Arty Inn', price: '52 EUR', pois: [{name:'JR Takedao Station', coords:[34.8667,135.3000]}, {name:'Takedao hiking trail', coords:[34.8700,135.2900]}], timeline: [{time:'All day', text:'JR Takedao – tunnels / nature', type:'sight'}] },
-        { day: 8, dow: 'Fri', date: '25.9.2026', title: 'Osaka + Critical Mass', subtitle: 'Nakanoshima Museum, evening cycling', region: 'osaka', tags: ['bike'], hotel: 'Shinsaibashi Arty Inn', price: '52 EUR', pois: [{name:'Nakanoshima Museum of Art', coords:[34.6913,135.4917]}, {name:'National Museum of Art', coords:[34.6918,135.4884]}], timeline: [{time:'Morning', text:'Nakanoshima Museum of Art', type:'sight'}, {time:'Afternoon', text:'National Museum of Art', type:'sight'}, {time:'Evening', text:'Critical Mass Osaka', type:'sight', note:'Get Hello Bike'}] },
+        { day: 8, dow: 'Fri', date: '25.9.2026', title: 'Osaka + Critical Mass', subtitle: 'Nakanoshima Museum, evening cycling', region: 'osaka', tags: ['bike'], hotel: 'Shinsaibashi Arty Inn', price: '52 EUR', pois: [{name:'Nakanoshima Museum of Art', coords:[34.6913,135.4917]}, {name:'National Museum of Art', coords:[34.6918,135.4884]}], timeline: [{time:'', text:'💳 Pick up Rev card at hotel reception', type:''}, {time:'Morning', text:'Nakanoshima Museum of Art', type:'sight'}, {time:'Afternoon', text:'National Museum of Art', type:'sight'}, {time:'Evening', text:'Critical Mass Osaka', type:'sight', note:'Get Hello Bike'}] },
         { day: 9, dow: 'Sat', date: '26.9.2026', title: 'Osaka + Keigo', subtitle: 'Free time, evening meetup', region: 'osaka', tags: ['meet'], hotel: 'Shinsaibashi Arty Inn', price: '52 EUR', pois: [{name:'Tennoji', coords:[34.6470,135.5140]}, {name:'Abeno Harukas', coords:[34.6462,135.5131]}], timeline: [{time:'Free', text:'Tennoji / Abeno / modern Osaka', type:'sight'}, {time:'Evening', text:'Meeting with Keigo', type:'sight', note:'Contact min. 1 week ahead'}] },
         { day: 10, dow: 'Sun', date: '27.9.2026', title: 'Osaka → Kyoto', subtitle: 'Transfer, bike, Waterway Pavilion', region: 'kyoto', tags: ['bike'], hotel: 'Hedistar Hotel Kyoto Nijo', price: '24 EUR', cancel: '26.9.', pois: [{name:'Nijo Castle', coords:[35.0142,135.7478]}, {name:'Kyoto Imperial Palace', coords:[35.0254,135.7620]}, {name:'Kamogawa River', coords:[35.0116,135.7700]}, {name:'Hedistar Hotel Kyoto Nijo', coords:[35.0116,135.7681]}], timeline: [{time:'Morning', text:'Transfer to Kyoto', type:'transport'}, {time:'', text:'Hotel + rent bike', type:''}, {time:'Afternoon', text:'West Kyoto by bike', type:'sight'}, {time:'', text:'Nijo – Imperial Palace – Kamogawa', type:'sight'}] },
         { day: 11, dow: 'Mon', date: '28.9.2026', title: 'Uji', subtitle: 'Byodo-in, Ujigami Shrine, tea', region: 'kyoto', tags: [], hotel: 'Hedistar Hotel Kyoto Nijo', price: '24 EUR', pois: [{name:'Byodo-in Temple', coords:[34.8894,135.8077]}, {name:'Ujigami Shrine', coords:[34.8917,135.8133]}, {name:'Uji River', coords:[34.8890,135.8100]}], timeline: [{time:'08:30–09:00', text:'Departure to Uji', type:'transport'}, {time:'', text:'Byodo-in', type:'sight'}, {time:'', text:'Ujigami Shrine', type:'sight'}, {time:'', text:'Uji tea / lunch', type:'food'}, {time:'17:00–18:00', text:'Back in Kyoto', type:'transport'}] },
@@ -2843,8 +2855,8 @@
         { day: 41, dow: 'Wed', date: '28.10.2026', title: 'Fujinomiya → Motosuko → Hottarakashi → Isawa', subtitle: 'Fuji viewpoint (1000¥), Hottarakashi Onsen', region: 'tokyo', tags: ['car','onsen'], hotel: 'Isawa View Hotel', price: '41 EUR', cancel: '24.10.', pois: [{name:'Lake Motosu', coords:[35.4617,138.5867]}, {name:'Fuji Motosuko Resort', coords:[35.4650,138.5942]}, {name:'Hottarakashi Onsen', coords:[35.7256,138.7239]}, {name:'Kofu', coords:[35.6639,138.5683]}, {name:'Isawa View Hotel', coords:[35.6483,138.6467]}], timeline: [{time:'Morning', text:'Depart Fujinomiya', type:'transport'}, {time:'', text:'Lake Motosu – Fuji viewpoint (1000¥)', type:'sight'}, {time:'', text:'Fuji viewpoints (weather-dependent)', type:'sight'}, {time:'Afternoon', text:'Drive via Yamanashi → Kofu', type:'transport'}, {time:'Before sunset', text:'Hottarakashi Onsen (view over Kofu Basin)', type:'sight'}, {time:'Evening', text:'Drive to Isawa', type:'transport'}], note: 'Motosu = 1000¥ banknote | Opt. B: wine/food | ✅ Isawa View Hotel' },
         { day: 42, dow: 'Thu', date: '29.10.2026', title: 'Isawa → Mishima → Shimbashi → Tsukishima', subtitle: 'CAR END | Togoshi Ginza, monjayaki', region: 'tokyo', tags: ['car','meet'], hotel: 'Anshin Oyado Tokyo Man Shimbashi', price: '46 EUR', cancel: '27.10.', pois: [{name:'Isawa View Hotel', coords:[35.6483,138.6467]}, {name:'Mishima Station', coords:[35.1264,138.9117]}, {name:'J-net Rentacar Mishima', coords:[35.1258,138.9105]}, {name:'Anshin Oyado Tokyo Man Shimbashi', coords:[35.6650,139.7581]}, {name:'Shimbashi Station', coords:[35.6665,139.7583]}, {name:'Togoshi Ginza', coords:[35.6117,139.7150]}, {name:'Caretta Shiodome', coords:[35.6639,139.7601]}, {name:'Tsukishima Monja Street', coords:[35.6644,139.7836]}, {name:'Shimbashi Gado-shita', coords:[35.6672,139.7578]}], timeline: [{time:'', text:'Relaxed breakfast', type:'food'}, {time:'', text:'Yamanashi → Mishima (fill up!)', type:'transport'}, {time:'~11:30', text:'Return car J-net Mishima (early)', type:''}, {time:'11:58', text:'Shinkansen Mishima → Shinagawa', type:'transport'}, {time:'~13:00–14:00', text:'Check-in Shimbashi (possible from 12:00)', type:''}, {time:'14:30', text:'Meet Kousuke at Shimbashi Station', type:'sight'}, {time:'Afternoon', text:'Togoshi Ginza shotengai – local snacks', type:'food'}, {time:'Opt.', text:'Caretta Shiodome Sky View / Ebisu–Daikanyama', type:'sight'}, {time:'~16:30', text:'→ Tsukishima Monja Street', type:'transport'}, {time:'~17:30', text:'MONJAYAKI dinner', type:'food'}, {time:'Evening', text:'Opt. Shimbashi Gado-shita alley bars', type:'sight'}], note: '🚗 Return car ~11:30 (before 11:58 train) | 👤 Kousuke 14:30 | 🍳 Monjayaki Tsukishima' },
         { day: 43, dow: 'Fri', date: '30.10.2026', title: 'Minato cycling → Takanawa → Shinjuku', subtitle: 'Takanawa Gateway City, MoN museum, Minoru', region: 'tokyo', tags: ['bike','meet'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', cancel: '27.10.', pois: [{name:'Shimbashi Station', coords:[35.6665,139.7583]}, {name:'Hamarikyu Gardens', coords:[35.6597,139.7634]}, {name:'Takeshiba', coords:[35.6553,139.7592]}, {name:'Shibaura', coords:[35.6440,139.7480]}, {name:'Shiba Park / Zojo-ji', coords:[35.6574,139.7486]}, {name:'Takanawa Gateway City', coords:[35.6357,139.7404]}, {name:'NEWoMan Takanawa', coords:[35.6357,139.7404]}, {name:'MoN Takanawa', coords:[35.6357,139.7404]}, {name:'Sengaku-ji', coords:[35.6386,139.7413]}, {name:'Hotel Sunlite Shinjuku', coords:[35.6895,139.6917]}, {name:'Bar Nekorob', coords:[35.7050,139.6600]}], timeline: [{time:'Morning', text:'Checkout + pick up shared bike', type:''}, {time:'', text:'Shimbashi → Hamarikyu → Takeshiba → Shibaura', type:'sight'}, {time:'', text:'Shiba Park / Zojo-ji → Takanawa (park bike)', type:'sight'}, {time:'Late morning', text:'Takanawa Gateway City + Gateway Park', type:'sight'}, {time:'', text:'NEWoMan Takanawa + lunch', type:'food'}, {time:'Afternoon', text:'MoN Takanawa – Museum of Narratives', type:'sight'}, {time:'Opt.', text:'Sengaku-ji', type:'sight'}, {time:'~14:30–15:00', text:'Leave Takanawa → Shinjuku', type:'transport'}, {time:'~16:00', text:'Check-in Hotel Sunlite Shinjuku', type:''}, {time:'Evening', text:'✅ Minoru – CONFIRMED (nomikai)', type:'sight', note:'Contact: edobicycleart'}], note: '🚲 Compact Minato cycling | 🖼️ Priority: Takanawa Gateway City + MoN | ✅ Minoru confirmed – evening' },
-        { day: 44, dow: 'Sat', date: '31.10.2026', title: 'Tokyo – Halloween', subtitle: 'Halloween + Critical Mass?', region: 'tokyo', tags: ['bike','fest'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Shinjuku Halloween', coords:[35.6895,139.6917]}, {name:'Shibuya', coords:[35.6580,139.7016]}], timeline: [{time:'', text:'Critical Mass? (or other bike event)', type:''}, {time:'Evening', text:'HALLOWEEN – Shinjuku', type:'sight'}] },
-        { day: 45, dow: 'Sun', date: '1.11.2026', title: 'Koenji → Nakano', subtitle: 'Vintage, Broadway, nomikai', region: 'tokyo', tags: ['meet'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Koenji', coords:[35.7053,139.6497]}, {name:'Koenji Hikawa Shrine', coords:[35.7008,139.6519]}, {name:'Nakano', coords:[35.7050,139.6650]}, {name:'Nakano Broadway', coords:[35.7091,139.6656]}, {name:'Mandarake Nakano', coords:[35.7091,139.6656]}], timeline: [{time:'Late morning', text:'Slow start after Halloween', type:''}, {time:'~12:00', text:'Koenji – vintage shops, cafes', type:'sight'}, {time:'', text:'Koenji Hikawa Shrine', type:'sight'}, {time:'~15:00', text:'One stop → Nakano', type:'transport'}, {time:'', text:'Nakano Broadway – Mandarake, Gorillaz figures', type:'sight'}, {time:'Opt.', text:'Instead of Koenji: Shimokitazawa / Kichijoji + Inokashira Park', type:'sight'}, {time:'Evening', text:'Nomikai in Nakano – last Tokyo night', type:'sight'}, {time:'Night', text:'PACK – flight 08:20 tomorrow!', type:''}], note: '🛍️ Gorillaz figures at Mandarake | ⚠️ Pack tonight, alarm 05:30' },
+        { day: 44, dow: 'Sat', date: '31.10.2026', title: 'Tokyo – Halloween + Art Night', subtitle: 'Roppongi Art Night (all-night) | Halloween', region: 'tokyo', tags: ['bike','fest'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Shinjuku Halloween', coords:[35.6895,139.6917]}, {name:'Shibuya', coords:[35.6580,139.7016]}, {name:'Roppongi Hills', coords:[35.6604,139.7292]}, {name:'Tokyo Midtown', coords:[35.6656,139.7307]}, {name:'National Art Center Tokyo', coords:[35.6653,139.7263]}, {name:'Mori Art Museum', coords:[35.6605,139.7290]}, {name:'21_21 DESIGN SIGHT', coords:[35.6662,139.7285]}], timeline: [{time:'Daytime', text:'Critical Mass? (or other bike event)', type:''}, {time:'', text:'🧺 Laundry before the evening', type:''}, {time:'17:00', text:'🎨 ROPPONGI ART NIGHT starts – free, all night to 06:00', type:'sight', note:'Roppongi Hills + Midtown + National Art Center'}, {time:'Evening', text:'HALLOWEEN – Shinjuku or Roppongi', type:'sight'}, {time:'Night', text:'Opt. Art Night until dawn – Mori Art Museum open to 06:00', type:'sight'}], note: '🎨 Roppongi Art Night 31.10. 17:00 → 1.11. 06:00 – FREE, all-night format back after 3 years | 🎃 Halloween' },
+        { day: 45, dow: 'Sun', date: '1.11.2026', title: 'Koenji → Nakano', subtitle: 'Vintage, Broadway, nomikai', region: 'tokyo', tags: ['meet'], hotel: 'Hotel Sunlite Shinjuku', price: '65 EUR', pois: [{name:'Koenji', coords:[35.7053,139.6497]}, {name:'Koenji Hikawa Shrine', coords:[35.7008,139.6519]}, {name:'Nakano', coords:[35.7050,139.6650]}, {name:'Nakano Broadway', coords:[35.7091,139.6656]}, {name:'Mandarake Nakano', coords:[35.7091,139.6656]}], timeline: [{time:'Late morning', text:'Slow start after Halloween', type:''}, {time:'~12:00', text:'Koenji – vintage shops, cafes', type:'sight'}, {time:'', text:'Koenji Hikawa Shrine', type:'sight'}, {time:'~15:00', text:'One stop → Nakano', type:'transport'}, {time:'', text:'Nakano Broadway – Mandarake, Gorillaz figures', type:'sight'}, {time:'Opt.', text:'Instead of Koenji: Shimokitazawa / Kichijoji + Inokashira Park', type:'sight'}, {time:'Opt.', text:'🎨 Art Night installations still up in Roppongi until 22:00', type:'sight'}, {time:'Evening', text:'Nomikai in Nakano – last Tokyo night', type:'sight'}, {time:'Night', text:'PACK – flight 08:20 tomorrow!', type:''}], note: '🛍️ Gorillaz figures at Mandarake | ⚠️ Pack tonight, alarm 05:30' },
         { day: 46, dow: 'Mon', date: '2.11.2026', title: 'Tokyo → Miyakojima', subtitle: 'NH467 + NH1725', region: 'okinawa', tags: ['flight','ho'], hotel: 'Hotel Locus', price: '52 EUR', cancel: '24.10.', pois: [{name:'Haneda Airport', coords:[35.5494,139.7798]}, {name:'Naha Airport', coords:[26.1958,127.6458]}, {name:'Miyakojima Airport', coords:[24.7829,125.2950]}, {name:'Hotel Locus', coords:[24.8053,125.2811]}], timeline: [{time:'08:20–11:25', text:'NH467 HND → OKA (ANA)', type:'transport'}, {time:'11:55–12:50', text:'NH1725 OKA → MMY (ANA)', type:'transport'}, {time:'', text:'Transfer to hotel', type:''}, {time:'15:00–23:00', text:'HOME OFFICE', type:'work'}], note: '✈️ NH467 + NH1725 (transfer in Naha)' },
         { day: 47, dow: 'Tue', date: '3.11.2026', title: 'Miyakojima', subtitle: 'Bank Holiday | Bike program', region: 'okinawa', tags: ['bike','ho'], hotel: 'Hotel Locus', price: '52 EUR', pois: [{name:'Miyakojima', coords:[24.8053,125.2811]}], timeline: [{time:'', text:'Bike program', type:'sight'}, {time:'15:00–23:00', text:'HOME OFFICE', type:'work'}], note: 'Maybe need to pay CASH for car rental' },
         { day: 48, dow: 'Wed', date: '4.11.2026', title: 'Miyakojima (AUTO)', subtitle: 'Full day by car', region: 'okinawa', tags: ['car'], hotel: 'Smile Hotel Miyakojima', price: '36 EUR', cancel: '3.11.', pois: [{name:'Miyakojima', coords:[24.8053,125.2811]}, {name:'Irabu Bridge', coords:[24.8333,125.2333]}, {name:'Yonaha Maehama Beach', coords:[24.7417,125.2583]}], timeline: [{time:'09:00–18:30', text:'Car SOU Company', type:''}, {time:'All day', text:'Driving around the island', type:'sight'}], note: '🔑 Check-in code: 6749' },
@@ -3109,6 +3121,7 @@
         1: ['✈️ Check-in CI 064 VIE→TPE (24h before)', '📱 Activate roaming', '💳 Activate Suica'],
         3: ['👤 Reminder: Contact Keigo (meeting 26.9.)'],
         5: ['🧺 Laundry (first since trip start)', '🚗 Activate Kumamoto car insurance'],
+        8: ['💳 Pick up Rev card at the hotel reception'],
         13: ['🧺 Laundry (before Biwa cycling)'],
         17: ['🧺 Laundry (before Shimanami - IMPORTANT!)'],
         18: ['🎒 Evening: Pack luggage, prepare Shimanami bag'],
@@ -3121,7 +3134,7 @@
         29: ['📦 Morning send luggage Kumamoto→Nagasaki', '📝 Save tracking number!'],
         31: ['🧺 Laundry in Nagasaki'],
         35: ['🧺 Laundry before Tokyo', '✈️ Check-in NH252 FUK→HND (24h before)', '👤 Contact Minoru (confirm details – meeting 30.10. evening)'],
-        37: ['♨️ Head spa Thermae-Yu Shinjuku - reservation should be made in advance'],
+        37: ['♨️ Head spa Thermae-Yu Shinjuku - book ahead at kodawary.com (LINE login)'],
         38: ['🧺 Laundry before road trip - IMPORTANT!', '🚗 J-net Mishima online pre check-in (password in mail, flight ticket folder)', '📱 Download offline maps Izu + Fuji area'],
         39: ['🚗 12:00 Pick up car J-net Mishima (incl. ETC card)'],
         42: ['🚗 ~11:30 Return car J-net Mishima (early – 11:58 train)', '⛽ Fill up beforehand!'],
@@ -3192,6 +3205,7 @@
         ],
         // DAY 8 - Critical Mass
         8: [
+            '💳 Pick up the Rev card at the hotel reception (Shinsaibashi Arty Inn)',
             '🚲 Critical Mass evening - verify meeting point!',
             'Hello Bike account (app) - set up in advance',
             'Nakanoshima Museum = Ando Tadao (2022)',
@@ -3426,6 +3440,7 @@
             '😌 Deliberately easy relaxed day - the Izu road trip starts in two days',
             '♨️ Thermae-Yu Shinjuku = onsen + head spa, walking distance from the hotel',
             '⚠️ Head spa is a separate paid treatment - book a slot in advance!',
+            '🔗 Head spa booking: kodawary.com/user/line/login (LINE account needed) - in the Links modal',
             'Takanawa + Tsukishima are fixed on days 42–43 - keep this day for something else',
             'Ideas: Azabudai Hills Gallery, Yanaka, Shimokitazawa, Koenji',
             '📍 Go through saved places from Google Maps!'
@@ -3497,14 +3512,22 @@
         // DAY 44 - Halloween
         44: [
             '🎃 HALLOWEEN in Tokyo!',
+            '🎨 ROPPONGI ART NIGHT 2026 - 31.10. 17:00 → 1.11. 06:00, FREE entry',
+            '🎨 All-night format is back after a 3-year break (Nuit Blanche model, RAN Focus = France)',
+            '🎨 Venues: Roppongi Hills, Tokyo Midtown, National Art Center, street program - all walkable',
+            '🎨 Mori Art Museum open until 06:00; Suntory Museum to 21:00 (evening tea 17:30–20:30)',
+            '🎨 Museum special exhibitions are paid - the street/outdoor program is free',
+            '🎨 Combines well with Halloween: Roppongi is a Halloween hotspot too',
             '🚲 Check Critical Mass or successor bike event',
             'Shibuya restricted since 2023 - Shinjuku better alternative',
             '🧺 LAUNDRY - during day before evening program',
-            'Halloween starts late (21:00+), Roppongi = clubbing'
+            'Halloween starts late (21:00+), Roppongi = clubbing',
+            '⚠️ Staying out until dawn = day 45 starts very late; flight to Miyakojima is on day 46'
         ],
         // DAY 45 - Tokyo
         45: [
-            'Late start - Halloween ran until the early hours',
+            'Late start - Halloween / Art Night ran until the early hours',
+            '🎨 Roppongi Art Night installations stay viewable until 22:00 today - catch-up option',
             'Koenji = vintage/second-hand shops, cafes, local vibe',
             'Koenji → Nakano = one stop on the Chuo line, everything close to the hotel',
             '🛍️ Nakano Broadway = Mandarake, better for figures than Akihabara',
