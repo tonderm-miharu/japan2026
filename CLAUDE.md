@@ -155,6 +155,11 @@ Two shipments, both to travel light over a leg where the suitcase would be in th
 Both parcels arrive **before** check-in, so the waybill needs the hotel as recipient followed by
 `気付` (c/o) + your name + check-in date.
 
+**Phone numbers are not mandatory** - Yamato's FAQ (a_id/1525) states a handwritten waybill may be
+sent with the field blank; only their B2 system needs a placeholder. Both waybills carry the *hotel's*
+number on each side, which is what a driver would actually call. A personal number is optional, so a
+missing Japanese SIM is not a blocker.
+
 The sheet carries two ready-to-send Japanese e-mails asking the destination hotels to hold the bag.
 They are scheduled as day tasks at the start of their send window, not at the end:
 
