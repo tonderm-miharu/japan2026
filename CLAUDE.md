@@ -22,7 +22,7 @@ Deploy by pushing to `master` - GitHub Pages auto-deploys from root.
 - Data objects (lines 2550-3615): `TASKS` (2550), `POI_URLS` (2579), `DAYS` (2814), `HOTEL_INFO` (2882),
   `DAY_NOTES` (3150), `CONTACTS` (3615)
 - Weather config: `WEATHER_DEFAULTS` (2937, seasonal averages), `WMO_CODES` (2954)
-- Per-day automatic tasks: `DAY_TASKS` (3120), keyed by day number - separate from the `TASKS` checklist
+- Per-day automatic tasks: `DAY_TASKS`, keyed by day number - separate from the `TASKS` checklist
 - Functions (from ~3640): rendering, filters, search, modals, weather, countdown, timezone
 
 These line numbers drift with every edit - treat them as a starting map, not gospel, and
@@ -84,6 +84,20 @@ cap, `forecast_days=30` returns HTTP 400, so the trip will never be covered live
 - Badge reads `forecast` for live data, `average` for the fallback.
 - CC-BY 4.0 requires the attribution in the page footer - keep it.
 - Free tier is non-commercial only.
+
+## Tasks
+
+`TASKS` feeds the Tasks modal. Each entry carries an optional **`date`** (ISO `YYYY-MM-DD`) meaning
+*when the task must be done*, not when the event happens - a booking for a 14.10. show is dated a
+week earlier. `renderTasks()` sorts by it and renders two groups: **By date**, then **No fixed date**
+for entries with no `date`. Anything with `priority: 'done'` is data-only and never rendered.
+
+The date is shown as a `d.m.` prefix on each row and turns amber on the day itself, red once
+overdue (compared against today, so it self-updates). Priority survives as a coloured dot - red
+high, amber medium - because the list is no longer grouped by priority.
+
+When adding a task, give it a `date` unless it genuinely has no deadline; undated ones sink to the
+bottom group where they are easy to overlook.
 
 ## Trip Regions (phases)
 

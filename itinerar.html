@@ -980,6 +980,16 @@
             border-bottom: 1px solid rgba(255,255,255,0.25);
         }
         .task-group-title:first-child { margin-top: 0; }
+        .task-legend {
+            float: right;
+            font-weight: 400;
+            font-size: 0.72rem;
+            opacity: 0.7;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .task-legend .task-dot { margin-top: 0; display: inline-block; }
 
         .task-item-compact {
             display: flex;
@@ -1005,6 +1015,30 @@
         .task-cb:hover { border-color: #86efac; }
         .task-cb.done { background: #22c55e; border-color: #22c55e; }
         .task-cb.done::after { content: "✓"; color: #fff; font-size: 10px; display: flex; align-items: center; justify-content: center; height: 100%; }
+
+        .task-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+            background: #fbbf24;
+        }
+        .task-dot.high { background: #f87171; }
+        .task-dot.done { opacity: 0.3; }
+
+        .task-date {
+            font-size: 0.78rem;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            color: var(--text);
+            opacity: 0.65;
+            flex-shrink: 0;
+            min-width: 42px;
+            margin-top: 1px;
+        }
+        .task-date.today { color: #fbbf24; opacity: 1; }
+        .task-date.late { color: #f87171; opacity: 1; }
+        .task-date.done { opacity: 0.35; text-decoration: line-through; }
 
         .task-text { font-size: 0.9rem; color: var(--text); }
         .task-text.done { text-decoration: line-through; opacity: 0.5; }
@@ -2552,36 +2586,42 @@
         return DEBUG_DATE ? new Date(DEBUG_DATE) : new Date();
     }
 
+    // date: ISO 'YYYY-MM-DD' = when the task must be DONE (not when the event happens).
+    // Tasks are sorted by it in the Tasks modal; entries without a date fall into "No fixed date".
     const TASKS = [
-        // Before departure
-        { id: 't16b', text: '🚗 J-net Mishima: online pre check-in (password in mail, flight ticket folder)', priority: 'high' },
-        { id: 't26', text: '🚄 Buy shinkansen tickets Tokyo→Mishima (26.10.) and Mishima→11:58→Shinagawa (29.10.)', priority: 'high' },
-        { id: 't10', text: '✅ Keigo confirmed - 26.9. evening', priority: 'done' },
-        { id: 't11', text: '✅ Wahei confirmed - 25.10. lunch', priority: 'done' },
-        { id: 't12', text: '✅ Riho confirmed - 17.10. guide', priority: 'done' },
-        { id: 't28', text: '✅ Minoru confirmed - 30.10. evening', priority: 'done' },
-        { id: 't33', text: '✅ Takkyubin sheet complete - all hotel addresses filled in', priority: 'done' },
-        { id: 't27', text: '📱 Contact Ryuki (around 10.10.) – possible 24. or 25.10.', priority: 'med' },
-        { id: 't29', text: '📱 Contact Minoru (around 22.10.) – confirm place/time for 30.10.', priority: 'med' },
-        { id: 't30', text: '♨️ Book head spa at Thermae-Yu Shinjuku (24.10. afternoon) – kodawary.com, LINE login', priority: 'med' },
-        { id: 't21', text: 'Contact Ippei (min. 1 week before 23.10.)', priority: 'med' },
-        { id: 't31', text: '🎨 Roppongi Art Night (31.10.) – check final program, many times still TBD', priority: 'med' },
-        { id: 't24', text: '🛍️ Gorillaz figures for Edík (Mandarake, Nakano Broadway – 1.11.)', priority: 'med' },
-        { id: 't25', text: '🛍️ Buy stickers for colleague (GoPro)', priority: 'med' },
-        { id: 't14', text: 'Activate roaming package', priority: 'high' },
-        // During trip - chronological
-        { id: 't32', text: '💳 Pick up Rev card at the hotel reception (25.9., Shinsaibashi Arty Inn)', priority: 'high' },
-        { id: 't4', text: 'Shimanami multi-day bike rental (6–7.10.)', priority: 'high' },
-        { id: 't34', text: '📧 E-mail Hotel Sambancho (1.10., day 14) – ask them to hold the suitcase', priority: 'high' },
-        { id: 't8', text: '📦 Send luggage Fukuyama→Matsuyama (6.10.) – see Luggage Forwarding sheet', priority: 'high' },
-        { id: 't5', text: 'Takachiho Yokagura reservation (14.10.)', priority: 'high' },
-        { id: 't35', text: '📧 E-mail APA Nagasaki (11.10., day 24) – confirm they hold it if it lands 17.10.', priority: 'high' },
-        { id: 't9', text: '📦 Send luggage Kumamoto→Nagasaki (16.10.) – see Luggage Forwarding sheet', priority: 'high' },
-        { id: 't6', text: '✅ Izu accommodation 26–28.10. booked (Cetus/Kuretake/Isawa)', priority: 'done' },
-        { id: 't16', text: '✅ Car J-net Mishima 26–29.10. 12:00↔12:00 (incl. ETC card)', priority: 'done' },
-        // Ferry - buy at port
-        { id: 't1', text: 'Ferry Yawatahama–Beppu 13:00 (8.10.) – buy at port', priority: 'high', done: true },
-        { id: 't2', text: 'Ferry Kumamoto–Shimabara 09:25 (16.10.) – buy at port', priority: 'high', done: true },
+        // ---- Before departure ----
+        { id: 't14', date: '2026-09-16', text: 'Activate roaming package', priority: 'high' },
+        { id: 't16b', date: '2026-09-16', text: '\u{1F697} J-net Mishima: online pre check-in (password in mail, flight ticket folder)', priority: 'high' },
+        { id: 't26', date: '2026-09-26', text: '\u{1F684} Buy shinkansen tickets Tokyo\u2192Mishima (26.10.) and Mishima\u219211:58\u2192Shinagawa (29.10.)', priority: 'high' },
+
+        // ---- During the trip, chronological ----
+        { id: 't32', date: '2026-09-25', text: '\u{1F4B3} Pick up Rev card at the hotel reception (Shinsaibashi Arty Inn)', priority: 'high' },
+        { id: 't4', date: '2026-09-29', text: '\u{1F6B2} Book Shimanami multi-day bike rental (ride 6\u20137.10.)', priority: 'high' },
+        { id: 't34', date: '2026-10-01', text: '\u{1F4E7} E-mail Hotel Sambancho (day 14) \u2013 ask them to hold the suitcase', priority: 'high' },
+        { id: 't8', date: '2026-10-06', text: '\u{1F4E6} Send luggage Fukuyama\u2192Matsuyama \u2013 see Luggage Forwarding sheet', priority: 'high' },
+        { id: 't5', date: '2026-10-07', text: '\u{1F3AD} Takachiho Yokagura reservation (show 14.10.)', priority: 'high' },
+        { id: 't1', date: '2026-10-08', text: '\u26F4\uFE0F Ferry Yawatahama\u2013Beppu 13:00 \u2013 buy at port', priority: 'high', done: true },
+        { id: 't27', date: '2026-10-10', text: '\u{1F4F1} Contact Ryuki \u2013 possible 24. or 25.10.', priority: 'med' },
+        { id: 't35', date: '2026-10-11', text: '\u{1F4E7} E-mail APA Nagasaki (day 24) \u2013 confirm they hold it if it lands 17.10.', priority: 'high' },
+        { id: 't21', date: '2026-10-16', text: '\u{1F4F1} Contact Ippei \u2013 min. 1 week before 23.10.', priority: 'med' },
+        { id: 't9', date: '2026-10-16', text: '\u{1F4E6} Send luggage Kumamoto\u2192Nagasaki \u2013 see Luggage Forwarding sheet', priority: 'high' },
+        { id: 't2', date: '2026-10-16', text: '\u26F4\uFE0F Ferry Kumamoto\u2013Shimabara 09:25 \u2013 buy at port', priority: 'high', done: true },
+        { id: 't30', date: '2026-10-17', text: '\u2668\uFE0F Book head spa at Thermae-Yu Shinjuku (24.10. afternoon) \u2013 kodawary.com, LINE login', priority: 'med' },
+        { id: 't29', date: '2026-10-22', text: '\u{1F4F1} Contact Minoru \u2013 confirm place/time for 30.10.', priority: 'med' },
+        { id: 't24', date: '2026-11-01', text: '\u{1F6CD}\uFE0F Gorillaz figures for Ed\u00EDk (Mandarake, Nakano Broadway)', priority: 'med' },
+
+        // ---- No fixed date ----
+        { id: 't31', text: '\u{1F3A8} Roppongi Art Night (31.10.) \u2013 check final program, many times still TBD', priority: 'med' },
+        { id: 't25', text: '\u{1F6CD}\uFE0F Buy stickers for colleague (GoPro)', priority: 'med' },
+
+        // ---- Done ----
+        { id: 't10', date: '2026-09-26', text: '\u2705 Keigo confirmed - 26.9. evening', priority: 'done' },
+        { id: 't12', date: '2026-10-17', text: '\u2705 Riho confirmed - 17.10. guide', priority: 'done' },
+        { id: 't11', date: '2026-10-25', text: '\u2705 Wahei confirmed - 25.10. lunch', priority: 'done' },
+        { id: 't6', date: '2026-10-26', text: '\u2705 Izu accommodation 26\u201328.10. booked (Cetus/Kuretake/Isawa)', priority: 'done' },
+        { id: 't16', date: '2026-10-26', text: '\u2705 Car J-net Mishima 26\u201329.10. 12:00\u21C412:00 (incl. ETC card)', priority: 'done' },
+        { id: 't28', date: '2026-10-30', text: '\u2705 Minoru confirmed - 30.10. evening', priority: 'done' },
+        { id: 't33', text: '\u2705 Takkyubin sheet complete - all hotel addresses filled in', priority: 'done' },
     ];
 
     const POI_URLS = {
@@ -4007,19 +4047,35 @@
         const containers = [document.getElementById('tasks'), document.getElementById('tasksMobile')];
         const saved = JSON.parse(localStorage.getItem('japan2026_tasks') || '{}');
 
-        const highTasks = TASKS.filter(t => t.priority === 'high');
-        const medTasks = TASKS.filter(t => t.priority === 'med');
+        // Chronological; undated tasks sort last and get their own group.
+        const byDate = (a, b) => (a.date || '9999').localeCompare(b.date || '9999');
+        const dated = TASKS.filter(t => t.priority !== 'done' && t.date).sort(byDate);
+        const undated = TASKS.filter(t => t.priority !== 'done' && !t.date);
 
-        const renderGroup = (tasks, title) => {
+        // '2026-10-06' -> '6.10.' ; today and anything overdue is flagged.
+        const TODAY_ISO = new Date().toISOString().slice(0, 10);
+        const fmtDate = iso => {
+            const [, m, d] = iso.split('-');
+            return `${+d}.${+m}.`;
+        };
+
+        const renderGroup = (tasks, title, showDate) => {
             if (tasks.length === 0) return '';
             return `
                 <div class="task-group-title">${title}</div>
                 ${tasks.map(t => {
                     const done = saved[t.id] || false;
                     const parsed = parseTextWithIcons(t.text);
+                    const late = showDate && !done && t.date < TODAY_ISO;
+                    const today = showDate && t.date === TODAY_ISO;
+                    const dateHtml = showDate
+                        ? `<span class="task-date ${done ? 'done' : ''} ${late ? 'late' : ''} ${today ? 'today' : ''}">${fmtDate(t.date)}</span>`
+                        : '';
                     return `
                         <div class="task-item-compact">
                             <div class="task-cb ${done ? 'done' : ''}" data-task="${t.id}"></div>
+                            <div class="task-dot ${t.priority} ${done ? 'done' : ''}" title="${t.priority === 'high' ? 'High priority' : 'Medium'}"></div>
+                            ${dateHtml}
                             <span class="task-text ${done ? 'done' : ''}">${parsed.text}</span>
                         </div>
                     `;
@@ -4027,7 +4083,8 @@
             `;
         };
 
-        const html = renderGroup(highTasks, '🔴 High Priority') + renderGroup(medTasks, '🟡 Medium');
+        const html = renderGroup(dated, '\U0001F5D3\uFE0F By date', true)
+                   + renderGroup(undated, '\U0001F4CC No fixed date', false);
 
         containers.forEach(container => {
             if (!container) return;
