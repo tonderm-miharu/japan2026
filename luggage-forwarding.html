@@ -86,6 +86,16 @@ th{background:var(--hai);font-weight:600;font-size:8pt}
 .check div{padding:1.8mm 0 1.8mm 7mm;position:relative;border-bottom:1px dotted var(--border);font-size:9pt}
 .check div::before{content:'';position:absolute;left:0;top:2.2mm;width:3.5mm;height:3.5mm;border:1.2px solid var(--kuro)}
 
+.mail{border:1px solid var(--border);margin:3mm 0 5mm;break-inside:avoid}
+.mail-h{background:var(--hai);border-bottom:1px solid var(--border);padding:2.5mm 4mm;font-size:8pt;font-weight:700}
+.mail-h .to{color:var(--muted);font-weight:400;margin-left:2mm}
+.mail-b{padding:4mm 5mm;line-height:1.85;font-size:9.5pt}
+.mail-b .subj{background:#f0f0f0;padding:1.5mm 2.5mm;margin-bottom:3mm;font-size:9pt;display:block}
+.mail-b ul{margin:2mm 0 2mm 5mm}
+.mail-b li{margin-bottom:.8mm}
+.mail-b .sig{margin-top:3mm;padding-top:2mm;border-top:1px dotted var(--border);font-size:9pt}
+.mail-en{padding:3mm 5mm;border-top:1px dashed var(--border);background:#fafafa;font-size:8pt;color:#444;line-height:1.6}
+.mail-en b{color:var(--kuro)}
 .fill{background:#fffbea;border:1px dashed #d4a017;padding:3mm 4mm;margin:3mm 0;font-size:8.5pt}
 .fill .t{font-weight:700;color:#8a6d1f;margin-bottom:1mm}
 
@@ -340,24 +350,74 @@ incoming ones for arriving guests &mdash; you rarely need to find a depot yourse
   <div class="tr">My parcel has not arrived yet. Here is the tracking number.</div>
 </div>
 
-<h2>Advance notice to the destination hotel<span class="jpsub jp">事前連絡</span></h2>
-<p class="lead">Send this a few days before each shipment &mdash; both parcels arrive before you check in,
-so the hotel should know to expect and hold them. Replace the bracketed parts.</p>
+<h2>Advance notice e-mails<span class="jpsub jp">事前連絡メール</span></h2>
+<p class="lead">Both parcels reach the hotel before you check in, so both hotels should be told in
+advance. Send each one roughly <b>3&ndash;7 days ahead</b>. The address is on your booking
+confirmation; if there is none, the booking platform's message thread works just as well. Copy the
+Japanese as it is &mdash; only your e-mail and phone need adding at the bottom.</p>
 
-<div class="info jp" style="line-height:1.9">
-<p>件名：宅急便のお荷物の事前受け取りのお願い</p>
-<p>&nbsp;</p>
-<p>ご担当者様</p>
-<p>&nbsp;</p>
-<p>［10月7日］から宿泊を予約しております［お名前］と申します。</p>
-<p>宿泊に先立ち、宅急便でスーツケースを1個お送りしたいと考えております。</p>
-<p>［10月7日］に到着予定です。お預かりいただけますでしょうか。</p>
-<p>&nbsp;</p>
-<p>お手数をおかけしますが、よろしくお願いいたします。</p>
+<div class="mail">
+  <div class="mail-h">E-MAIL 1 <span class="to">&rarr; <span class="jp">ホテル三番町</span> (Hotel Sambancho, Matsuyama) &middot; send around 1&ndash;3 Oct</span></div>
+  <div class="mail-b jp">
+    <span class="subj">件名：宅急便のお荷物の事前お預かりのお願い（10月7日チェックイン・TONDER）</span>
+    <p>ホテル三番町　ご担当者様</p>
+    <p>&nbsp;</p>
+    <p>はじめまして。<br>
+       10月7日（水）より宿泊を予約しております、MICHAL TONDER と申します。</p>
+    <p>宿泊に先立ちまして、宅急便でスーツケースを1個お送りしたく存じます。</p>
+    <ul>
+      <li>発送元：カンデオホテルズ福山（10月6日発送）</li>
+      <li>お届け日：10月7日（水）午前中を指定</li>
+      <li>個数：1個（スーツケース）</li>
+      <li>伝票のお名前：気付　MICHAL TONDER　様</li>
+    </ul>
+    <p>当日は夕方のチェックインを予定しており、お荷物が先に到着いたします。<br>
+       フロントにてお預かりいただけますでしょうか。</p>
+    <p>お手数をおかけしますが、どうぞよろしくお願いいたします。</p>
+    <div class="sig">
+      MICHAL TONDER<br>
+      Email：<span style="color:var(--aka)">［your e-mail］</span><br>
+      Tel：<span style="color:var(--aka)">［your phone］</span>
+    </div>
+  </div>
+  <div class="mail-en"><b>What it says:</b> I have a booking from Wed 7 Oct. Before my stay I would like
+    to send one suitcase by takkyubin &mdash; sent 6 Oct from Candeo Fukuyama, delivery requested for the
+    morning of 7 Oct, addressed c/o MICHAL TONDER. I will check in that evening, so the bag arrives
+    first &mdash; could reception hold it for me?</div>
 </div>
-<p style="font-size:8.5pt;color:var(--muted)">English equivalent: "I have a reservation from [date] under
-the name [name]. Ahead of my stay I would like to send one suitcase by takkyubin, arriving on [date]
-&mdash; would you be able to hold it for me? Thank you for your help."</p>
+
+<div class="mail">
+  <div class="mail-h">E-MAIL 2 <span class="to">&rarr; <span class="jp">アパホテル〈長崎出島〉</span> (APA Nagasaki Dejima) &middot; send around 11&ndash;14 Oct</span></div>
+  <div class="mail-b jp">
+    <span class="subj">件名：宅急便のお荷物の事前お預かりのお願い（10月18日チェックイン・TONDER）</span>
+    <p>アパホテル〈長崎出島〉　ご担当者様</p>
+    <p>&nbsp;</p>
+    <p>はじめまして。<br>
+       10月18日（日）より宿泊を予約しております、MICHAL TONDER と申します。</p>
+    <p>宿泊に先立ちまして、宅急便でスーツケースを1個お送りしたく存じます。</p>
+    <ul>
+      <li>発送元：ホテル ザ ゲート 熊本（10月16日発送）</li>
+      <li>お届け日：10月18日（日）を希望しておりますが、10月17日（土）に到着する可能性がございます</li>
+      <li>個数：1個（スーツケース）</li>
+      <li>伝票のお名前：気付　MICHAL TONDER　様</li>
+    </ul>
+    <p>チェックイン前日に到着した場合でも、お預かりいただけますでしょうか。<br>
+       ご対応が難しい場合は、お手数ですがお知らせいただけますと幸いです。</p>
+    <p>どうぞよろしくお願いいたします。</p>
+    <div class="sig">
+      MICHAL TONDER<br>
+      Email：<span style="color:var(--aka)">［your e-mail］</span><br>
+      Tel：<span style="color:var(--aka)">［your phone］</span>
+    </div>
+  </div>
+  <div class="mail-en"><b>What it says:</b> I have a booking from Sun 18 Oct. Before my stay I would like
+    to send one suitcase by takkyubin &mdash; sent 16 Oct from The Gate Kumamoto, delivery requested for
+    18 Oct but it may arrive on the 17th, addressed c/o MICHAL TONDER. Could you hold it even if it
+    arrives the day before check-in? If that is not possible, please let me know.
+    <br><b>Why the wording differs:</b> this parcel can land a full day early, so it explicitly asks
+    them to hold it overnight and to say so if they cannot &mdash; that answer is worth having before
+    you are already on the ferry.</div>
+</div>
 
 <h2>Checklist<span class="jpsub jp">チェックリスト</span></h2>
 
@@ -365,7 +425,9 @@ the name [name]. Ahead of my stay I would like to send one suitcase by takkyubin
 <div class="check">
   <div>Print this sheet, or save it offline &mdash; it also works from the dashboard without signal</div>
   <div>Add your Japanese contact number (roaming or eSIM) next to your name in the sender block</div>
-  <div>Send the advance notice e-mail to Hotel Sambancho and to APA Nagasaki</div>
+  <div>Send e-mail 1 to <b>Hotel Sambancho</b> (around 1&ndash;3 Oct)</div>
+  <div>Send e-mail 2 to <b>APA Nagasaki</b> (around 11&ndash;14 Oct) &mdash; and read the reply, it may
+    say they cannot hold it on the 17th</div>
 </div>
 
 <h3>Shipment 1 &mdash; evening of 5.10. (day 18, Candeo Fukuyama)</h3>
